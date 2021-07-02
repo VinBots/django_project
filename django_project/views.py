@@ -68,7 +68,7 @@ def index(request):
     return HttpResponse(helloWorld.replace("{IPADDRESS}",request.get_host()))
 
 def welcome (request):
-    return render (request, "website/index2.html", {
+    return render (request, "django_project/index2.html", {
         "message": "CECI EST UN ESSAI"
         }
         )
