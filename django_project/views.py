@@ -1,4 +1,6 @@
 from django.http import HttpResponse, HttpRequest
+from django.shortcuts import render
+
 
 helloWorld = """
 <!DOCTYPE html>
@@ -65,5 +67,8 @@ helloWorld = """
 def index(request):
     return HttpResponse(helloWorld.replace("{IPADDRESS}",request.get_host()))
 
-def world (request):
-  return HttpResponse("hello world")
+def welcome (request):
+    return render (request, "website/index2.html", {
+        "message": "CECI EST UN ESSAI"
+        }
+        )
