@@ -3624,7 +3624,7 @@ input, select, textarea {
 	border-radius: 50%;
 }
 .circle-wrap .circle .mask {
-	clip: rect(0px, 150px, 150px, 75px);
+	clip: rect(0px, 150px, 150px, 90px);
   }			
   .circle-wrap .circle .mask .fill {
 	clip: rect(0px, 75px, 150px, 0px);
