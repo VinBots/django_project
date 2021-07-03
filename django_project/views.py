@@ -65,5 +65,5 @@ helloWorld = """
 """
 
 def home(request):
-    return render (request, "django_project/index.html", {"message": "45deg"}
+    return render (request, "django_project/index.html", {"message": "126deg"}
         )
