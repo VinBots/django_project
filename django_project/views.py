@@ -65,6 +65,5 @@ helloWorld = """
 """
 
 def home(request):
-    #return HttpResponse(helloWorld.replace("{IPADDRESS}",request.get_host()))
-    return render (request, "django_project/index.html", {}
+    return render (request, "django_project/index.html", {"message": "45deg"}
         )
