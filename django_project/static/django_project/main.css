@@ -3627,7 +3627,7 @@ input, select, textarea {
 	clip: rect(0px, 150px, 150px, 75px);
   }			
   .circle-wrap .circle .mask .fill {
-	clip: rect(0px, 150px, 150px, 75px);
+	clip: rect(0px, 75px, 150px, 0px);
 	background-color: #b10044;
   }
   .circle-wrap .circle .mask.full,
