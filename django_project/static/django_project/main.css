@@ -74,6 +74,21 @@ input, select, textarea {
 
 /* Basic */
 
+span.blue {
+	background: #5178D0;
+	border-radius: 0.8em;
+	-moz-border-radius: 0.8em;
+	-webkit-border-radius: 0.8em;
+	color: #ffffff;
+	display: inline-block;
+	font-weight: bold;
+	line-height: 1.6em;
+	margin-right: 15px;
+	text-align: center;
+	width: 1.6em; 
+  }
+
+
 	@-ms-viewport {
 		width: device-width;
 	}
@@ -3610,17 +3625,4 @@ input, select, textarea {
 
 		}
 		
-		span.blue {
-			background: #5178D0;
-			border-radius: 0.8em;
-			-moz-border-radius: 0.8em;
-			-webkit-border-radius: 0.8em;
-			color: #ffffff;
-			display: inline-block;
-			font-weight: bold;
-			line-height: 1.6em;
-			margin-right: 15px;
-			text-align: center;
-			width: 1.6em; 
-		  }
 		  
