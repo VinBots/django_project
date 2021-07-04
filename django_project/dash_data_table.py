@@ -1,10 +1,11 @@
 import dash
 import dash_table
+from dash.dependencies import Input, Output
 import pandas as pd
 from django_plotly_dash import DjangoDash
 
 
-app = DjangoDash('data_table')
+#app = DjangoDash('data_table_trial')
 '''
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/solar.csv')
 app.layout = dash_table.DataTable(
@@ -17,7 +18,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapmi
 
 df[' index'] = range(1, len(df) + 1)
 
-app = DjangoDash('data_table')
+app = DjangoDash('data_table_trial')
 
 PAGE_SIZE = 5
 
