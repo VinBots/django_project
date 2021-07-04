@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 
 # Loading plotly Dash apps script
 import django_project.dash_app_code
+import django_project.dash_data_table
 
 urlpatterns = [
     path('', views.home, name='main_home'),
