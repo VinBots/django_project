@@ -65,16 +65,15 @@ helloWorld = """
 """
 
 def home(request):
-  random_angles = [random.randint(1, 180) for _ in range(5)]
-  angle_deg = [str(random_angles[i]) + "deg" for i in range(5)]
-  print (angle_deg)
+  random_pct_values = [random.randint(1, 100) for _ in range(5)]
+  angle_deg = [str(random_pct_values[i] * 1.8) + "deg" for i in range(5)]
 
   return render (request, "django_project/index.html", {
     "color_key_fig": "#00b118",
-    "angle1":angle_deg[0],"value1":str(random_angles[0]),
-    "angle2":angle_deg[1],"value2":str(random_angles[1]),
-    "angle3":angle_deg[2],"value3":str(random_angles[2]),
-    "angle4":angle_deg[3],"value4":str(random_angles[3]),
-    "angle5":angle_deg[4], "value5":str(random_angles[4])
+    "angle1":angle_deg[0],"value1":str(random_pct_values[0]),
+    "angle2":angle_deg[1],"value2":str(random_pct_values[1]),
+    "angle3":angle_deg[2],"value3":str(random_pct_values[2]),
+    "angle4":angle_deg[3],"value4":str(random_pct_values[3]),
+    "angle5":angle_deg[4], "value5":str(random_pct_values[4])
     }
       )
