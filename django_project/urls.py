@@ -27,10 +27,11 @@ from django.conf.urls.static import static
 import django_project.dash_app_code
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.home, name='main_home'),
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
 	url('^dash_plot$', TemplateView.as_view(template_name='dash_plot.html'), name="dash_plot"),
 	url('^django_plotly_dash/', include('django_plotly_dash.urls')),
 	path('home', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('single.html', views.single_page),
     ]

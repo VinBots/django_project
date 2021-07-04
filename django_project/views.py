@@ -77,3 +77,6 @@ def home(request):
     "angle5":angle_deg[4], "value5":str(random_pct_values[4])
     }
       )
+
+def single_page(request):
+  return render (request, "django_project/single.html")
