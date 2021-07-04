@@ -143,31 +143,150 @@
 														transform: rotate({{angle2}});
 														}
 													}
+												</style>
+							
+												<div align = "center" class="col-4 col-12-medium">
+													<div class="circle-wrap circle-wrap2">						
+														<div class="circle circle2">					
+														<div class="mask full mask2 full2" style = "transform:rotate({{angle2}})">
+															<div class="fill fill2" style = "background-color:#9fb100;transform:rotate({{angle2}})"></div>
+														</div>							
+														<div class="mask half mask2 half2">
+															<div class="fill fill2" style = "background-color:#9fb100;transform:rotate({{angle2}})"></div>
+														</div>							
+														<div class="inside-circle inside-circle2">
+															{{value2}}%
+														</div>							
+														</div>
+													</div>
+												</div>
+												<style>
+													@keyframes fill3 {
+														0% {
+														transform: rotate(0deg);
+														}
+														100% {
+														transform: rotate({{angle3}});
+														}
+													}
 													</style>
-								
+			
 													<div align = "center" class="col-4 col-12-medium">
-														<div class="circle-wrap circle-wrap2">						
-															<div class="circle circle2">					
-															<div class="mask full mask2 full2" style = "transform:rotate({{angle2}})">
-																<div class="fill fill2" style = "background-color:#9fb100;transform:rotate({{angle2}})"></div>
+														<div class="circle-wrap circle-wrap3">						
+															<div class="circle circle3">					
+															<div class="mask full mask3 full3" style = "transform:rotate({{angle3}})">
+																<div class="fill fill3" style = "background-color:#2000b1;transform:rotate({{angle3}})"></div>
 															</div>							
-															<div class="mask half mask2 half2">
-																<div class="fill fill2" style = "background-color:#9fb100;transform:rotate({{angle2}})"></div>
+															<div class="mask half mask3 half3">
+																<div class="fill fill3" style = "background-color:#2000b1;transform:rotate({{angle3}})"></div>
 															</div>							
-															<div class="inside-circle inside-circle2">
-																{{value2}}%
+															<div class="inside-circle inside-circle3">
+																{{value3}}%
 															</div>							
 															</div>
 														</div>
 													</div>
+													
 										</div>
 
 										<div class="row">
+											<style>
+												@keyframes fill4 {
+													0% {
+													transform: rotate(0deg);
+													}
+													100% {
+													transform: rotate({{angle4}});
+													}
+												}
+												</style>
+		
+												<div align = "center" class="col-4 col-12-medium">
+													<div class="circle-wrap circle-wrap4">						
+														<div class="circle circle4">					
+														<div class="mask full mask4 full4" style = "transform:rotate({{angle4}})">
+															<div class="fill fill4" style = "background-color:#b100a8;transform:rotate({{angle4}})"></div>
+														</div>							
+														<div class="mask half mask4 half4">
+															<div class="fill fill4" style = "background-color:#b100a8;transform:rotate({{angle4}})"></div>
+														</div>							
+														<div class="inside-circle inside-circle4">
+															{{value4}}%
+														</div>							
+														</div>
+													</div>
+												</div>
+
+												<style>
+													@keyframes fill5 {
+														0% {
+														transform: rotate(0deg);
+														}
+														100% {
+														transform: rotate({{angle5}});
+														}
+													}
+													</style>
+			
+													<div align = "center" class="col-4 col-12-medium">
+														<div class="circle-wrap circle-wrap5">						
+															<div class="circle circle5">					
+															<div class="mask full mask5 full5" style = "transform:rotate({{angle5}})">
+																<div class="fill fill5" style = "background-color:#00b158;transform:rotate({{angle5}})"></div>
+															</div>							
+															<div class="mask half mask5 half5">
+																<div class="fill fill5" style = "background-color:#00b158;transform:rotate({{angle5}})"></div>
+															</div>							
+															<div class="inside-circle inside-circle5">
+																{{value5}}%
+															</div>							
+															</div>
+														</div>
+													</div>
+
+											
 
 
 										</div>
 									
 									</div>
+									<!-- template for adding an animated circular figure (replace number by a digit)
+
+										<style>
+										@keyframes fillnumber {
+											0% {
+											transform: rotate(0deg);
+											}
+											100% {
+											transform: rotate({{anglenumber}});
+											}
+										}
+										</style>
+
+										<div align = "center" class="col-4 col-12-medium">
+											<div class="circle-wrap circle-wrapnumber">						
+												<div class="circle circlenumber">					
+												<div class="mask full masknumber fullnumber" style = "transform:rotate({{anglenumber}})">
+													<div class="fill fillnumber" style = "background-color:#9fb100;transform:rotate({{anglenumber}})"></div>
+												</div>							
+												<div class="mask half masknumber halfnumber">
+													<div class="fill fillnumber" style = "background-color:#9fb100;transform:rotate({{anglenumber}})"></div>
+												</div>							
+												<div class="inside-circle inside-circlenumber">
+													{{valuenumber}}%
+												</div>							
+												</div>
+											</div>
+										</div>
+
+										Then add to the css file
+										  .circle-wrap5 .circle5 .mask5.full5,
+											.circle-wrap5 .circle5 .fill5 {
+												animation: fill5 ease-in-out 5s;
+											}
+
+									!-->
+
 
 
 									</header>
