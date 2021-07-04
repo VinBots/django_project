@@ -3609,6 +3609,7 @@ input, select, textarea {
 			}
 
 		}
+
 .circle-wrap {
 	margin: 50px auto;
 	width: 150px;
@@ -3647,4 +3648,61 @@ input, select, textarea {
 	z-index: 100;
 	font-weight: 700;
 	font-size: 2em;
+  }
+
+  .circle-wrap1 {
+	margin: 50px auto;
+	width: 150px;
+	height: 150px;
+	background: #e6e2e7;
+	border-radius: 50%;
+	}
+.circle-wrap1 .circle1 .mask1,
+.circle-wrap1 .circle1 .fill1 {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	border-radius: 50%;
+}
+.circle-wrap1 .circle1 .mask1 {
+	clip: rect(0px, 150px, 150px, 75px);
+  }			
+  .circle-wrap1 .circle1 .mask1 .fill1 {
+	clip: rect(0px, 75px, 150px, 0px);
+	background-color: #b1001d;
+  }
+  .circle-wrap1 .circle1 .mask1.full1,
+  .circle-wrap1 .circle1 .fill1 {
+	animation: fill1 ease-in-out 5s;
+  }
+  .circle-wrap1 .inside-circle1 {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	background: #fff;
+	line-height: 130px;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 10px;
+	position: absolute;
+	z-index: 100;
+	font-weight: 700;
+	font-size: 2em;
+  }
+
+  .circle-wrap2 .circle2 .mask2.full2,
+  .circle-wrap2 .circle2 .fill2 {
+	animation: fill2 ease-in-out 5s;
+  }
+  .circle-wrap3 .circle3 .mask3.full3,
+  .circle-wrap3 .circle3 .fill3 {
+	animation: fill3 ease-in-out 5s;
+  }
+  .circle-wrap4 .circle4 .mask4.full4,
+  .circle-wrap4 .circle4 .fill4 {
+	animation: fill4 ease-in-out 5s;
+  }
+  .circle-wrap5 .circle5 .mask5.full5,
+  .circle-wrap5 .circle5 .fill5 {
+	animation: fill5 ease-in-out 5s;
   }
