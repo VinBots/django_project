@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
-
+import random
 
 helloWorld = """
 <!DOCTYPE html>
@@ -65,7 +65,17 @@ helloWorld = """
 """
 
 def home(request):
-    return render (request, "django_project/index.html", {
-      "color_key_fig": "#00b118",
-      "angle":"128deg"}
-        )
+  random_angles = [random.randint(1, 180) for _ in range(6)]
+  angle_deg = [str(random_angles[i]) + "deg" for i in range(6)]
+  print (angle_deg)
+
+  return render (request, "django_project/index.html", {
+    "color_key_fig": "#00b118",
+    "angle0":angle_deg[0],
+    "angle1":angle_deg[1],
+    "angle2":angle_deg[2],
+    "angle3":angle_deg[3],
+    "angle4":angle_deg[4],
+    "angle5":angle_deg[5]
+    }
+      )
