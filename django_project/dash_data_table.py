@@ -20,7 +20,7 @@ df[' index'] = range(1, len(df) + 1)
 
 app = DjangoDash('data_table_trial')
 
-PAGE_SIZE = 5
+PAGE_SIZE = 10
 
 app.layout = dash_table.DataTable(
     id='datatable-paging',
