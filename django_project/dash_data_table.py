@@ -26,11 +26,21 @@ app.layout = dash_table.DataTable(
     columns=[
         {"name": i, "id": i} for i in sorted(df.columns)
     ],
+    data=df.to_dict('records'),
     page_current=0,
     page_size=PAGE_SIZE,
     page_action='custom'
 )
-
+'''
+@app.callback(
+    Output('datatable-paging', 'data'),
+    Input('datatable-paging', "page_current"),
+    Input('datatable-paging', "page_size"))
+def update_table(page_current,page_size):
+    return df.iloc[
+        page_current*page_size:(page_current+ 1)*page_size
+    ].to_dict('records')
+'''
 
 if __name__ == '__main__':
     app.run_server(debug=True)
