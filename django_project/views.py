@@ -65,5 +65,7 @@ helloWorld = """
 """
 
 def home(request):
-    return render (request, "django_project/index.html", {"color_key_fig": "#00b118"}
+    return render (request, "django_project/index.html", {
+      "color_key_fig": "#00b118",
+      "angle":"45deg"}
         )
