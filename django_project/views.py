@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
 import random
-from utilities import get_top_stats
+from django_project.utilities import get_top_stats
 
 helloWorld = """
 <!DOCTYPE html>
