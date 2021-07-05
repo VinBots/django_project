@@ -83,3 +83,15 @@ def home(request):
 
 def transparency(request):
   return render (request, "django_project/transparency.html")
+
+def performance(request):
+  return render (request, "django_project/performance.html")
+
+def ambition(request):
+  return render (request, "django_project/ambition.html")
+
+def sciencebased(request):
+  return render (request, "django_project/sciencebased.html")
+
+def momentum(request):
+  return render (request, "django_project/momentum.html")
