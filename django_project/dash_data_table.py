@@ -27,7 +27,7 @@ app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
     html.Div(children='''
         Essai pour inserer une table de donnees
-    '''),
+    ''', className = 'col-6 col-12-medium'),
     dash_table.DataTable(
         id='datatable-paging',
         columns=[
