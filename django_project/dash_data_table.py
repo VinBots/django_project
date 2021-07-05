@@ -42,7 +42,7 @@ app.layout = html.Div(children=[
     style_cell={
         'backgroundColor': 'rgb(50, 50, 50)',
         'color': 'white'},
-)])
+)], className = 'col-6 col-12-medium')
 
 @app.callback(
     Output('datatable-paging', 'data'),
