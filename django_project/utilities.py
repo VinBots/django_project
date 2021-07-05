@@ -5,7 +5,7 @@ import os
 
 def get_data(sheetname, cols_to_use):
     
-    XLSX_PATH = os.path.join ('/static/django_project', 'data', 'sp100_data.xlsx')
+    XLSX_PATH = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
     
     return pd.read_excel(
         XLSX_PATH,
