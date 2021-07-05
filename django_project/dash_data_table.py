@@ -41,22 +41,8 @@ app.layout = html.Div(children=[
     style_header={'backgroundColor': 'rgb(30, 30, 30)'},
     style_cell={
         'backgroundColor': 'rgb(50, 50, 50)',
-        'color': 'white'},),
-    dash_table.DataTable(
-        id='datatable-paging2',
-        columns=[
-            {"name": i, "id": i} for i in sorted(df.columns)
-    ],
-    data=df.to_dict('records'),
-    page_current=0,
-    page_size=PAGE_SIZE,
-    page_action='custom',
-    style_as_list_view=True,
-    style_header={'backgroundColor': 'rgb(30, 30, 30)'},
-    style_cell={
-        'backgroundColor': 'rgb(50, 50, 50)',
-        'color': 'white'},)
-], className = 'col-6 col-12-medium')
+        'color': 'white'},),]
+        , className = 'col-6 col-12-medium')
 
 @app.callback(
     Output('datatable-paging', 'data'),
