@@ -13,6 +13,25 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         usecols=cols_to_use
         )
 
+def get_sbt_pct(all_data):
+    # query
+    yes = all_data[all_data['Science-Based Target? (Y/N)'] == 'Y']
+    no = all_data[all_data['Science-Based Target? (Y/N)'] == 'N']
+    return int(100 * len(yes) / (len(yes) + len(no)))
+
+
+def get_rpt_pct(all_data):
+    # query
+    cond1 = all_data['2019 Scope 3 '].astype(str).str.isdigit() == True
+    cond2 = all_data['2018 Scope 3'].astype(str).str.isdigit() == True
+    scope3_report = all_data[cond1 | cond2]['Company Name']
+    return len(scope3_report)
+
+def get_net0_pct(all_data):
+    # query
+    yes = all_data[all_data['Carbon Neutral Goal? (Y/N)'] == 'Y']
+    no = all_data[all_data['Carbon Neutral Goal? (Y/N)'] == 'N']
+    return int(100 * len(yes) / (len(yes) + len(no)))
 
 def get_top_stats():
 
@@ -23,14 +42,10 @@ def get_top_stats():
     all_data = get_data(
         xlsx_path, 
         'company', 
-        ['Company Name', 'Science-Based Target? (Y/N)']
+        None,
         )
+    sbt_pct = get_sbt_pct(all_data)
+    rep_pct = get_rpt_pct(all_data)
+    net0_pct = get_net0_pct(all_data)
 
-    # query
-    yes = all_data[all_data['Science-Based Target? (Y/N)'] == 'Y']
-    no = all_data[all_data['Science-Based Target? (Y/N)'] == 'N']
-
-    # return a list
-    sbt_pct = int(100 * len(yes) / (len(yes) + len(no)))
-
-    return [15, 25, 45, sbt_pct, 47]
+    return [rep_pct, net0_pct, 50, sbt_pct, 50]
