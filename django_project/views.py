@@ -81,5 +81,5 @@ def home(request):
     }
       )
 
-def single_page(request):
-  return render (request, "django_project/single.html")
+def transparency(request):
+  return render (request, "django_project/transparency.html")
