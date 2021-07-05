@@ -25,6 +25,9 @@ PAGE_SIZE = 10
 
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
+    html.Div(children='''
+        Essai pour inserer une table de donnees
+    '''),
     dash_table.DataTable(
         id='datatable-paging',
         columns=[
