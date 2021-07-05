@@ -4,9 +4,9 @@ from dash.dependencies import Input, Output
 import pandas as pd
 from django_plotly_dash import DjangoDash
 import dash_html_components as html
+from django_project.utilities import get_data
 
 
-#app = DjangoDash('data_table_trial')
 '''
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/solar.csv')
 app.layout = dash_table.DataTable(
@@ -15,19 +15,24 @@ app.layout = dash_table.DataTable(
     data=df.to_dict('records'),
 )
 '''
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv')
+#Excel file path
+xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
+
+# Connect to the data source
+df = get_data(
+    xlsx_path, 
+    'company', 
+    None,
+    )
 
 df[' index'] = range(1, len(df) + 1)
 
-app = DjangoDash('data_table_trial')
+app = DjangoDash('transparency_dashboard')
 
 PAGE_SIZE = 10
 
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
-    html.Div(children='''
-        Essai pour inserer une table de donnees
-    ''', className = 'col-6 col-12-medium'),
     dash_table.DataTable(
         id='datatable-paging',
         columns=[
