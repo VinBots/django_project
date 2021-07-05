@@ -30,7 +30,12 @@ app.layout = dash_table.DataTable(
     data=df.to_dict('records'),
     page_current=0,
     page_size=PAGE_SIZE,
-    page_action='custom'
+    page_action='custom',
+    style_as_list_view=True,
+    style_header={'backgroundColor': 'rgb(30, 30, 30)'},
+    style_cell={
+        'backgroundColor': 'rgb(50, 50, 50)',
+        'color': 'white'},
 )
 
 @app.callback(
