@@ -5,7 +5,7 @@ import pandas as pd
 from django_plotly_dash import DjangoDash
 import dash_html_components as html
 from django_project.utilities import get_data
-
+import os
 
 '''
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/solar.csv')
