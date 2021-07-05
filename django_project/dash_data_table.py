@@ -3,6 +3,7 @@ import dash_table
 from dash.dependencies import Input, Output
 import pandas as pd
 from django_plotly_dash import DjangoDash
+import dash_html_components as html
 
 
 #app = DjangoDash('data_table_trial')
@@ -22,10 +23,12 @@ app = DjangoDash('data_table_trial')
 
 PAGE_SIZE = 10
 
-app.layout = dash_table.DataTable(
-    id='datatable-paging',
-    columns=[
-        {"name": i, "id": i} for i in sorted(df.columns)
+app.layout = html.Div(children=[
+    html.H1(children='Hello Dash'),
+    dash_table.DataTable(
+        id='datatable-paging',
+        columns=[
+            {"name": i, "id": i} for i in sorted(df.columns)
     ],
     data=df.to_dict('records'),
     page_current=0,
@@ -36,7 +39,7 @@ app.layout = dash_table.DataTable(
     style_cell={
         'backgroundColor': 'rgb(50, 50, 50)',
         'color': 'white'},
-)
+)])
 
 @app.callback(
     Output('datatable-paging', 'data'),
