@@ -13,11 +13,6 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         usecols=cols_to_use
         )
 
-def get_sbt_pct(all_data):
-    # query
-    yes = all_data[all_data['Science-Based Target? (Y/N)'] == 'Y']
-    no = all_data[all_data['Science-Based Target? (Y/N)'] == 'N']
-    return int(100 * len(yes) / (len(yes) + len(no)))
 
 
 def get_rpt_pct(all_data):
@@ -27,25 +22,46 @@ def get_rpt_pct(all_data):
     scope3_report = all_data[cond1 | cond2]['Company Name']
     return len(scope3_report)
 
+def get_perf_pct(all_data):
+    # query
+    
+    return 50
+       
 def get_net0_pct(all_data):
     # query
     yes = all_data[all_data['Carbon Neutral Goal? (Y/N)'] == 'Y']
     no = all_data[all_data['Carbon Neutral Goal? (Y/N)'] == 'N']
     return int(100 * len(yes) / (len(yes) + len(no)))
 
+def get_sbt_pct(all_data):
+    # query
+    yes = all_data[all_data['Science-Based Target? (Y/N)'] == 'Y']
+    no = all_data[all_data['Science-Based Target? (Y/N)'] == 'N']
+    return int(100 * len(yes) / (len(yes) + len(no)))
+
+def get_momentum_pct(all_data):
+    # query
+    
+    return 50
+
+
+
 def get_top_stats():
 
     #Excel file path
     xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
-
+    
     # Connect to the data source
     all_data = get_data(
         xlsx_path, 
         'company', 
         None,
         )
-    sbt_pct = get_sbt_pct(all_data)
-    rep_pct = get_rpt_pct(all_data)
-    net0_pct = get_net0_pct(all_data)
 
-    return [rep_pct, net0_pct, 50, sbt_pct, 50]
+    rep_pct = get_rpt_pct(all_data)
+    perf_pct = get_perf_pct(all_data)
+    net0_pct = get_net0_pct(all_data)
+    sbt_pct = get_sbt_pct(all_data)
+    momentum_pct = get_momentum_pct(all_data)
+
+    return [rep_pct, perf_pct, net0_pct, sbt_pct, momentum_pct]
