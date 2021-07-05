@@ -35,4 +35,8 @@ urlpatterns = [
 	url('^django_plotly_dash/', include('django_plotly_dash.urls')),
 	path('home', TemplateView.as_view(template_name='home.html'), name='home'),
     path('transparency.html', views.transparency),
+    path('performance.html', views.performance),
+    path('ambition.html', views.ambition),
+    path('sciencebased.html', views.sciencebased),
+    path('momentum.html', views.momentum),
     ]
