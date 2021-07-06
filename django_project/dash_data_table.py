@@ -55,7 +55,8 @@ def create_transparency_datatable():
                         'whitespace': 'normal',
                         'height': 'auto',
                         'backgroundColor': 'rgb(30, 30, 30)',
-                        'color': 'white'},
+                        'color': 'white',
+                        'maxWidth': '10'},
                     style_data={
                         'backgroundColor': 'rgb(200, 200, 200)',
                         'color': 'black'},
