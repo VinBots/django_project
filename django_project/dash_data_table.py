@@ -91,7 +91,7 @@ app.layout = html.Div([
                         'height': 'auto',
                         'backgroundColor': 'rgb(30, 30, 30)',
                         'color': 'white'},
-                    style_cell={
+                    style_data={
                         'maxWidth': '200px',
                         'backgroundColor': 'rgb(200, 200, 200)',
                         'color': 'black'},), #])])])])
