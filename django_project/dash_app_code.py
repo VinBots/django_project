@@ -18,7 +18,7 @@ app.css.append_css({
 })
 app.layout = html.Div(
     html.Div([
-        # Adding one extar Div
+        # Adding one extra Div
         html.Div([
             html.H1(children='Multiple Application'),
             html.H3(children='Indian Population over time'),
