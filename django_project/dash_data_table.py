@@ -121,11 +121,11 @@ app.layout = html.Div([
                 html.H3(children='Scope 1,2 and 3 Emissions'),
         ], className = 'row'),
         html.Div([
-            html.Div([transparency_datatable, #])])])])
+            html.Div([transparency_heatmap,
                     html.Br(),
                     html.Br(),
                     html.Br()]),
-            html.Div([transparency_heatmap]),])])])
+            html.Div([transparency_datatable]),])])])
 
 # Callbacks
 @app.callback(
