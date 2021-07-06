@@ -54,7 +54,7 @@ df = get_data(
     'company', 
     cols_to_use,
     )
-df[' index'] = range(1, len(df) + 1)
+#df[' index'] = range(1, len(df) + 1)
 app = DjangoDash('transparency_dashboard')
 PAGE_SIZE = 10
 
@@ -74,7 +74,7 @@ app.layout = html.Div([
                         "type": "numeric",
                         "format": Format(
                             scheme=Scheme.fixed, 
-                            precision=2,
+                            precision=0,
                             group=Group.yes,
                             groups=3,
                             group_delimiter='.',
