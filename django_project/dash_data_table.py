@@ -23,6 +23,8 @@ def create_transparency_datatable():
         'Size (2019 Revenue)', '2019 Net Scope 1 + 2 Emissions', '2019 Scope 3 ',
         '2019 Total Scope 1, 2 + 3', '2018 Net Scope 1 + 2 Emissions',
         '2018 Scope 3']
+    
+    header_text = ['Company', 'Sector', 'Revenue', '2019 GHG (Scope 1-2)', '2019 GHG (Scope 3)', 'GHG Total', '2018 GHG (Scope 1-2)', '2018 GHG (Scope 3)']
     # Connect to the data source
     df = get_data(
         xlsx_path, 
@@ -34,7 +36,7 @@ def create_transparency_datatable():
     graph = dash_table.DataTable(
                     id='datatable-paging',
                     columns=[{
-                        "name": "hello",
+                        "name": header_text[i],
                         "id": i,
                         "type": "numeric",
                         "format": Format(
