@@ -27,8 +27,6 @@ from django.conf.urls.static import static
 import django_project.dashboards.dashboard_transparency
 import django_project.dashboards.dashboard_sciencebased
 
-
-
 urlpatterns = [
     path('', views.home, name='main_home'),
     path('admin/', admin.site.urls),
