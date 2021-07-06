@@ -18,11 +18,18 @@ app.layout = dash_table.DataTable(
 #Excel file path
 xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
 
+# Select which columns to extract
+cols_to_use = ['Company Name', 'Sector', 'Industry',
+       'Size (2019 Revenue)', '2019 Net Scope 1 + 2 Emissions', '2019 Scope 3 ',
+       '2019 Total Scope 1, 2 + 3', '2018 Net Scope 1 + 2 Emissions',
+       '2018 Scope 3']
+]
+
 # Connect to the data source
 df = get_data(
     xlsx_path, 
     'company', 
-    None,
+    cols_to_use,
     )
 
 df[' index'] = range(1, len(df) + 1)
@@ -36,7 +43,7 @@ app.layout = html.Div(children=[
     dash_table.DataTable(
         id='datatable-paging',
         columns=[
-            {"name": i, "id": i} for i in sorted(df.columns)
+            {"name": i, "id": i} for i in df.columns
     ],
     data=df.to_dict('records'),
     page_current=0,

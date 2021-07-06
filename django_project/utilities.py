@@ -5,7 +5,6 @@ import os
 
 def get_data(xlsx_path, sheetname, cols_to_use):
     
-    
     return pd.read_excel(
         xlsx_path,
         sheet_name=sheetname, 
