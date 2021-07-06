@@ -75,8 +75,9 @@ app.layout = html.Div([
                     style_header={'backgroundColor': 'rgb(30, 30, 30)'},
                     style_cell={
                         'backgroundColor': 'rgb(50, 50, 50)',
-                        'color': 'white'},),  ])])])
-            '''
+                        'color': 'white'},),  ])])])])
+
+"""
             html.Div([
                 dcc.Graph(
                     id='heatmap',
@@ -95,7 +96,7 @@ app.layout = html.Div([
                             ,className = 'col-6 col-12-medium')
                             ], className = 'row')
                             ])])])
-            '''
+"""
 
 
 @app.callback(
