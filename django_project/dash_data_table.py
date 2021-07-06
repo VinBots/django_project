@@ -1,3 +1,4 @@
+from typing import Dict
 import dash
 import dash_table
 from dash.dependencies import Input, Output
@@ -55,37 +56,44 @@ df[' index'] = range(1, len(df) + 1)
 app = DjangoDash('transparency_dashboard')
 PAGE_SIZE = 25
 
-app.layout = html.Div(children=[
-    html.H1(children='Transparency Dashboard'),
-    dash_table.DataTable(
-        id='datatable-paging',
-        columns=[
-            {"name": i, "id": i} for i in df.columns
-    ],
-    data=df.to_dict('records'),
-    page_current=0,
-    page_size=PAGE_SIZE,
-    page_action='custom',
-    style_as_list_view=True,
-    style_header={'backgroundColor': 'rgb(30, 30, 30)'},
-    style_cell={
-        'backgroundColor': 'rgb(50, 50, 50)',
-        'color': 'white'},),
-    dcc.Graph(
-        id='heatmap',
-        figure = {
-            'data': [go.Heatmap(
-                x = x0,
-                y = y0,
-                z = z0,
-                name = 'hello',
-                colorscale = 'amp')],
-            'layout': go.Layout(
-                title = 'GHG Emissions Scope 1, 2, 3 Intensities by Sector',
-                titlefont = dict(family = 'Arial', size = 25),
-                plot_bgcolor = 'antiquewhite')})] 
-                
-                ,className = 'col-6 col-12-medium')
+app.layout = html.Div([
+    html.Div([
+        html.Div([
+                html.H1(children='Transparency Dashboard'),
+                html.H3(children='Scope 1,2 and 3 Emissions'),
+        ], className = 'row'),
+        html.Div([
+            html.Div([
+                dash_table.DataTable(
+                    id='datatable-paging',
+                    columns=[{"name": i, "id": i} for i in df.columns],
+                    data=df.to_dict('records'),
+                    page_current=0,
+                    page_size=PAGE_SIZE,
+                    page_action='custom',
+                    style_as_list_view=True,
+                    style_header={'backgroundColor': 'rgb(30, 30, 30)'},
+                    style_cell={
+                        'backgroundColor': 'rgb(50, 50, 50)',
+                        'color': 'white'},),
+            html.Div([
+                dcc.Graph(
+                    id='heatmap',
+                    figure = {
+                        'data': [go.Heatmap(
+                            x = x0,
+                            y = y0,
+                            z = z0,
+                            name = 'hello',
+                            colorscale = 'amp')],
+                        'layout': go.Layout(
+                            title = 'GHG Emissions Scope 1, 2, 3 Intensities by Sector',
+                            titlefont = dict(family = 'Arial', size = 25),
+                            plot_bgcolor = 'antiquewhite')})]
+                            
+                            ,className = 'col-6 col-12-medium')
+                            ], className = 'row')
+                            ])])])
 
 
 @app.callback(
