@@ -13,34 +13,11 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme, Symbol
 
 
-#Excel file path
-xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
+app = DjangoDash('transparency_dashboard')
 
-# Select which columns to extract
-cols_to_use = ['Sector', '2019 Scope 1 (MeT Co2)', '2019 Scope 2 ', '2019 Scope 3 ']
+transparency_heatmap = create_transparency_heatmap()
 
-# Connect to the data source
-all_data = get_data(
-    xlsx_path, 
-    'company', 
-    cols_to_use,
-    )
-all_data[cols_to_use[1]] = pd.to_numeric(all_data[cols_to_use[1]], errors = 'coerce')
-all_data[cols_to_use[2]] = pd.to_numeric(all_data[cols_to_use[2]], errors = 'coerce')
-all_data[cols_to_use[3]] = pd.to_numeric(all_data[cols_to_use[3]], errors = 'coerce')
 
-total_scope = (all_data[cols_to_use[1]] + all_data[cols_to_use[2]] + all_data[cols_to_use[3]])
-all_data['scope1_dist'] = all_data[cols_to_use[1]] / total_scope
-all_data['scope2_dist'] = all_data[cols_to_use[2]] / total_scope
-all_data['scope3_dist'] = all_data[cols_to_use[3]] / total_scope
-all_data['scope_total'] = all_data['scope1_dist'] + all_data['scope2_dist'] + all_data['scope3_dist']
-
-average_scope_by_sector = all_data.groupby('Sector').mean()
-x0 = average_scope_by_sector.index
-y0=['Scope 1', 'Scope 2', 'Scope 3']
-z0 = [average_scope_by_sector['scope1_dist'],
-      average_scope_by_sector['scope2_dist'],
-      average_scope_by_sector['scope3_dist']]
 
 
 # Select which columns to extract
@@ -55,9 +32,9 @@ df = get_data(
     cols_to_use,
     )
 #df[' index'] = range(1, len(df) + 1)
-app = DjangoDash('transparency_dashboard')
 PAGE_SIZE = 10
 
+# Design the app layout
 app.layout = html.Div([
     html.Div([
         html.Div([
@@ -99,23 +76,8 @@ app.layout = html.Div([
                     html.Br(),
                     html.Br()]),
 
-            html.Div([
-                dcc.Graph(
-                    id='heatmap',
-                    figure = {
-                        'data': [go.Heatmap(
-                            x = x0,
-                            y = y0,
-                            z = z0,
-                            name = 'hello',
-                            colorscale = 'amp')],
-                        'layout': go.Layout(
-                            title = 'GHG Emissions Scope 1, 2, 3 by Sector',
-                            titlefont = dict(family = 'Arial', size = 25),
-                            plot_bgcolor = 'antiquewhite')})]
-                            , className = 'col-6 col-12-medium'),])])])
-
-
+            html.Div([transparency_heatmap]
+                            ,className = 'col-6 col-12-medium'),])])])
 
 
 @app.callback(
@@ -126,6 +88,53 @@ def update_table(page_current,page_size):
     return df.iloc[
         page_current*page_size:(page_current+ 1)*page_size
     ].to_dict('records')
+
+
+def create_transparency_heatmap():
+    #Excel file path
+    xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
+
+    # Select which columns to extract
+    cols_to_use = ['Sector', '2019 Scope 1 (MeT Co2)', '2019 Scope 2 ', '2019 Scope 3 ']
+
+    # Connect to the data source
+    all_data = get_data(
+        xlsx_path, 
+        'company', 
+        cols_to_use,
+        )
+    all_data[cols_to_use[1]] = pd.to_numeric(all_data[cols_to_use[1]], errors = 'coerce')
+    all_data[cols_to_use[2]] = pd.to_numeric(all_data[cols_to_use[2]], errors = 'coerce')
+    all_data[cols_to_use[3]] = pd.to_numeric(all_data[cols_to_use[3]], errors = 'coerce')
+
+    total_scope = (all_data[cols_to_use[1]] + all_data[cols_to_use[2]] + all_data[cols_to_use[3]])
+    all_data['scope1_dist'] = all_data[cols_to_use[1]] / total_scope
+    all_data['scope2_dist'] = all_data[cols_to_use[2]] / total_scope
+    all_data['scope3_dist'] = all_data[cols_to_use[3]] / total_scope
+    all_data['scope_total'] = all_data['scope1_dist'] + all_data['scope2_dist'] + all_data['scope3_dist']
+
+    average_scope_by_sector = all_data.groupby('Sector').mean()
+    x0 = average_scope_by_sector.index
+    y0=['Scope 1', 'Scope 2', 'Scope 3']
+    z0 = [
+        average_scope_by_sector['scope1_dist'],
+        average_scope_by_sector['scope2_dist'],
+        average_scope_by_sector['scope3_dist']
+        ]
+
+    return dcc.Graph(
+        id='heatmap',
+        figure = {
+            'data': [go.Heatmap(
+                x = x0,
+                y = y0,
+                z = z0,
+                name = 'hello',
+                colorscale = 'amp')],
+            'layout': go.Layout(
+                title = 'GHG Emissions Scope 1, 2, 3 by Sector',
+                titlefont = dict(family = 'Arial', size = 25),
+                plot_bgcolor = 'antiquewhite')})
 
 
 if __name__ == '__main__':
