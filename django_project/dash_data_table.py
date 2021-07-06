@@ -51,14 +51,14 @@ def create_transparency_datatable():
                     page_size=PAGE_SIZE,
                     page_action='custom',
                     style_as_list_view=True,
-                    style_data = {
+                    style_cell = {
                         'whitespace': 'normal',
                         'height': 'auto',
-                        'minWidth': '180px', 'width': '180px', 'maxWidth': '180px',
+                        'minWidth': '180px', 'width': '180px', 'maxWidth': '180px'
                         },
                     style_header={
                         'backgroundColor': 'rgb(30, 30, 30)',
-                        'color': 'white',
+                        'color': 'white'
                         },
                     style_data={
                         'backgroundColor': 'rgb(200, 200, 200)',
