@@ -2,7 +2,8 @@
 {% include "django_project/head_temp.html" %}
 {% include "django_project/top_menu_temp.html" %}
 {% include "django_project/main_transparency.html" %}
-<article class="post">
+<!--
+    <article class="post">
     <header>
         <div class="title">
             {% plotly_app name='transparency_dashboard' ratio=1 %}
@@ -11,4 +12,6 @@
     <footer>
     </footer>
 </article>
+!-->
+{% plotly_app name='transparency_dashboard' ratio=1 %}
 {% include "django_project/bottom_temp.html" %}
