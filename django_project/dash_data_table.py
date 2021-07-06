@@ -55,7 +55,7 @@ def create_transparency_datatable():
                         'whitespace': 'normal',
                         'height': 'auto',
                         'minWidth': '180px', 'width': '180px', 'maxWidth': '180px',
-                        }
+                        },
                     style_header={
                         'backgroundColor': 'rgb(30, 30, 30)',
                         'color': 'white',
