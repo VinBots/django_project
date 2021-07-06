@@ -13,6 +13,55 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme, Symbol
 
 
+def create_transparency_datatable():
+
+    #Excel file path
+    xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
+
+    # Select which columns to extract
+    cols_to_use = ['Company Name', 'Sector',
+        'Size (2019 Revenue)', '2019 Net Scope 1 + 2 Emissions', '2019 Scope 3 ',
+        '2019 Total Scope 1, 2 + 3', '2018 Net Scope 1 + 2 Emissions',
+        '2018 Scope 3']
+    # Connect to the data source
+    df = get_data(
+        xlsx_path, 
+        'company', 
+        cols_to_use,
+        )
+    #df[' index'] = range(1, len(df) + 1)
+    PAGE_SIZE = 10
+    return dash_table.DataTable(
+                    id='datatable-paging',
+                    columns=[{
+                        "name": i,
+                        "id": i,
+                        "type": "numeric",
+                        "format": Format(
+                            scheme=Scheme.fixed, 
+                            precision=0,
+                            group=Group.yes,
+                            groups=3,
+                            group_delimiter='.',
+                            decimal_delimiter=',',
+                            ) 
+                        } for i in df.columns],
+                    data=df.to_dict('records'),
+                    page_current=0,
+                    page_size=PAGE_SIZE,
+                    page_action='custom',
+                    style_as_list_view=True,
+                    style_header={
+                        'whitespace': 'normal',
+                        'height': 'auto',
+                        'backgroundColor': 'rgb(30, 30, 30)',
+                        'color': 'white'},
+                    style_data={
+                        'maxWidth': '200px',
+                        'backgroundColor': 'rgb(200, 200, 200)',
+                        'color': 'black'},), df
+                        
+
 def create_transparency_heatmap():
     #Excel file path
     xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
@@ -59,25 +108,10 @@ def create_transparency_heatmap():
                 titlefont = dict(family = 'Arial', size = 25),
                 plot_bgcolor = 'antiquewhite')})
 
+
 app = DjangoDash('transparency_dashboard')
-
+transparency_datatable, df = create_transparency_datatable()
 transparency_heatmap = create_transparency_heatmap()
-#Excel file path
-xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
-
-# Select which columns to extract
-cols_to_use = ['Company Name', 'Sector',
-       'Size (2019 Revenue)', '2019 Net Scope 1 + 2 Emissions', '2019 Scope 3 ',
-       '2019 Total Scope 1, 2 + 3', '2018 Net Scope 1 + 2 Emissions',
-       '2018 Scope 3']
-# Connect to the data source
-df = get_data(
-    xlsx_path, 
-    'company', 
-    cols_to_use,
-    )
-#df[' index'] = range(1, len(df) + 1)
-PAGE_SIZE = 10
 
 # Design the app layout
 app.layout = html.Div([
@@ -87,44 +121,13 @@ app.layout = html.Div([
                 html.H3(children='Scope 1,2 and 3 Emissions'),
         ], className = 'row'),
         html.Div([
-            html.Div([
-                dash_table.DataTable(
-                    id='datatable-paging',
-                    columns=[{
-                        "name": i,
-                        "id": i,
-                        "type": "numeric",
-                        "format": Format(
-                            scheme=Scheme.fixed, 
-                            precision=0,
-                            group=Group.yes,
-                            groups=3,
-                            group_delimiter='.',
-                            decimal_delimiter=',',
-                            ) 
-                        } for i in df.columns],
-                    data=df.to_dict('records'),
-                    page_current=0,
-                    page_size=PAGE_SIZE,
-                    page_action='custom',
-                    style_as_list_view=True,
-                    style_header={
-                        'whitespace': 'normal',
-                        'height': 'auto',
-                        'backgroundColor': 'rgb(30, 30, 30)',
-                        'color': 'white'},
-                    style_data={
-                        'maxWidth': '200px',
-                        'backgroundColor': 'rgb(200, 200, 200)',
-                        'color': 'black'},), #])])])])
+            html.Div([transparency_datatable, #])])])])
                     html.Br(),
                     html.Br(),
                     html.Br()]),
+            html.Div([transparency_heatmap]),])])])
 
-            html.Div([transparency_heatmap]
-                            ,className = 'col-6 col-12-medium'),])])])
-
-
+# Callbacks
 @app.callback(
     Output('datatable-paging', 'data'),
     [Input('datatable-paging', "page_current"),
@@ -133,10 +136,6 @@ def update_table(page_current,page_size):
     return df.iloc[
         page_current*page_size:(page_current+ 1)*page_size
     ].to_dict('records')
-
-
-
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
