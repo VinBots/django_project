@@ -57,9 +57,10 @@ def create_transparency_datatable():
                         'backgroundColor': 'rgb(30, 30, 30)',
                         'color': 'white'},
                     style_data={
-                        'maxWidth': '20px',
                         'backgroundColor': 'rgb(200, 200, 200)',
-                        'color': 'black'},)
+                        'color': 'black'},
+                    fill_width=False
+                    )
 
     return graph, df
                         
