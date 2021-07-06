@@ -41,16 +41,13 @@ def create_transparency_datatable():
             precision=0,
             group=Group.yes,
             groups=3,
-            group_delimiter='.',
-            decimal_delimiter=',',
+            group_delimiter=',',
             ) 
         } for i in df.columns]
     
     for i in range(len(header_text)):
         data_table_cols[i]["name"] = header_text[i]
     
-    data_table_cols[2]["format"] = {'specifier': '.2f'}
-
     graph = dash_table.DataTable(
                     id='datatable-paging',
                     columns = data_table_cols,
