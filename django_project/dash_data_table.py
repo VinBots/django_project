@@ -23,7 +23,6 @@ cols_to_use = ['Company Name', 'Sector', 'Industry',
        'Size (2019 Revenue)', '2019 Net Scope 1 + 2 Emissions', '2019 Scope 3 ',
        '2019 Total Scope 1, 2 + 3', '2018 Net Scope 1 + 2 Emissions',
        '2018 Scope 3']
-]
 
 # Connect to the data source
 df = get_data(
