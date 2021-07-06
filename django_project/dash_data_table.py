@@ -10,6 +10,7 @@ import dash_core_components as dcc
 import os
 import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
+from dash_table.Format import Format, Group, Scheme, Symbol
 
 
 #Excel file path
@@ -70,7 +71,16 @@ app.layout = html.Div([
                     columns=[{
                         "name": i,
                         "id": i,
-                        "type": "numeric"} for i in df.columns],
+                        "type": "numeric",
+                        "format": Format(
+                            scheme=Scheme.fixed, 
+                            precision=2,
+                            group=Group.yes,
+                            groups=3,
+                            group_delimiter='.',
+                            decimal_delimiter=',',
+                            ) 
+                        } for i in df.columns],
                     data=df.to_dict('records'),
                     page_current=0,
                     page_size=PAGE_SIZE,
