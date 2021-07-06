@@ -7,19 +7,12 @@ import dash_html_components as html
 from django_project.utilities import get_data
 import os
 
-'''
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/solar.csv')
-app.layout = dash_table.DataTable(
-    id='table',
-    columns=[{"name": i, "id": i} for i in df.columns],
-    data=df.to_dict('records'),
-)
-'''
+
 #Excel file path
 xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
 
 # Select which columns to extract
-cols_to_use = ['Company Name', 'Sector', 'Industry',
+cols_to_use = ['Company Name', 'Sector',
        'Size (2019 Revenue)', '2019 Net Scope 1 + 2 Emissions', '2019 Scope 3 ',
        '2019 Total Scope 1, 2 + 3', '2018 Net Scope 1 + 2 Emissions',
        '2018 Scope 3']
@@ -35,7 +28,7 @@ df[' index'] = range(1, len(df) + 1)
 
 app = DjangoDash('transparency_dashboard')
 
-PAGE_SIZE = 10
+PAGE_SIZE = 25
 
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
