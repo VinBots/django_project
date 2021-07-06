@@ -10,7 +10,7 @@ import dash_core_components as dcc
 import os
 import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
-from dash_table.Format import Format, Group, Scheme, Symbol
+from dash_table.Format import Format, Group, Scheme
 
 
 def create_transparency_datatable():
@@ -29,9 +29,9 @@ def create_transparency_datatable():
         'company', 
         cols_to_use,
         )
-    #df[' index'] = range(1, len(df) + 1)
     PAGE_SIZE = 10
-    return dash_table.DataTable(
+
+    graph = dash_table.DataTable(
                     id='datatable-paging',
                     columns=[{
                         "name": i,
@@ -57,11 +57,12 @@ def create_transparency_datatable():
                         'backgroundColor': 'rgb(30, 30, 30)',
                         'color': 'white'},
                     style_data={
-                        'maxWidth': '200px',
+                        'maxWidth': '20px',
                         'backgroundColor': 'rgb(200, 200, 200)',
-                        'color': 'black'},), df
-                        
+                        'color': 'black'},)
 
+    return graph, df
+                        
 def create_transparency_heatmap():
     #Excel file path
     xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
@@ -93,8 +94,7 @@ def create_transparency_heatmap():
         average_scope_by_sector['scope2_dist'],
         average_scope_by_sector['scope3_dist']
         ]
-
-    return dcc.Graph(
+    graph = dcc.Graph(
         id='heatmap',
         figure = {
             'data': [go.Heatmap(
@@ -107,6 +107,9 @@ def create_transparency_heatmap():
                 title = 'GHG Emissions Scope 1, 2, 3 by Sector',
                 titlefont = dict(family = 'Arial', size = 25),
                 plot_bgcolor = 'antiquewhite')})
+
+    return graph
+
 
 
 app = DjangoDash('transparency_dashboard')
