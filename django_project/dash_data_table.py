@@ -80,7 +80,7 @@ app.layout = html.Div(children=[
                 z = z0,
                 name = 'hello',
                 colorscale = 'amp')],
-            'layout': go.layout(
+            'layout': go.Layout(
                 title = 'GHG Emissions Scope 1, 2, 3 Intensities by Sector',
                 titlefont = dict(family = 'Arial', size = 25),
                 plot_bgcolor = 'antiquewhite')})] 
