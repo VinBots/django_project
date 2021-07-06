@@ -74,8 +74,8 @@ app.layout = html.Div([
                     style_as_list_view=True,
                     style_header={'backgroundColor': 'rgb(30, 30, 30)'},
                     style_cell={
-                        'backgroundColor': 'rgb(50, 50, 50)',
-                        'color': 'white'},), #])])])])
+                        'backgroundColor': 'rgb(200, 200, 200)',
+                        'color': 'black'},), #])])])])
                     html.Br(),
                     html.Br(),
                     html.Br()]),
