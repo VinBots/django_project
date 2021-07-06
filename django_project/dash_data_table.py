@@ -72,7 +72,9 @@ app.layout = html.Div([
                     page_size=PAGE_SIZE,
                     page_action='custom',
                     style_as_list_view=True,
-                    style_header={'backgroundColor': 'rgb(30, 30, 30)'},
+                    style_header={
+                        'backgroundColor': 'rgb(30, 30, 30)',
+                        'color': 'white'},
                     style_cell={
                         'backgroundColor': 'rgb(200, 200, 200)',
                         'color': 'black'},), #])])])])
