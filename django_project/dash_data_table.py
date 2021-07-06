@@ -87,11 +87,11 @@ app.layout = html.Div([
                     page_action='custom',
                     style_as_list_view=True,
                     style_header={
+                        'whitespace': 'normal',
+                        'height': 'auto',
                         'backgroundColor': 'rgb(30, 30, 30)',
                         'color': 'white'},
                     style_cell={
-                        'whitespace': 'normal',
-                        'height': 'auto',
                         'backgroundColor': 'rgb(200, 200, 200)',
                         'color': 'black'},), #])])])])
                     html.Br(),
