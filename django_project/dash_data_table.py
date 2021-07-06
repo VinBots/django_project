@@ -32,22 +32,26 @@ def create_transparency_datatable():
         cols_to_use,
         )
     PAGE_SIZE = 10
+    data_table_cols=[{
+        "name": i,
+        "id": i,
+        "type": "numeric",
+        "format": Format(
+            scheme=Scheme.fixed, 
+            precision=0,
+            group=Group.yes,
+            groups=3,
+            group_delimiter='.',
+            decimal_delimiter=',',
+            ) 
+        } for i in df.columns]
+    
+    for i in range(len(header_text)):
+        data_table_cols[i]["name"] = header_text[i]
 
     graph = dash_table.DataTable(
                     id='datatable-paging',
-                    columns=[{
-                        "name": header_text[int(i)],
-                        "id": i,
-                        "type": "numeric",
-                        "format": Format(
-                            scheme=Scheme.fixed, 
-                            precision=0,
-                            group=Group.yes,
-                            groups=3,
-                            group_delimiter='.',
-                            decimal_delimiter=',',
-                            ) 
-                        } for i in df.columns],
+                    columns = data_table_cols,
                     data=df.to_dict('records'),
                     page_current=0,
                     page_size=PAGE_SIZE,
