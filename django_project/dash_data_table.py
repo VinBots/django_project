@@ -48,6 +48,8 @@ def create_transparency_datatable():
     
     for i in range(len(header_text)):
         data_table_cols[i]["name"] = header_text[i]
+    
+    data_table_cols[2]["format"] = {'specifier': '.2f'}
 
     graph = dash_table.DataTable(
                     id='datatable-paging',
