@@ -22,14 +22,14 @@ all_data = get_data(
     'company', 
     cols_to_use,
     )
-all_data[COLS_TO_USE[1]] = pd.to_numeric(all_data[COLS_TO_USE[1]], errors = 'coerce')
-all_data[COLS_TO_USE[2]] = pd.to_numeric(all_data[COLS_TO_USE[2]], errors = 'coerce')
-all_data[COLS_TO_USE[3]] = pd.to_numeric(all_data[COLS_TO_USE[3]], errors = 'coerce')
+all_data[cols_to_use[1]] = pd.to_numeric(all_data[cols_to_use[1]], errors = 'coerce')
+all_data[cols_to_use[2]] = pd.to_numeric(all_data[cols_to_use[2]], errors = 'coerce')
+all_data[cols_to_use[3]] = pd.to_numeric(all_data[cols_to_use[3]], errors = 'coerce')
 
-total_scope = (all_data[COLS_TO_USE[1]] + all_data[COLS_TO_USE[2]] + all_data[COLS_TO_USE[3]])
-all_data['scope1_dist'] = all_data[COLS_TO_USE[1]] / total_scope
-all_data['scope2_dist'] = all_data[COLS_TO_USE[2]] / total_scope
-all_data['scope3_dist'] = all_data[COLS_TO_USE[3]] / total_scope
+total_scope = (all_data[cols_to_use[1]] + all_data[cols_to_use[2]] + all_data[cols_to_use[3]])
+all_data['scope1_dist'] = all_data[cols_to_use[1]] / total_scope
+all_data['scope2_dist'] = all_data[cols_to_use[2]] / total_scope
+all_data['scope3_dist'] = all_data[cols_to_use[3]] / total_scope
 all_data['scope_total'] = all_data['scope1_dist'] + all_data['scope2_dist'] + all_data['scope3_dist']
 
 average_scope_by_sector = all_data.groupby('Sector').mean()
