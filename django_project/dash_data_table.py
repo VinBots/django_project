@@ -62,6 +62,8 @@ def create_transparency_heatmap():
 app = DjangoDash('transparency_dashboard')
 
 transparency_heatmap = create_transparency_heatmap()
+#Excel file path
+xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
 
 # Select which columns to extract
 cols_to_use = ['Company Name', 'Sector',
