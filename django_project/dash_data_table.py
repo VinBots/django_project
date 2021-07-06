@@ -75,9 +75,11 @@ app.layout = html.Div([
                     style_header={'backgroundColor': 'rgb(30, 30, 30)'},
                     style_cell={
                         'backgroundColor': 'rgb(50, 50, 50)',
-                        'color': 'white'},),  ])])])])
+                        'color': 'white'},), #])])])])
+                    html.Br(),
+                    html.Br(),
+                    html.Br()]),
 
-"""
             html.Div([
                 dcc.Graph(
                     id='heatmap',
@@ -92,11 +94,9 @@ app.layout = html.Div([
                             title = 'GHG Emissions Scope 1, 2, 3 Intensities by Sector',
                             titlefont = dict(family = 'Arial', size = 25),
                             plot_bgcolor = 'antiquewhite')})]
-                            
-                            ,className = 'col-6 col-12-medium')
-                            ], className = 'row')
-                            ])])])
-"""
+                            , className = 'col-6 col-12-medium'),])])])
+
+
 
 
 @app.callback(
