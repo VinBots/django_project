@@ -50,7 +50,7 @@ def create_transparency_datatable():
                     page_current=0,
                     page_size=PAGE_SIZE,
                     page_action='custom',
-                    style_as_list_view=True,
+                    style_as_list_view=False,
                     style_cell = {
                         'whitespace': 'normal',
                         'height': 'auto',
