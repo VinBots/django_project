@@ -24,7 +24,7 @@ def get_rpt_pct(all_data):
 def get_perf_pct(all_data):
     # query
     
-    return 50
+    return 48
        
 def get_net0_pct(all_data):
     # query
@@ -41,7 +41,7 @@ def get_sbt_pct(all_data):
 def get_momentum_pct(all_data):
     # query
     
-    return 50
+    return 24
 
 
 
