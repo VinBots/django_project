@@ -9,6 +9,7 @@ from django_project.utilities import get_data
 import dash_core_components as dcc
 import os
 import plotly.graph_objs as go
+import dash_table.FormatTemplate as FormatTemplate
 
 
 #Excel file path
@@ -66,7 +67,10 @@ app.layout = html.Div([
             html.Div([
                 dash_table.DataTable(
                     id='datatable-paging',
-                    columns=[{"name": i, "id": i} for i in df.columns],
+                    columns=[{
+                        "name": i,
+                        "id": i,
+                        "type": "numeric"} for i in df.columns],
                     data=df.to_dict('records'),
                     page_current=0,
                     page_size=PAGE_SIZE,
