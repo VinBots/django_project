@@ -90,6 +90,8 @@ app.layout = html.Div([
                         'backgroundColor': 'rgb(30, 30, 30)',
                         'color': 'white'},
                     style_cell={
+                        'whitespace': 'normal',
+                        'height': 'auto',
                         'backgroundColor': 'rgb(200, 200, 200)',
                         'color': 'black'},), #])])])])
                     html.Br(),
