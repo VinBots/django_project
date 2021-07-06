@@ -58,6 +58,7 @@ def create_transparency_datatable():
                     page_action='custom',
                     style_as_list_view=False,
                     style_cell = {
+                        'font-family': 'Lato',
                         'whitespace': 'normal',
                         'height': 'auto',
                         'minWidth': '180px', 'width': '180px', 'maxWidth': '180px'
