@@ -34,7 +34,7 @@ def create_transparency_datatable():
     graph = dash_table.DataTable(
                     id='datatable-paging',
                     columns=[{
-                        "name": i,
+                        "name": "hello",
                         "id": i,
                         "type": "numeric",
                         "format": Format(
