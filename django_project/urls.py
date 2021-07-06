@@ -16,16 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path, include
-
 from . import views
 from django.views.generic import TemplateView
-
 from django.conf import settings
 from django.conf.urls.static import static
 
 # Loading plotly Dash apps script
-import django_project.dashboards.dashboard_transparency
 import django_project.dashboards.dashboard_sciencebased
+import django_project.dashboards.dashboard_transparency
 
 urlpatterns = [
     path('', views.home, name='main_home'),
