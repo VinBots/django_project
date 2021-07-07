@@ -14,8 +14,10 @@ from dash_table.Format import Format, Group, Scheme
 import dash_bootstrap_components as dbc
 
 
-app = DjangoDash("playground_dashboard",
-                 add_bootstrap_links=True)
+app = DjangoDash(
+    "playground_dashboard",
+    serve_locally=True,
+    add_bootstrap_links=True)
 
 app.layout = html.Div(
     [
