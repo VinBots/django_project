@@ -89,7 +89,8 @@ def create_ambition_table():
         'company', 
         cols_to_use,
         )
-    
+    df = df[df['Carbon Neutral Goal? (Y/N)']=='N']
+
     PAGE_SIZE = 10
     
     data_table_cols=[{
