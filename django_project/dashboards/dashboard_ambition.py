@@ -13,13 +13,13 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
 
-def create_science_based_barchart():
+def create_ambition_barchart():
 
     #Excel file path
     xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
 
     # Select which columns to extract
-    cols_to_use = ['Sector', 'Science-Based Target? (Y/N)']
+    cols_to_use = ['Sector', 'Carbon Neutral Goal? (Y/N)']
     
     # Connect to the data source
     df = get_data(
@@ -28,15 +28,15 @@ def create_science_based_barchart():
         cols_to_use,
         )
     
-    y0 = df[df['Science-Based Target? (Y/N)'] == 'Y'].groupby('Sector').size()
-    y1 = df[df['Science-Based Target? (Y/N)'] == 'N'].groupby('Sector').size()
+    y0 = df[df['Carbon Neutral Goal? (Y/N)'] == 'Y'].groupby('Sector').size()
+    y1 = df[df['Carbon Neutral Goal? (Y/N)'] == 'N'].groupby('Sector').size()
 
     trace1 = go.Bar(
         x=list(y0.index),
         y=y0,
         text = y0,
         textposition='auto',
-        name = 'Approved',
+        name = 'Stated',
         marker = dict(
             color = 'green',
             line = dict(
@@ -48,7 +48,7 @@ def create_science_based_barchart():
         y=y1,
         text = y1,
         textposition='auto',
-        name = 'No',
+        name = 'Not Stated',
         marker = dict(
             color = 'white',
             line = dict(color = 'green',
@@ -58,11 +58,11 @@ def create_science_based_barchart():
     
     layout = go.Layout (
         barmode = 'stack',
-        title = 'SBTi-approved Goals by sector in S&P 100',
+        title = 'Net Zero Goals by Sector in S&P 100',
         titlefont = dict(family = 'Arial', size = 25),
         xaxis = dict(tickangle = 35, categoryorder = 'category ascending'),
         showlegend = True,
-        legend = dict(title = dict (text = "SBTi-approved Goals",
+        legend = dict(title = dict (text = "Net Zero Goals",
         font = dict(color = 'green'))),
         plot_bgcolor = 'antiquewhite'
         )
@@ -74,18 +74,18 @@ def create_science_based_barchart():
             'layout': layout})
     return graph
 
-app = DjangoDash('sciencebased_dashboard')
-sciencebased_barchart = create_science_based_barchart()
+app = DjangoDash('ambition_dashboard')
+ambition_barchart = create_ambition_barchart()
 
 # Design the app layout
 app.layout = html.Div([
     html.Div([
         html.Div([
-                html.H1(children='Science-Based Targets Dashboard'),
-                html.H3(children='As validated by SBTi'),
+                html.H1(children='Net Zero Targets Dashboard'),
+                html.H3(children='As stated publicly'),
         ], className = 'row'),
         html.Div([
-            html.Div([sciencebased_barchart,
+            html.Div([ambition_barchart,
                     html.Br(),
                     html.Br(),
                     html.Br()]),

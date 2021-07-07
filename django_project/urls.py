@@ -22,8 +22,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 # Loading plotly Dash apps script
-import django_project.dashboards.dashboard_sciencebased
-import django_project.dashboards.dashboard_transparency
+dashboards_names = [
+    django_project.dashboards.dashboard_transparency,
+    django_project.dashboards.dashboard_ambition,
+    django_project.dashboards.dashboard_sciencebased,
+]
+
+for lib in dashboards_names:
+    globals()[lib] = __import__(lib)
+
 
 urlpatterns = [
     path('', views.home, name='main_home'),
