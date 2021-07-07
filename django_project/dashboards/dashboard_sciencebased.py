@@ -11,6 +11,7 @@ import os
 import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
+import dash_bootstrap_components as dbc
 
 
 def create_science_based_barchart():
@@ -74,7 +75,13 @@ def create_science_based_barchart():
             'layout': layout})
     return graph
 
-app = DjangoDash('sciencebased_dashboard')
+app = DjangoDash(
+    'sciencebased_dashboard',
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    meta_tags=[
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"}
+    ],)
+
 sciencebased_barchart = create_science_based_barchart()
 
 # Design the app layout
