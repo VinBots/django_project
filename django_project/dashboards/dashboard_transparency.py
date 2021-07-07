@@ -127,10 +127,7 @@ def create_transparency_heatmap():
 app = DjangoDash(
     'transparency_dashboard',
     add_bootstrap_links=True,
-    external_stylesheets=[dbc.themes.SUPERHERO],
-    meta_tags=[
-        {"name": "viewport", "content": "width=device-width, initial-scale=1"}
-    ],)
+    external_stylesheets=[dbc.themes.SUPERHERO])
 
 transparency_datatable, df = create_transparency_datatable()
 transparency_heatmap = create_transparency_heatmap()
