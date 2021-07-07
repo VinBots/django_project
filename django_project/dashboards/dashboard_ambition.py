@@ -82,7 +82,7 @@ def create_ambition_table():
     # Select which columns to extract
     cols_to_use = ['Company Name', 'Sector', 'Carbon Neutral Goal? (Y/N)']
     
-    header_text = ['Company', 'Sector', 'Net 0 Goal Stated']
+    header_text = ['Company', 'Sector']
     # Connect to the data source
     df = get_data(
         xlsx_path, 
