@@ -140,14 +140,14 @@ app.layout = html.Div([
                 html.H3(children=''),
         ], className = 'row'),
         html.Div([
-            html.Div([
-                html.H1(children='Companies without publicly-stated net zero goal'),
-                html.H3(children=''),
-        ], className = 'row'),
             html.Div([ambition_barchart,
                     html.Br(),
                     html.Br(),
                     html.Br()]),
+            html.Div([
+                html.H1(children='Companies without publicly-stated net zero goal'),
+                html.H3(children=''),
+            ], className = 'row'),
             html.Div([ambition_table]),])])])
 
 # Callbacks
