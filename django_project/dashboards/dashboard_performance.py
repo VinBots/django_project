@@ -163,6 +163,14 @@ def create_performance_bubble():
         ]
     )
 
+    fig.update_layout(legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ))
+
     graph = dcc.Graph(
         id='barchart',
         figure = fig
