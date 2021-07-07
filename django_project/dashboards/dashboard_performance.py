@@ -46,7 +46,7 @@ def create_performance_bubble():
         sector:df.query("Sector == '%s'" %sector) for sector in sector_names
         }
     
-    upper_left_ann = dict (xref="x domain",
+    upper_left_ann = dict (xref="paper",
                        yref="paper",
                        x=0.0,
                        y=1.10,
@@ -56,7 +56,7 @@ def create_performance_bubble():
                        font = {'color':'white'},
                        opacity = 0.5
                       )
-    upper_right_ann = dict (xref="x domain",
+    upper_right_ann = dict (xref="paper",
                         yref="paper",
                         x=0.90,
                         y=1.10,
@@ -66,7 +66,7 @@ def create_performance_bubble():
                         font = {'color':'white'},
                         opacity = 0.5
                         )
-    lower_right_ann = dict (xref="x domain",
+    lower_right_ann = dict (xref="paper",
                         yref="paper",
                         x=0.90,
                         y=-0.15,
@@ -76,7 +76,7 @@ def create_performance_bubble():
                         font = {'color':'white'},
                         opacity = 0.5
                         )
-    lower_left_ann = dict (xref="x domain",
+    lower_left_ann = dict (xref="paper",
                         yref="paper",
                         x=0.0,
                         y=-0.15,
