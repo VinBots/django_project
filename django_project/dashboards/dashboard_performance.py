@@ -103,8 +103,8 @@ performance_barchart = create_performance_bubble()
 app.layout = html.Div([
     html.Div([
         html.Div([
-                html.H1(children='Net Zero Targets Dashboard'),
-                html.H3(children='As stated publicly'),
+                html.H1(children='CO2e Emissions Intensity'),
+                html.H3(children='Based on 2019 Revenue'),
         ], className = 'row'),
         html.Div([
             html.Div([performance_barchart,
