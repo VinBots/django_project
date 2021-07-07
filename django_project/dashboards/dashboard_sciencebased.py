@@ -88,8 +88,8 @@ sciencebased_barchart = create_science_based_barchart()
 app.layout = html.Div([
     html.Div([
         html.Div([
-                html.H1(children='Science-Based Targets Dashboard'),
-                html.H3(children='As validated by SBTi'),
+                html.H1(children='Science-Based Targets - Key Metrics'),
+                html.H3(children=''),
         ], className = 'row'),
         html.Div([
             html.Div([sciencebased_barchart,

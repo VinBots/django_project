@@ -81,8 +81,8 @@ ambition_barchart = create_ambition_barchart()
 app.layout = html.Div([
     html.Div([
         html.Div([
-                html.H1(children='Net Zero Targets Dashboard'),
-                html.H3(children='As stated publicly'),
+                html.H1(children='Ambition - Key Metrics'),
+                html.H3(children=''),
         ], className = 'row'),
         html.Div([
             html.Div([ambition_barchart,
