@@ -118,6 +118,7 @@ def create_transparency_heatmap():
             'layout': go.Layout(
                 title = 'GHG Emissions Scope 1, 2, 3 by Sector',
                 titlefont = dict(family = 'Arial'),
+                height = 700,
                 plot_bgcolor = 'antiquewhite')})
 
     return graph
