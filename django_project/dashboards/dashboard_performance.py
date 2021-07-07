@@ -111,7 +111,7 @@ def create_performance_bubble():
     layout = go.Layout (
         title = 'CO2e Emissions Intensity for S&P 100',
         title_x = 0.5,
-        titlefont = dict(family = 'Arial', size = 25),
+        titlefont = dict(family = 'Arial'),
         plot_bgcolor = 'antiquewhite',
         xaxis =  dict(autorange = "reversed", type = 'log'),
         yaxis = dict(type = 'log'),

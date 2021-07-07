@@ -60,7 +60,7 @@ def create_science_based_barchart():
     layout = go.Layout (
         barmode = 'stack',
         title = 'SBTi-approved Goals by sector in S&P 100',
-        titlefont = dict(family = 'Arial', size = 25),
+        titlefont = dict(family = 'Arial'),
         xaxis = dict(tickangle = 35, categoryorder = 'category ascending'),
         showlegend = True,
         legend = dict(title = dict (text = "SBTi-approved Goals",
