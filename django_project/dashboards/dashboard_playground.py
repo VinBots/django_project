@@ -13,11 +13,12 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 import dash_bootstrap_components as dbc
 
+BS = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 
 app = DjangoDash(
     "playground_dashboard",
     add_bootstrap_links=True,
-    external_stylesheets=[dbc.themes.BOOTSTRAP])
+    external_stylesheets=[BS])
 
 app.layout = html.Div(
     [
