@@ -73,7 +73,7 @@ def create_performance_bubble():
         plot_bgcolor = 'antiquewhite',
         xaxis =  dict(autorange = "reversed", type = 'log'),
         yaxis = dict(type = 'log'),
-        height = '700px',
+        height = 700,
         )
 
     fig = go.Figure(data = [trace1, trace2], 
