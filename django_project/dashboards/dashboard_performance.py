@@ -166,9 +166,9 @@ def create_performance_bubble():
     fig.update_layout(legend=dict(
         orientation="h",
         yanchor="bottom",
-        y=1.02,
-        xanchor="right",
-        x=1
+        y=0.0,
+        xanchor="left",
+        x=0
     ))
 
     graph = dcc.Graph(
