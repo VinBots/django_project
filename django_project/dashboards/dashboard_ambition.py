@@ -74,8 +74,61 @@ def create_ambition_barchart():
             'layout': layout})
     return graph
 
+def create_ambition_table():
+    
+    #Excel file path
+    xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
+
+    # Select which columns to extract
+    cols_to_use = ['Company Name', 'Sector', 'Carbon Neutral Goal? (Y/N)']
+    
+    header_text = ['Company', 'Sector', 'Net 0 Goal Stated']
+    # Connect to the data source
+    df = get_data(
+        xlsx_path, 
+        'company', 
+        cols_to_use,
+        )
+    
+    PAGE_SIZE = 10
+    
+    data_table_cols=[{
+        "name": i,
+        "id": i,
+        "type": "numeric"
+        } for i in df.columns]
+    
+    for i in range(len(header_text)):
+        data_table_cols[i]["name"] = header_text[i]
+    
+    graph = dash_table.DataTable(
+                    id='datatable-paging',
+                    columns = data_table_cols,
+                    data=df.to_dict('records'),
+                    page_current=0,
+                    page_size=PAGE_SIZE,
+                    page_action='custom',
+                    style_as_list_view=False,
+                    style_cell = {
+                        'font-family': 'Lato',
+                        'whitespace': 'normal',
+                        'height': 'auto',
+                        'minWidth': '180px', 'width': '180px', 'maxWidth': '180px'
+                        },
+                    style_header={
+                        'backgroundColor': 'rgb(30, 30, 30)',
+                        'color': 'white'
+                        },
+                    style_data={
+                        'backgroundColor': 'rgb(200, 200, 200)',
+                        'color': 'black'},
+                    fill_width=False
+                    )
+    return graph, df
+
 app = DjangoDash('ambition_dashboard')
 ambition_barchart = create_ambition_barchart()
+ambition_table, df = create_ambition_table()
 
 # Design the app layout
 app.layout = html.Div([
@@ -89,7 +142,19 @@ app.layout = html.Div([
                     html.Br(),
                     html.Br(),
                     html.Br()]),
-            html.Div([]),])])])
+            html.Div([ambition_table]),])])])
+
+
+# Callbacks
+@app.callback(
+    Output('datatable-paging', 'data'),
+    [Input('datatable-paging', "page_current"),
+    Input('datatable-paging', "page_size")])
+def update_table(page_current,page_size):
+    return df.iloc[
+        page_current*page_size:(page_current+ 1)*page_size
+    ].to_dict('records')
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
