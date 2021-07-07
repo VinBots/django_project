@@ -59,7 +59,7 @@ def create_ambition_barchart():
     layout = go.Layout (
         barmode = 'stack',
         title = 'Net Zero Goals by Sector in S&P 100',
-        titlefont = dict(family = 'Arial', size = 25),
+        titlefont = dict(family = 'Arial'),
         xaxis = dict(tickangle = 35, categoryorder = 'category ascending'),
         showlegend = True,
         legend = dict(title = dict (text = "Net Zero Goals",
