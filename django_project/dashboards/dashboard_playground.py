@@ -16,7 +16,8 @@ import dash_bootstrap_components as dbc
 
 app = DjangoDash(
     "playground_dashboard",
-    add_bootstrap_links=True)
+    add_bootstrap_links=True,
+    external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 app.layout = html.Div(
     [
