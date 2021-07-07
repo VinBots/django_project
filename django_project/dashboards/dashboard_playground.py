@@ -21,6 +21,7 @@ app = DjangoDash(
 app.layout = html.Div(
     [
         html.H1(children='PLAYGROUND'),
+        dbc.Alert("This is an alert", id="base-alert", color="primary")
     ]
 )
 
