@@ -118,16 +118,15 @@ def create_transparency_heatmap():
             'layout': go.Layout(
                 title = 'GHG Emissions Scope 1, 2, 3 by Sector',
                 titlefont = dict(family = 'Arial'),
-                height = 700,
+                height = 500,
                 plot_bgcolor = 'antiquewhite')})
-
     return graph
 
 
 
 app = DjangoDash(
     'transparency_dashboard',
-    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    external_stylesheets=[dbc.themes.FLATLY],
     meta_tags=[
         {"name": "viewport", "content": "width=device-width, initial-scale=1"}
     ],)
