@@ -158,9 +158,11 @@ LOGOUT_REDIRECT_URL = 'home'
 # Define folder location of ‘static’ folder
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # ‘django_dash’: django app name
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'django_project', 'static'),
-    ]
+#STATICFILES_DIRS = [
+    #os.path.join(BASE_DIR, 'django_project', 'static'),
+    #]
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
 # Static content of Plotly components that should
 # be handled by the Django staticfiles infrastructure
 PLOTLY_COMPONENTS = [

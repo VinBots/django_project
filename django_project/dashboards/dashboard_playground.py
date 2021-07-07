@@ -17,12 +17,10 @@ BS = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 
 app = DjangoDash(
     "playground_dashboard",
-    add_bootstrap_links=True,
-    external_stylesheets=[BS])
+    add_bootstrap_links=True)
 
 app.layout = html.Div(
     [
-        html.H1(children='PLAYGROUND'),
         dbc.Alert("This is an alert", id="base-alert", color="primary")
     ]
 )
