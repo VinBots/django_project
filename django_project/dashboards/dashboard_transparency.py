@@ -11,6 +11,7 @@ import os
 import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
+import dash_bootstrap_components as dbc
 
 
 def create_transparency_datatable():
@@ -123,7 +124,13 @@ def create_transparency_heatmap():
 
 
 
-app = DjangoDash('transparency_dashboard')
+app = DjangoDash(
+    'transparency_dashboard',
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    meta_tags=[
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"}
+    ],)
+
 transparency_datatable, df = create_transparency_datatable()
 transparency_heatmap = create_transparency_heatmap()
 
