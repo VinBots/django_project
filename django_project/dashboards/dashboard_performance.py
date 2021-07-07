@@ -41,7 +41,7 @@ def create_performance_bubble():
     x_median_y = [x0.median(), x0.median()]
     y_median_y = [y0.min(), y0.max()]
 
-    sector_names = all_data['Sector'].unique()
+    sector_names = df['Sector'].unique()
     sector_data = {
         sector:df.query("Sector == '%s'" %sector) for sector in sector_names
         }
