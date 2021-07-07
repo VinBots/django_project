@@ -139,7 +139,7 @@ transparency_heatmap = create_transparency_heatmap()
 app.layout = html.Div([
     html.Div([
         html.Div([
-                html.H1(children='  Transparency - Key Metrics'),
+                html.H1(children='    Transparency - Key Metrics'),
                 html.H3(children=''),
         ], className = 'row'),
         html.Div([
