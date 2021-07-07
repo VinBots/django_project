@@ -155,7 +155,7 @@ def create_performance_bubble():
                 ]),
                 pad={"r": 10, "t": 10},
                 showactive=True,
-                x=0.1,
+                x=0,
                 xanchor="left",
                 y=1.3,
                 yanchor="top"
