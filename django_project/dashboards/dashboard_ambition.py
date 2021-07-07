@@ -115,7 +115,6 @@ def create_ambition_table():
                         'font-family': 'Lato',
                         'whitespace': 'normal',
                         'height': 'auto',
-                        'minWidth': '180px', 'width': '180px', 'maxWidth': '180px'
                         },
                     style_header={
                         'backgroundColor': 'rgb(30, 30, 30)',
