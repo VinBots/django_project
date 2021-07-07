@@ -90,6 +90,7 @@ def create_ambition_table():
         cols_to_use,
         )
     df = df[df['Carbon Neutral Goal? (Y/N)']=='N']
+    df = df[['Company Name', 'Sector']]
 
     PAGE_SIZE = 10
     
@@ -139,12 +140,15 @@ app.layout = html.Div([
                 html.H3(children=''),
         ], className = 'row'),
         html.Div([
+            html.Div([
+                html.H1(children='Companies without publicly-stated net zero goal'),
+                html.H3(children=''),
+        ], className = 'row'),
             html.Div([ambition_barchart,
                     html.Br(),
                     html.Br(),
                     html.Br()]),
             html.Div([ambition_table]),])])])
-
 
 # Callbacks
 @app.callback(
