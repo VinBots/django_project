@@ -24,8 +24,10 @@ from django.conf.urls.static import static
 # Loading plotly Dash apps script
 dashboards_names = [
     "django_project.dashboards.dashboard_transparency",
+    "django_project.dashboards.dashboard_performance",
     "django_project.dashboards.dashboard_ambition",
     "django_project.dashboards.dashboard_sciencebased",
+    "django_project.dashboards.dashboard_momentum"
 ]
 
 for lib in dashboards_names:
