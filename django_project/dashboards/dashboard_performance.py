@@ -48,7 +48,7 @@ def create_performance_bubble():
     
     upper_left_ann = dict (xref="x domain",
                        yref="paper",
-                       x=0.10,
+                       x=0.0,
                        y=1.10,
                        text="<b>Corporate Behemoths</b> <br> High Revenue, High Emissions",
                        showarrow = False,
@@ -78,7 +78,7 @@ def create_performance_bubble():
                         )
     lower_left_ann = dict (xref="x domain",
                         yref="paper",
-                        x=0.10,
+                        x=0.0,
                         y=-0.15,
                         text="<b>Worst Offenders</b> <br> Low Revenue, High Emissions",
                         showarrow = False,
