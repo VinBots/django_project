@@ -95,7 +95,7 @@ def create_performance_bubble():
     
     return graph
 
-app = DjangoDash('ambition_dashboard')
+app = DjangoDash('performance_dashboard')
 performance_barchart = create_performance_bubble()
 
 # Design the app layout
