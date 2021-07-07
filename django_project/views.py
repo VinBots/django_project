@@ -95,3 +95,6 @@ def sciencebased(request):
 
 def momentum(request):
   return render (request, "django_project/momentum/momentum.html")
+
+def playground(request):
+  return render (request, "django_project/playground.html")  

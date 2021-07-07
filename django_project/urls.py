@@ -46,4 +46,5 @@ urlpatterns = [
     path('ambition.html', views.ambition),
     path('sciencebased.html', views.sciencebased),
     path('momentum.html', views.momentum),
+    path('playground.html', views.playground),
     ]
