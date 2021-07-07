@@ -45,6 +45,48 @@ def create_performance_bubble():
     sector_data = {
         sector:df.query("Sector == '%s'" %sector) for sector in sector_names
         }
+    
+    upper_left_ann = dict (xref="x domain",
+                       yref="paper",
+                       x=0.10,
+                       y=1.10,
+                       text="<b>Corporate Behemoths</b> <br> High Revenue, High Emissions",
+                       showarrow = False,
+                       bgcolor = 'blue',
+                       font = {'color':'white'},
+                       opacity = 0.5
+                      )
+    upper_right_ann = dict (xref="x domain",
+                        yref="paper",
+                        x=0.90,
+                        y=1.10,
+                        text="<b>Sustainability Leaders</b> <br> High Revenue, Low Emissions",
+                        showarrow = False,
+                        bgcolor = 'blue',
+                        font = {'color':'white'},
+                        opacity = 0.5
+                        )
+    lower_right_ann = dict (xref="x domain",
+                        yref="paper",
+                        x=0.90,
+                        y=-0.15,
+                        text="<b>Small Players</b> <br> Low Revenue, Low Emissions",
+                        showarrow = False,
+                        bgcolor = 'blue',
+                        font = {'color':'white'},
+                        opacity = 0.5
+                        )
+    lower_left_ann = dict (xref="x domain",
+                        yref="paper",
+                        x=0.10,
+                        y=-0.15,
+                        text="<b>Worst Offenders</b> <br> Low Revenue, High Emissions",
+                        showarrow = False,
+                        bgcolor = 'blue',
+                        font = {'color':'white'},
+                        opacity = 0.5
+                        )
+                        
     trace1 = go.Scatter(x=x_median_y, 
                     y=y_median_y, 
                     showlegend = False, 
@@ -67,12 +109,13 @@ def create_performance_bubble():
     data = [trace1, trace2]
     
     layout = go.Layout (
-        title = 'GHG Emissions Intensity',
+        title = 'CO2e Emissions Intensity for S&P 100',
         title_x = 0.5,
         titlefont = dict(family = 'Arial', size = 25),
         plot_bgcolor = 'antiquewhite',
         xaxis =  dict(autorange = "reversed", type = 'log'),
         yaxis = dict(type = 'log'),
+        annotations = [upper_left_ann, upper_right_ann, lower_left_ann, lower_right_ann],
         height = 700,
         )
 
@@ -88,6 +131,37 @@ def create_performance_bubble():
             marker_size=10,
             textposition='top center'
             ))
+    
+    num_traces_no_markers = 2
+    indexes = list(range(num_traces_no_markers,len(sector_names) + num_traces_no_markers - 1))
+
+    # Add dropdown
+    fig.update_layout(
+        updatemenus=[
+            dict(
+                type = "buttons",
+                direction = "left",
+                buttons=list([
+                    dict(
+                        args=["mode", "markers", indexes],
+                        label="Hide names",
+                        method="restyle"
+                    ),
+                    dict(
+                        args=["mode", "markers+text", indexes],
+                        label="Show names",
+                        method="restyle"
+                    )
+                ]),
+                pad={"r": 10, "t": 10},
+                showactive=True,
+                x=1.0,
+                xanchor="left",
+                y=1.25,
+                yanchor="top"
+            ),
+        ]
+    )
 
     graph = dcc.Graph(
         id='barchart',
