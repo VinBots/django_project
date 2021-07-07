@@ -1,3 +1,5 @@
 {%load plotly_dash%}
-{% include "django_project/performance/main_performance.html" %}
-{% plotly_app_bootstrap name='performance_dashboard' %}
+
+<div class="{%plotly_class name="DjangoSessionState"%}">
+    {%plotly_app name="playground_dashboard" ratio=0.3 %}
+</div>
