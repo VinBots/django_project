@@ -18,9 +18,9 @@ app = DjangoDash(
 
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
-    value = 270,
+    value = 3.2,
     domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Speed"}))
+    title = {'text': "Temperature"}))
 
 graph = dcc.Graph(
     figure = fig)
