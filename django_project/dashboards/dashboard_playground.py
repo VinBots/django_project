@@ -24,7 +24,7 @@ fig = go.Figure(go.Indicator(
     delta = {'reference': 1.5, 'increasing': {'color': "Red"}},
     gauge = {
         'axis': {'range': [None, 4], 'tickwidth': 1, 'tickcolor': "darkblue"},
-        'bar': {'color': "darkblue"},
+        'bar': {'color': "black"},
         'bgcolor': "white",
         'borderwidth': 2,
         'bordercolor': "gray",
