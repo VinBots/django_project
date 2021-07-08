@@ -18,6 +18,7 @@ app = DjangoDash(
 
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
+    color = "red",
     value = 3.2,
     domain = {'x': [0, 1], 'y': [0, 1]},
     title = {'text': "Expected Warming (in Celsius)"}))
