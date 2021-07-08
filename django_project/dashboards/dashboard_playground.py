@@ -17,11 +17,26 @@ app = DjangoDash(
     "playground_dashboard")
 
 fig = go.Figure(go.Indicator(
-    mode = "gauge+number",
-    color = "red",
+    mode = "gauge+number+delta",
     value = 3.2,
     domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Expected Warming (in Celsius)"}))
+    title = {'text': "Speed", 'font': {'size': 24}},
+    delta = {'reference': 1.5, 'decreasing': {'color': "RebeccaPurple"}},
+    gauge = {
+        'axis': {'range': [None, 5], 'tickwidth': 1, 'tickcolor': "darkblue"},
+        'bar': {'color': "darkblue"},
+        'bgcolor': "white",
+        'borderwidth': 2,
+        'bordercolor': "gray",
+        'steps': [
+            {'range': [0, 1.5], 'color': 'cyan'},
+            {'range': [1.5, 4], 'color': 'royalblue'}],
+        'threshold': {
+            'line': {'color': "red", 'width': 4},
+            'thickness': 0.75,
+            'value': 2}}))
+
+fig.update_layout(paper_bgcolor = "lavender", font = {'color': "darkblue", 'family': "Arial"})
 
 graph = dcc.Graph(
     figure = fig)
