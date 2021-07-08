@@ -23,7 +23,7 @@ fig = go.Figure(go.Indicator(
     title = {'text': "Expected Warming", 'font': {'size': 24}},
     delta = {'reference': 1.5, 'increasing': {'color': "Red"}},
     gauge = {
-        'axis': {'range': [None, 5], 'tickwidth': 1, 'tickcolor': "darkblue"},
+        'axis': {'range': [None, 4], 'tickwidth': 1, 'tickcolor': "darkblue"},
         'bar': {'color': "darkblue"},
         'bgcolor': "white",
         'borderwidth': 2,
@@ -31,7 +31,7 @@ fig = go.Figure(go.Indicator(
         'steps': [
             {'range': [0, 1.5], 'color': 'green'},
             {'range': [1.5, 2], 'color': 'orange'},
-            {'range': [2, 5], 'color': 'red'}],
+            {'range': [2, 4], 'color': 'red'}],
         'threshold': {
             'line': {'color': "red", 'width': 4},
             'thickness': 0.75,
