@@ -29,8 +29,9 @@ fig = go.Figure(go.Indicator(
         'borderwidth': 2,
         'bordercolor': "gray",
         'steps': [
-            {'range': [0, 1.5], 'color': 'cyan'},
-            {'range': [1.5, 2], 'color': 'royalblue'}],
+            {'range': [0, 1.5], 'color': 'green'},
+            {'range': [1.5, 2], 'color': 'orange'},
+            {'range': [2, 5], 'color': 'red'}],
         'threshold': {
             'line': {'color': "red", 'width': 4},
             'thickness': 0.75,
