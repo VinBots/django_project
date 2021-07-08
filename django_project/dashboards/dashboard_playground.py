@@ -20,8 +20,8 @@ fig = go.Figure(go.Indicator(
     mode = "gauge+number+delta",
     value = 3.2,
     domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Speed", 'font': {'size': 24}},
-    delta = {'reference': 1.5, 'decreasing': {'color': "RebeccaPurple"}},
+    title = {'text': "Expected Warming", 'font': {'size': 24}},
+    delta = {'reference': 1.5, 'increasing': {'color': "Red"}},
     gauge = {
         'axis': {'range': [None, 5], 'tickwidth': 1, 'tickcolor': "darkblue"},
         'bar': {'color': "darkblue"},
@@ -30,7 +30,7 @@ fig = go.Figure(go.Indicator(
         'bordercolor': "gray",
         'steps': [
             {'range': [0, 1.5], 'color': 'cyan'},
-            {'range': [1.5, 4], 'color': 'royalblue'}],
+            {'range': [1.5, 2], 'color': 'royalblue'}],
         'threshold': {
             'line': {'color': "red", 'width': 4},
             'thickness': 0.75,
