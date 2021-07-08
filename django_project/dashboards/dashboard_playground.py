@@ -13,24 +13,22 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 import dash_bootstrap_components as dbc
 
-BS = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-
 app = DjangoDash(
-    "playground_dashboard",
-    add_bootstrap_links=True)
+    "playground_dashboard")
+
+fig = go.Figure(go.Indicator(
+    mode = "gauge+number",
+    value = 270,
+    domain = {'x': [0, 1], 'y': [0, 1]},
+    title = {'text': "Speed"}))
+
+graph = dcc.Graph(
+    figure = fig)
 
 app.layout = html.Div(
-    [
-        dbc.Alert("This is an alert", id="base-alert", color="primary")
-    ]
+    [graph]
 )
 
 if __name__ == '__main__':
     app.run_server(debug=True)
 
-
-"""
-dbc.Alert("This is an alert", id="base-alert", color="primary"),
-dbc.Alert(children="Danger", id="danger-alert", color="danger"),
-dbc.Button("Update session state", id="update-button", color="warning"),
-"""
