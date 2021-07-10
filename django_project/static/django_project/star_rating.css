@@ -11,7 +11,6 @@
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
-  width: 150px;
   border: 1px solid rgb(22, 107, 22);
   box-sizing: border-box;
 }
