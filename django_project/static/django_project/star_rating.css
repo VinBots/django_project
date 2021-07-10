@@ -10,9 +10,7 @@
   display: inline-block;
   font-size: var(--star-size);
   font-family: Times;
-  width: 150px;
   border: 1px solid rgb(22, 107, 22);
-  box-sizing: border-box;
 }
 }
 .Stars::before {
