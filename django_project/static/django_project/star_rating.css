@@ -19,16 +19,3 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-body {
-  background: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-* {
-  position: relative;
-  box-sizing: border-box;
-}
