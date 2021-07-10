@@ -1,6 +1,6 @@
 @charset "UTF-8";
 :root {
-  --star-size: 60px;
+  --star-size: 35px;
   --star-color: #fff;
   --star-background: rgb(22, 107, 22);
 }
