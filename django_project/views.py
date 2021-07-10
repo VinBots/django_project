@@ -98,3 +98,6 @@ def momentum(request):
 
 def playground(request):
   return render (request, "django_project/playground.html")  
+
+def prototype(request):
+  return render (request, "django_project/prototype.html")  

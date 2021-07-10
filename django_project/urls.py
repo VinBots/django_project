@@ -48,4 +48,5 @@ urlpatterns = [
     path('sciencebased.html', views.sciencebased),
     path('momentum.html', views.momentum),
     path('playground.html', views.playground),
+    path('prototype.html', views.prototype),
     ]
