@@ -242,6 +242,7 @@ def create_performance_bubble():
     return graph
 
 def record(company_name=None):
+    
     app = DjangoDash('company_performance_dashboard')
     intensity_bubble = create_performance_bubble()
     ghg_bar = create_ghg_evolution_bar()
