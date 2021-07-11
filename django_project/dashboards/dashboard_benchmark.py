@@ -241,6 +241,12 @@ def create_performance_bubble():
         )
     return graph
 
+@app.expanded_callback(
+     Input('target_id', 'value')
+     )
+def display_output(value):
+    print(value)
+
 app = DjangoDash('performance_company_dashboard', id = 'vehicle_data')
 #intensity_bubble = create_performance_bubble()
 #ghg_bar = create_ghg_evolution_bar()
@@ -249,10 +255,7 @@ app = DjangoDash('performance_company_dashboard', id = 'vehicle_data')
 app.layout = html.Div([
     dcc.Input(id='vehicle_data', type='hidden', value='filler text')]
 
-@app.expanded_callback(
-     [Input('target_id', 'value')])
-def display_output(value):
-    print(value)
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
