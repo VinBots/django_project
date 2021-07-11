@@ -100,4 +100,4 @@ def playground(request):
   return render (request, "django_project/playground.html")  
 
 def prototype(request):
-  return render (request, "django_project/prototype.html")  
+  return render (request, "django_project/proto.html")  
