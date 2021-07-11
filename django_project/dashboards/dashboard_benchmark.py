@@ -18,7 +18,7 @@ a2.layout = html.Div([
     dcc.RadioItems(id="dropdown-one",options=[{'label':i,'value':j} for i,j in [
     ("O2","Oxygen"),("N2","Nitrogen"),("CO2","Carbon Dioxide")]
     ],value="Oxygen"),
-    html.Div(id="output-one")
+    html.Div(children = "hello", id="output-one")
     ])
 
 @a2.callback(
