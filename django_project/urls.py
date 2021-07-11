@@ -28,9 +28,8 @@ dashboards_names = [
     "django_project.dashboards.dashboard_ambition",
     "django_project.dashboards.dashboard_sciencebased",
     "django_project.dashboards.dashboard_momentum",
-    "django_project.dashboards.dashboard_playground",
-    "django_project.dashboards.dashboard_benchmark"
-]
+    "django_project.dashboards.dashboard_playground"
+    ]
 
 for lib in dashboards_names:
     globals()[lib] = __import__(lib)
