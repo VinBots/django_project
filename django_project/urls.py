@@ -31,8 +31,8 @@ dashboards_names = [
     "django_project.dashboards.dashboard_playground",
 ]
 
-#for lib in dashboards_names:
-    #globals()[lib] = __import__(lib)
+for lib in dashboards_names:
+    globals()[lib] = __import__(lib)
 
 
 urlpatterns = [
