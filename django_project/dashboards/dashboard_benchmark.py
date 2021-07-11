@@ -253,9 +253,7 @@ app = DjangoDash('performance_company_dashboard', id = 'vehicle_data')
 
 # Design the app layout
 app.layout = html.Div([
-    dcc.Input(id='vehicle_data', type='hidden', value='filler text')]
-
-
+    dcc.Input(id='vehicle_data', type='hidden', value='filler text')])
 
 if __name__ == '__main__':
     app.run_server(debug=True)
