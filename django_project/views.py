@@ -116,7 +116,7 @@ def playground(request):
 def prototype(request, corp_name = "3m - HELLO WORLD"):
   # record 3M dashboard
   
-  some_dict = {'hidden-div-for-slug': {'children': corp_name}}
+  some_dict = {'hidden-div-for-slug': {'children': "GEENIALLLL"}}
 
   pct_values = get_top_stats()
 
