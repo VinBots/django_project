@@ -2,6 +2,6 @@
 {% include "django_project/head_proto.html" %}
 {% include "django_project/top_menu_temp.html" %}
 {% include "django_project/main_proto1.html" %}
-{% plotly_app name='performance_company_dashboard' initial_arguments=some_dict ratio=1 %}
+{% plotly_app name='performance_company_dashboard' initial_arguments={'hidden-div-for-slug': {'children': "slug"}} ratio=1 %}
 {% include "django_project/main_proto2.html" %}
 {% include "django_project/bottom_temp.html" %}
