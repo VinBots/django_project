@@ -3706,3 +3706,11 @@ input, select, textarea {
   .circle-wrap5 .circle5 .fill5 {
 	animation: fill5 ease-in-out 5s;
   }
+
+.overlay_img {
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	border: 1px solid black;
+	z-index: 1;
+}
