@@ -250,10 +250,6 @@ ghg_bar = create_ghg_evolution_bar()
 app.layout = html.Div([
     html.Div([
         html.Div([
-                html.H1(children='Performance - Key Metrics'),
-                html.H3(children=''),
-        ], className = 'row'),
-        html.Div([
             html.Div(
                 [ghg_bar,
                 intensity_bubble]),
