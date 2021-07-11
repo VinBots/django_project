@@ -247,7 +247,7 @@ app = DjangoDash('performance_company_dashboard')
 
 # Design the app layout
 app.layout = html.Div([
-    html.P(id = "hidden-div-for-slug")
+    html.P(id = "hidden-div-for-slug"),
     html.Div(id = 'hidden-div-for-slug'),
     html.Div('Hello')])
 
