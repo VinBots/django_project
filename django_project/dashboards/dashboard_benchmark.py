@@ -247,8 +247,12 @@ app = DjangoDash('performance_company_dashboard', id = 'vehicle_data')
 
 # Design the app layout
 app.layout = html.Div([
-    html.P(id='vehicle_data'),
-    html.Div('Hello')])
+    dcc.Input(id='vehicle_data', type='hidden', value='filler text')]
+
+@app.expanded_callback(
+     [Input('target_id', 'value')])
+def display_output(value):
+    print(value)
 
 if __name__ == '__main__':
     app.run_server(debug=True)

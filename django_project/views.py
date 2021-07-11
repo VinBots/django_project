@@ -136,7 +136,7 @@ def prototype(request, corp_name = "3m - HELLO WORLD"):
 def session_state_view(request, template_name='test.html', **kwargs):
 
     # Set up a context dict here
-    context = {'data':{"vehicle_data":{"content" : 1000}}}
+    context = {'data':{"vehicle_data":{"value" : 1000}}}
     return render(request, "django_project/test.html", context=context)
 
 
