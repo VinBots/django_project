@@ -105,6 +105,10 @@ def prototype(request, company_name = "3m - HELLO WORLD"):
   # record 3M dashboard
   record(company_name)
   
+  pct_values = get_top_stats()
+
+  angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
+
   return render (request, "django_project/proto.html", {
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
