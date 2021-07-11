@@ -247,7 +247,7 @@ app = DjangoDash('performance_company_dashboard', id = 'vehicle_data')
 
 # Design the app layout
 app.layout = html.Div([
-    html.P(id="vehicle_data"),
+    html.P(id='vehicle_data'),
     html.Div('Hello')])
 
 if __name__ == '__main__':
