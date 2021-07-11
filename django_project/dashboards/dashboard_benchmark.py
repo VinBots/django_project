@@ -13,6 +13,70 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
 
+def create_ghg_evolution_bar():
+
+    #Excel file path
+    xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
+
+    # Select which columns to extract
+    cols_to_use = ['Sector', 'Science-Based Target? (Y/N)']
+    
+    # Connect to the data source
+    df = get_data(
+        xlsx_path, 
+        'company', 
+        cols_to_use,
+        )
+    
+    y0 = df[df['Science-Based Target? (Y/N)'] == 'Y'].groupby('Sector').size()
+    y1 = df[df['Science-Based Target? (Y/N)'] == 'N'].groupby('Sector').size()
+
+    trace1 = go.Bar(
+        x=list(y0.index),
+        y=y0,
+        text = y0,
+        textposition='auto',
+        name = 'Approved',
+        marker = dict(
+            color = 'green',
+            line = dict(
+                color = 'green',
+                width = 2)))
+    
+    trace2 = go.Bar(
+        x=list(y1.index),
+        y=y1,
+        text = y1,
+        textposition='auto',
+        name = 'No',
+        marker = dict(
+            color = 'white',
+            line = dict(color = 'green',
+            width = 2)))
+    
+    data = [trace1, trace2]
+    
+    layout = go.Layout (
+        barmode = 'stack',
+        title = 'SBTi-approved Goals by sector in S&P 100',
+        titlefont = dict(family = 'Arial'),
+        xaxis = dict(tickangle = 35, categoryorder = 'category ascending'),
+        showlegend = True,
+        legend = dict(title = dict (text = "SBTi-approved Goals",
+        font = dict(color = 'green'))),
+        plot_bgcolor = 'antiquewhite'
+        )
+
+    graph = dcc.Graph(
+        id='barchart',
+        figure = {
+            'data': data,
+            'layout': layout})
+
+    return graph
+
+    return graph
+
 def create_performance_bubble():
 
     #Excel file path
@@ -178,8 +242,9 @@ def create_performance_bubble():
     
     return graph
 
-app = DjangoDash('performance_dashboard')
-performance_barchart = create_performance_bubble()
+app = DjangoDash('3m_performance_dashboard')
+intensity_bubble = create_performance_bubble()
+ghg_bar = create_ghg_evolution_bar()
 
 # Design the app layout
 app.layout = html.Div([
@@ -189,10 +254,9 @@ app.layout = html.Div([
                 html.H3(children=''),
         ], className = 'row'),
         html.Div([
-            html.Div([performance_barchart,
-                    html.Br(),
-                    html.Br(),
-                    html.Br()]),
+            html.Div(
+                [ghg_bar,
+                intensity_bubble]),
             html.Div([]),])])])
 
 if __name__ == '__main__':
