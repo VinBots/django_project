@@ -15,6 +15,7 @@ import os
 import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
+from django_project.dashboards.record_dashboard_benchmark import record
 
 helloWorld = """
 <!DOCTYPE html>
@@ -115,6 +116,8 @@ def playground(request):
 def prototype(request, company_name = "3m - HELLO WORLD"):
   # record 3M dashboard
   
+  record(company_name)
+
   pct_values = get_top_stats()
 
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]

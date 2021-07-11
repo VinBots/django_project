@@ -253,5 +253,6 @@ def record(company_name=None):
             html.Div([
                 html.Div(
                     [ghg_bar,
-                    intensity_bubble]),
+                    intensity_bubble,
+                    "HELLO FROM DASHBOOOARRD!"]),
                 html.Div([company_name]),])])])
