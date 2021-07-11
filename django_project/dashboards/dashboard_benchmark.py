@@ -241,14 +241,13 @@ def create_performance_bubble():
         )
     return graph
 
-app = DjangoDash('performance_company_dashboard')
+app = DjangoDash('performance_company_dashboard', id = 'vehicle_data')
 #intensity_bubble = create_performance_bubble()
 #ghg_bar = create_ghg_evolution_bar()
 
 # Design the app layout
 app.layout = html.Div([
-    html.P(id="hidden-div-for-slug"),
-    html.Div(id='hidden-div-for-slug'),
+    html.P(id="vehicle_data"),
     html.Div('Hello')])
 
 if __name__ == '__main__':
