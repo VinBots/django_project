@@ -246,13 +246,7 @@ intensity_bubble = create_performance_bubble()
 ghg_bar = create_ghg_evolution_bar()
 
 # Design the app layout
-app.layout = html.Div([
-    html.Div([
-        html.Div([
-            html.Div(
-                [ghg_bar,
-                intensity_bubble]),
-            html.Div([]),])])])
+app.layout = html.Div(id = 'hidden-div-for-slug')
 
 if __name__ == '__main__':
     app.run_server(debug=True)

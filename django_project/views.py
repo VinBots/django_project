@@ -121,14 +121,16 @@ def prototype(request, corp_name = "3m - HELLO WORLD"):
   pct_values = get_top_stats()
 
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
-
-  return render (request, "django_project/proto.html", {
+  some_dict = {
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
     "angle3":angle_deg[2],"value3":str(pct_values[2]),
     "corp_name": corp_name,
-    })
+    'hidden-div-for-slug': {'children': corp_name},
+    }
+
+  return render (request, "django_project/proto.html", some_dict)
 
  
 
