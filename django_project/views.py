@@ -113,10 +113,10 @@ def momentum(request):
 def playground(request):
   return render (request, "django_project/playground.html")  
 
-def prototype(request, company_name = "3m - HELLO WORLD"):
+def prototype(request, corp_name = "3m - HELLO WORLD"):
   # record 3M dashboard
   
-  record(company_name)
+  some_dict = {'hidden-div-for-slug': {'children': corp_name}}
 
   pct_values = get_top_stats()
 
@@ -126,7 +126,8 @@ def prototype(request, company_name = "3m - HELLO WORLD"):
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
-    "angle3":angle_deg[2],"value3":str(pct_values[2])
+    "angle3":angle_deg[2],"value3":str(pct_values[2]),
+    "corp_name": corp_name,
     })
 
  
