@@ -137,7 +137,7 @@ def session_state_view(request, template_name='test.html', **kwargs):
 
     # Set up a context dict here
     context = {'data':{"vehicle_data":{"children" : 1000}}}
-    return render(request, template_name=template_name, context=context)
+    return render(request, "django_project/test.html", context=context)
 
 
     
