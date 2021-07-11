@@ -13,7 +13,7 @@
   line-height: 1;
 }
 .Stars::before {
-  content: "☘☘☘☘☘";
+  content: "☘️☘️☘☘☘";
   letter-spacing: 3px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   -webkit-background-clip: text;
@@ -21,7 +21,7 @@
 }
 
 .fa_Stars{
-  content: "☘☘☘☘☘";
+  content: "☘️☘️☘️☘️☘️";
   --percent: calc(var(--fa_rating) / 5 * 100%);
   display: inline-block;
 }
