@@ -1,6 +1,6 @@
 :root {
-  --star-size: 35px;
-  --star-color: #fff;
+  --star-size: 45px;
+  --star-color: rgba(63, 61, 61, 0.185);
   --star-background: rgb(22, 107, 22);
 }
 
@@ -10,9 +10,7 @@
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
-  box-sizing: border-box;
 }
-
 .Stars::before {
   content: "☘☘☘☘☘";
   letter-spacing: 3px;
