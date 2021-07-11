@@ -241,18 +241,16 @@ def create_performance_bubble():
         )
     return graph
 
-app = DjangoDash('3m_performance_dashboard')
-intensity_bubble = create_performance_bubble()
-ghg_bar = create_ghg_evolution_bar()
+def record(company_name):
+    app = DjangoDash('3m_performance_dashboard')
+    intensity_bubble = create_performance_bubble()
+    ghg_bar = create_ghg_evolution_bar()
 
-# Design the app layout
-app.layout = html.Div([
-    html.Div([
+    # Design the app layout
+    app.layout = html.Div([
         html.Div([
-            html.Div(
-                [ghg_bar,
-                intensity_bubble]),
-            html.Div([]),])])])
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
+            html.Div([
+                html.Div(
+                    [ghg_bar,
+                    intensity_bubble]),
+                html.Div([company_name]),])])])

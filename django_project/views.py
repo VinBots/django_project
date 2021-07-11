@@ -2,6 +2,8 @@ from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
 import random
 from django_project.utilities import get_top_stats
+from django_project.dashboards.record_dashboard_benchmark import record
+
 
 helloWorld = """
 <!DOCTYPE html>
@@ -99,5 +101,15 @@ def momentum(request):
 def playground(request):
   return render (request, "django_project/playground.html")  
 
-def prototype(request):
-  return render (request, "django_project/proto.html")  
+def prototype(request, company_name = "3m - HELLO WORLD"):
+  # record 3M dashboard
+  record(company_name)
+  
+  return render (request, "django_project/proto.html", {
+    "color_key_fig": "#00b118",
+    "angle1":angle_deg[0],"value1":str(pct_values[0]),
+    "angle2":angle_deg[1],"value2":str(pct_values[1]),
+    "angle3":angle_deg[2],"value3":str(pct_values[2])
+    })
+
+ 
