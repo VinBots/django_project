@@ -242,8 +242,8 @@ def create_performance_bubble():
     return graph
 
 app = DjangoDash('performance_company_dashboard')
-intensity_bubble = create_performance_bubble()
-ghg_bar = create_ghg_evolution_bar()
+#intensity_bubble = create_performance_bubble()
+#ghg_bar = create_ghg_evolution_bar()
 
 # Design the app layout
 app.layout = html.Div(id = 'hidden-div-for-slug')
