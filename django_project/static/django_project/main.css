@@ -3709,8 +3709,12 @@ input, select, textarea {
 
 .overlay_img {
 	position: absolute;
-	left: 100px;
-	top: 100px;
+	left: 10px;
+	top: 10px;
 	border: 1px solid black;
 	z-index: 1;
 }
+
+.container_img {
+	position: relative;
+  }
