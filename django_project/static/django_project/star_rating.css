@@ -13,7 +13,7 @@
   line-height: 1;
 }
 .Stars::before {
-  content: "🌿🌿🌿🌿🌿";
+  content: "☘☘☘☘☘";
   letter-spacing: 3px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   -webkit-background-clip: text;
