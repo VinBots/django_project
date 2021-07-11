@@ -64,7 +64,7 @@ urlpatterns = [
     path('momentum.html', views.momentum),
     path('playground.html', views.playground),
     path('proto.html/<str:corp_name>/', views.prototype),
-    path ('test', views.session_state_view),
+    path ('test.html', views.session_state_view),
     ]
 
 
