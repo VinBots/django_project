@@ -306,4 +306,4 @@ app.layout = html.Div([
             html.Div(
                 [ghg_bar,
                 intensity_bubble]),
-            html.Div([company_name]),])])])
+            html.Div(["HELLO WORLD FROM URLS"]),])])])
