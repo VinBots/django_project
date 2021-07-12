@@ -22,7 +22,7 @@ app.layout = html.Div(
     ])
 
 @app.callback(
-    Output(component_id = 'company_name', component_property = 'children'),
+    Output(component_id = 'company_name', component_property = 'value'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
 def display_output(value, **kwargs):
