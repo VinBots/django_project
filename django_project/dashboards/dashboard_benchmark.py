@@ -29,7 +29,7 @@ app.layout = html.Div(
     )
 def display_output(value, session_state = None, **kwargs):
     if session_state is None:
-        raise NotImplementedError ("Cannot handle a missing session state")
+        return "session state is none"
     csf = session_state.get('demo_state', None)
     if not csf:
         csf = dict(clicks=value)
