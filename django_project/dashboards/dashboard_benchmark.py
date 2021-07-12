@@ -23,7 +23,7 @@ app.layout = html.Div(
         html.Div('HEllo AGAIN!'),
         ])
 
-@app.extended_callback(
+@app.expanded_callback(
     Output(component_id = 'another_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
