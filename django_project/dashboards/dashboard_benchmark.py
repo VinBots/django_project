@@ -18,12 +18,12 @@ import dash_bootstrap_components as dbc
 
 app = DjangoDash(
     name = "Ex2",
-    id = "company_name",
+    new = "company_name",
     )
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
-        dcc.RadioItems(id = 'company_name', options = [
+        dcc.RadioItems(id=new, options = [
             {'label': 'O2', 'value': 'Oxygen'},
             {'label': 'corp', 'value': "OLD VALUE"}], value = "Oxygen"),
         html.Div(id = 'another_name', children = 'output'),
