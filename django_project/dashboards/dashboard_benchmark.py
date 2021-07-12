@@ -22,7 +22,6 @@ app.layout = html.Div(
         dcc.Input(id = 'company_name', type='hidden' , value = 'xx'),
         html.Div(id = 'another_name'),
         html.Div('HEllo AGAIN!'),
-        dcc.Store(id='company_name')
         ])
 
 @app.callback(
