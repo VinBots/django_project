@@ -24,6 +24,7 @@ app.layout = html.Div(
     html.Div(id = 'another_name'),
     html.Div('HEllo AGAIN!')
     ])
+
 @app.callback(
     Output(component_id = 'another_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
