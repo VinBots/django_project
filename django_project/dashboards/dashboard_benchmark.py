@@ -15,9 +15,8 @@ from dash_table.Format import Format, Group, Scheme
 def getlayout():
     return html.Div(
         [html.Div('HELLO WORLD'),
-        dcc.Input(id = 'company_name', type='hidden' , value = ''),
+        dcc.Input(id = 'company_name', type='hidden' , value = 'xx'),
         html.Div(id = 'another_name'),
-        html.Div(id = 'company_name'),
         html.Div('HEllo AGAIN!'),
         dcc.Store(id='company_name')
         ])
