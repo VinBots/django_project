@@ -25,7 +25,10 @@ app = DjangoDash(
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
-        dcc.Input(id = 'company_name', type = 'text', value = ''),
+        dcc.Dropdown(id = 'company_name', options = [
+            {'label': 'O2', 'value': 'Oxygen'},
+            {'label': 'corp', 'value': 'new_company'}
+            ]),
         html.Div(id = 'another_name', children = 'output'),
         html.Div('HEllo AGAIN!'),
         ])
