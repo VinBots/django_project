@@ -16,30 +16,14 @@ app = DjangoDash(
     name = 'Ex2', 
     cache_arguments = True,
     id = 'company_name',
-    cache_timeout_initial_arguments = 1)
+    cache_timeout_initial_arguments = 1,
+    )
 
-app.layout = html.Div([
-    # represents the URL bar, doesn't render anything
-    dcc.Location(id='url', refresh=False),
-
-    dcc.Link('Navigate to "/"', href='/'),
-    html.Br(),
-    dcc.Link('Navigate to "/page-2"', href='/page-2'),
-
-    # content will be rendered in this element
-    html.Div(id='page-content')
-])
+app.config['suppress_callback_exceptions']=True
+#app.config['cache_arguments'] = True
+#app.config['cache_timeout_initial_arguments'] = 1
 
 
-@app.callback(dash.dependencies.Output('page-content', 'children'),
-              [dash.dependencies.Input('url', 'pathname')])
-def display_page(pathname):
-    return html.Div([
-        html.H3('You are on page {}'.format(pathname))
-    ])
-
-
-"""
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
         dcc.Input(id = 'company_name', type = 'text', value = ''),
@@ -51,8 +35,8 @@ app.layout = html.Div(
     Output(component_id = 'another_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
-def display_output(x):#, session_state = None, **kwargs):
-    
+def display_output(x, *args, **kwargs):
+    """
     if session_state is None:
         return "session state is none"
     csf = session_state.get('demo_state', None)
@@ -61,6 +45,5 @@ def display_output(x):#, session_state = None, **kwargs):
         session_state['demo_state'] = csf
     else:
         csf['clicks'] = value
-    
-    return "call back done " + x
-"""
+    """
+    return "call back done input = {} args = {} kwargs = {}".format(x, args, kwargs)
