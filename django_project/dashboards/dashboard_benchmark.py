@@ -18,11 +18,13 @@ a2 = DjangoDash(
 
 a2.layout = html.Div(
     [html.Div('HELLO WORLD'),
-    dcc.Input(id = 'company_name', type = 'hidden', value = 'filler text')
+    dcc.Input(id = 'company_name', type = 'hidden', value = 'filler text'),
+    html.Div(id = 'output_company_name')
     ])
 
 @a2.callback(
-    [Input('target_id', 'value')]
+    Output('output_company_name', 'children'),
+    [Input('company_name', 'value')]
     )
 def display_output(value):
     print (value)
