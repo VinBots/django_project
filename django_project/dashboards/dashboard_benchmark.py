@@ -12,7 +12,6 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
-
 app = DjangoDash(
     name = 'Ex2', 
     id = 'company_name')
@@ -28,7 +27,15 @@ app.layout = html.Div(
     Output(component_id = 'another_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
-def display_output(value, **kwargs):
+def display_output(value, session_state = None, **kwargs):
+    if session_state is None:
+        raise NotImplementedError ("Cannot handle a missing session state")
+    csf = session_state.get('demo_state', None)
+    if not csf:
+        csf = dict(clicks=value)
+        session_state['demo_state'] = csf
+    else:
+        csf['clicks'] = value
     return "call back done " + value
 
 """

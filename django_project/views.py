@@ -134,11 +134,19 @@ def prototype(request, corp_name = "3m - HELLO WORLD"):
 
 def session_state_view(request, template_name='test.html', **kwargs):
 
-  #session = request.session
+  session = request.session
 
+  demo_count = session.get('django_plotly_dash', {})
+  ind_use = demo_count.get('ind_use', 'new company is old')
+  ind_use = 'new company is old'
+  demo_count['ind_use'] = ind_use
+  session['django_plotly_dash'] = demo_count
+
+  # Use some of the information during template rendering
+  context = {'ind_use' : ind_use}
 
   # Set up a context dict here
-  context = {'data':{"company_name":{"value":"new company"}}}
+  #context = {'data':{"company_name":{"value":"new company"}}}
 
   return render(
     request,
