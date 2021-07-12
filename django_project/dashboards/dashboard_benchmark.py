@@ -19,7 +19,7 @@ app = DjangoDash(
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
-        dcc.Input(id = 'company_name' , value = ''),
+        dcc.Input(id = 'company_name', type = 'text', value = 'hello'),
         html.Div(id = 'another_name', children = 'output'),
         html.Div('HEllo AGAIN!'),
         ])
