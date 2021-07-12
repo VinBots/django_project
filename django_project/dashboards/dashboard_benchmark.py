@@ -23,9 +23,7 @@ def getlayout():
 
 app = DjangoDash(
     name = 'Ex2', 
-    id = 'company_name',
-    serve_locally=False, 
-    suppress_callback_exceptions=True)
+    id = 'company_name')
 
 app.layout = getlayout()
 
