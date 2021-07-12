@@ -21,7 +21,7 @@ a2.layout = html.Div(
     dcc.Input(id = 'company_name', type = 'hidden', value = 'filler text')
     ])
 
-@a2.expended_callback(
+@a2.callback(
     [Input('target_id', 'value')]
     )
 def display_output(value):
