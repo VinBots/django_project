@@ -17,9 +17,10 @@ app = DjangoDash(
     cache_arguments = True,
     id = 'company_name',
     cache_timeout_initial_arguments = 1,
+    suppress_callback_exceptions = True
     )
 
-app.config['suppress_callback_exceptions']=True
+#app.config['suppress_callback_exceptions']=True
 #app.config['cache_arguments'] = True
 #app.config['cache_timeout_initial_arguments'] = 1
 
