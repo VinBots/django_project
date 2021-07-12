@@ -24,12 +24,12 @@ app.layout = html.Div(
     html.Div(id = 'another_name'),
     html.Div('HEllo AGAIN!')
     ])
-@app.callback(
+@app.expanded_callback(
     Output(component_id = 'another_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
 def display_output(value, **kwargs):
-    return "call back done " + value
+    return "call back done " + value + kwargs
 
 """
 app.layout = html.Div([
