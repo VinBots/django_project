@@ -12,11 +12,13 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
-app = DjangoDash(name = 'Ex2', id = 'company_name')
+app = DjangoDash(
+    name = 'Ex2', 
+    id = 'company_name')
 
 app.layout = html.Div(
     [html.Div('HELLO WORLD'),
-    dcc.Input(id = 'company_name', hidden = True, type = 'text', value = 'filler'),
+    dcc.Input(id = 'company_name', type='hidden' , value = 'filler'),
     html.Div(id = 'another_name'),
     html.Div('HEllo AGAIN!')
     ])
@@ -25,7 +27,7 @@ app.layout = html.Div(
     [Input(component_id = 'company_name', component_property = 'value')]
     )
 def display_output(value, **kwargs):
-    return "Output: {}".format(value)
+    return value
 
 """
 app.layout = html.Div([
