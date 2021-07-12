@@ -41,7 +41,7 @@ dis = DjangoDash("DjangoSessionState",
 dis.layout = html.Div(
     [
         html.Div(children="Danger", id="danger-alert"),
-        Input("Update session state", id="update-button", color="warning"),
+        Input(id="update-button", value="warning"),
     ]
 )
 
