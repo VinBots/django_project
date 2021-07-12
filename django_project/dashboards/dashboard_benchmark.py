@@ -47,7 +47,7 @@ dis.layout = html.Div(
 
 @dis.callback(
     dash.dependencies.Output("danger-alert", 'children'),
-    [dash.dependencies.Input('update-button', 'n_clicks'),]
+    [dash.dependencies.Input('update-button', 'value'),]
     )
 def session_demo_danger_callback(n_clicks, session_state=None, **kwargs):
     if session_state is None:
