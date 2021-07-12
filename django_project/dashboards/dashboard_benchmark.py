@@ -11,6 +11,7 @@ import os
 import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
+import dash_bootstrap_components as dbc
 
 
 
@@ -32,6 +33,35 @@ app.layout = html.Div(
         html.Div(id = 'another_name', children = 'output'),
         html.Div('HEllo AGAIN!'),
         ])
+
+
+
+
+dis = DjangoDash("DjangoSessionState",
+                 add_bootstrap_links=True)
+
+dis.layout = html.Div(
+    [
+        dbc.Alert("This is an alert", id="base-alert", color="primary"),
+        dbc.Alert(children="Danger", id="danger-alert", color="danger"),
+        dbc.Button("Update session state", id="update-button", color="warning"),
+    ]
+)
+
+@dis.callback(
+    dash.dependencies.Output("danger-alert", 'children'),
+    [dash.dependencies.Input('update-button', 'n_clicks'),]
+    )
+def session_demo_danger_callback(n_clicks, session_state=None, **kwargs):
+    if session_state is None:
+        raise NotImplementedError("Cannot handle a missing session state")
+    csf = session_state.get('bootstrap_demo_state', None)
+    if not csf:
+        csf = dict(clicks=0)
+        session_state['bootstrap_demo_state'] = csf
+    else:
+        csf['clicks'] = n_clicks
+    return "Button has been clicked %s times since the page was rendered" %n_clicks
 
 @app.callback(
     Output(component_id = 'another_name', component_property = 'children'),
