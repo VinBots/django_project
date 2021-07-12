@@ -14,11 +14,12 @@ from dash_table.Format import Format, Group, Scheme
 
 app = DjangoDash(
     name = 'Ex2', 
+    cache_arguments = False,
     id = 'company_name')
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
-        dcc.Dropdown(id = 'company_name' , value = 'xx'),
+        dcc.Input(id = 'company_name' , value = ''),
         html.Div(id = 'another_name', children = 'output'),
         html.Div('HEllo AGAIN!'),
         ])
