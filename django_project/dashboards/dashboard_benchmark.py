@@ -27,7 +27,7 @@ app.layout = html.Div(
     [Input(component_id = 'company_name', component_property = 'value')]
     )
 def display_output(value, **kwargs):
-    return value
+    return "call back done " + value
 
 """
 app.layout = html.Div([
