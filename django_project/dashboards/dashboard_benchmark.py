@@ -20,7 +20,8 @@ app = DjangoDash(
     cache_arguments = True,
     id = 'company_name',
     cache_timeout_initial_arguments = 1,
-    suppress_callback_exceptions = True
+    suppress_callback_exceptions = True,
+    serve_locally = False
     )
 
 app.layout = html.Div(
