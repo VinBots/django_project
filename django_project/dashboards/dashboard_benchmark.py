@@ -12,20 +12,18 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
-def getlayout():
-    return html.Div(
+
+app = DjangoDash(
+    name = 'Ex2', 
+    id = 'company_name')
+
+app.layout = html.Div(
         [html.Div('HELLO WORLD'),
         dcc.Input(id = 'company_name', type='hidden' , value = 'xx'),
         html.Div(id = 'another_name'),
         html.Div('HEllo AGAIN!'),
         dcc.Store(id='company_name')
         ])
-
-app = DjangoDash(
-    name = 'Ex2', 
-    id = 'company_name')
-
-app.layout = getlayout()
 
 @app.callback(
     Output(component_id = 'another_name', component_property = 'children'),
