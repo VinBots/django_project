@@ -23,9 +23,9 @@ a2.layout = html.Div(
     html.Div('HEllo AGAIN!')
     ])
 
-@a2.callback(
+@a2.expanded_callback(
     Output('output_company_name', 'children'),
     [Input('company_name', 'value')]
     )
-def display_output(value):
+def display_output(value, **kwargs):
     print (value)
