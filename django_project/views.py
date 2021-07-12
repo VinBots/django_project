@@ -139,8 +139,7 @@ def session_state_view(request, template_name='test.html', **kwargs):
 
 
   # Set up a context dict here
-  context = {'data':{"company_name":{"value":"3m"}}}
-  context['data'] = {'company_name' : {'value': '3m'}}
+  context = {'data':{"company_name":{"value":"new company"}}}
 
   return render(
     request,
