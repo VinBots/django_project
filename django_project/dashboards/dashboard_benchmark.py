@@ -28,4 +28,4 @@ a2.layout = html.Div(
     [Input('company_name', 'value')]
     )
 def display_output(value, **kwargs):
-    print (value)
+    print (kwargs)
