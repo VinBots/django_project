@@ -14,8 +14,9 @@ from dash_table.Format import Format, Group, Scheme
 
 app = DjangoDash(
     name = 'Ex2', 
-    cache_arguments = False,
-    id = 'company_name')
+    cache_arguments = True,
+    id = 'company_name',
+    cache_timeout_initial_arguments = 1)
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
