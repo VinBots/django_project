@@ -25,7 +25,7 @@ a2.layout = html.Div(
 
 @a2.callback(
     Output('output_company_name', 'children'),
-    [Input('company_name', 'children')]
+    [Input('company_name', 'value')]
     )
 def display_output(value):
     print (value)
