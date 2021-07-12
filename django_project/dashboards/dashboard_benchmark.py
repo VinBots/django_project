@@ -33,7 +33,7 @@ def display_output(value, **kwargs):
 app.layout = html.Div([
     html.H6("Change the value in the text box to see callbacks in action!"),
     html.Div(["Input: ",
-              Input(id='my-input', value='initial value', type='text')]),
+              dcc.Input(id='my-input', value='initial value', type='text')]),
     html.Br(),
     html.Div(id='my-output'),
 ])
