@@ -27,7 +27,7 @@ app.layout = html.Div(
     Output(component_id = 'another_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
-def display_output(value)#, session_state = None, **kwargs):
+def display_output(value):#, session_state = None, **kwargs):
     """
     if session_state is None:
         return "session state is none"
@@ -39,20 +39,3 @@ def display_output(value)#, session_state = None, **kwargs):
         csf['clicks'] = value
     """
     return "call back done " + value
-
-"""
-app.layout = html.Div([
-    html.H6("Change the value in the text box to see callbacks in action!"),
-    html.Div(["Input: ",
-              dcc.Input(id='company_name', value='initial value', type='text')]),
-    html.Br(),
-    html.Div(id='my-output'),
-])
-
-@app.callback(
-    Output(component_id='my-output', component_property='children'),
-    [Input(component_id='my-input', component_property='value')]
-)
-def update_output_div(input_value):
-    return 'Output: {}'.format(input_value)
-"""
