@@ -27,7 +27,7 @@ app = DjangoDash(
     serve_locally=False, 
     suppress_callback_exceptions=True)
 
-app.layout = getlayout
+app.layout = getlayout()
 
 @app.callback(
     Output(component_id = 'another_name', component_property = 'children'),
