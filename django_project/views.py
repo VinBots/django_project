@@ -160,7 +160,7 @@ def session_state_view(request, template_name, **kwargs):
   demo_count = session.get('django_plotly_dash', {})
 
   ind_use = demo_count.get('ind_use', 0)
-  ind_use += 1
+  #ind_use += 1
   demo_count['ind_use'] = ind_use
   session['django_plotly_dash'] = demo_count
 
