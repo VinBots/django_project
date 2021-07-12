@@ -25,9 +25,9 @@ app = DjangoDash(
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
-        dcc.Dropdown(id = 'company_name', options = [
+        dcc.RadioItems(id = 'company_name', options = [
             {'label': 'O2', 'value': 'Oxygen'},
-            {'label': 'corp', 'value': 'new_company'}], value = 'xx'),
+            {'label': 'corp', 'value': 'new_company'}], value = "Oxygen"),
         html.Div(id = 'another_name', children = 'output'),
         html.Div('HEllo AGAIN!'),
         ])
