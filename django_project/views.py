@@ -167,4 +167,4 @@ def session_state_view(request, template_name, **kwargs):
   # Use some of the information during template rendering
   context = {'ind_use' : ind_use}
 
-  return render(request, template_name=template_name, context=context)
+  return render(request, template_name="django_project/test.html", context=context)
