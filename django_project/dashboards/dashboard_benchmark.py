@@ -14,15 +14,14 @@ from dash_table.Format import Format, Group, Scheme
 
 app = DjangoDash(name = 'Ex2', id = 'company_name')
 
-
 app.layout = html.Div(
     [html.Div('HELLO WORLD'),
-    dcc.Input(id = 'company_name', type = 'text', value = 'filler text'),
+    dcc.Input(id = 'company_name', type = 'hidden', value = 'filler text'),
     html.Div(id = 'output_company_name'),
     html.Div('HEllo AGAIN!')
     ])
 
-@app.expanded_callback(
+@app.callback(
     Output(component_id = 'output_company_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
