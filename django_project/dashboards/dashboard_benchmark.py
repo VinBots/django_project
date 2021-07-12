@@ -12,18 +12,16 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
+
+
+
 app = DjangoDash(
     name = 'Ex2', 
-    cache_arguments = True,
+    cache_arguments = False,
     id = 'company_name',
     cache_timeout_initial_arguments = 1,
     suppress_callback_exceptions = True
     )
-
-#app.config['suppress_callback_exceptions']=True
-#app.config['cache_arguments'] = True
-#app.config['cache_timeout_initial_arguments'] = 1
-
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
