@@ -12,9 +12,7 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
-app = DjangoDash(
-    name = 'Ex2')
-#id = company_name
+app = DjangoDash(name = 'Ex2')
 
 """
 a2.layout = html.Div(
