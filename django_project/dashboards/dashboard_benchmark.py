@@ -12,19 +12,17 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
-a2 = DjangoDash("Ex2")
+a2 = DjangoDash(
+    name = 'Ex2',
+    id = 'company_name')
 
-a2.layout = html.Div([
-    dcc.RadioItems(id="dropdown-one",options=[{'label':i,'value':j} for i,j in [
-    ("O2","Oxygen"),("N2","Nitrogen"),("CO2","Carbon Dioxide")]
-    ],value="Oxygen"),
-    html.Div(children = "hello", id="output-one")
+a2.layout = html.Div(
+    [html.Div('HELLO WORLD'),
+    dcc.Input(id = 'company_name', type = 'hidden', value = 'filler text')
     ])
 
-@a2.callback(
-    dash.dependencies.Output('output-one','children'),
-    [dash.dependencies.Input('dropdown-one','value')]
+@a2.expended_callback(
+    [Input('target_id', 'value')]
     )
-def callback_c(*args,**kwargs):
-    da = kwargs['dash_app']
-    return "Args are [%s] and kwargs are %s" %(",".join(args), kwargs)
+def display_output(value):
+    print (value)
