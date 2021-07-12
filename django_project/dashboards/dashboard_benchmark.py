@@ -13,8 +13,8 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
 app = DjangoDash(
-    name = 'Ex2',
-    id = 'company_name')
+    name = 'Ex2')
+#id = company_name
 
 """
 a2.layout = html.Div(
