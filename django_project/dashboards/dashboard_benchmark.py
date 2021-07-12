@@ -20,7 +20,7 @@ app = DjangoDash(
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
-        dcc.Input(id = 'company_name', type = 'text'),
+        dcc.Input(id = 'company_name', type = 'text', value = ''),
         html.Div(id = 'another_name', children = 'output'),
         html.Div('HEllo AGAIN!'),
         ])
@@ -29,7 +29,7 @@ app.layout = html.Div(
     Output(component_id = 'another_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
-def display_output(value):#, session_state = None, **kwargs):
+def display_output(x):#, session_state = None, **kwargs):
     """
     if session_state is None:
         return "session state is none"
@@ -40,4 +40,4 @@ def display_output(value):#, session_state = None, **kwargs):
     else:
         csf['clicks'] = value
     """
-    return "call back done " + value
+    return "call back done " + x
