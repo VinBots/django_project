@@ -23,7 +23,7 @@ app.layout = html.Div(
 
 @app.callback(
     Output(component_id = 'company_name', component_property = 'value'),
-    [Input(component_id = 'company_name', component_property = 'value')]
+    [Input(component_id = 'another_name', component_property = 'value')]
     )
 def display_output(value, **kwargs):
     return 'Output: {}'.format(value)
