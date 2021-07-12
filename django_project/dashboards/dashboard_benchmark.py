@@ -12,28 +12,28 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 
-app = DjangoDash(name = 'Ex2')
+app = DjangoDash(name = 'Ex2', id = 'company_name')
 
-"""
-a2.layout = html.Div(
+
+app.layout = html.Div(
     [html.Div('HELLO WORLD'),
     dcc.Input(id = 'company_name', type = 'text', value = 'filler text'),
     html.Div(id = 'output_company_name'),
     html.Div('HEllo AGAIN!')
     ])
 
-@a2.expanded_callback(
-    Output('output_company_name', 'children'),
-    [Input('company_name', 'value')]
+@app.expanded_callback(
+    Output(component_id = 'output_company_name', component_property = 'children'),
+    [Input(component_id = 'company_name', component_property = 'value')]
     )
 def display_output(value, **kwargs):
     return 'Output: {}'.format(value)
-"""
 
+"""
 app.layout = html.Div([
     html.H6("Change the value in the text box to see callbacks in action!"),
     html.Div(["Input: ",
-              dcc.Input(id='my-input', value='initial value', type='text')]),
+              dcc.Input(id='company_name', value='initial value', type='text')]),
     html.Br(),
     html.Div(id='my-output'),
 ])
@@ -44,3 +44,4 @@ app.layout = html.Div([
 )
 def update_output_div(input_value):
     return 'Output: {}'.format(input_value)
+"""
