@@ -20,14 +20,13 @@ app.layout = html.Div(
     html.Div(id = 'another_name'),
     html.Div('HEllo AGAIN!')
     ])
-"""
 @app.callback(
     Output(component_id = 'another_name', component_property = 'children'),
     [Input(component_id = 'company_name', component_property = 'value')]
     )
 def display_output(value, **kwargs):
     return 'Output: {}'.format(kwargs)
-"""
+
 """
 app.layout = html.Div([
     html.H6("Change the value in the text box to see callbacks in action!"),
