@@ -190,7 +190,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
-"""
+
 PLOTLY_DASH = {
 
     # Route used for the message pipe websocket connection
@@ -217,4 +217,3 @@ PLOTLY_DASH = {
     # Flag controlling local serving of assets
     "serve_locally': False,
 }
-"""
