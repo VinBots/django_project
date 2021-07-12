@@ -17,9 +17,10 @@ def getlayout():
         [html.Div('HELLO WORLD'),
         dcc.Input(id = 'company_name', type='hidden' , value = ''),
         html.Div(id = 'another_name'),
-        html.Div('HEllo AGAIN!')
+        html.Div(id = 'company_name'),
+        html.Div('HEllo AGAIN!'),
+        dcc.Store(id='company_name')
         ])
-
 
 app = DjangoDash(
     name = 'Ex2', 
