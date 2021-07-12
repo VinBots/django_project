@@ -17,7 +17,7 @@ from dash_table.Format import Format, Group, Scheme
 
 app = DjangoDash(
     name = 'Ex2', 
-    cache_arguments = False,
+    cache_arguments = True,
     id = 'company_name',
     cache_timeout_initial_arguments = 1,
     suppress_callback_exceptions = True
