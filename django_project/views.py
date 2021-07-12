@@ -131,7 +131,7 @@ def prototype(request, corp_name = "3m - HELLO WORLD"):
     #}
 
   return render (request, "django_project/proto.html", some_dict)
-
+"""
 def session_state_view(request, template_name='test.html', **kwargs):
 
   session = request.session
@@ -152,5 +152,19 @@ def session_state_view(request, template_name='test.html', **kwargs):
     request,
     template_name = "django_project/test.html",
     context=context)
+"""
+def session_state_view(request, template_name, **kwargs):
 
-    
+  session = request.session
+
+  demo_count = session.get('django_plotly_dash', {})
+
+  ind_use = demo_count.get('ind_use', 0)
+  ind_use += 1
+  demo_count['ind_use'] = ind_use
+  session['django_plotly_dash'] = demo_count
+
+  # Use some of the information during template rendering
+  context = {'ind_use' : ind_use}
+
+  return render(request, template_name=template_name, context=context)
