@@ -146,7 +146,7 @@ def session_state_view(request, template_name='test.html', **kwargs):
   #context = {'ind_use' : ind_use}
 
   # Set up a context dict here
-  context = {'data':{"company_name":{"value":"new company"}}}
+  context = {"data":{"company_name":{"value":"new_company"}}}
 
   return render(
     request,
