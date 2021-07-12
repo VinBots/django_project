@@ -27,8 +27,7 @@ app.layout = html.Div(
         [html.Div('HELLO WORLD'),
         dcc.Dropdown(id = 'company_name', options = [
             {'label': 'O2', 'value': 'Oxygen'},
-            {'label': 'corp', 'value': 'new_company'}
-            ]),
+            {'label': 'corp', 'value': 'new_company'}], value = 'xx'),
         html.Div(id = 'another_name', children = 'output'),
         html.Div('HEllo AGAIN!'),
         ])
