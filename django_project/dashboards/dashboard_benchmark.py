@@ -18,7 +18,7 @@ import dash_bootstrap_components as dbc
 
 app = DjangoDash(
     name = "Ex2",
-    id = "companyname",
+    id = "data",
     )
 
 app.layout = html.Div(
