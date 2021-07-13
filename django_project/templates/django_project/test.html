@@ -1,6 +1,3 @@
 {%load plotly_dash%}
-<div class="{%plotly_class name='Ex2' template_type='div-direct'%}">
-{%plotly_direct name="Ex2"%}
-</div>
-
-  
+{% plotly_app name="Ex2" initial_arguments=data%}
+{{data}}
