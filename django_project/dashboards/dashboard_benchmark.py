@@ -14,6 +14,7 @@ from dash_table.Format import Format, Group, Scheme
 import dash_bootstrap_components as dbc
 
 
+"""
 DashApp = apps.get_model("django_plotly_dash","DashApp")
 StatelessApp = apps.get_model("django_plotly_dash","StatelessApp")
 
@@ -28,7 +29,7 @@ da1 = DashApp(stateless_app=sa1,
                 base_state='{"dropdown-color":{"value":"blue"},"dropdown-size":{"value":"small"}}')
 
 da1.save()
-
+"""
 app = DjangoDash(
     name = "Ex2",
     id = "companyname",
