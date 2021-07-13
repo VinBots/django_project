@@ -35,14 +35,7 @@ app = DjangoDash(
     id = "companyname",
     )
 
-app.layout = html.Div(
-        [html.Div('HELLO WORLD'),
-        dcc.RadioItems(id="companyname", options = [
-            {'label': 'O2', "value": 'Oxygen'},
-            {'label': 'corp', "value": "OLD VALUE"}], value = "Oxygen"),
-        html.Div(id = 'another_name', children = 'x'),
-        html.Div('HEllo AGAIN!'),
-        ])
+app.layout = get_layout()
 
 
 dis = DjangoDash("DjangoSessionState",
@@ -86,3 +79,13 @@ def display_output(x, *args, **kwargs):
         csf['clicks'] = value
     """
     return "call back done input = {} args = {} kwargs = {}".format(x, args, kwargs)
+
+def get_layout():
+    return html.Div(
+        [html.Div('HELLO WORLD'),
+        dcc.RadioItems(id="companyname", options = [
+            {'label': 'O2', "value": 'Oxygen'},
+            {'label': 'corp', "value": "OLD VALUE"}], value = "Oxygen"),
+        html.Div(id = 'another_name', children = 'x'),
+        html.Div('HEllo AGAIN!'),
+        ])
