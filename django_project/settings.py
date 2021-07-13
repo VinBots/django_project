@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_project',
+    'channels',
     'bootstrap4',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'dpd_static_support',
