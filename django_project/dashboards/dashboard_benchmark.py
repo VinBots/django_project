@@ -42,6 +42,7 @@ da1.save()
 app = DjangoDash(
     name = "Ex2",
     id = "companyname",
+    serve_locally = False
     )
 
 app.layout = get_layout()
