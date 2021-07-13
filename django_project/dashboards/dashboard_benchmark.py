@@ -13,12 +13,9 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 import dash_bootstrap_components as dbc
 
-
-
-
 app = DjangoDash(
     name = "Ex2",
-    id = "data",
+    id = "companyname",
     )
 
 app.layout = html.Div(
