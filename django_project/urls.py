@@ -64,8 +64,9 @@ urlpatterns = [
     path('momentum.html', views.momentum),
     path('playground.html', views.playground),
     path('proto.html/<str:corp_name>/', views.prototype),
-    url('^test.html',views.session_state_view, {'template_name':'test.html', "new_data": "amazing company"}, name="test"),
+    url('^test.html',views.session_state_view, {'template_name':'test.html'}, name="test"),
     url('^demo-eight', views.session_state_view, {'template_name':'test.html'}, name="demo-eight"),
+    path('demo-two', TemplateView.as_view(template_name='demo_two.html'), name="demo-two"),
     ]
 #path ('test.html', views.session_state_view),
 
