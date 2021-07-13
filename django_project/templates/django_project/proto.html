@@ -2,7 +2,9 @@
 {% include "django_project/head_proto.html" %}
 {% include "django_project/top_menu_temp.html" %}
 {% include "django_project/main_proto1.html" %}
-{% include "django_project/temp-plot.html" %}
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" height="525" width="100%">
+    {% include "django_project/temp-plot.html" %}
+</iframe>
 {% include "django_project/main_proto2.html" %}
 {% include "django_project/bottom_temp.html" %}
 {% include "django_project/plot.html" %}
