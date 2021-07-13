@@ -18,15 +18,15 @@ import dash_bootstrap_components as dbc
 
 app = DjangoDash(
     name = "Ex2",
-    id = "company_name",
+    id = "companyname",
     )
 
 app.layout = html.Div(
         [html.Div('HELLO WORLD'),
-        dcc.RadioItems(id="company_name", options = [
+        dcc.RadioItems(id="companyname", options = [
             {'label': 'O2', "value": 'Oxygen'},
             {'label': 'corp', "value": "OLD VALUE"}], value = "Oxygen"),
-        html.Div(id = 'another_name', children = 'output'),
+        html.Div(id = 'another_name', children = 'x'),
         html.Div('HEllo AGAIN!'),
         ])
 
@@ -58,7 +58,7 @@ def session_demo_danger_callback(n_clicks, session_state=None, **kwargs):
 
 @app.callback(
     Output(component_id = 'another_name', component_property = 'children'),
-    [Input(component_id = 'company_name', component_property = 'value')]
+    [Input(component_id = 'companyname', component_property = 'value')]
     )
 def display_output(x, *args, **kwargs):
     """
