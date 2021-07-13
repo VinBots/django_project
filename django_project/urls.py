@@ -66,7 +66,6 @@ urlpatterns = [
     path('proto.html/<str:corp_name>/', views.prototype),
     url('^test.html',views.session_state_view, {'template_name':'test.html'}, name="test"),
     url('^demo-eight', views.session_state_view, {'template_name':'test.html'}, name="demo-eight"),
-    path('demo-two', TemplateView.as_view(template_name='demo_two.html'), name="demo-two"),
     ]
 #path ('test.html', views.session_state_view),
 
