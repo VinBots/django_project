@@ -16,11 +16,13 @@ import dash_bootstrap_components as dbc
 def get_layout():
     return html.Div(
         [html.Div('HELLO WORLD'),
+        dcc.Location(id='url', refresh=False),
         dcc.RadioItems(id="companyname", options = [
             {'label': 'O2', "value": 'Oxygen'},
             {'label': 'corp', "value": "OLD VALUE"}], value = "Oxygen"),
         html.Div(id = 'another_name', children = 'x'),
         html.Div('HEllo AGAIN!'),
+        html.Div(id='page-content'),
         ])
 
 """
@@ -90,3 +92,9 @@ def display_output(x, *args, **kwargs):
     """
     return "call back done input = {} args = {} kwargs = {}".format(x, args, kwargs)
 
+@app.callback(dash.dependencies.Output('page-content', 'children'),
+              [dash.dependencies.Input('url', 'pathname')])
+def display_page(pathname):
+    return html.Div([
+        html.H3('You are on page {}'.format(pathname))
+    ])
