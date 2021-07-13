@@ -38,12 +38,12 @@ from dash_table.Format import Format, Group, Scheme
 
 # Loading plotly Dash apps script
 dashboards_names = [
-    "django_project.dashboards.dashboard_transparency",
-    "django_project.dashboards.dashboard_performance",
-    "django_project.dashboards.dashboard_ambition",
-    "django_project.dashboards.dashboard_sciencebased",
-    "django_project.dashboards.dashboard_momentum",
-    "django_project.dashboards.dashboard_playground",
+    #"django_project.dashboards.dashboard_transparency",
+    #"django_project.dashboards.dashboard_performance",
+    #"django_project.dashboards.dashboard_ambition",
+    #"django_project.dashboards.dashboard_sciencebased",
+    #"django_project.dashboards.dashboard_momentum",
+    #"django_project.dashboards.dashboard_playground",
     "django_project.dashboards.dashboard_benchmark"
     ]
 
