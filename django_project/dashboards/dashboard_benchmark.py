@@ -13,6 +13,15 @@ import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 import dash_bootstrap_components as dbc
 
+def get_layout():
+    return html.Div(
+        [html.Div('HELLO WORLD'),
+        dcc.RadioItems(id="companyname", options = [
+            {'label': 'O2', "value": 'Oxygen'},
+            {'label': 'corp', "value": "OLD VALUE"}], value = "Oxygen"),
+        html.Div(id = 'another_name', children = 'x'),
+        html.Div('HEllo AGAIN!'),
+        ])
 
 """
 DashApp = apps.get_model("django_plotly_dash","DashApp")
@@ -80,12 +89,3 @@ def display_output(x, *args, **kwargs):
     """
     return "call back done input = {} args = {} kwargs = {}".format(x, args, kwargs)
 
-def get_layout():
-    return html.Div(
-        [html.Div('HELLO WORLD'),
-        dcc.RadioItems(id="companyname", options = [
-            {'label': 'O2', "value": 'Oxygen'},
-            {'label': 'corp', "value": "OLD VALUE"}], value = "Oxygen"),
-        html.Div(id = 'another_name', children = 'x'),
-        html.Div('HEllo AGAIN!'),
-        ])
