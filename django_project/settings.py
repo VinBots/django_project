@@ -196,7 +196,7 @@ PLOTLY_DASH = {
     "http_route":"dpd/views",
     "http_poke_enabled":True,
     "insert_demo_migrations":False,
-    "cache_timeout_initial_arguments": 60,
+    "cache_timeout_initial_arguments": 360,
     "view_decorator": None,
     "cache_arguments": True,
     "serve_locally": False,
