@@ -51,11 +51,14 @@ from dash_table.Format import Format, Group, Scheme
     #globals()[lib] = __import__(lib)
 
 urlpatterns = [
-    path('', views.home, name='main_home'),
     path('admin/', admin.site.urls),
-    path('', include('django.contrib.auth.urls')),
-	#url('^dash_plot$', TemplateView.as_view(template_name='dash_plot.html'), name="dash_plot"),
+    path('', include('django.contrib.auth.urls')),	
+    path('', views.home, name='main_home'),
+    path('corporates.html/<str:corp_name>/', views.corporates, name = 'corporates'),
+    path('sectors.html/<str:sector_name>/', views.sectors, name = 'sectors'),
+    ]
+
+    #OLD paths
+    #url('^dash_plot$', TemplateView.as_view(template_name='dash_plot.html'), name="dash_plot"),
 	#url('^django_plotly_dash/', include('django_plotly_dash.urls')),
 	#path('home', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('corporates.html/<str:corp_name>/', views.corporates, name = 'corporates'),
-    ]

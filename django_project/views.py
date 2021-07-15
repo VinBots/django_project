@@ -95,7 +95,6 @@ def home(request):
     }
       )
 
-
 def corporates(request, corp_name = "3m"):
 
   corp_data = {
@@ -103,3 +102,12 @@ def corporates(request, corp_name = "3m"):
     "ISIN": "14SAM"
   }
   return render (request, "django_project/corporates/main.html", corp_data)
+
+
+def sectors(request, sector_name = "3m"):
+
+  sector_data = {
+    "sector_name": sector_name,
+    "sector_code": "xxxx"
+  }
+  return render (request, "django_project/sectors/main.html", sector_data)
