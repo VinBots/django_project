@@ -95,7 +95,7 @@ def home(request):
     }
       )
 
-def corporates(request, corp_name = "3m"):
+def corporates(request, corp_name):
 
   corp_data = {
     "corp_name": corp_name,
@@ -103,8 +103,7 @@ def corporates(request, corp_name = "3m"):
   }
   return render (request, "django_project/corporates/main.html", corp_data)
 
-
-def sectors(request, sector_name = "3m"):
+def sectors(request, sector_name):
 
   sector_data = {
     "sector_name": sector_name,
