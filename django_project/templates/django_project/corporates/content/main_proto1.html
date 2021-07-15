@@ -7,8 +7,8 @@
                                 <div class = "container" width = 100%>									
                                     <div class="row">
                                         <div>
-                                            <img class = "container_img" src="/static/django_project/images/3m_banner.jpg" alt="" width = 100%/>
-                                            <img class = "overlay_img" src="/static/django_project/images/3m_logo.png" />
+                                            <img class = "container_img" src="{% static 'django_project/images/3m_banner.jpg' %}" alt="" width = 100%/>
+                                            <img class = "overlay_img" src="{% static 'django_project/images/3m_logo.png' %}" />
                                         </div>
                                     </div>
                                     <div class="row">
@@ -36,7 +36,7 @@
                                                         <div class="fill fill1" style = "background-color:#b1002c;transform:rotate({{angle1}})"></div>
                                                     </div>							
                                                     <div class="inside-circle inside-circle1">
-                                                        <a href="transparency.html">{{value1}}%</a>
+                                                        <a href="#">{{value1}}%</a>
                                                     </div>							
                                                     </div>
                                                 </div>
@@ -66,7 +66,7 @@
                                                         <div class="fill fill2" style = "background-color:#9fb100;transform:rotate({{angle2}})"></div>
                                                     </div>							
                                                     <div class="inside-circle inside-circle2">
-                                                        <a href="performance.html">{{value2}}%</a>
+                                                        <a href="#">{{value2}}%</a>
                                                     </div>							
                                                     </div>
                                                 </div>
@@ -94,7 +94,7 @@
                                                             <div class="fill fill3" style = "background-color:#2000b1;transform:rotate({{angle3}})"></div>
                                                         </div>							
                                                         <div class="inside-circle inside-circle3">
-                                                            <a href="ambition.html">{{value3}}%</a>
+                                                            <a href="#">{{value3}}%</a>
                                                         </div>							
                                                         </div>
                                                     </div>
