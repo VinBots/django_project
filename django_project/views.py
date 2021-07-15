@@ -85,7 +85,7 @@ def home(request):
 
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
 
-  return render (request, "django_project/index.html", {
+  return render (request, "django_project/home/main.html", {
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
@@ -95,77 +95,11 @@ def home(request):
     }
       )
 
-def transparency(request):
-  return render (request, "django_project/transparency/transparency.html")
 
-def performance(request):
-  return render (request, "django_project/performance/performance.html")
+def corporates(request, corp_name = "3m"):
 
-def ambition(request):
-  return render (request, "django_project/ambition/ambition.html")
-
-def sciencebased(request):
-  return render (request, "django_project/sciencebased/sciencebased.html")
-
-def momentum(request):
-  return render (request, "django_project/momentum/momentum.html")
-
-def playground(request):
-  return render (request, "django_project/playground.html")  
-
-def prototype(request, corp_name = "3m - HELLO WORLD"):
-  # record 3M dashboard
-  
-  some_dict = {'hidden-div-for-slug': {'children': "GEENIALLLL"}}
-
-  pct_values = get_top_stats()
-
-  angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
-  #some_dict = {
-    #"color_key_fig": "#00b118",
-    #"angle1":angle_deg[0],"value1":str(pct_values[0]),
-    #"angle2":angle_deg[1],"value2":str(pct_values[1]),
-    #"angle3":angle_deg[2],"value3":str(pct_values[2]),
-    #"corp_name": corp_name,
-    #'hidden-div-for-slug': {'children': corp_name},
-    #}
-
-  return render (request, "django_project/proto.html", some_dict)
-
-def session_state_view(request, template_name='test.html', **kwargs):
-
-  session = request.session
-
-  demo_count = session.get('django_plotly_dash', {})
-  ind_use = demo_count.get('ind_use', 'new company is old')
-  ind_use = 'new company is old'
-  demo_count['ind_use'] = ind_use
-  session['django_plotly_dash'] = demo_count
-
-  # Use some of the information during template rendering
-  #context = {'ind_use' : ind_use}
-
-  # Set up a context dict here
-  context = {"data":{"companyname":{"value":"new_company"}}}
-
-  return render(
-    request,
-    template_name = "django_project/test.html",
-    context=context)
-"""
-def session_state_view(request, template_name, **kwargs):
-
-  session = request.session
-
-  demo_count = session.get('django_plotly_dash', {})
-
-  ind_use = demo_count.get('ind_use', 0)
-  #ind_use += 1
-  demo_count['ind_use'] = ind_use
-  session['django_plotly_dash'] = demo_count
-
-  # Use some of the information during template rendering
-  context = {'ind_use' : ind_use}
-
-  return render(request, template_name="django_project/test.html", context=context)
-"""
+  corp_data = {
+    "corp_name": corp_name,
+    "ISIN": "14SAM"
+  }
+  return render (request, "django_project/corporates/main.html", corp_data)

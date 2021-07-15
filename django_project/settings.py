@@ -18,7 +18,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -57,7 +56,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'dpd_static_support',
-    'stats',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +77,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'django_project','templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR,'templates', 'django_project')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -158,10 +156,10 @@ LOGOUT_REDIRECT_URL = 'home'
 # Define folder location of ‘static’ folder
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # ‘django_dash’: django app name
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'django_project', 'static'),
-    ]
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'django_project', 'static'),
+#    ]
 
 # Static content of Plotly components that should
 # be handled by the Django staticfiles infrastructure
@@ -191,6 +189,7 @@ CHANNEL_LAYERS = {
     },
 }
 
+"""
 PLOTLY_DASH = {
     "ws_route" :"dpd/ws/channel",
     "http_route":"dpd/views",
@@ -201,3 +200,4 @@ PLOTLY_DASH = {
     "cache_arguments": True,
     "serve_locally": False,
     }
+"""
