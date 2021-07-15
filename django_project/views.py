@@ -95,13 +95,18 @@ def home(request):
     }
       )
 
-def corporates(request, corp_name):
+def corporates(request, corp_name=None):
 
-  corp_data = {
-    "corp_name": corp_name,
-    "ISIN": "14SAM"
-  }
+  if corp_name is not None:
+      corp_data = {
+      "corp_name": corp_name,
+      "ISIN": "14SAM"
+      }
   return render (request, "django_project/corporates/main.html", corp_data)
+
+def corporates_search(request):
+
+  return render (request, "django_project/corporates/main.html")
 
 def sectors(request, sector_name):
 
