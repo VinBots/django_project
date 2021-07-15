@@ -105,8 +105,8 @@ def corporates(request, corp_name=None):
   return render (request, "django_project/corporates/main.html", corp_data)
 
 def corporates_search(request):
-
   return render (request, "django_project/corporates/main.html")
+
 
 def sectors(request, sector_name):
 
@@ -115,3 +115,6 @@ def sectors(request, sector_name):
     "sector_code": "xxxx"
   }
   return render (request, "django_project/sectors/main.html", sector_data)
+
+def sectors_search(request):
+  return render (request, "django_project/sectors/main.html")

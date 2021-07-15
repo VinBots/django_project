@@ -8,7 +8,8 @@
 						<nav class="links">
 							<ul>
 								<li><a href="{% url 'corporates_search' %}">Corporates</a></li>
-								<li><a href="http://net0tracker.org/#contactus">About us</a></li>
+								<li><a href="{% url 'sectors_search' %}">Sectors</a></li>
+								<li><a href="{% url 'main_home' %}#aboutus">About us</a></li>
 							</ul>
 						</nav>
 						<nav class="main">
@@ -44,26 +45,20 @@
 							<section>
 								<ul class="links">
 									<li>
-										<a href="proto.html/3m">
-											<h3>Transparency</h3>
-											<p>Explore data by sector, by company</p>
+										<a href="{% url 'corporates_search' %}">
+											<h3>Corporates</h3>
+											<p>Explore data by corporate</p>
 										</a>
 									</li>
 									<li>
-										<a href="ambition.html">
-											<h3>Net Zero Targets</h3>
-											<p>More details on corporate commitments</p>
+										<a href="{% url 'sectors_search' %}">
+											<h3>Sectors</h3>
+											<p>More details by sector</p>
 										</a>
 									</li>
 									<li>
-										<a href="sciencebased.html">
-											<h3>Science-Based Targets</h3>
-											<p>Dashboard to track progress</p>
-										</a>
-									</li>
-									<li>
-										<a href="http://net0tracker.org/#contactus">
-											<h3>Contact Us</h3>
+										<a href="{% url 'main_home' %}#aboutus">
+											<h3>About Us</h3>
 											<p></p>
 										</a>
 									</li>
