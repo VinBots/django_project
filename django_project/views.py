@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpRequest
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import random
 from django_project.utilities import get_top_stats
 from typing import Dict
@@ -16,6 +16,9 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 from django_project.dashboards.record_dashboard_benchmark import record
+from django_project.forms import EntryCreationForm
+from django_project.models import Entry, Corporates
+
 
 helloWorld = """
 <!DOCTYPE html>
@@ -80,12 +83,20 @@ helloWorld = """
 """
 
 def home(request):
+  form = EntryCreationForm(instance=Entry.objects.first())
+  
+  if request.method == 'POST':
+      form = EntryCreationForm(request.POST, instance=Entry.objects.first())
+      if form.is_valid():
+          form.save()
+          return redirect('main_home')
 
   pct_values = get_top_stats()
 
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
 
   return render (request, "django_project/home/main.html", {
+    'form': form,
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),

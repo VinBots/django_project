@@ -6,6 +6,14 @@
             <p>Explore by company or by sector</p>
         </div>
     </header>
+    <h1>Add an Entry</h1>
+
+    <form action="{% url 'main_home' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
     <footer>
         <ul class="actions">
             <li><a href="#" class="button large">Select a company</a></li>
