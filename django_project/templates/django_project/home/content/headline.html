@@ -139,7 +139,6 @@
         </header>
         <div class="row">
             <div align = "center" class="col-12 col-12-medium">
-            <li class="search">
             <select class="js-example-basic-single" name="corporates" style="width: 50%">
                 <option selected disabled = "true">--Select a company--</option>
         
@@ -148,7 +147,10 @@
                 {% endfor %}
         
             </select>
-            </li>
+            <a class="fa-search" href="#search">Search</a>
+            <form id="search" method="get" action="#">
+                <input type="text" name="query" placeholder="Search" />
+            </form>
         </div>
         <!--
         <li class="search">
