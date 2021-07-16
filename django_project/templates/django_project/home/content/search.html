@@ -6,18 +6,21 @@
             <p>Explore by company or by sector</p>
         </div>
     </header>
-<!--    
     <select class="js-example-basic-single" name="state">
-        <option value="AL">Alabama</option>
-          ...
-        <option value="WY">Wyoming</option>
+        <option selected disabled = "true">--Select a company--</option>
+        {% for corp in Corporate %}
+        <option>{{corp.name}}</option>
+
+        {% endfor %}
+
     </select>
- Post -->
+<!--    
     <form action="{% url 'main_home' %}" method="POST">
         {% csrf_token %}
         <input type="submit" value="Submit">
         <button type="submit">OK</button>
     </form>
+ Post -->
 
     <footer>
         <ul class="actions">
