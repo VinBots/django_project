@@ -9,6 +9,18 @@
                 </div>
             </div>
             <div class="row">
+                
+                <select class="js-example-basic-single" name="state">
+                    <option selected disabled = "true">--Select a company--</option>
+            
+                    {% for corp in corporates_names %}
+                    <option>{{corp.name}}</option>
+                    {% endfor %}
+            
+                </select>
+            </div>
+            
+            <div class="row">
                 <style>
                     @keyframes fill1 {
                         0% {
