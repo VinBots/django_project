@@ -1,5 +1,5 @@
 from django import forms
-from django_project.models import Entry, Corporate
+from corporates.models import Entry, Corporate
 
 
 class EntryCreationForm(forms.ModelForm):

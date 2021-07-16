@@ -1,4 +1,4 @@
-<!-- Post -->
+
 <article class="post">
     <header>
         <div class="title">
@@ -6,15 +6,20 @@
             <p>Explore by company or by sector</p>
         </div>
     </header>
-    <h1>Add an Entry</h1>
-
+    
+    <select class="js-example-basic-single" name="state">
+        <option value="AL">Alabama</option>
+          ...
+        <option value="WY">Wyoming</option>
+    </select>
+<!-- 
     <form action="{% url 'main_home' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Submit">
         <button type="submit">OK</button>
     </form>
-
+Post -->
     <footer>
         <ul class="actions">
             <li><a href="#" class="button large">Select a company</a></li>
