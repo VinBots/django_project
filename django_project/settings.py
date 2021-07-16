@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'dpd_static_support',
+    'corporates',
 ]
 
 MIDDLEWARE = [
