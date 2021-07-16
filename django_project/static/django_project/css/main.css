@@ -3724,7 +3724,7 @@ input, select, textarea {
     line-height: 31px !important;
 }
 .select2-container .select2-selection--single {
-    height: 35px !important;
+    height: 350px !important;
 }
 .select2-selection__arrow {
     height: 34px !important;
