@@ -84,7 +84,7 @@ helloWorld = """
 
 def home(request):
   
-  form = EntryCreationForm(instance=Entry.objects.first())
+  #form = EntryCreationForm(instance=Entry.objects.first())
   
   pct_values = get_top_stats()
 
