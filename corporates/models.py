@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Corporate(models.Model):
     name = models.CharField(max_length=250)
 
