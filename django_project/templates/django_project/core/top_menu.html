@@ -10,16 +10,6 @@
 								<li><a href="{% url 'corporates_search' %}">Corporates</a></li>
 								<li><a href="{% url 'sectors_search' %}">Sectors</a></li>
 								<li><a href="{% url 'main_home' %}#aboutus">About us</a></li>
-								<li>	
-									<select class="js-example-basic-single" name="corporates" style="width: 50%">
-										<option selected disabled = "true">--Select a company--</option>
-								
-										{% for corp in corporates_names %}
-										<option>{{corp.name}}</option>
-										{% endfor %}
-								
-									</select>
-								</li>
 							</ul>
 						</nav>
 						<nav class="main">
