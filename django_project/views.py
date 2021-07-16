@@ -83,14 +83,9 @@ helloWorld = """
 """
 
 def home(request):
+  
   form = EntryCreationForm(instance=Entry.objects.first())
   
-  if request.method == 'POST':
-      form = EntryCreationForm(request.POST, instance=Entry.objects.first())
-      if form.is_valid():
-          form.save()
-          return redirect('main_home')
-
   pct_values = get_top_stats()
 
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
