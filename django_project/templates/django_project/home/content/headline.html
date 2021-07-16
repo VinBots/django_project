@@ -140,14 +140,14 @@
         <div class="row">
             <div align = "center" class="col-12 col-12-medium">
                 <form id="search" method="get" action="#">
-                    <select class="js-example-basic-single">
+                    <select id="select_corp" name = "corp">
                         <option selected disabled = "true">--Select a company--</option>
                         {% for corp in corporates_names %}
                         <option>{{corp.name}}</option>
                         {% endfor %}
                     </select>
                             <br>
-                            <input type="submit" value="Search" />
+                            <input type="submit" value="search" />
                 </form>
         </div>
         <!--
