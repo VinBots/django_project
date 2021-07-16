@@ -142,16 +142,11 @@
                 <form id="search" method="get" action="#">
                     <select class="js-example-basic-single" name="corporates" style="width: 50%">
                         <option selected disabled = "true">--Select a company--</option>
-
-                
                         {% for corp in corporates_names %}
                         <option>{{corp.name}}</option>
                         {% endfor %}
-        
                     </select>
-                        <ul class="actions">
                             <li><input type="submit" value="Search" /></li>
-                        </ul>
                 </form>
         </div>
         <!--
