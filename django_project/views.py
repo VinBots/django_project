@@ -16,6 +16,7 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 from django_project.dashboards.record_dashboard_benchmark import record
+from corporates.models import Corporate
 #from django_project.forms import EntryCreationForm
 #from django_project.models import Entry, Corporates
 
@@ -85,12 +86,13 @@ helloWorld = """
 def home(request):
   
   #form = EntryCreationForm(instance=Entry.objects.first())
-  
+  corporates_names = Corporate.objects.all()
   pct_values = get_top_stats()
 
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
 
   return render (request, "django_project/home/main.html", {
+    "corporates_names": corporates_names,
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
