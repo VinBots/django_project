@@ -3719,3 +3719,8 @@ input, select, textarea {
 .container_img {
 	position: relative;
   }
+
+.search_corporate {
+	width: 50%;
+	color:forestgreen
+}
