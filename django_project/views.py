@@ -91,7 +91,6 @@ def home(request):
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
 
   return render (request, "django_project/home/main.html", {
-    'form': form,
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
