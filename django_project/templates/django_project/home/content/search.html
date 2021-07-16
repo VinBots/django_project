@@ -8,9 +8,9 @@
     </header>
     <select class="js-example-basic-single" name="state">
         <option selected disabled = "true">--Select a company--</option>
-        {% for corp in Corporate %}
-        <option>{{corp.name}}</option>
 
+        {% for corp in corporates_names %}
+        <option>{{corp.name}}</option>
         {% endfor %}
 
     </select>
