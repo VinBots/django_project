@@ -1,6 +1,7 @@
 form.search-corp {
     text-decoration: none;
     position: relative;
+    width: 100%;
 }
 form.search-corp > input {
     padding-left: 2.5em;
