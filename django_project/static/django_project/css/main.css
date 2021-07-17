@@ -3736,12 +3736,12 @@ form.search-corp {
 }
 form.search-corp > input {
     padding-left: 2.5em;
-    color:#e60870;
+    color:#b1002c;
     font-size:xx-large;
 }
 
 form.search-corp:before {
-    color: #e60870;
+    color: #b1002c;
     content: '\f002';
     display: block;
     height: 2em;
