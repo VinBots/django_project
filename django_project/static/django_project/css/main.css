@@ -3729,3 +3729,42 @@ input, select, textarea {
 .select2-selection__arrow {
     height: 34px !important;
 }
+
+form.search-corp {
+    text-decoration: none;
+    position: relative;
+}
+form.search-corp > input {
+    padding-left: 2.5em;
+    color:#e60870;
+    font-size:xx-large;
+    width: 50%;
+}
+
+form.search-corp:before {
+    color: #e60870;
+    content: '\f002';
+    display: block;
+    height: 2.75em;
+    left: 0;
+    line-height: 2.75em;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 2.5em;
+    font-size:xx-large;
+
+}
+
+form.search-corp:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 2.75;
+    text-transform: none !important;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
