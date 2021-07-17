@@ -3750,8 +3750,8 @@ form.search-corp:before {
     line-height: 2.75em;
     position: absolute;
     text-align: center;
-    top: 2;
-    width: 3em;
+    top: 0;
+    width: 30em;
     font-size:xx-large;
 
 }
