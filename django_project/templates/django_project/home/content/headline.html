@@ -139,21 +139,20 @@
         </header>
         <div class="row">
             <form class="search-corp" method="get" action="#">
-                <input class="search-corp" type="text" name="query" placeholder="Search" />
+                <input class="search-corp" id = "tags" type="text" name="query" placeholder="Search" />
             </form>
-
-                        <script>
-                            $( function() {
-                            var availableTags = [
-                                {% for corp in corporates_names %}
-                                    "{{corp.name}}",
-                                {% endfor %}
-                            ];
-                            $( "#tags" ).autocomplete({
-                                source: availableTags
-                            });
-                            } );
-                            </script>
+            <script>
+                $( function() {
+                var availableTags = [
+                    {% for corp in corporates_names %}
+                        "{{corp.name}}",
+                    {% endfor %}
+                ];
+                $( "#tags" ).autocomplete({
+                    source: availableTags
+                });
+                } );
+                </script>
         </div>
         <!--
         <li class="search">
