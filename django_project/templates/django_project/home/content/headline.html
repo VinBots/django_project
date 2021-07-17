@@ -137,42 +137,45 @@
 
         !-->
         </header>
-        <section>
-        <form id="search" method="post" action="#">
-            <div class="row gtr-uniform">
-                <div class="col-12">
-                    <input type="text" id="tags" name = "corp">
-                </div>
-                <div class="col-12">
-                    <ul class="actions">
-                        <li><input type="submit" value="search" /></li>
-                    </ul>
-                </div>
-            <!--
-            <select id="select_corp" name = "corp">
-                <option selected disabled = "true">--Select a company--</option>
-                {% for corp in corporates_names %}
-                <option>{{corp.name}}</option>
-                {% endfor %}
-            </select>
-            -->
-                <script>
-                    $( function() {
-                    var availableTags = [
+        <div class="row">
+            <div>
+                <h3>Company Search</h3>
+                <form id="search" method="post" action="#">
+                    <div class="row gtr-uniform">
+                        <div class="col-12">
+                            <input type="text" id="tags" name = "corp">
+                        </div>
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" value="search" /></li>
+                            </ul>
+                        </div>
+                    <!--
+                    <select id="select_corp" name = "corp">
+                        <option selected disabled = "true">--Select a company--</option>
                         {% for corp in corporates_names %}
-                            "{{corp.name}}",
+                        <option>{{corp.name}}</option>
                         {% endfor %}
-                    ];
-                    $( "#tags" ).autocomplete({
-                        source: availableTags
-                    });
-                    } );
-                    </script>
-            </div>
-            </div>
+                    </select>
+                    -->
+                        <script>
+                            $( function() {
+                            var availableTags = [
+                                {% for corp in corporates_names %}
+                                    "{{corp.name}}",
+                                {% endfor %}
+                            ];
+                            $( "#tags" ).autocomplete({
+                                source: availableTags
+                            });
+                            } );
+                            </script>
+                    </div>
+                    </div>
 
-        </form>
-        <section>
+                </form>
+                
+        </div>
         <!--
         <li class="search">
             <a class="fa-search" href="#search">Search</a>
@@ -182,6 +185,7 @@
         </li>
     -->
 
+        </div>
         <footer>
             <blockquote>
                 “It is vital that businesses go net zero, as part of our fight against climate change. Which is why we look to all sectors to reach a point at which a clean way of operating becomes the norm. Because if every sector plays its part, we will see the global economy on the right path to achieving net zero by 2050.”
