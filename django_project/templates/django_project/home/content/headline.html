@@ -145,12 +145,18 @@
                         {% for corp in corporates_names %}
                             "{{corp.name}}",
                         {% endfor %}
-                    ];
+                    ];  
                     $("#tags").autocomplete({
                         source: availableTags
                     });
                     } );
                     </script>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="Search>>" /></li>
+                    </ul>
+                </div>
+
             </form>
             
         <!--
