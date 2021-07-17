@@ -137,6 +137,36 @@
 
         !-->
         </header>
+        <div class="row">
+
+            <div align = "center">
+                <form id="search" method="get" action="#hello">
+                    <select id="select_corp" name = "corp">
+                        <option selected disabled = "true">--Select a company--</option>
+                        {% for corp in corporates_names %}
+                        <option>{{corp.name}}</option>
+                        {% endfor %}
+                    </select>
+                            <br>
+                            <input type="submit" value="search" />
+                            <br>
+                            <br>
+                            <input type="text" id="tags">
+                            <script>
+                                $( function() {
+                                  var availableTags = [
+                                      {% for corp in corporates_names %}
+                                          "{{corp.name}}",
+                                      {% endfor %}
+                                  ];
+                                  $( "#tags" ).autocomplete({
+                                    source: availableTags
+                                  });
+                                } );
+                                </script>
+
+                </form>
+        </div>
         <!--
         <li class="search">
             <a class="fa-search" href="#search">Search</a>
@@ -147,6 +177,12 @@
     -->
 
         </div>
-    </div>
+        <footer>
+            <blockquote>
+                “It is vital that businesses go net zero, as part of our fight against climate change. Which is why we look to all sectors to reach a point at which a clean way of operating becomes the norm. Because if every sector plays its part, we will see the global economy on the right path to achieving net zero by 2050.”
+                <strong>COP26 President Designate Alok Sharma</strong> 
+            </blockquote>
+        </footer>
+
 
 </article>
