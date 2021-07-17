@@ -6,21 +6,20 @@
             <p>Explore by company or by sector</p>
         </div>
     </header>
-    <select class="form-select js-example-basic-single" name="state">
-        <option selected disabled = "true">--Select a company--</option>
-
+    <h1>Welcome to GFG</h1>
+    <input type="text" id="tags">
+    <script>
+  $( function() {
+    var availableTags = [
         {% for corp in corporates_names %}
-        <option>{{corp.name}}</option>
+            "{{corp.name}}",
         {% endfor %}
-
-    </select>
-<!--    
-    <form action="{% url 'main_home' %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Submit">
-        <button type="submit">OK</button>
-    </form>
- Post -->
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
 
     <footer>
         <ul class="actions">
