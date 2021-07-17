@@ -3745,13 +3745,13 @@ form.search-corp:before {
     color: #e60870;
     content: '\f002';
     display: block;
-    height: 2.75em;
+    height: 5em;
     left: 0;
-    line-height: 2.75em;
+    line-height: 5em;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 30em;
+    width: 5em;
     font-size:xx-large;
 
 }
