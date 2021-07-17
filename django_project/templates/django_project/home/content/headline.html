@@ -149,6 +149,22 @@
                     </select>
                             <br>
                             <input type="submit" value="search" />
+                            <br>
+                            <br>
+                            <input type="text" id="tags">
+                            <script>
+                                $( function() {
+                                  var availableTags = [
+                                      {% for corp in corporates_names %}
+                                          "{{corp.name}}",
+                                      {% endfor %}
+                                  ];
+                                  $( "#tags" ).autocomplete({
+                                    source: availableTags
+                                  });
+                                } );
+                                </script>
+
                 </form>
         </div>
         <!--
