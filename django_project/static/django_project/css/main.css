@@ -3745,9 +3745,9 @@ form.search-corp:before {
     color: #e60870;
     content: '\f002';
     display: block;
-    height: 3em;
+    height: 5em;
     left: 0;
-    line-height: 5em;
+    line-height: 3em;
     position: absolute;
     text-align: center;
     top: 0;
