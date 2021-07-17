@@ -141,7 +141,7 @@
 
             <div align = "center" class="wrapper-content">
                 <form id="search" method="get" action="#hello">
-                    <select id="select_corp" name = "corp">
+                    <select id="select_corp" class = "select2-hidden-accessible" name = "corp">
                         <option selected disabled = "true">--Select a company--</option>
                         {% for corp in corporates_names %}
                         <option>{{corp.name}}</option>
@@ -170,3 +170,5 @@
 
 
 </article>
+
+<span class="select2 select2-container select2-container--flat select2-container--below" dir="ltr" style="width: 81px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-rj72-container"><span class="select2-selection__rendered" id="select2-rj72-container" title="Alabama">Alabama</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
