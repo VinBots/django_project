@@ -3738,7 +3738,6 @@ form.search-corp > input {
     padding-left: 2.5em;
     color:#e60870;
     font-size:xx-large;
-    width: 100%;
 }
 
 form.search-corp:before {
