@@ -139,22 +139,10 @@
         </header>
         <div class="row">
 
-            <div align = "center">
-
-                <input type="text" id="tags">
-                <script>
-                    $( function() {
-                        var availableTags = [
-                            {% for corp in corporates_names %}
-                                "{{corp.name}}",
-                            {% endfor %}
-                        ];
-                        $( "#tags" ).autocomplete({
-                        source: availableTags
-                        });
-                    } );
-                </script>
-            </div>
+            <div class="ui-widget">
+                <label for="tags">Tags: </label>
+                <input id="tags">
+              </div>
         <!--
         <li class="search">
             <a class="fa-search" href="#search">Search</a>
