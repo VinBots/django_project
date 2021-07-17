@@ -9,12 +9,12 @@
     <h1>Welcome to GFG</h1>
     <input type="text" id="tags">
     <script>
-  $( function() {
-    var availableTags = [
-        {% for corp in corporates_names %}
+    $( function() {
+        var availableTags = [
+            {% for corp in corporates_names %}
             "{{corp.name}}",
-        {% endfor %}
-    ];
+            {% endfor %}
+        ];
     $( "#tags" ).autocomplete({
       source: availableTags
     });
