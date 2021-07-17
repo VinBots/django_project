@@ -3738,20 +3738,20 @@ form.search-corp > input {
     padding-left: 2.5em;
     color:#e60870;
     font-size:xx-large;
-    width: 50%;
+    width: 100%;
 }
 
 form.search-corp:before {
     color: #e60870;
     content: '\f002';
     display: block;
-    height: 2.75em;
+    height: 3em;
     left: 0;
     line-height: 2.75em;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 2.5em;
+    width: 3em;
     font-size:xx-large;
 
 }
