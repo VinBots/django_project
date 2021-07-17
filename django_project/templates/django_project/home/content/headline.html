@@ -140,7 +140,7 @@
         <div class="row">
 
             <div align = "center">
-                <form id="search" method="get" action="#hello">
+                <form id="search" method="post" action="#">
                     <!--
                     <select id="select_corp" name = "corp">
                         <option selected disabled = "true">--Select a company--</option>
@@ -149,19 +149,28 @@
                         {% endfor %}
                     </select>
                     -->
-                            <input type="text" id="tags" name = "corp"><input type="submit" value="search" />
-                            <script>
-                                $( function() {
-                                  var availableTags = [
-                                      {% for corp in corporates_names %}
-                                          "{{corp.name}}",
-                                      {% endfor %}
-                                  ];
-                                  $( "#tags" ).autocomplete({
-                                    source: availableTags
-                                  });
-                                } );
-                                </script>
+                    <div class="col-12">
+                        <input type="text" id="tags" name = "corp">
+                    </div>
+
+                    <div class="col-12">
+
+                        <ul class="actions">
+                            <input type="submit" value="search" />
+                        </ul>
+                        <script>
+                            $( function() {
+                            var availableTags = [
+                                {% for corp in corporates_names %}
+                                    "{{corp.name}}",
+                                {% endfor %}
+                            ];
+                            $( "#tags" ).autocomplete({
+                                source: availableTags
+                            });
+                            } );
+                            </script>
+                    </div>
 
                 </form>
         </div>
