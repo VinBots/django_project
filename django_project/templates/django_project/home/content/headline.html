@@ -141,17 +141,15 @@
 
             <div align = "center">
                 <form id="search" method="get" action="#hello">
+                    <!--
                     <select id="select_corp" name = "corp">
                         <option selected disabled = "true">--Select a company--</option>
                         {% for corp in corporates_names %}
                         <option>{{corp.name}}</option>
                         {% endfor %}
                     </select>
-                            <br>
-                            <input type="submit" value="search" />
-                            <br>
-                            <br>
-                            <input type="text" id="tags">
+                    -->
+                            <input type="text" id="tags"><input type="submit" value="search" />
                             <script>
                                 $( function() {
                                   var availableTags = [
