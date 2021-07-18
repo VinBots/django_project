@@ -84,9 +84,7 @@ helloWorld = """
 """
 
 def home(request):
-  query_error="gg"
-  if request.POST.get('query'):
-    query_error="HELLO WORLD!"
+  query_error=request.POST.get('query')
 
   #form = EntryCreationForm(instance=Entry.objects.first())
   corporates_names = Corporate.objects.all()
