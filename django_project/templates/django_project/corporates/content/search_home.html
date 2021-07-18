@@ -14,7 +14,7 @@
         </header>
             <form class="search-corp" method="GET">
                 <input class="search-corp" id = "tags" type="text" name="query" placeholder="Search for a company name" />
-                <div>{{error_msg}}</div>
+                <div><p style="color:red;">{{error_msg}}</p></div>
                 <script>
                     $( function() {
                     var availableTags = [
@@ -42,10 +42,6 @@
                 <div align = "center" class="col-6"><a href="#top" title = "Home Depot"><img src="{% static 'django_project/images/logos/homedepot_logo.png' %}" alt="Home Depot"/></a></div>
             </div>
         <footer>
-            <blockquote>
-                “It is vital that businesses go net zero, as part of our fight against climate change. Which is why we look to all sectors to reach a point at which a clean way of operating becomes the norm. Because if every sector plays its part, we will see the global economy on the right path to achieving net zero by 2050.”
-                <strong>COP26 President Designate Alok Sharma</strong> 
-            </blockquote>
         </footer>
 
 

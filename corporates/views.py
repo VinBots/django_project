@@ -22,4 +22,12 @@ def check_validity(corp_name):
   return all(conditions)
 
 def corporates_home(request):
-    return render(request, "django_project/corporates/home.html", {"error_msg":""})
+    corporates_names = Corporate.objects.all()
+    return render(
+      request,
+      "django_project/corporates/home.html", 
+      {
+        "error_msg":"",
+        "corporates_names": corporates_names
+      }
+      )
