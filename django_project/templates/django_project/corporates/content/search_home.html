@@ -1,0 +1,87 @@
+{% load static %}                    
+<!-- Post -->
+<article id = "top" class="post">
+    <header>
+        <div class = "container" width = 100%>									
+            <div class="row">
+                <div class="title">
+                    <h2><font face = "sans-serif" size = "6">Net Zero Tracker</font><font face = "sans-serif" size = "3">    [under development]</font></h2>
+                    <p>Have an impact by working for a company that takes climate change seriously</p>
+                </div>
+            </div>
+        </div>
+        <!-- template for adding an animated circular figure (replace number by a digit)
+
+            <style>
+            @keyframes fillnumber {
+                0% {
+                transform: rotate(0deg);
+                }
+                100% {
+                transform: rotate({{anglenumber}});
+                }
+            }
+            </style>
+
+            <div align = "center" class="col-4 col-12-medium">
+                <div class="circle-wrap circle-wrapnumber">						
+                    <div class="circle circlenumber">					
+                    <div class="mask full masknumber fullnumber" style = "transform:rotate({{anglenumber}})">
+                        <div class="fill fillnumber" style = "background-color:#9fb100;transform:rotate({{anglenumber}})"></div>
+                    </div>							
+                    <div class="mask half masknumber halfnumber">
+                        <div class="fill fillnumber" style = "background-color:#9fb100;transform:rotate({{anglenumber}})"></div>
+                    </div>							
+                    <div class="inside-circle inside-circlenumber">
+                        {{valuenumber}}%
+                    </div>							
+                    </div>
+                </div>
+            </div>
+
+            Then add to the css file
+              .circle-wrap5 .circle5 .mask5.full5,
+                .circle-wrap5 .circle5 .fill5 {
+                    animation: fill5 ease-in-out 5s;
+                }
+
+        !-->
+        </header>
+            <form class="search-corp" method="GET">
+                <input class="search-corp" id = "tags" type="text" name="query" placeholder="Search for a company name" />
+                <div>{{error_msg}}</div>
+                <script>
+                    $( function() {
+                    var availableTags = [
+                        {% for corp in corporates_names %}
+                            "{{corp.name}}",
+                        {% endfor %}
+                    ];  
+                    $("#tags").autocomplete({
+                        source: availableTags
+                    });
+                    } );
+                    </script>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="Search>>" /></li>
+                    </ul>
+                </div>
+
+            </form>
+            <div class="row gtr-uniform">
+                <div align = "center" class="col-4"><a href="#top" title = "3M"><img src="{% static 'django_project/images/logos/3m_logo.png' %}" alt="3M"/></a></div>
+                <div align = "center" class="col-4"><a href="#top" title = "Apple"><img src="{% static 'django_project/images/logos/apple_logo.png' %}" alt="Apple" /></a></div>
+                <div align = "center" class="col-4"><a href="#top" title = "Microsoft"><img src="{% static 'django_project/images/logos/microsoft_logo.png' %}" alt="Microsoft"/></a></div>
+                <div align = "center" class="col-6"><a href="#top" title = "Accenture"><img src="{% static 'django_project/images/logos/accenture_logo.png' %}" alt="Acenture"/></a></div>
+                <div align = "center" class="col-6"><a href="#top" title = "Home Depot"><img src="{% static 'django_project/images/logos/homedepot_logo.png' %}" alt="Home Depot"/></a></div>
+            </div>
+        <footer>
+            <blockquote>
+                “It is vital that businesses go net zero, as part of our fight against climate change. Which is why we look to all sectors to reach a point at which a clean way of operating becomes the norm. Because if every sector plays its part, we will see the global economy on the right path to achieving net zero by 2050.”
+                <strong>COP26 President Designate Alok Sharma</strong> 
+            </blockquote>
+        </footer>
+
+
+</article>
