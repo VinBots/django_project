@@ -118,7 +118,7 @@ def corporates(request, corp_name=None):
 
 def corporates_search(request):
   corp_name = request.POST.get('query')
-  return redirect(corporates(request, corp_name=corp_name))
+  return redirect('corporates', corp_name=corp_name)
   #return render (request, "django_project/corporates/main.html")
 
 
