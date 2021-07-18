@@ -144,15 +144,15 @@ def bullet_chart_from_xls(corp_name):
 
     fig.add_trace(go.Indicator(
         title = {"text": "Transparency"},
-        domain = {'y': [0.8, 1], 'x': [0.25, 0.75]}
+        domain = {'y': [0.9, 1], 'x': [0.25, 0.75]}
     ))
     fig.add_trace(go.Indicator(
         title = {"text": "Seriousness"},
-        domain = {'y': [0.4, 0.6], 'x': [0.25, 0.75]}
+        domain = {'y': [0.6, 0.7], 'x': [0.25, 0.75]}
     ))
     fig.add_trace(go.Indicator(
         title = {"text": "ss"},
-        domain = {'y': [0.2, 0.4], 'x': [0.25, 0.75]}
+        domain = {'y': [0.3, 0.4], 'x': [0.25, 0.75]}
     ))
     fig.update_layout(height = 300, margin = {'t':0, 'b':0, 'l':0})
     
