@@ -7,14 +7,14 @@ def home(request):
   return redirect('main_home')
 
 def corporates_search(request, corp_name=None):
-    
+
   if check_validity(corp_name):
     corp_data = {
     "corp_name": corp_name,
     }
     return render (request, "django_project/corporates/main.html", corp_data)
   else:
-    return redirect('main_home')
+    return render(request, "django_project/corporates/home.html", {"error_msg":"No match found"}})
 
 def check_validity(corp_name):
 
@@ -24,14 +24,5 @@ def check_validity(corp_name):
   conditions = [cond1, cond2]
   return all(conditions)
 
-
 def corporates_home(request):
-
-  corp_name = request.POST["query"]
-  if check_validity(corp_name):
-    corp_data = {
-    "corp_name": corp_name,
-    }
-    return render (request, "django_project/corporates/main.html", corp_data)
-  else:
-    return redirect('main_home')
+    return render(request, "django_project/corporates/home.html", {"error_msg":""}})

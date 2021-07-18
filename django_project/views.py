@@ -108,11 +108,9 @@ def home(request):
     }
       )
 
-
-
-def corporates_search(request):
-  corp_name = request.POST.get('query')
-  return redirect('corporates', corp_name=corp_name)
+#def corporates_search(request):
+#  corp_name = request.POST.get('query')
+#  return redirect('corporates', corp_name=corp_name)
 
 def sectors(request, sector_name):
 
