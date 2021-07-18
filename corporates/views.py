@@ -16,7 +16,6 @@ def corporates_search(request, corp_name=None):
   else:
     return redirect('main_home')
 
-
 def check_validity(corp_name):
 
   cond1 = corp_name is not None
@@ -25,8 +24,10 @@ def check_validity(corp_name):
   conditions = [cond1, cond2]
   return all(conditions)
 
+
 def corporates_home(request):
-  corp_name = request.POST.get("query")  
+
+  corp_name = request.POST["query"]
   if check_validity(corp_name):
     corp_data = {
     "corp_name": corp_name,
