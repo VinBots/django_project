@@ -19,6 +19,7 @@ from django_project.dashboards.record_dashboard_benchmark import record
 #from django_project.forms import EntryCreationForm
 #from django_project.models import Entry, Corporates
 from corporates.models import Corporate
+from django.urls import reverse
 
 
 helloWorld = """
@@ -86,8 +87,10 @@ helloWorld = """
 def home(request):
 
   if request.GET.get("query") is not None:
-    path = '/corporates.html/' + request.GET.get("query")
+    #path = '/corporates.html/' + request.GET.get("query")
+    path = reverse('corporates_home') + request.GET.get("query")
     return redirect(path)
+
   #form = EntryCreationForm(instance=Entry.objects.first())
   corporates_names = Corporate.objects.all()
   pct_values = get_top_stats()
