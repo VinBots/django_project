@@ -2,6 +2,7 @@ from django.db import models
 
 class Corporate(models.Model):
     name = models.CharField(max_length=250)
+    filename = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
