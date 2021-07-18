@@ -84,7 +84,10 @@ helloWorld = """
 """
 
 def home(request):
-  
+  query_error=""
+  if request.POST:
+    query_error="HELLO WORLD!"
+
   #form = EntryCreationForm(instance=Entry.objects.first())
   corporates_names = Corporate.objects.all()
   pct_values = get_top_stats()
@@ -93,6 +96,7 @@ def home(request):
 
   return render (request, "django_project/home/main.html", {
     "corporates_names": corporates_names,
+    "error_msg": query_error,
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
@@ -114,13 +118,10 @@ def corporates(request, corp_name=None):
     return render (request, "django_project/corporates/main.html", corp_data)
   else:
     return redirect('main_home')
-  
 
 def corporates_search(request):
   corp_name = request.POST.get('query')
   return redirect('corporates', corp_name=corp_name)
-  #return render (request, "django_project/corporates/main.html")
-
 
 def sectors(request, sector_name):
 
