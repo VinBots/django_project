@@ -24,23 +24,33 @@
         </div>
 
     </header>
+
+    <div class = "container" width = 100%>    
+        <section>    
+
+                <div class="row">   
+                    <div>
+                    
+                    {% autoescape off %}
+                    {{bullet_chart}}
+                    {% endautoescape off %}
+
+                    </div>
+                </div>
+            
+        </section>
         
-    <section>         
-        <div class="row">   
-        <div>
-            {% autoescape off %}
-            {{bullet_chart}}
-            {% endautoescape off %}
-        </div>
-        </div>>
-    </section>
-    <section>         
-        <div class="row">   
-        <div>
-            The red bar corresponds to the average of the sector...
-        </div>
-        </div>>
-    </section>
+        <section>         
+            
+            <div class="row">   
+                <div>
+                    The red bar corresponds to the average of the sector...
+                </div>
+                
+            </div>
+        </section>
+
+    </div>
 
     <footer>
 
