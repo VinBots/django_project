@@ -138,7 +138,7 @@
 
         !-->
         </header>
-            <form class="search-corp" method="POST" action="{% url 'corporates' 'query' %}">
+            <form class="search-corp" method="POST" action="{% url 'corporates' request.query.id %}">
                 {% csrf_token %}
                 <input class="search-corp" id = "tags" type="text" name="query" placeholder="Search for a company name" />
                 <script>
