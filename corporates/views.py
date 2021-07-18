@@ -14,7 +14,7 @@ def corporates_search(request, corp_name=None):
     }
     return render (request, "django_project/corporates/main.html", corp_data)
   else:
-    return render(request, "django_project/corporates/home.html", {"error_msg":"No match found"}})
+    return render(request, "django_project/corporates/home.html", {"error_msg":"No match found"})
 
 def check_validity(corp_name):
 
@@ -25,4 +25,4 @@ def check_validity(corp_name):
   return all(conditions)
 
 def corporates_home(request):
-    return render(request, "django_project/corporates/home.html", {"error_msg":""}})
+    return render(request, "django_project/corporates/home.html", {"error_msg":""})
