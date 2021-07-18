@@ -84,7 +84,7 @@ helloWorld = """
 """
 
 def home(request):
-  query_error=""
+  query_error="gg"
   if request.POST.get('query'):
     query_error="HELLO WORLD!"
 
