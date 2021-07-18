@@ -142,6 +142,6 @@ def bullet_chart_from_xls(corp_name):
     div_chart = offline.plot(
         fig,
         output_type='div',
-        include_plotlyjs=True)
+        include_plotlyjs=False)
 
     return div_chart
