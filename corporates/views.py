@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
+from django.urls import reverse
 
 # Create your views here.
 
@@ -22,12 +23,16 @@ def check_validity(corp_name):
   return all(conditions)
 
 def corporates_home(request):
-    corporates_names = Corporate.objects.all()
-    return render(
-      request,
-      "django_project/corporates/home.html", 
-      {
-        "error_msg":"",
-        "corporates_names": corporates_names
-      }
-      )
+  if request.GET.get("query") is not None:
+    path = reverse('corporates_home') + request.GET.get("query")
+    return redirect(path)
+
+  corporates_names = Corporate.objects.all()
+  return render(
+    request,
+    "django_project/corporates/home.html", 
+    {
+      "error_msg":"",
+      "corporates_names": corporates_names
+    }
+    )
