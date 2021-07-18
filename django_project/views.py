@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, redirect
 import random
-from django_project.utilities import get_top_stats, bullet_chart_from_xls
+from django_project.utilities import get_top_stats
 from typing import Dict
 import dash
 import dash_table

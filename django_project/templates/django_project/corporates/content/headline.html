@@ -8,8 +8,8 @@
             <div class="row">
 
                 <div>
-                    <img class = "container_img" src="{% static 'django_project/images/3m_banner.jpg' %}" alt="" width = 100%/>
-                    <img class = "overlay_img" src="{% static 'django_project/images/3m_logo.png' %}" />
+                    <img class = "container_img" src="{% static 'django_project/images/banners/3m_banner.jpg' %}" alt="" width = 100%/>
+                    <img class = "overlay_img" src="{% static 'django_project/images/logos/3m_logo.png' %}" />
                 </div>
 
             </div>
@@ -30,11 +30,7 @@
 
                 <div class="row">   
                     <div>
-                    
-                    {% autoescape off %}
-                    {{bullet_chart}}
-                    {% endautoescape off %}
-
+                    <img src="{% static 'django_project/images/charts/bullet_scores_3m.jpeg' %}" alt = "bullet_scores", width = 100%/>
                     </div>
                 </div>
             
