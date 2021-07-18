@@ -11,9 +11,9 @@ def corporates_search(request, corp_name=None):
     return redirect(path)
 
   corporates_names = Corporate.objects.all()
-  filename = Corporate.objects.get(name="corporates_names").values('filename')
 
   if check_validity(corp_name):
+    filename = Corporate.objects.get(name=corp_name).values('filename')
     corp_data = {
     "corp_name": corp_name,
     "filename": filename,
