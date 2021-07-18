@@ -85,7 +85,7 @@ helloWorld = """
 
 def home(request):
   query_error=""
-  if request.POST:
+  if request.POST.get('query'):
     query_error="HELLO WORLD!"
 
   #form = EntryCreationForm(instance=Entry.objects.first())
