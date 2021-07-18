@@ -1,0 +1,35 @@
+{% load static %}                    
+<article class="post">
+    <header>
+        
+        <div class="title">
+            <h2>GHG Emissions Evolution and Comparison</h2>
+            <br>
+        </div>
+
+    </header>
+    
+    
+    <section>
+
+        <div class="row">
+            
+            <div align = "center" height = "800" class="col-12 col-12-medium">
+                {% include "django_project/corporates/content/temp-plot.html" %}
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <ul class="stats">
+            <li><a href="#">Methodology</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+
+    </footer>
+
+</article>
