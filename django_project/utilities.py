@@ -125,8 +125,12 @@ def bullet_chart_from_xls(corp_name):
         domain = {'x': [0.25, 1], 'y': [0.7, 0.9]},
         title = {
             'text': "<b>Transparency</b>",
-            'font': {'size': 15}
-        },
+            'font': {'size': 15},
+            'x':0.5, 
+            'xanchor':'center', 
+            'y':0.98, 
+            'yanchor':'top'}
+        ,
         gauge = {
             'shape': "bullet",
             'axis': {'range': [None, 5]},
