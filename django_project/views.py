@@ -117,7 +117,9 @@ def corporates(request, corp_name=None):
   
 
 def corporates_search(request):
-  return render (request, "django_project/corporates/main.html")
+  corp_name = request.POST.get('query')
+  return redirect(corporates(request, corp_name=corp_name))
+  #return render (request, "django_project/corporates/main.html")
 
 
 def sectors(request, sector_name):
