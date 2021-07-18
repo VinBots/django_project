@@ -132,6 +132,6 @@ def sectors_search(request):
 def check_validity(corp_name):
   cond1 = corp_name is not None
   #corporates_names = Corporate.objects.all()
-  cond2 = Corporate.objects.filter().exists(name = corp_name)
+  cond2 = Corporate.objects.filter(name = corp_name).exists()
   conditions = [cond1, cond2]
   return all(conditions)
