@@ -35,11 +35,11 @@
 
             </form>
             <div class="row gtr-uniform">
-                <div align = "center" class="col-4"><a href="#top" title = "3M"><img src="{% static 'django_project/images/logos/3m_logo.png' %}" alt="3M"/></a></div>
-                <div align = "center" class="col-4"><a href="#top" title = "Apple"><img src="{% static 'django_project/images/logos/apple_logo.png' %}" alt="Apple" /></a></div>
-                <div align = "center" class="col-4"><a href="#top" title = "Microsoft"><img src="{% static 'django_project/images/logos/microsoft_logo.png' %}" alt="Microsoft"/></a></div>
-                <div align = "center" class="col-6"><a href="#top" title = "Accenture"><img src="{% static 'django_project/images/logos/accenture_logo.png' %}" alt="Acenture"/></a></div>
-                <div align = "center" class="col-6"><a href="#top" title = "Home Depot"><img src="{% static 'django_project/images/logos/homedepot_logo.png' %}" alt="Home Depot"/></a></div>
+                <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}3M" title = "3M"><img src="{% static 'django_project/images/logos/3m_logo.png' %}" alt="3M"/></a></div>
+                <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}Apple" title = "Apple"><img src="{% static 'django_project/images/logos/apple_logo.png' %}" alt="Apple" /></a></div>
+                <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}Microsoft" title = "Microsoft"><img src="{% static 'django_project/images/logos/microsoft_logo.png' %}" alt="Microsoft"/></a></div>
+                <div align = "center" class="col-6"><a href="{% url 'corporates_home'%}Accenture" title = "Accenture"><img src="{% static 'django_project/images/logos/accenture_logo.png' %}" alt="Acenture"/></a></div>
+                <div align = "center" class="col-6"><a href="{% url 'corporates_home'%}Home Depot" title = "Home Depot"><img src="{% static 'django_project/images/logos/homedepot_logo.png' %}" alt="Home Depot"/></a></div>
             </div>
         <footer>
         </footer>
