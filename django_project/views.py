@@ -86,7 +86,7 @@ helloWorld = """
 def home(request):
 
   if request.GET.get("query") is not None:
-    path = '/corporates/' + request.GET.get("query")
+    path = '/corporates.html/' + request.GET.get("query")
     return redirect(path)
   #form = EntryCreationForm(instance=Entry.objects.first())
   corporates_names = Corporate.objects.all()
