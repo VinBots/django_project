@@ -71,23 +71,7 @@ def get_top_stats():
 
 def bullet_chart_from_xls(corp_name):
 
-    results = {
-        "ind1":{
-            "name":"Transparency",
-            "score": 4.5,
-            "sector_score": 4.2,
-            },
-        "ind2":{
-            "name":"Seriousness",
-            "score": 3.5,
-            "sector_score": 3.2,
-            },
-        "ind3":{
-            "name":"Momentum",
-            "score": 2.5,
-            "sector_score": 2.8,
-            },
-    }
+    results = get_scores(corp_name)
 
     fig = go.Figure()
 
@@ -156,8 +140,31 @@ def bullet_chart_from_xls(corp_name):
                 {'range': [4.0, 5.0], 'color':'#e0e0a3'}],
             'bar': {'color': "#003200",
                     'thickness': 0.40}}))
-    fig.update_layout(height = 600, margin = {'t':0, 'b':0, 'l':0})
+    fig.update_layout(height = 300, margin = {'t':0, 'b':0, 'l':0})
     
     plot_div = plot(fig, 
                     output_type='div')
     return plot_div
+
+
+def get_scores(company_name):
+    
+    results = 
+    {
+    "ind1":{
+        "name":"Transparency",
+        "score": 4.5,
+        "sector_score": 4.2,
+        },
+    "ind2":{
+        "name":"Seriousness",
+        "score": 3.5,
+        "sector_score": 3.2,
+        },
+    "ind3":{
+        "name":"Momentum",
+        "score": 2.5,
+        "sector_score": 2.8,
+        },
+    }
+    return results
