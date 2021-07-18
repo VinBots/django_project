@@ -84,8 +84,9 @@ helloWorld = """
 """
 
 def home(request):
-  query_error=request.POST.get('query')
 
+  if request.GET.get("query") is not None:
+    return redirect('www.yahoo.fr')
   #form = EntryCreationForm(instance=Entry.objects.first())
   corporates_names = Corporate.objects.all()
   pct_values = get_top_stats()
