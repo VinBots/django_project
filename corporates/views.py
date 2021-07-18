@@ -14,9 +14,9 @@ def corporates_search(request, corp_name=None):
 
   if check_validity(corp_name):
     filename = Corporate.objects.get(name=corp_name).filename
+    selected_corp = Corporate.objects.get(name=corp_name)
     corp_data = {
-    "corp_name": corp_name,
-    "filename": filename,
+    "selected_corp": selected_corp
     }
     return render (request, "django_project/corporates/main.html", corp_data)
   else:
