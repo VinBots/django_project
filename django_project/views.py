@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, redirect
 import random
-from django_project.utilities import get_top_stats
+from django_project.utilities import get_top_stats, bullet_chart_from_xls
 from typing import Dict
 import dash
 import dash_table
@@ -105,10 +105,14 @@ def home(request):
 def corporates(request, corp_name=None):
 
   if corp_name is not None:
-      corp_data = {
-      "corp_name": corp_name,
-      "ISIN": "14SAM"
-      }
+
+    div_chart = bullet_chart_from_xls(corp_name)
+
+    corp_data = {
+    "corp_name": corp_name,
+    "bullet_chart": div_chart,
+    }
+  
   return render (request, "django_project/corporates/main.html", corp_data)
 
 def corporates_search(request):

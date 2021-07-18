@@ -2,6 +2,8 @@
 import pandas as pd
 import numpy as np
 import os
+import plotly.graph_objs as go
+import plotly.offline as offline
 
 def get_data(xlsx_path, sheetname, cols_to_use):
     
@@ -64,3 +66,82 @@ def get_top_stats():
     momentum_pct = get_momentum_pct(all_data)
 
     return [rep_pct, perf_pct, net0_pct, sbt_pct, momentum_pct]
+
+
+def bullet_chart_from_xls(corp_name):
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Indicator(
+        mode = "number+gauge+delta", value = 3.5,
+        delta = {'reference': 4.5},
+        domain = {'x': [0.25, 1], 'y': [0.05, 0.25]},
+        title = {
+            'text': "<b>Momentum</b>",
+            'font': {'size': 15}
+        },
+        gauge = {
+            'shape': "bullet",
+            'axis': {'range': [None, 5]},
+            'threshold': {
+                'line': {'color': "red", 'width': 5},
+                'thickness': 0.75,
+                'value': 4.5},
+            'steps': [
+                {'range': [0, 2.5], 'color': "#ed453b"},
+                {'range': [2.5, 4.0], 'color': "#ecb27e"},
+                {'range': [4.0, 5.0], 'color':'#e0e0a3'}],
+            'bar': {'color': "#003200",
+                    'thickness': 0.40}}))
+
+    fig.add_trace(go.Indicator(
+        mode = "number+gauge+delta", value = 3.5,
+        delta = {'reference': 3.3},
+        domain = {'x': [0.25, 1], 'y': [0.4, 0.6]},
+            title = {
+            'text': "<b>Seriousness</b>",
+            'font': {'size': 15}
+        },
+        gauge = {
+            'shape': "bullet",
+            'axis': {'range': [None, 5]},
+            'threshold': {
+                'line': {'color': "red", 'width': 5},
+                'thickness': 0.75,
+                'value': 3.3},
+            'steps': [
+                {'range': [0, 2.5], 'color': "#ed453b"},
+                {'range': [2.5, 4.0], 'color': "#ecb27e"},
+                {'range': [4.0, 5.0], 'color':'#e0e0a3'}],
+            'bar': {'color': "#003200",
+                    'thickness': 0.40}}))
+
+    fig.add_trace(go.Indicator(
+        mode = "number+gauge+delta", value = 4.5,
+        delta = {'reference': 4.0},
+        domain = {'x': [0.25, 1], 'y': [0.7, 0.9]},
+        title = {
+            'text': "<b>Transparency</b>",
+            'font': {'size': 15}
+        },
+        gauge = {
+            'shape': "bullet",
+            'axis': {'range': [None, 5]},
+            'threshold': {
+                'line': {'color': "red", 'width': 5},
+                'thickness': 0.75,
+                'value': 4.0},
+            'steps': [
+                {'range': [0, 2.5], 'color': "#ed453b"},
+                {'range': [2.5, 4.0], 'color': "#ecb27e"},
+                {'range': [4.0, 5.0], 'color':'#e0e0a3'}],
+            'bar': {'color': "#003200",
+                    'thickness': 0.40}}))
+    fig.update_layout(height = 600, margin = {'t':0, 'b':0, 'l':0})
+    
+    div_chart = offline.plot(
+        fig,
+        output_type='div',
+        include_plotlyjs=True)
+
+    return div_chart
