@@ -25,8 +25,8 @@ def check_validity(corp_name):
   conditions = [cond1, cond2]
   return all(conditions)
 
-def corporates_home(request, corp_name=None):
-    
+def corporates_home(request):
+  corp_name = request.POST.get("query")  
   if check_validity(corp_name):
     corp_data = {
     "corp_name": corp_name,
