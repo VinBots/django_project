@@ -71,11 +71,29 @@ def get_top_stats():
 
 def bullet_chart_from_xls(corp_name):
 
+    results = {
+        "ind1":{
+            "name":"Transparency",
+            "score": 4.5,
+            "sector_score": 4.2,
+            },
+        "ind2":{
+            "name":"Seriousness",
+            "score": 3.5,
+            "sector_score": 3.2,
+            },
+        "ind3":{
+            "name":"Momentum",
+            "score": 2.5,
+            "sector_score": 2.8,
+            },
+    }
+
     fig = go.Figure()
 
     fig.add_trace(go.Indicator(
-        mode = "number+gauge+delta", value = 3.5,
-        delta = {'reference': 4.5},
+        mode = "number+gauge+delta", value = results['ind3']['score'],
+        delta = {'reference': results['ind3']['sector_score']},
         domain = {'x': [0.25, 1], 'y': [0.05, 0.25]},
         title = {
             'text': "<b>Momentum</b>",
@@ -87,7 +105,7 @@ def bullet_chart_from_xls(corp_name):
             'threshold': {
                 'line': {'color': "red", 'width': 5},
                 'thickness': 0.75,
-                'value': 4.5},
+                'value': results['ind3']['sector_score']},
             'steps': [
                 {'range': [0, 2.5], 'color': "#ed453b"},
                 {'range': [2.5, 4.0], 'color': "#ecb27e"},
@@ -96,8 +114,8 @@ def bullet_chart_from_xls(corp_name):
                     'thickness': 0.40}}))
 
     fig.add_trace(go.Indicator(
-        mode = "number+gauge+delta", value = 3.5,
-        delta = {'reference': 3.3},
+        mode = "number+gauge+delta", value = results['ind2']['score'],
+        delta = {'reference': results['ind2']['sector_score']},
         domain = {'x': [0.25, 1], 'y': [0.4, 0.6]},
             title = {
             'text': "<b>Seriousness</b>",
@@ -109,7 +127,7 @@ def bullet_chart_from_xls(corp_name):
             'threshold': {
                 'line': {'color': "red", 'width': 5},
                 'thickness': 0.75,
-                'value': 3.3},
+                'value': results['ind2']['sector_score']},
             'steps': [
                 {'range': [0, 2.5], 'color': "#ed453b"},
                 {'range': [2.5, 4.0], 'color': "#ecb27e"},
@@ -118,8 +136,8 @@ def bullet_chart_from_xls(corp_name):
                     'thickness': 0.40}}))
 
     fig.add_trace(go.Indicator(
-        mode = "number+gauge+delta", value = 4.5,
-        delta = {'reference': 4.0},
+        mode = "number+gauge+delta", value = results['ind1']['score'],
+        delta = {'reference': results['ind1']['sector_score']},
         domain = {'x': [0.25, 1], 'y': [0.7, 0.9]},
         title = {
             'text': "<b>Transparency</b>",
@@ -131,7 +149,7 @@ def bullet_chart_from_xls(corp_name):
             'threshold': {
                 'line': {'color': "red", 'width': 5},
                 'thickness': 0.75,
-                'value': 4.0},
+                'value': results['ind1']['sector_score']},
             'steps': [
                 {'range': [0, 2.5], 'color': "#ed453b"},
                 {'range': [2.5, 4.0], 'color': "#ecb27e"},
@@ -142,5 +160,4 @@ def bullet_chart_from_xls(corp_name):
     
     plot_div = plot(fig, 
                     output_type='div')
-
     return plot_div
