@@ -104,13 +104,12 @@ def home(request):
 
 def corporates(request, corp_name=None):
 
-  if corp_name is not None:
+  if check_validity(corp_name):
 
     div_chart = 0
 
     corp_data = {
     "corp_name": corp_name,
-    "bullet_chart": div_chart,
     }
   
   return render (request, "django_project/corporates/main.html", corp_data)
@@ -129,3 +128,10 @@ def sectors(request, sector_name):
 
 def sectors_search(request):
   return render (request, "django_project/sectors/main.html")
+
+def check_validity(corp_name):
+  cond1 = corp_name is not None
+  #corporates_names = Corporate.objects.all()
+  cond2 = Corporate.objects.filter().exists(name = corp_name)
+  conditions = [cond1, cond2]
+  return all(conditions)
