@@ -10,13 +10,21 @@ def corporates_search(request, corp_name=None):
     path = reverse('corporates_home') + request.GET.get("query")
     return redirect(path)
 
+  corporates_names = Corporate.objects.all()
+
   if check_validity(corp_name):
     corp_data = {
     "corp_name": corp_name,
     }
     return render (request, "django_project/corporates/main.html", corp_data)
   else:
-    return render(request, "django_project/corporates/home.html", {"error_msg":"No match found"})
+    return render(
+      request, 
+      "django_project/corporates/home.html", 
+      {"error_msg":"No match found",
+      "corporates_names": corporates_names
+      }
+      )
 
 def check_validity(corp_name):
 
