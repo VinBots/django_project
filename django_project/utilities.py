@@ -78,7 +78,7 @@ def bullet_chart_from_xls(corp_name):
     fig.add_trace(go.Indicator(
         mode = "number+gauge+delta", value = results['ind3']['score'],
         delta = {'reference': results['ind3']['sector_score']},
-        domain = {'x': [0.25, 1], 'y': [0.05, 0.25]},
+        domain = {'x': [0.25, 1], 'y': [0.10, 0.30]},
         title = {
             'text': "<b>Momentum</b>",
             'font': {'size': 15}
@@ -100,7 +100,7 @@ def bullet_chart_from_xls(corp_name):
     fig.add_trace(go.Indicator(
         mode = "number+gauge+delta", value = results['ind2']['score'],
         delta = {'reference': results['ind2']['sector_score']},
-        domain = {'x': [0.25, 1], 'y': [0.4, 0.6]},
+        domain = {'x': [0.25, 1], 'y': [0.35, 0.55]},
             title = {
             'text': "<b>Seriousness</b>",
             'font': {'size': 15}
@@ -122,7 +122,7 @@ def bullet_chart_from_xls(corp_name):
     fig.add_trace(go.Indicator(
         mode = "number+gauge+delta", value = results['ind1']['score'],
         delta = {'reference': results['ind1']['sector_score']},
-        domain = {'x': [0.25, 1], 'y': [0.7, 0.9]},
+        domain = {'x': [0.25, 1], 'y': [0.6, 0.8]},
         title = {
             'text': "<b>Transparency</b>",
             'font': {'size': 15},
