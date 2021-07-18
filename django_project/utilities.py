@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 import os
 import plotly.graph_objs as go
-import plotly.offline as offline
+from plotly.offline import plot
+
 
 def get_data(xlsx_path, sheetname, cols_to_use):
     
@@ -139,9 +140,7 @@ def bullet_chart_from_xls(corp_name):
                     'thickness': 0.40}}))
     fig.update_layout(height = 600, margin = {'t':0, 'b':0, 'l':0})
     
-    div_chart = offline.plot(
-        fig,
-        output_type='div',
-        include_plotlyjs=False)
+    plot_div = plot(fig, 
+                    output_type='div')
 
-    return div_chart
+    return plot_div
