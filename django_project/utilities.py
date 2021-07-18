@@ -149,22 +149,21 @@ def bullet_chart_from_xls(corp_name):
 
 def get_scores(company_name):
     
-    results = 
-    {
-    "ind1":{
+    results = {
+        "ind1":{
         "name":"Transparency",
         "score": 4.5,
         "sector_score": 4.2,
         },
-    "ind2":{
-        "name":"Seriousness",
-        "score": 3.5,
-        "sector_score": 3.2,
+        "ind2":{
+            "name":"Seriousness",
+            "score": 3.5,
+            "sector_score": 3.2,
         },
-    "ind3":{
-        "name":"Momentum",
-        "score": 2.5,
-        "sector_score": 2.8,
+        "ind3":{
+            "name":"Momentum",
+            "score": 2.5,
+            "sector_score": 2.8,
         },
     }
     return results
