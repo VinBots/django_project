@@ -24,3 +24,13 @@ def check_validity(corp_name):
   cond2 = Corporate.objects.filter(name = corp_name).exists()
   conditions = [cond1, cond2]
   return all(conditions)
+
+def corporates_home(request, corp_name=None):
+    
+  if check_validity(corp_name):
+    corp_data = {
+    "corp_name": corp_name,
+    }
+    return render (request, "django_project/corporates/main.html", corp_data)
+  else:
+    return redirect('main_home')
