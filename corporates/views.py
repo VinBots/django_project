@@ -3,9 +3,6 @@ from corporates.models import Corporate
 
 # Create your views here.
 
-def home(request):
-  return redirect('main_home')
-
 def corporates_search(request, corp_name=None):
 
   if check_validity(corp_name):
