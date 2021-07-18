@@ -6,6 +6,10 @@ from django.urls import reverse
 
 def corporates_search(request, corp_name=None):
 
+  if request.GET.get("query") is not None:
+    path = reverse('corporates_home') + request.GET.get("query")
+    return redirect(path)
+
   if check_validity(corp_name):
     corp_data = {
     "corp_name": corp_name,
