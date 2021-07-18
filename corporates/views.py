@@ -11,10 +11,12 @@ def corporates_search(request, corp_name=None):
     return redirect(path)
 
   corporates_names = Corporate.objects.all()
+  filename = Corporate.objects.get(name="corporates_names").filename
 
   if check_validity(corp_name):
     corp_data = {
     "corp_name": corp_name,
+    "filename": filename,
     }
     return render (request, "django_project/corporates/main.html", corp_data)
   else:
@@ -26,6 +28,7 @@ def corporates_search(request, corp_name=None):
       }
       )
 
+
 def check_validity(corp_name):
 
   cond1 = corp_name is not None
@@ -34,7 +37,9 @@ def check_validity(corp_name):
   conditions = [cond1, cond2]
   return all(conditions)
 
+
 def corporates_home(request):
+
   if request.GET.get("query") is not None:
     path = reverse('corporates_home') + request.GET.get("query")
     return redirect(path)
