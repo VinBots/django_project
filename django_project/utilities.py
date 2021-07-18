@@ -126,10 +126,7 @@ def bullet_chart_from_xls(corp_name):
         title = {
             'text': "<b>Transparency</b>",
             'font': {'size': 15},
-            'x':0.5, 
-            'xanchor':'center', 
-            'y':0.98, 
-            'yanchor':'top'}
+            }
         ,
         gauge = {
             'shape': "bullet",
@@ -144,6 +141,11 @@ def bullet_chart_from_xls(corp_name):
                 {'range': [4.0, 5.0], 'color':'#e0e0a3'}],
             'bar': {'color': "#003200",
                     'thickness': 0.40}}))
+
+    fig.add_trace(go.Indicator(
+        title = {"text": "Hello"},
+        domain = {'y': [0, 1], 'x': [0.25, 0.75]}
+    ))
     fig.update_layout(height = 300, margin = {'t':0, 'b':0, 'l':0})
     
     plot_div = plot(fig, 
