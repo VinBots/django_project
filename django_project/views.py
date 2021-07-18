@@ -106,7 +106,7 @@ def corporates(request, corp_name=None):
 
   if corp_name is not None:
 
-    div_chart = bullet_chart_from_xls(corp_name)
+    div_chart = 0
 
     corp_data = {
     "corp_name": corp_name,
