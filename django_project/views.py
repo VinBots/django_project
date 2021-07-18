@@ -111,7 +111,10 @@ def corporates(request, corp_name=None):
     corp_data = {
     "corp_name": corp_name,
     }
-  
+  else:
+    corp_data = {
+    "corp_name": "NOT VALID"
+    }
   return render (request, "django_project/corporates/main.html", corp_data)
 
 def corporates_search(request):
