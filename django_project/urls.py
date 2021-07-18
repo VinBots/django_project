@@ -54,8 +54,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),	
     path('', views.home, name='main_home'),
-    path('corporates.html/<str:corp_name>/', views.corporates, name = 'corporates'),
-    path('corporates.html/', views.corporates_search, name = 'corporates_search'),\
+    path('corporates.html/', include('corporates.urls')),
     path('sectors.html/<str:sector_name>/', views.sectors, name = 'sectors'),
     path('sectors.html/', views.sectors_search, name = 'sectors_search'),
 
