@@ -13,10 +13,10 @@ def corporates_search(request, corp_name=None):
   corporates_names = Corporate.objects.all()
 
   if check_validity(corp_name):
-    record = Corporate.objects.filter(name=corp_name)
+    filename = Corporate.objects.get(name=corp_name).filename
     corp_data = {
     "corp_name": corp_name,
-    "filename": record.filename,
+    "filename": filename,
     }
     return render (request, "django_project/corporates/main.html", corp_data)
   else:
