@@ -16,7 +16,6 @@ import plotly.graph_objs as go
 import dash_table.FormatTemplate as FormatTemplate
 from dash_table.Format import Format, Group, Scheme
 from django_project.dashboards.record_dashboard_benchmark import record
-from corporates.models import Corporate
 #from django_project.forms import EntryCreationForm
 #from django_project.models import Entry, Corporates
 
@@ -104,18 +103,7 @@ def home(request):
     }
       )
 
-def corporates(request, corp_name=None):
 
-  if check_validity(corp_name):
-
-    div_chart = 0
-
-    corp_data = {
-    "corp_name": corp_name,
-    }
-    return render (request, "django_project/corporates/main.html", corp_data)
-  else:
-    return redirect('main_home')
 
 def corporates_search(request):
   corp_name = request.POST.get('query')
@@ -132,9 +120,3 @@ def sectors(request, sector_name):
 def sectors_search(request):
   return render (request, "django_project/sectors/main.html")
 
-def check_validity(corp_name):
-  cond1 = corp_name is not None
-  #corporates_names = Corporate.objects.all()
-  cond2 = Corporate.objects.filter(name = corp_name).exists()
-  conditions = [cond1, cond2]
-  return all(conditions)
