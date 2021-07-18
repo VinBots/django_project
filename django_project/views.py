@@ -18,6 +18,7 @@ from dash_table.Format import Format, Group, Scheme
 from django_project.dashboards.record_dashboard_benchmark import record
 #from django_project.forms import EntryCreationForm
 #from django_project.models import Entry, Corporates
+from corporates.models import Corporate
 
 
 helloWorld = """
