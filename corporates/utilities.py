@@ -40,6 +40,7 @@ def get_ghg_xls(company_id):
         '2017':{'scope1':ghg_format(corp_record_data.iloc[0,0]), 'scope2':ghg_format(corp_record_data.iloc[0,1]), 'scope3':ghg_format(corp_record_data.iloc[0,2])},
         '2018':{'scope1':ghg_format(corp_record_data.iloc[0,0]), 'scope2':ghg_format(corp_record_data.iloc[0,1]), 'scope3':ghg_format(corp_record_data.iloc[0,2])},
         '2019':{'scope1':ghg_format(corp_record_data.iloc[0,0]), 'scope2':ghg_format(corp_record_data.iloc[0,1]), 'scope3':ghg_format(corp_record_data.iloc[0,2])},
+        'total':{'scope1':ghg_format(corp_record_data.iloc[0,0]), 'scope2':ghg_format(corp_record_data.iloc[0,1]), 'scope3':ghg_format(corp_record_data.iloc[0,2])}
         }
     
     return ghg_dict
