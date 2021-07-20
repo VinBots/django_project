@@ -10,21 +10,27 @@ def corporates_search(request, corp_name=None):
     path = reverse('corporates_home') + request.GET.get("query")
     return redirect(path)
 
+
   corporates_names = Corporate.objects.all()
+  
 
   if check_validity(corp_name):
     filename = Corporate.objects.get(name=corp_name).filename
     selected_corp = Corporate.objects.get(name=corp_name)
+    path_to_bubble = "django_project/corporates/charts/html_exports/bubble_intensity_"+ selected_corp.filename + ".html"
+    
     corp_data = {
-    "selected_corp": selected_corp
+    "selected_corp": selected_corp,
+    "selected_corp_bubble_chart": path_to_bubble,
     }
+    
     return render (request, "django_project/corporates/main.html", corp_data)
   else:
     return render(
       request, 
       "django_project/corporates/home.html", 
       {"error_msg":"No match found",
-      "corporates_names": corporates_names
+      "corporates_names": corporates_names,
       }
       )
 
