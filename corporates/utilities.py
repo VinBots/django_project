@@ -37,10 +37,25 @@ def get_ghg_xls(company_id):
     corp_record =  all_data[all_data['company_id']==company_id]
     corp_record_data = corp_record[['gross_total_scope1', 'gross_loc_scope2', 'gross_total_scope3']]
     ghg_dict = {
-        '2017':{'scope1':ghg_format(corp_record_data.iloc[0,0]), 'scope2':ghg_format(corp_record_data.iloc[0,1]), 'scope3':ghg_format(corp_record_data.iloc[0,2])},
-        '2018':{'scope1':ghg_format(corp_record_data.iloc[0,0]), 'scope2':ghg_format(corp_record_data.iloc[0,1]), 'scope3':ghg_format(corp_record_data.iloc[0,2])},
-        '2019':{'scope1':ghg_format(corp_record_data.iloc[0,0]), 'scope2':ghg_format(corp_record_data.iloc[0,1]), 'scope3':ghg_format(corp_record_data.iloc[0,2])},
-        'total':{'scope1':ghg_format(corp_record_data.iloc[0,0]), 'scope2':ghg_format(corp_record_data.iloc[0,1]), 'scope3':ghg_format(corp_record_data.iloc[0,2])}
+        '2017':{
+            'scope1':ghg_format(corp_record_data.iloc[0,0]),
+            'scope2':ghg_format(corp_record_data.iloc[0,1]),
+            'scope3':ghg_format(corp_record_data.iloc[0,2]),
+            'total':ghg_format(corp_record_data.iloc[0,2]),
+            },
+
+        '2018':{
+            'scope1':ghg_format(corp_record_data.iloc[0,0]),
+            'scope2':ghg_format(corp_record_data.iloc[0,1]),
+            'scope3':ghg_format(corp_record_data.iloc[0,2]),
+            'total':ghg_format(corp_record_data.iloc[0,2]),
+            },
+        '2019':{
+            'scope1':ghg_format(corp_record_data.iloc[0,0]),
+            'scope2':ghg_format(corp_record_data.iloc[0,1]),
+            'scope3':ghg_format(corp_record_data.iloc[0,2]),
+            'total':ghg_format(corp_record_data.iloc[0,2])
+            },
         }
     
     return ghg_dict
