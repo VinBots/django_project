@@ -1,6 +1,7 @@
 from django.db import models
 
 class Corporate(models.Model):
+    id = models.IntegerField(default = 0)
     name = models.CharField(max_length=250)
     filename = models.CharField(
         max_length=20,
