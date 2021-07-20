@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
+from .django_project.django_project.parameters import get_path_to_bubble
 
 # Create your views here.
 
@@ -17,8 +18,7 @@ def corporates_search(request, corp_name=None):
   if check_validity(corp_name):
     filename = Corporate.objects.get(name=corp_name).filename
     selected_corp = Corporate.objects.get(name=corp_name)
-    path_to_bubble = "django_project/corporates/charts/html_exports/bubble_intensity_"+ selected_corp.filename + ".html"
-    
+    path_to_bubble = get_path_to_bubble(selected_corp.filename)
     corp_data = {
     "selected_corp": selected_corp,
     "selected_corp_bubble_chart": path_to_bubble,
