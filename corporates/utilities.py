@@ -20,7 +20,7 @@ def check_validity(corp_name):
   conditions = [cond1, cond2]
   return all(conditions)
 
-def get_ghg_xls():
+def get_ghg_xls(corp_name):
     ghg_dict = {
         '2017':{'scope1':0, 'scope2':10, 'scope3':20,},
         '2018':{'scope1':5, 'scope2':15, 'scope3':25,},
