@@ -37,7 +37,7 @@ def get_ghg_xls(corp_name):
     
     company_id = 4
     corp_record =  all_data[all_data['company_id']==company_id]
-    corp_record_data = corp_record['gross_total_scope1', 'gross_loc_scope2', 'gross_total_scope_3']    
+    corp_record_data = corp_record[['gross_total_scope1', 'gross_loc_scope2', 'gross_total_scope_3']]
     ghg_dict = {
         '2017':{'scope1':"20", 'scope2':"10", 'scope3':"20",'total':"50"},
         '2018':{'scope1':"5", 'scope2':"15", 'scope3':"25",'total':"45"},
