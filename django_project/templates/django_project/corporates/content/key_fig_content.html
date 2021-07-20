@@ -1,4 +1,13 @@
 {% extends "django_project/corporates/content/key_figures.html" %}
+
+{% block score_summary %} 
+{% include "django_project/corporates/content/score_summary.html" %}
+{% endblock%} 
+
 {% block ghg_emissions %} 
 {% include "django_project/corporates/content/ghg_table.html" %}
+{% endblock%}
+
+{% block targets %} 
+{% include "django_project/corporates/content/targets.html" %}
 {% endblock%} 
