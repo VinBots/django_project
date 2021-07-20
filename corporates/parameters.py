@@ -9,6 +9,6 @@ def get_path_to_bubble(filename):
         BASE_DIR,
         DIR_TO_CORP_CHARTS_TEMPLATES) + "bubble_intensity_"+ filename + ".html"
 
-    #if os.path.exists(path):
-    return path
+    if os.path.exists(path):
+        return path
 
