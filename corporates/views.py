@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
-from ..django_project.django_project.parameters import get_path_to_bubble
+from corporates.parameters import get_path_to_bubble
 
 # Create your views here.
 
