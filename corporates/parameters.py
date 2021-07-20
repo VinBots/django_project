@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
 
 def get_path_to_bubble(filename):
