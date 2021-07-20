@@ -24,39 +24,26 @@ def check_validity(corp_name):
   return all(conditions)
 
 def get_ghg_xls(company_id):
-    
+    ghg_dict={}
     #Excel file path
     xlsx_path = os.path.join (BASE_DIR, 'static/django_project', 'data', 'sp100_data.xlsx')
+    year_ghgsheet = [('2017','GHG17'), ('2018','GHG18'), ('2019','GHG19')]
 
     # Connect to the data source
-    all_data = get_data(
-        xlsx_path, 
-        'GHG19', 
-        None,
-        )
-    corp_record =  all_data[all_data['company_id']==company_id]
-    corp_record_data = corp_record[['gross_total_scope1', 'gross_scope2_calc', 'gross_total_scope3', 'total_scope']]
-    ghg_dict = {
-        '2017':{
+    for year, ghgsheet in year_ghgsheet:
+        all_data = get_data(
+            xlsx_path, 
+            ghgsheet, 
+            None,
+            )
+        corp_record =  all_data[all_data['company_id']==company_id]
+        corp_record_data = corp_record[['gross_total_scope1', 'gross_scope2_calc', 'gross_total_scope3', 'total_scope']]
+        ghg_dict[year] = {
             'scope1':ghg_format(corp_record_data.iloc[0,0]),
             'scope2':ghg_format(corp_record_data.iloc[0,1]),
             'scope3':ghg_format(corp_record_data.iloc[0,2]),
             'total':ghg_format(corp_record_data.iloc[0,3]),
-            },
-
-        '2018':{
-            'scope1':ghg_format(corp_record_data.iloc[0,0]),
-            'scope2':ghg_format(corp_record_data.iloc[0,1]),
-            'scope3':ghg_format(corp_record_data.iloc[0,2]),
-            'total':ghg_format(corp_record_data.iloc[0,3]),
-            },
-        '2019':{
-            'scope1':ghg_format(corp_record_data.iloc[0,0]),
-            'scope2':ghg_format(corp_record_data.iloc[0,1]),
-            'scope3':ghg_format(corp_record_data.iloc[0,2]),
-            'total':ghg_format(corp_record_data.iloc[0,3])
-            },
-        }
+            }
     
     return ghg_dict
 
