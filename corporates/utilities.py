@@ -23,7 +23,7 @@ def check_validity(corp_name):
   conditions = [cond1, cond2]
   return all(conditions)
 
-def get_ghg_xls(corp_name):
+def get_ghg_xls(company_id):
     
     #Excel file path
     xlsx_path = os.path.join (BASE_DIR, 'static/django_project', 'data', 'sp100_data.xlsx')
@@ -34,14 +34,12 @@ def get_ghg_xls(corp_name):
         'GHG19', 
         None,
         )
-    
-    company_id = 4
     corp_record =  all_data[all_data['company_id']==company_id]
     corp_record_data = corp_record[['gross_total_scope1', 'gross_loc_scope2', 'gross_total_scope_3']]
     ghg_dict = {
-        '2017':{'scope1':str(corp_record_data.iloc[0,0]), 'scope2':str(corp_record_data.iloc[0,1]), 'scope3':str(corp_record_data.iloc[0,2])}'2017':{'scope1':"20", 'scope2':"10", 'scope3':"20",'total':"50"},
-        '2018':{'scope1':str(corp_record_data.iloc[0,0]), 'scope2':str(corp_record_data.iloc[0,1]), 'scope3':str(corp_record_data.iloc[0,2])}'2018':{'scope1':"5", 'scope2':"15", 'scope3':"25",'total':"45"},
-        '2019':{'scope1':str(corp_record_data.iloc[0,0]), 'scope2':str(corp_record_data.iloc[0,1]), 'scope3':str(corp_record_data.iloc[0,2])}
+        '2017':{'scope1':str(corp_record_data.iloc[0,0]), 'scope2':str(corp_record_data.iloc[0,1]), 'scope3':str(corp_record_data.iloc[0,2])},
+        '2018':{'scope1':str(corp_record_data.iloc[0,0]), 'scope2':str(corp_record_data.iloc[0,1]), 'scope3':str(corp_record_data.iloc[0,2])},
+        '2019':{'scope1':str(corp_record_data.iloc[0,0]), 'scope2':str(corp_record_data.iloc[0,1]), 'scope3':str(corp_record_data.iloc[0,2])},
         }
     
     return ghg_dict
