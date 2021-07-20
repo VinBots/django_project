@@ -11,17 +11,12 @@ def corporates_search(request, corp_name=None):
     path = reverse('corporates_home') + request.GET.get("query")
     return redirect(path)
 
-
-  corporates_names = Corporate.objects.all()
-  
-
   if check_validity(corp_name):
-    filename = Corporate.objects.get(name=corp_name).filename
     selected_corp = Corporate.objects.get(name=corp_name)
-    path_to_bubble = get_path_to_bubble(selected_corp.filename)
+    
     corp_data = {
     "selected_corp": selected_corp,
-    "selected_corp_bubble_chart": path_to_bubble,
+    "selected_corp_bubble_chart": get_path_to_bubble(selected_corp.filename),
     }
     
     return render (request, "django_project/corporates/main.html", corp_data)
@@ -30,7 +25,7 @@ def corporates_search(request, corp_name=None):
       request, 
       "django_project/corporates/home.html", 
       {"error_msg":"No match found",
-      "corporates_names": corporates_names,
+      "corporates_names": Corporate.objects.all(),
       }
       )
 
@@ -50,12 +45,11 @@ def corporates_home(request):
     path = reverse('corporates_home') + request.GET.get("query")
     return redirect(path)
 
-  corporates_names = Corporate.objects.all()
   return render(
     request,
     "django_project/corporates/home.html", 
     {
       "error_msg":"",
-      "corporates_names": corporates_names
+      "corporates_names": Corporate.objects.all()
     }
     )
