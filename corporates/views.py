@@ -17,7 +17,6 @@ def corporates_search(request, corp_name=None):
       'ghg': get_ghg_xls(corp_name)
     }
 
-
     corp_data = {
     "selected_corp": selected_corp,
     "xls_corp": xls_corp,

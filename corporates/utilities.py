@@ -22,7 +22,7 @@ def check_validity(corp_name):
 
 def get_ghg_xls(corp_name):
     ghg_dict = {
-        '2017':{'scope1':"0", 'scope2':"10", 'scope3':"20",},
+        '2017':{'scope1':"20", 'scope2':"10", 'scope3':"20",},
         '2018':{'scope1':"5", 'scope2':"15", 'scope3':"25",},
         '2019':{'scope1':"9", 'scope2':"19", 'scope3':"29",}}
     
