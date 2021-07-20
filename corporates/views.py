@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
-from corporates.parameters import get_path_to_bubble
+from corporates.utilities import get_path_to_bubble, check_validity, get_ghg_xls
 
-# Create your views here.
+
 
 def corporates_search(request, corp_name=None):
 
@@ -13,9 +13,14 @@ def corporates_search(request, corp_name=None):
 
   if check_validity(corp_name):
     selected_corp = Corporate.objects.get(name=corp_name)
-    
+    xls_corp = {
+      'ghg': get_ghg_xls(corp_name)
+    }
+
+
     corp_data = {
     "selected_corp": selected_corp,
+    "xls_corp": xls_corp,
     "selected_corp_bubble_chart": get_path_to_bubble(selected_corp.filename),
     }
     
@@ -28,15 +33,6 @@ def corporates_search(request, corp_name=None):
       "corporates_names": Corporate.objects.all(),
       }
       )
-
-
-def check_validity(corp_name):
-
-  cond1 = corp_name is not None
-  #corporates_names = Corporate.objects.all()
-  cond2 = Corporate.objects.filter(name = corp_name).exists()
-  conditions = [cond1, cond2]
-  return all(conditions)
 
 
 def corporates_home(request):
