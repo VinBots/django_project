@@ -26,7 +26,7 @@ def check_validity(corp_name):
 def get_ghg_xls(corp_name):
     
     #Excel file path
-    xlsx_path = os.path.join ('../django_project/static/django_project', 'data', 'sp100_data.xlsx')
+    xlsx_path = os.path.join ('..django_project/static/django_project', 'data', 'sp100_data.xlsx')
 
     # Connect to the data source
     all_data = get_data(
