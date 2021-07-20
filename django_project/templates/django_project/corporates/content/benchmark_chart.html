@@ -3,25 +3,20 @@
     <header>
         
         <div class="title">
-            <h2>GHG Emissions Evolution and Comparison</h2>
+            <h2>Greenhouse Gas Emissions: Evolution and Benchmark</h2>
             <br>
         </div>
-
     </header>
     
-    
     <section>
-
         <div class="row">
-
             <div align = "center" class = "col-6 col-12-medium">
 
+                {% include "django_project/corporates/charts/html_exports/ghg_linechart_3M.html" %}
                 {% include "django_project/corporates/content/ghg_table.html" %}
 
             </div>   
-            
             <div align = "center" class = "col-6 col-12-medium">
-
                 {% if selected_corp_bubble_chart %}
                     {% include selected_corp_bubble_chart%}
                 {% endif %}
