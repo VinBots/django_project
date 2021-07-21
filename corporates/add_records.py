@@ -1,4 +1,4 @@
-from corporates.models import Corporate
+from models import Corporate
 import pandas as pd
 import os
 
