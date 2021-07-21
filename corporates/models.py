@@ -1,6 +1,17 @@
 from django.db import models
+import random
+from django.db.models import Count
+
+
+class CorporatesManager(models.Manager):
+
+    def random(self):
+        count = self.aggregate(count = Count('company_id'))['count']
+        random_index = random.randint(0, count - 1)
+        return self.all()[random_index]
 
 class Corporate(models.Model):
+    objects = CorporatesManager()
     company_id = models.IntegerField(default = 0)
     name = models.CharField(max_length=250)
     filename = models.CharField(
@@ -10,11 +21,7 @@ class Corporate(models.Model):
 
     def __str__(self):
         return self.name
-"""
-class Entry(models.Model):
-    name = models.CharField(max_length=124)
-    corporate_name = models.ForeignKey(Corporates, on_delete=models.CASCADE, verbose_name="Find out about a corporate")
 
-    def __str__(self):
-        return self.name
-"""
+
+
+

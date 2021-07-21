@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, redirect
 import random
-from django_project.utilities import get_top_stats
+from django_project.utilities import get_top_stats, get_random_logos
 from typing import Dict
 import dash
 import dash_table
@@ -9,7 +9,6 @@ from dash.dependencies import Input, Output
 import pandas as pd
 from django_plotly_dash import DjangoDash
 import dash_html_components as html
-from django_project.utilities import get_data
 import dash_core_components as dcc
 import os
 import plotly.graph_objs as go
@@ -99,6 +98,7 @@ def home(request):
 
   return render (request, "django_project/home/main.html", {
     "corporates_names": corporates_names,
+    "random_logos": get_random_logos()
     "color_key_fig": "#00b118",
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
@@ -122,4 +122,6 @@ def sectors(request, sector_name):
 
 def sectors_search(request):
   return render (request, "django_project/sectors/main.html")
+
+
 
