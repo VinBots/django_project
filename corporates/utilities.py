@@ -58,4 +58,4 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         )
 
 def ghg_format(number):
-    return f'{number:,.0f}'
+    return f'{float(number):,.0f}'
