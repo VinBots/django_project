@@ -161,7 +161,12 @@
 
             </form>
             
-            <div>OUTPUT RDN LOGOS: {{random_logos}}</div>
+            <div>OUTPUT RDN LOGOS: 
+                {% for logo in random_logos %}
+                {{logo.company_id}}
+                {% endfor %}
+            
+            </div>
 
             <div class="row gtr-uniform">
                 <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}3M" title = "3M"><img src="{% static 'django_project/images/logos/3m_logo.png' %}" alt="3M"/></a></div>
