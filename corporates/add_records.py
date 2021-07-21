@@ -24,11 +24,12 @@ def get_name(idx):
 def add_new_records(id_list):
 
     for idx in id_list:
-        corp = Corporate.create(
+        corp = Corporate(
             company_id = idx,
             name = get_name(idx),
             filename = 'dummy'
         )
+        corp.save()
         print ("executed on idx {} and name {}".format(idx, get_name(idx)))
 
 
