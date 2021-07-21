@@ -7,8 +7,7 @@ from corporates.add_records import add_new_records
 
 def corporates_search(request, corp_name=None):
 
-  id_list = list(range(1, 101, 1))
-  add_new_records(id_list)
+  
 
   if request.GET.get("query") is not None:
     path = reverse('corporates_home') + request.GET.get("query")
@@ -42,7 +41,9 @@ def corporates_home(request):
   if request.GET.get("query") is not None:
     path = reverse('corporates_home') + request.GET.get("query")
     return redirect(path)
-
+  
+  id_list = list(range(1, 101, 1))
+  add_new_records(id_list)
   return render(
     request,
     "django_project/corporates/home.html", 
