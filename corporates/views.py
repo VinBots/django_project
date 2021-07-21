@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
 from corporates.utilities import get_path_to_bubble, check_validity, get_ghg_xls
-from add_records import add_records
+from corporates.add_records import add_records
 
 
 def corporates_search(request, corp_name=None):
