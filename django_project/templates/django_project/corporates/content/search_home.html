@@ -32,9 +32,11 @@
                         <li><input type="submit" value="Search>>" /></li>
                     </ul>
                 </div>
-                Hello - here's the random logos: {{random_logos}}
-
             </form>
+
+            <div>
+                Hello - here's the random logos: {{random_logos}}
+            </div>
             <div class="row gtr-uniform">
                 <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}3M" title = "3M"><img src="{% static 'django_project/images/logos/3m_logo.png' %}" alt="3M"/></a></div>
                 <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}Apple" title = "Apple"><img src="{% static 'django_project/images/logos/apple_logo.png' %}" alt="Apple" /></a></div>
