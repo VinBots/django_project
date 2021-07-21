@@ -5,80 +5,116 @@ import os
 import numpy as np
 from plotly.offline import plot
 
-def bubble_chart_from_xls(corp_name):
 
-    XLSX_PATH = os.path.join ('../django_project/static/django_project', 'data', 'sp100_ghg.xlsx')
+def produce_charts(id_list):
+
+    all_res = []
+    for idx in id_list:
+        res = bubble_chart_from_xls(idx)
+        all_res.append(res)
     
-    COLS_TO_USE = ['Company Name', 'Sector', 'Size (2019 Revenue)', '2019 Net Scope 1 + 2 Emissions']
-    all_data = pd.read_excel(XLSX_PATH, engine = 'openpyxl', usecols = COLS_TO_USE)
-    #all_data.to_pickle (os.path.join ('..','data_frame.pickle'))
+    return all_res
 
-    all_data["intensity"] = all_data['Size (2019 Revenue)'] /  all_data['2019 Net Scope 1 + 2 Emissions']
+def save_charts(company_id, fig):
 
-    x0 = all_data['2019 Net Scope 1 + 2 Emissions']
+    config = {'displaylogo': False}
+    name_fig = "intensity_idx{}".format(company_id)
+    fig.write_image("../django_project/static/django_project/images/charts/{}.svg".format(name_fig), scale=3, height = 300)
+    plot(fig, config=config, filename = '../django_project/templates/django_project/corporates/charts/html_exports/{}.html'.format(name_fig), auto_open=False)
 
-    y0 = all_data['Size (2019 Revenue)']
 
-    sector_names = all_data['Sector'].unique()
+def bubble_chart_from_xls(company_id):
 
-    sector_data = {sector:all_data.query("Sector == '%s'" %sector) for sector in sector_names}
+    XLSX_PATH = os.path.join ('../django_project/static/django_project', 'data', 'sp100_data.xlsx')
+    COLS_TO_USE = {
+        'companies':['company_id', 'company_name'],
+        'GHG19':['company_id', 'gross_total_scope1', 'gross_scope2_calc'],
+        'grouping':['company_id', 'Sector1'],
+        'financials':['company_id', 'Revenue']
+    }
 
-    upper_left_ann = dict (xref="x domain",
-                        yref="paper",
-                        x=0.10,
-                        y=1.10,
-                        text="<b>Corporate Behemoths</b> <br> High Revenue, High Emissions",
-                        showarrow = False,
-                        bgcolor = 'blue',
-                        font = {'color':'white'},
-                        opacity = 0.5
-                        )
-    upper_right_ann = dict (xref="x domain",
-                        yref="paper",
-                        x=0.90,
-                        y=1.10,
-                        text="<b>Sustainability Leaders</b> <br> High Revenue, Low Emissions",
-                        showarrow = False,
-                        bgcolor = 'blue',
-                        font = {'color':'white'},
-                        opacity = 0.5
-                        )
-    lower_right_ann = dict (xref="x domain",
-                        yref="paper",
-                        x=0.90,
-                        y=-0.15,
-                        text="<b>Small Players</b> <br> Low Revenue, Low Emissions",
-                        showarrow = False,
-                        bgcolor = 'blue',
-                        font = {'color':'white'},
-                        opacity = 0.5
-                        )
-    lower_left_ann = dict (xref="x domain",
-                        yref="paper",
-                        x=0.10,
-                        y=-0.15,
-                        text="<b>Worst Offenders</b> <br> Low Revenue, High Emissions",
-                        showarrow = False,
-                        bgcolor = 'blue',
-                        font = {'color':'white'},
-                        opacity = 0.5
-                        )
+    all_df = []
+    for sheetname, cols in COLS_TO_USE.items():
+        all_df.append(pd.read_excel(
+            XLSX_PATH, 
+            sheet_name = sheetname,
+            engine = 'openpyxl', 
+            usecols = cols
+            ))
 
-    layout = go.Layout (
-        title = 'GHG Emissions Intensity',
-        title_x = 0.5,
-        titlefont = dict(family = 'Arial', size = 25),
-        plot_bgcolor = 'antiquewhite',
-        xaxis =  dict(autorange = "reversed", type = 'log'),
-        yaxis = dict(type = 'log'),
-        annotations = [upper_left_ann, upper_right_ann, lower_left_ann, lower_right_ann]
-    )
+    merged_df = all_df[0]
+    for i in range(len(COLS_TO_USE) - 1):
+        merged_df = pd.merge(
+            left = merged_df,
+            right = all_df[i+1],
+            how="left",
+            on="company_id"
+        )
+    get_sector = merged_df[merged_df['company_id']==company_id]['Sector1']
+    if len(get_sector) > 0:
+        sector = get_sector.iloc[0]
+    else:
+        return False
+    
+    merged_df_sector = merged_df.loc[merged_df['Sector1']==sector]
+    
+    scope1 = pd.to_numeric(merged_df_sector['gross_total_scope1'], errors = 'coerce')
+    scope2 = pd.to_numeric(merged_df_sector['gross_scope2_calc'], errors = 'coerce')
+    merged_df_sector = merged_df_sector.assign(scope1_plus_scope2= scope1 + scope2)
+    merged_df_sector = merged_df_sector.dropna()
+    
+    get_corp_name = merged_df_sector[merged_df_sector['company_id']==company_id]['company_name']
+    if len(get_corp_name) > 0:
+        corp_x = merged_df_sector[merged_df_sector['company_id']==company_id]['scope1_plus_scope2'].iloc[0]
+        corp_y = merged_df_sector[merged_df_sector['company_id']==company_id]['Revenue'].iloc[0]
+        corp_name = merged_df_sector[merged_df_sector['company_id']==company_id]['company_name'].iloc[0]
+        trace4 = go.Scatter(
+            x=[corp_x], 
+            y=[corp_y],
+            showlegend = False,
+            name=corp_name, 
+            text= corp_name,
+            textfont=dict(
+                size=12,
+                color="#de425b"),
+            mode = 'markers+text',
+            line = {'color':'#de425b'}, 
+            marker = {
+                'color': '#de425b',
+                'opacity': 1,
+                'size':20
+            },
+            textposition='top center'
+            )
+    else:
+        trace4 = go.Scatter()
+    
+    
+    x0 = merged_df_sector['scope1_plus_scope2']
+    y0 = merged_df_sector['Revenue']
+    index_corp = merged_df_sector.loc[merged_df_sector['company_id'] == company_id].index
+    merged_df_sector.drop(index_corp , inplace=True)
 
     x_median_x = [x0.min(), x0.max()]
     y_median_x = [y0.median(), y0.median()]
     x_median_y = [x0.median(), x0.median()]
     y_median_y = [y0.min(), y0.max()]
 
+    layout = go.Layout (
+        title = '<b>GHG Emissions vs. Revenue</b><br>Sector: ' + sector,
+        title_x = 0.5,
+        titlefont = dict(
+            family = 'Arial',
+            size = 16),
+        plot_bgcolor = 'antiquewhite',
+        xaxis =  dict(
+            autorange = "reversed",
+            type = 'log',
+            title = '<i>high</i>----------<b>Scope1+2 Emissions</b>----------<i>low</i>'),
+        yaxis = dict(
+            type = 'log',
+            title = 'Revenue'),
+            )
     trace1 = go.Scatter(x=x_median_y, 
                         y=y_median_y, 
                         showlegend = False, 
@@ -98,54 +134,45 @@ def bubble_chart_from_xls(corp_name):
                                     'dash':'dash'}
                             )
 
+    trace3 = go.Scatter(
+        x=merged_df_sector['scope1_plus_scope2'], 
+        y=merged_df_sector['Revenue'],
+        showlegend = False,
+        name="benchmark", 
+        text=merged_df_sector['company_name'],
+        mode = 'markers+text',
+        line = {'color':'black'}, 
+        marker = {
+            'color': '#488f31',
+            'opacity': 0.4,
+            'size':12
+        },
+        textposition='top center'
+        )
+    
 
-    fig = go.Figure(data = [trace1, trace2], 
+    fig = go.Figure(data = [trace1, trace2, trace3, trace4], 
                     layout = layout)
-
-    for sector_name, sector in sector_data.items():
-        fig.add_trace(go.Scatter(
-            x=sector['2019 Net Scope 1 + 2 Emissions'], y=sector['Size (2019 Revenue)'],
-            name=sector_name, 
-            text=sector['Company Name'],
-            mode = 'markers',
-            marker_size=10,
-            textposition='top center'
-            ))
-        
-    num_traces_no_markers = 2
-    indexes = list(range(num_traces_no_markers,len(sector_names) + num_traces_no_markers - 1))
-
-    # Add dropdown
+                    
     fig.update_layout(
-        updatemenus=[
-            dict(
-                type = "buttons",
-                direction = "left",
-                buttons=list([
-                    dict(
-                        args=["mode", "markers", indexes],
-                        label="Hide names",
-                        method="restyle"
-                    ),
-                    dict(
-                        args=["mode", "markers+text", indexes],
-                        label="Show names",
-                        method="restyle"
-                    )
-                ]),
-                pad={"r": 10, "t": 10},
-                showactive=True,
-                x=1.0,
-                xanchor="left",
-                y=1.25,
-                yanchor="top"
-            ),
-        ]
+        autosize=False,
+        width=500,
+        height=500,
+        margin=dict(
+            l=50,
+            r=50,
+            b=50,
+            t=80,
+            pad=4
+        ),
+        paper_bgcolor="#bad0af",
+        plot_bgcolor = '#f1f1f1',
     )
+    save_charts(company_id, fig)
+    print ("OK")
+    return True
 
-    name_fig = "bubble_intensity_{}".format(corp_name)
-    fig.write_image("../django_project/static/django_project/images/charts/{}.svg".format(name_fig), scale=3, height = 300)
-    plot(fig, filename = '../django_project/static/django_project/images/html_exports/{}.html'.format(name_fig), auto_open=False)
 
 if __name__ == "__main__":
-    bubble_chart_from_xls("3m")
+    id_list = list(range(25, 101, 1))
+    print (produce_charts(id_list))

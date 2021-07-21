@@ -20,7 +20,7 @@ def corporates_search(request, corp_name=None):
     corp_data = {
     "selected_corp": selected_corp,
     "xls_corp": xls_corp,
-    "selected_corp_bubble_chart": get_path_to_bubble(selected_corp.filename),
+    "selected_corp_bubble_chart": get_path_to_bubble(selected_corp.company_id),
     }
     
     return render (request, "django_project/corporates/main.html", corp_data)
