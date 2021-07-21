@@ -7,7 +7,7 @@ from corporates.add_records import add_new_records
 
 def corporates_search(request, corp_name=None):
 
-  id_list = list(range(90, 92, 1))
+  id_list = list(range(1, 101, 1))
   add_new_records(id_list)
 
   if request.GET.get("query") is not None:
