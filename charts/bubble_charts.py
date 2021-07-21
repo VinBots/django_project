@@ -174,5 +174,5 @@ def bubble_chart_from_xls(company_id):
 
 
 if __name__ == "__main__":
-    id_list = list(range(14, 15, 1))
+    id_list = list(range(9, 10, 1))
     print (produce_charts(id_list))
