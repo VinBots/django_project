@@ -38,7 +38,7 @@ def get_ghg_xls(company_id):
             )
         corp_record =  all_data[all_data['company_id']==company_id]
         corp_record_data = corp_record[['gross_total_scope1', 'gross_scope2_calc', 'gross_total_scope3', 'total_scope']]
-        corp_record_data.apply(pd.to_numeric, errors='coerce')
+        corp_record_data = corp_record_data.apply(pd.to_numeric, errors='coerce')
         #merged_df_sector = merged_df_sector.dropna()
 
         ghg_dict[year] = {
