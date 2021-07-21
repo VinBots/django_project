@@ -31,8 +31,3 @@ def add_new_records(id_list):
         )
         corp.save()
         print ("executed on idx {} and name {}".format(idx, get_name(idx)))
-
-
-if __name__ == "__main__":
-    id_list = list(range(90, 92, 1))
-    print (add_new_records(id_list))
