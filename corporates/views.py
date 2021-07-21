@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
 from corporates.utilities import get_path_to_bubble, check_validity, get_ghg_xls
-from corporates.add_records import add_records
+from corporates.add_records import add_new_records
 
 
 def corporates_search(request, corp_name=None):
 
   id_list = list(range(90, 92, 1))
-  add_records(id_list)
+  add_new_records(id_list)
 
   if request.GET.get("query") is not None:
     path = reverse('corporates_home') + request.GET.get("query")

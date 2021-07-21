@@ -21,7 +21,7 @@ def get_name(idx):
     if len(get_corp_name) > 0:
         return get_corp_name.iloc[0]
 
-def add_records(id_list):
+def add_new_records(id_list):
 
     for idx in id_list:
         corp = Corporate.create(
@@ -34,4 +34,4 @@ def add_records(id_list):
 
 if __name__ == "__main__":
     id_list = list(range(90, 92, 1))
-    print (add_records(id_list))
+    print (add_new_records(id_list))
