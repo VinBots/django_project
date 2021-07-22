@@ -3,6 +3,7 @@ from corporates.models import Corporate
 from django.urls import reverse
 from corporates.utilities import get_path_to_bubble, check_validity, get_ghg_xls
 from corporates.add_records import add_new_records
+from django_project.utilities import get_random_logos
 
 
 def corporates_search(request, corp_name=None):
@@ -32,6 +33,7 @@ def corporates_search(request, corp_name=None):
       "django_project/corporates/home.html", 
       {"error_msg":"No match found",
       "corporates_names": Corporate.objects.all(),
+      "random_logos": get_random_logos(),
       }
       )
 
@@ -49,6 +51,7 @@ def corporates_home(request):
     "django_project/corporates/home.html", 
     {
       "error_msg":"",
-      "corporates_names": Corporate.objects.all()
+      "corporates_names": Corporate.objects.all(),
+      "random_logos": get_random_logos(),
     }
     )
