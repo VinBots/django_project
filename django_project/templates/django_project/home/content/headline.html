@@ -138,37 +138,9 @@
 
         !-->
         </header>
-            <form class="search-corp" method="GET">
-                <input class="search-corp" id = "tags" type="text" name="query" placeholder="Search for a company name" />
-                <div>{{error_msg}}</div>
-                <script>
-                    $( function() {
-                    var availableTags = [
-                        {% for corp in corporates_names %}
-                            "{{corp.name}}",
-                        {% endfor %}
-                    ];  
-                    $("#tags").autocomplete({
-                        source: availableTags
-                    });
-                    } );
-                    </script>
-                <div class="col-12">
-                    <ul class="actions">
-                        <li><input type="submit" value="Search>>" /></li>
-                    </ul>
-                </div>
 
-            </form>
-
-
-            <div class="row gtr-uniform">
-                <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}{{random_logos.0.name}}" title = "{{random_logos.0.name}}"><img src="{% static 'django_project/images/logos/' %}logo_{{random_logos.0.company_id}}.png" alt="{{random_logos.0.name}}"/></a></div>
-                <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}{{random_logos.1.name}}" title = "{{random_logos.1.name}}"><img src="{% static 'django_project/images/logos/' %}logo_{{random_logos.1.company_id}}.png" alt="{{random_logos.1.name}}"/></a></div>
-                <div align = "center" class="col-4"><a href="{% url 'corporates_home'%}{{random_logos.2.name}}" title = "{{random_logos.2.name}}"><img src="{% static 'django_project/images/logos/' %}logo_{{random_logos.2.company_id}}.png" alt="{{random_logos.2.name}}"/></a></div>
-                <div align = "center" class="col-6"><a href="{% url 'corporates_home'%}{{random_logos.3.name}}" title = "{{random_logos.3.name}}"><img src="{% static 'django_project/images/logos/' %}logo_{{random_logos.3.company_id}}.png" alt="{{random_logos.3.name}}"/></a></div>
-                <div align = "center" class="col-6"><a href="{% url 'corporates_home'%}{{random_logos.4.name}}" title = "{{random_logos.4.name}}"><img src="{% static 'django_project/images/logos/' %}logo_{{random_logos.4.company_id}}.png" alt="{{random_logos.4.name}}"/></a></div>
-            </div>
+        {% include "django_project/home/content/search.html" %}
+            
         <footer>
             <blockquote>
                 “It is vital that businesses go net zero, as part of our fight against climate change. Which is why we look to all sectors to reach a point at which a clean way of operating becomes the norm. Because if every sector plays its part, we will see the global economy on the right path to achieving net zero by 2050.”
