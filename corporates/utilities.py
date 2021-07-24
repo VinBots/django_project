@@ -8,13 +8,13 @@ import math
 BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
 
-def get_path_to_bubble(company_id):
+def get_path_to_chart(company_id, chart_name):
     path = os.path.join(
         BASE_DIR,
-        DIR_TO_CORP_CHARTS_TEMPLATES) + "intensity_idx"+ str(company_id) + ".html"
+        DIR_TO_CORP_CHARTS_TEMPLATES) + chart_name + str(company_id) + ".html"
 
     if os.path.exists(path):
-        return path
+        return path    
 
 def check_validity(corp_name):
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
-from corporates.utilities import get_path_to_bubble, check_validity, get_ghg_xls
+from corporates.utilities import get_path_to_bubble, check_validity, get_ghg_xls, get_path_to_ghg_bar_chart
 from corporates.add_records import add_new_records
 from django_project.utilities import get_random_logos
 
@@ -23,7 +23,8 @@ def corporates_search(request, corp_name=None):
     corp_data = {
     "selected_corp": selected_corp,
     "xls_corp": xls_corp,
-    "selected_corp_bubble_chart": get_path_to_bubble(selected_corp.company_id),
+    "selected_corp_bubble_chart": get_path_to_chart(selected_corp.company_id, "bubble"),
+    "selected_corp_ghg_bar_chart": get_path_to_chart(selected_corp.company_id, "ghg_bar"),
     }
     
     return render (request, "django_project/corporates/main.html", corp_data)
