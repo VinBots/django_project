@@ -11,9 +11,9 @@ DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_
 def get_path_to_chart(company_id, chart_name):
     path = os.path.join(
         BASE_DIR,
-        DIR_TO_CORP_CHARTS_TEMPLATES),
+        DIR_TO_CORP_CHARTS_TEMPLATES,
         chart_name,
-        chart_name + str(company_id) + ".html"
+        chart_name + str(company_id) + ".html")
 
     if os.path.exists(path):
         return path    
