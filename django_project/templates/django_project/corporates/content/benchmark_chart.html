@@ -13,7 +13,7 @@
             <div align = "center" class = "col-6 col-12-medium">
 
                 {% if selected_corp_ghg_bar_chart %}
-                    {% include selected_corp_ghg_bar_chart%}
+                    {% include selected_corp_ghg_bar_chart.html%}
                 {% endif %}
                 
                 {% include "django_project/corporates/content/ghg_table.html" %}
@@ -21,7 +21,7 @@
             </div>   
             <div align = "center" class = "col-6 col-12-medium">
                 {% if selected_corp_bubble_chart %}
-                    {% include selected_corp_bubble_chart%}
+                    {% include selected_corp_bubble_chart.html %}
                 {% endif %}
             </div>    
 
