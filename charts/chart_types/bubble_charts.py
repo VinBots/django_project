@@ -118,7 +118,7 @@ def bubble_chart_from_xls(company_id, params):
 
     fig = go.Figure(data = [trace3, trace4], 
                     layout = layout)
-    full_fig = fig.full_figure_for_development()
+    full_fig = fig.full_figure_for_development(warn=False)
     x_range = full_fig.layout.xaxis.range
     y_range = full_fig.layout.yaxis.range
     
