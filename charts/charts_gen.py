@@ -21,7 +21,7 @@ class Charts:
                 "../django_project/static/django_project/images/charts/{}/{}.jpeg".format(
                     self.chart_type["name"],
                     name_fig),
-                scale=1,
+                scale=3,
                 width = 500,
                 height = 500)
             
@@ -62,7 +62,7 @@ def produce_charts(id_list, chart_type):
 
 if __name__ == "__main__":
 
-    id_list = list(range(1, 101, 1))
+    id_list = list(range(1, 10, 1))
 
     CHART_TYPES = {
         "bullet":{
@@ -88,5 +88,5 @@ if __name__ == "__main__":
         },
     }
 
-    res = produce_charts(id_list, CHART_TYPES["ghg_bar"])
+    res = produce_charts(id_list, CHART_TYPES["bubble"])
     print ("Number of failures = {} for company ids = {}".format(len(res), res))
