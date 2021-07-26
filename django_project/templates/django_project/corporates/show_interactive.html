@@ -1,5 +1,28 @@
 {% extends 'django_project/core/layout.html' %}
-{% block content %} 
-{% include path %}
-{% include 'django_project/corporates/interactive_instructions.html' %}
+{% block content %}
+
+<article id = "top" class="post">
+
+    <header>
+
+        <div width = 100%>									
+            <div class="row">
+                Interactive Chart Visualization
+            </div>
+        </div>
+    </header>
+
+    <div class = "container" width = 100%>    
+        <section>
+            <div class="row">
+                {% include path %}
+            </div>     
+        </section>
+
+    </div>
+
+    <footer>
+    </footer>
+
+</article>
 {% endblock %}
