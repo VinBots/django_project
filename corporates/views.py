@@ -66,5 +66,5 @@ def corporates_home(request):
     }
     )
 
-def views_html(request):
+def show_html(request):
   return render (request)
