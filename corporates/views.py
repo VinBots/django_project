@@ -24,8 +24,7 @@ def corporates_search(request, corp_name=None):
     "xls_corp": xls_corp,
     "selected_corp_bullet_chart": {
       'html': get_path_to_chart(selected_corp.company_id, "bullet"),
-      'img': "hello",
-      #'img': get_path_to_img (selected_corp.company_id, "bullet"),
+      'img': get_path_to_img (selected_corp.company_id, "bullet"),
     },
     "selected_corp_bubble_chart": {
       'html': get_path_to_chart(selected_corp.company_id, "bubble"),
