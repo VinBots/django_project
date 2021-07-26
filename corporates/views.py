@@ -4,6 +4,8 @@ from django.urls import reverse
 from corporates.utilities import get_path_to_chart, check_validity, get_ghg_xls, get_path_to_img
 from corporates.add_records import add_new_records
 from django_project.utilities import get_random_logos
+from pathlib import Path
+import os
 
 
 def corporates_search(request, corp_name=None):
@@ -66,5 +68,21 @@ def corporates_home(request):
     }
     )
 
-def show_html(request):
-  return render (request)
+def show_html(request, folder_name = None, file_name = None):
+  
+  BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
+
+  DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
+
+  path = os.path.join(
+        BASE_DIR,
+        DIR_TO_CORP_CHARTS_TEMPLATES,
+        folder_name,
+        file_name)
+
+  return render (
+    request,
+    "django_project/corporates/show_interactive.html",
+    {
+    "path": path,
+    })
