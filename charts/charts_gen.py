@@ -30,7 +30,6 @@ class Charts:
                 filename = '../django_project/templates/django_project/corporates/charts/html_exports/{}/{}.html'.format(
                     self.chart_type["name"],
                     name_fig),
-                scale=3, 
                 auto_open=False)
         else:
             return self.company_id
@@ -62,7 +61,7 @@ def produce_charts(id_list, chart_type):
 
 if __name__ == "__main__":
 
-    id_list = list(range(1, 101, 1))
+    id_list = list(range(1, 10, 1))
 
     CHART_TYPES = {
         "bullet":{
