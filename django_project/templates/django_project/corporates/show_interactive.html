@@ -1,13 +1,15 @@
 {% extends 'django_project/core/layout.html' %}
 {% block content %}
 
+
 <article id = "top" class="post">
 
     <header>
-
-        <div width = 100%>									
-            <div class="title">
-                Interactive Chart Visualization
+        <div class = "container" width = 100%>									
+            <div class="row">
+                <div class="title">
+                    <h2><font face = "sans-serif" size = "6">I</font>Interactive Chart Visualization<font face = "sans-serif" size = "3"></font></h2>
+                </div>
             </div>
         </div>
     </header>
@@ -15,7 +17,7 @@
     <div class = "container" width = 100%>    
         <section>
             <div class="row">
-                <div col-12>
+                <div>
                 {% include path %}
                 </div>
             </div>     
