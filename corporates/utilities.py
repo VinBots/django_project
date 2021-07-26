@@ -7,6 +7,7 @@ import math
 
 BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
+DIR_TO_CORP_CHARTS_IMG = "static/django_project/images/charts/"
 
 def get_path_to_chart(company_id, chart_name):
     path = os.path.join(
@@ -16,7 +17,17 @@ def get_path_to_chart(company_id, chart_name):
         chart_name + str(company_id) + ".html")
 
     if os.path.exists(path):
-        return path    
+        return path
+
+def get_path_to_img (company_id, chart_name):
+    path = os.path.join(
+        BASE_DIR,
+        DIR_TO_CORP_CHARTS_IMG,
+        chart_name,
+        chart_name + str(company_id) + ".svg")
+
+    if os.path.exists(path):
+        return path
 
 def check_validity(corp_name):
 
