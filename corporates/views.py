@@ -65,3 +65,6 @@ def corporates_home(request):
       "random_logos": get_random_logos(),
     }
     )
+
+def views_html(request):
+  return render (request)
