@@ -88,8 +88,8 @@ def ghg_bar_chart_from_xls(company_id, params):
             xanchor="left",
             x=0),
         autosize=False,
-        width=500,
-        height=500,
+        width=800,
+        height=400,
         margin=dict(
             l=50,
             r=50,

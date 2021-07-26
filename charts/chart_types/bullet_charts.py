@@ -100,6 +100,6 @@ def bullet_chart_from_xls(company_id, params):
             'bar': {'color': "#003200",
                     'thickness': 0.40}}))
 
-    fig.update_layout(margin = {'t':0, 'b':0, 'l':0})
+    fig.update_layout(margin = {'t':0, 'b':0, 'l':25})
 
     return fig
