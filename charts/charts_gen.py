@@ -18,7 +18,7 @@ class Charts:
             config = {'displaylogo': False}
             name_fig = self.chart_type["name"] + str(self.company_id)
             self.fig.write_image(
-                "../django_project/static/django_project/images/charts/{}/{}.svg".format(
+                "../django_project/static/django_project/images/charts/{}/{}.jpeg".format(
                     self.chart_type["name"],
                     name_fig),
                 scale=3,
