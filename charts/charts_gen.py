@@ -29,7 +29,8 @@ class Charts:
                 config=config, 
                 filename = '../django_project/templates/django_project/corporates/charts/html_exports/{}/{}.html'.format(
                     self.chart_type["name"],
-                    name_fig), 
+                    name_fig),
+                scale=3, 
                 auto_open=False)
         else:
             return self.company_id
