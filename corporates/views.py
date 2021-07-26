@@ -30,7 +30,10 @@ def corporates_search(request, corp_name=None):
       'html': get_path_to_chart(selected_corp.company_id, "bubble"),
       'img':''
     },
-    "selected_corp_ghg_bar_chart": get_path_to_chart(selected_corp.company_id, "ghg_bar"),
+    "selected_corp_ghg_bar_chart": {
+      'html': get_path_to_chart(selected_corp.company_id, "ghg_bar"),
+      'img':'',
+    },
     }
     
     return render (request, "django_project/corporates/main.html", corp_data)
