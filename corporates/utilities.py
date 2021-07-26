@@ -7,7 +7,7 @@ import math
 
 BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
-DIR_TO_CORP_CHARTS_IMG = "static/django_project/images/charts/"
+DIR_TO_CORP_CHARTS_IMG = "django_project/images/charts/"
 
 def get_path_to_chart(company_id, chart_name):
     path = os.path.join(

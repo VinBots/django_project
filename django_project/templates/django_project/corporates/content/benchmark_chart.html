@@ -11,13 +11,13 @@
     <section>
         <div class="row">
             <div align = "center" class = "col-6 col-12-medium">
-                <img src="{{selected_corp_ghg_bar_chart.img}}" alt="">
+                <img src="{% static selected_corp_bar_chart.img %}" alt="">
 
                 {% include "django_project/corporates/content/ghg_table.html" %}
 
             </div>   
             <div align = "center" class = "col-6 col-12-medium">
-                <img src="{{selected_corp_bubble_chart.img}}" alt="">
+                <img src="{% static selected_corp_bubble_chart.img %}" alt="">
 
             </div>    
 
