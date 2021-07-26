@@ -88,5 +88,5 @@ if __name__ == "__main__":
         },
     }
 
-    res = produce_charts(id_list, CHART_TYPES["bubble"])
+    res = produce_charts(id_list, CHART_TYPES["ghg_bar"])
     print ("Number of failures = {} for company ids = {}".format(len(res), res))
