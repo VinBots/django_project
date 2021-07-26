@@ -25,8 +25,11 @@ def corporates_search(request, corp_name=None):
     "selected_corp_bullet_chart": {
       'html': get_path_to_chart(selected_corp.company_id, "bullet"),
       'img': ''
-      },
-    "selected_corp_bubble_chart": get_path_to_chart(selected_corp.company_id, "bubble"),
+    },
+    "selected_corp_bubble_chart": {
+      'html': get_path_to_chart(selected_corp.company_id, "bubble"),
+      'img':''
+    },
     "selected_corp_ghg_bar_chart": get_path_to_chart(selected_corp.company_id, "ghg_bar"),
     }
     
