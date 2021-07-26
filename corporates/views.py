@@ -22,7 +22,10 @@ def corporates_search(request, corp_name=None):
     corp_data = {
     "selected_corp": selected_corp,
     "xls_corp": xls_corp,
-    "selected_corp_bullet_chart": get_path_to_chart(selected_corp.company_id, "bullet"),
+    "selected_corp_bullet_chart": {
+      'html': get_path_to_chart(selected_corp.company_id, "bullet"),
+      'img': ''
+      },
     "selected_corp_bubble_chart": get_path_to_chart(selected_corp.company_id, "bubble"),
     "selected_corp_ghg_bar_chart": get_path_to_chart(selected_corp.company_id, "ghg_bar"),
     }

@@ -55,7 +55,7 @@ def bubble_chart_from_xls(company_id, params):
             name=corp_name, 
             text= corp_name,
             textfont=dict(
-                size=12,
+                size=6,
                 color="#de425b"),
             mode = 'markers+text',
             line = {'color':'#de425b'}, 
@@ -75,44 +75,27 @@ def bubble_chart_from_xls(company_id, params):
     index_corp = merged_df_sector.loc[merged_df_sector['company_id'] == company_id].index
     merged_df_sector.drop(index_corp , inplace=True)
 
-    x_median_x = [x0.min(), x0.max()]
-    y_median_x = [y0.median(), y0.median()]
-    x_median_y = [x0.median(), x0.median()]
-    y_median_y = [y0.min(), y0.max()]
+
 
     layout = go.Layout (
         title = '<b>GHG Emissions vs. Revenue</b><br>Sector: ' + sector,
         title_x = 0.5,
+        font = dict(
+            size = 6,
+        ),
         titlefont = dict(
             family = 'Arial',
-            size = 16),
-        plot_bgcolor = 'antiquewhite',
+            size = 12),
+        #plot_bgcolor = 'antiquewhite',
         xaxis =  dict(
             autorange = "reversed",
             type = 'log',
-            title = '<i>high</i>----------<b>Scope1+2 Emissions</b>----------<i>low</i>'),
+            title = '<i>high</i>----------<b>Scope1+2 Emissions</b>----------<i>low</i>',
+            ),
         yaxis = dict(
             type = 'log',
-            title = 'Revenue'),
-            )
-    trace1 = go.Scatter(x=x_median_y, 
-                        y=y_median_y, 
-                        showlegend = False, 
-                        name='Median y',
-                        mode = "lines",
-                        line = dict(color='gray', 
-                                    width=2, 
-                                    dash='dash'))
-
-    trace2 = go.Scatter(x=x_median_x, 
-                            y=y_median_x, 
-                            showlegend = False, 
-                            name='Median x', 
-                            mode = "lines",
-                            line = {'color':'gray', 
-                                    'width':2, 
-                                    'dash':'dash'}
-                            )
+            title = 'Revenue',
+            ))
 
     trace3 = go.Scatter(
         x=merged_df_sector['scope1_plus_scope2'], 
@@ -120,6 +103,8 @@ def bubble_chart_from_xls(company_id, params):
         showlegend = False,
         name="benchmark", 
         text=merged_df_sector['company_name'],
+        textfont=dict(
+                size=6,),
         mode = 'markers+text',
         line = {'color':'black'}, 
         marker = {
@@ -131,8 +116,70 @@ def bubble_chart_from_xls(company_id, params):
         )
     
 
-    fig = go.Figure(data = [trace1, trace2, trace3, trace4], 
+    fig = go.Figure(data = [trace3, trace4], 
                     layout = layout)
+    full_fig = fig.full_figure_for_development()
+    x_range = full_fig.layout.xaxis.range
+    y_range = full_fig.layout.yaxis.range
+    
+    x_median_x = [10**x_range[0], 10**x_range[1]]
+    y_median_x = [y0.median(), y0.median()]
+    x_median_y = [x0.median(), x0.median()]
+    y_median_y = [10**y_range[0], 10**y_range[1]]
+
+
+
+    fig.add_trace (go.Scatter(x=x_median_y, 
+                            y=y_median_y, 
+                            showlegend = False, 
+                            name='Median y',
+                            mode = "lines",
+                            line = {
+                                'color':'gray',
+                                'width':5, 
+                                'dash':'dash'
+                                }
+                                ))
+
+    fig.add_trace(go.Scatter(x=x_median_x, 
+                            y=y_median_x, 
+                            showlegend = False, 
+                            name='Median x', 
+                            mode = "lines",
+                            line = {
+                                'color':'gray', 
+                                'width':5, 
+                                'dash':'dash'
+                                }
+                            ))
+
+
+    
+
+
+
+    fig.add_shape(type="rect",
+            x0=x0.median(), y0=y0.median(), x1=10**x_range[1], y1=10**y_range[1],
+            line=dict(color="orange",width=0.5, dash="dot"), fillcolor="green", opacity=0.2,
+            layer="below"
+        )
+
+    fig.add_shape(type="rect",
+        x0=10**x_range[0], y0=10**y_range[0], x1=x0.median(), y1=y0.median(),
+        line=dict(color="orange",width=0.5, dash="dot"), fillcolor="red", opacity=0.2,
+        layer="below"
+    )
+    fig.add_shape(type="rect",
+        x0=10**x_range[0], y0=y0.median(), x1=x0.median(), y1=10**y_range[1],
+        line=dict(color="orange",width=0.5, dash="dot"), fillcolor="orange", opacity=0.2,
+        layer="below"
+    )
+    fig.add_shape(type="rect",
+        x0=x0.median(), y0=10**y_range[0], x1=10**x_range[1], y1=y0.median(),
+        line=dict(color="orange",width=0.5, dash="dot"), fillcolor="orange", opacity=0.2,
+        layer="below"
+    )
+    
                     
     fig.update_layout(
         autosize=False,
@@ -145,8 +192,8 @@ def bubble_chart_from_xls(company_id, params):
             t=80,
             pad=4
         ),
-        paper_bgcolor="#bad0af",
-        plot_bgcolor = '#f1f1f1',
+        #paper_bgcolor="#bad0af",
+        plot_bgcolor = 'white',#'#f1f1f1',
     )
     
     return fig
