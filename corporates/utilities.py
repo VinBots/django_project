@@ -25,8 +25,8 @@ def get_path_to_img (company_id, chart_name):
         chart_name,
         chart_name + str(company_id) + ".jpeg")
 
-    #if os.path.exists(path):
-    return path
+    if os.path.exists(path):
+        return path
 
 def check_validity(corp_name):
 
