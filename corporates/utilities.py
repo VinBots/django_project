@@ -21,7 +21,6 @@ def get_path_to_chart(company_id, chart_name):
 
 def get_path_to_img (company_id, chart_name):
     path = os.path.join(
-        BASE_DIR,
         DIR_TO_CORP_CHARTS_IMG,
         chart_name,
         chart_name + str(company_id) + ".svg")
