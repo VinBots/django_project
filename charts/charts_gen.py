@@ -24,7 +24,7 @@ class Charts:
                     name_fig),
                 scale=3,
                 )
-            
+            """
             plot(
                 self.fig,
                 config=config,
@@ -33,6 +33,12 @@ class Charts:
                     self.chart_type["name"],
                     name_fig),
                 auto_open=False)
+            """
+            chart_div = plot(
+                self.fig,
+                config=config,
+                output_type='div')
+            print (chart_div)
         else:
             return self.company_id
     
@@ -63,7 +69,7 @@ def produce_charts(id_list, chart_type):
 
 if __name__ == "__main__":
 
-    id_list = list(range(1, 10, 1))
+    id_list = list(range(1, 2, 1))
 
     CHART_TYPES = {
         "bullet":{
