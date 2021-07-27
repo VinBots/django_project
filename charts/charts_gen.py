@@ -15,7 +15,10 @@ class Charts:
     
     def save(self):
         if self.fig:
-            config = {'displaylogo': False}
+            config = {
+                'displaylogo': False,
+                'responsive': True
+                }
             name_fig = self.chart_type["name"] + str(self.company_id)
             
             self.fig.write_image(
