@@ -37,6 +37,8 @@ class Charts:
             chart_div = plot(
                 self.fig,
                 config=config,
+                image_width='100%',
+                image_height='100%',
                 output_type='div')
             print (chart_div)
         else:
