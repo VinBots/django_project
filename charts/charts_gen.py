@@ -27,7 +27,8 @@ class Charts:
             
             plot(
                 self.fig,
-                config=config, 
+                config=config,
+                output_type='div', 
                 filename = '../django_project/templates/django_project/corporates/charts/html_exports/{}/{}.html'.format(
                     self.chart_type["name"],
                     name_fig),
