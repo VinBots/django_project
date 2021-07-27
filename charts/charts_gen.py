@@ -27,11 +27,10 @@ class Charts:
                     name_fig),
                 scale=3,
                 )
-            """
+            
             plot(
                 self.fig,
                 config=config,
-                output_type='div', 
                 filename = '../django_project/templates/django_project/corporates/charts/html_exports/{}/{}.html'.format(
                     self.chart_type["name"],
                     name_fig),
@@ -44,6 +43,7 @@ class Charts:
                 image_height='100%',
                 output_type='div')
             print (chart_div)
+            """
         else:
             return self.company_id
     
