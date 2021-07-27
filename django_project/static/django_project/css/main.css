@@ -3766,3 +3766,9 @@ form.search-corp:before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
 }
+
+.graph-container {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+  }
