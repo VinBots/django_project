@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
 
 .lboard_section{
-	width: 900px;
+	width: 950px;
 	height: 400px;
-	margin: 100px auto 0;
+	margin: 0px auto 0;
 	background: #f94f62;
 	padding: 25px 40px;
 	position: relative;
