@@ -1,171 +1,125 @@
 <!-- Post -->
 {% load static %}
-<article id="aboutus" class="post">
+<article id="leaderboard" class="post">
 
-    <head>
-        <div width="100%">
-            <div class="row">
-                <div class="lboard_section">
-                    <div class="lboard_tabs">
-                        <div class="tabs">
-                            <ul>
-                                <li class="active" data-li="today">Top 5</li>
-                                <li data-li="month">Bottom 5</li>
-                                <li><a href="http://www.yahoo.com">Full</a></li>
-                            </ul>
+    <header>
+        <div class="title">
+            <h2><a href="single.html">My LeaderBoard</a></h2>
+            <p>Net 0 tracker - Design Only</p>
+        </div>
+    </header>
+    <div class="lb_container">
+        <div class="lb_left">
+            <div class="lboard_tabs">
+                <div class="tabs">
+                    <ul>
+                        <li class="active" data-li="level1">Top5</li>
+                        <li data-li="level2">Bottom5</li>
+                        <li data-li="level3">Sector</li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="lb_right">
+
+            <div class="lboard_item level1" style="display: block;">
+                <div class="lboard_mem">
+                    <div class="img">
+                        <img src="django_project/django_project/static/django_project/images/logos/logo_66.png"
+                        alt="picture_1">
+                    </div>
+                    <div class="name_bar">
+                        <p><span>1.</span>Microsoft</p>
+                        <div class="bar_wrap">
+                            <div class="inner_bar" style="width: 95%"></div>
                         </div>
                     </div>
-
-                    <div class="lboard_wrap">
-                        <div class="lboard_item today" style="display: block;">
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_66.png' %}" alt="picture_1">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>1.</span> Microsoft</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    195 points
-                                </div>
-                            </div>
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_14.png' %}" alt="picture_2">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>2.</span>Apple</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    185 points
-                                </div>
-                            </div>
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_4.png' %}" alt="picture_3">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>3.</span>Accenture</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 60%;"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    160 points
-                                </div>
-                            </div>
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_1.png' %}" alt="picture_4">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>4.</span>3M</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 30%"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    130 points
-                                </div>
-                            </div>
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_19.png' %}" alt="picture_5">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>5.</span>Blackrock</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 10%"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    110 points
-                                </div>
+                    <div class="points">
+                        195 points
+                    </div>
+                </div>
+                <div class="lboard_mem">
+                    <div class="img">
+                        <img src="django_project/django_project/static/django_project/images/logos/logo_4.png"
+                        alt="picture_2">                    </div>
+                    <div class="name_bar">
+                        <p><span>1.</span>Accenture</p>
+                        <div class="bar_wrap">
+                            <div class="inner_bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="points">
+                        195 points
+                    </div>
+                </div>
+                <div class="lboard_item level1" style="display: block;">
+                    <div class="lboard_mem">
+                        <div class="img">
+                            <img src="django_project/django_project/static/django_project/images/logos/logo_14.png"
+                            alt="picture_2">                        </div>
+                        <div class="name_bar">
+                            <p><span>1.</span>Apple</p>
+                            <div class="bar_wrap">
+                                <div class="inner_bar" style="width: 95%"></div>
                             </div>
                         </div>
-                        <div class="lboard_item month" style="display: none;">
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_17.png' %}" alt="picture_1">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>1.</span> Berkshire</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    1195 points
-                                </div>
-                            </div>
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_11.png' %}" alt="picture_2">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>2.</span>Altria</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    1185 points
-                                </div>
-                            </div>
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_9.png' %}" alt="picture_3">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>3.</span>Amazon</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 70%;"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    1160 points
-                                </div>
-                            </div>
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_12.png' %}" alt="picture_4">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>4.</span>American Tower</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 50%"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    1130 points
-                                </div>
-                            </div>
-                            <div class="lboard_mem">
-                                <div class="img">
-                                    <img src="{% static 'django_project/images/logos/logo_10.png' %}" alt="picture_5">
-                                </div>
-                                <div class="name_bar">
-                                    <p><span>5.</span>American Express</p>
-                                    <div class="bar_wrap">
-                                        <div class="inner_bar" style="width: 30%"></div>
-                                    </div>
-                                </div>
-                                <div class="points">
-                                    1110 points
-                                </div>
-                            </div>
+                        <div class="points">
+                            195 points
                         </div>
                     </div>
                 </div>
             </div>
-
+            <div class="lboard_item level2" style="display: none;">
+                <div class="lboard_mem">
+                    <div class="img">
+                        <img src="django_project/django_project/static/django_project/images/logos/logo_19.png"
+                        alt="picture_4">                    </div>
+                    <div class="name_bar">
+                        <p><span>1.</span>Blackrock </p>
+                        <div class="bar_wrap">
+                            <div class="inner_bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="points">
+                        195 points
+                    </div>
+                </div>
+                <div class="lboard_mem">
+                    <div class="img">
+                        <img src="django_project/django_project/static/django_project/images/logos/logo_1.png"
+                        alt="picture_2">                    </div>
+                    <div class="name_bar">
+                        <p><span>1.</span>3M</p>
+                        <div class="bar_wrap">
+                            <div class="inner_bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="points">
+                        195 points
+                    </div>
+                </div>
+            </div>
+            <div class="lboard_item level3" style="display: none;">
+                <div class="lboard_mem">
+                    <div class="img">
+                        <img src="django_project/django_project/static/django_project/images/logos/logo_1.png"
+                        alt="picture_2">                    </div>
+                    <div class="name_bar">
+                        <p><span>1.</span>3M</p>
+                        <div class="bar_wrap">
+                            <div class="inner_bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="points">
+                        195 points
+                    </div>
+                </div>
+            </div>
         </div>
-    </head>
+    </div>
+    <script src="{% static 'django_project/scripts/leaderboard.js' %}"></script>
 </article>
-<script src="{% static 'django_project/scripts/leaderboard.js' %}"></script>
