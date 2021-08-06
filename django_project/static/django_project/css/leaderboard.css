@@ -22,11 +22,11 @@
 }
 
 .lb_left .lboard_tabs ul li{
-	margin-right: 50px;
 	font-size: 18px;
 	font-weight: 600;
 	color: #3a3d51;
 	cursor: pointer;
+	padding-left: 10px;
 }
 
 .lb_left .lboard_tabs ul li:hover,
