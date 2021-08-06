@@ -11,7 +11,7 @@
 
 .lb_left .lboard_tabs ul{
 	display: flex;
-	padding-left:10rem;
+	padding-left:1rem;
 }
 
 .lb_left .lboard_tabs ul li a{
@@ -26,7 +26,7 @@
 	font-size: 18px;
 	font-weight: 600;
 	color: #3a3d51;
-	margin-right:10rem;
+	margin-right:1rem;
 }
 
 .lb_left .lboard_tabs ul li:hover,
