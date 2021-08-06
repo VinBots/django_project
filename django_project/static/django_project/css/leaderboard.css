@@ -26,6 +26,7 @@
 	font-weight: 600;
 	color: #3a3d51;
 	margin-right:1rem;
+	cursor:none;
 }
 
 .lb_left .lboard_tabs ul li:hover,
