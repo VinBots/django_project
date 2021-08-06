@@ -1,22 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
-
-*{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
-}
-
-body{
-	background: #9ecae0;
-}
-
-.wrapper{
-	width: 100%;
-	height: 100%;
-}
-
 .lboard_section{
 	width: 500px;
 	height: 400px;
