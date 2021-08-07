@@ -20,6 +20,6 @@ def get_scores_xls(top_rank = 100):
         sheet_name, 
         None,
         )
-    scores_dict = all_data.to_dict()
+    scores_dict = all_data.to_dict("series")
     
     return scores_dict
