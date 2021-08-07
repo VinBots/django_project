@@ -11,6 +11,6 @@ def leaderboard_home(request):
 
     return render(
         request,
-        "django_project/leaderboard/home.html",
+        "django_project/leaderboard/main.html",
         data_dict
         )
