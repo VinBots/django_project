@@ -7,7 +7,7 @@ from leaderboard.utilities import get_scores_xls
 
 def leaderboard_home(request):
     
-    data_dict = get_scores_xls
+    data_dict = get_scores_xls()
 
     return render(
         request,
