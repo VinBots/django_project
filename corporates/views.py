@@ -42,7 +42,7 @@ def corporates_search(request, corp_name=None):
   else:
     return render(
       request, 
-      "django_project/corporates/home.html", 
+      "django_project/corporates/main.html", 
       {"error_msg":"No match found",
       "corporates_names": Corporate.objects.all(),
       "random_logos": get_random_logos(),
@@ -60,7 +60,7 @@ def corporates_home(request):
   #add_new_records(id_list)
   return render(
     request,
-    "django_project/corporates/home.html", 
+    "django_project/corporates/main.html", 
     {
       "error_msg":"",
       "corporates_names": Corporate.objects.all(),

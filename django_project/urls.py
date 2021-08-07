@@ -57,7 +57,7 @@ urlpatterns = [
     path('corporates.html/', include('corporates.urls')),
     path('sectors.html/<str:sector_name>/', views.sectors, name = 'sectors'),
     path('sectors.html/', views.sectors_search, name = 'sectors_search'),
-
+    path('leaderboard.html/', include('leaderboard.urls')),
     ]
 
     #OLD paths
