@@ -60,6 +60,9 @@
                         render: $.fn.dataTable.render.percentBar('round','#000000', '#0d3532', '#2ebaae', '#def7f5', 1, 'solid')},
                     { responsivePriority: 3, targets: 1 },
                     { responsivePriority: 4, targets: 2 },
+                    {targets:3, render: $.fn.dataTable.render.number(',', '.', 0, 'post', '%')},
+                    {targets:4, render: $.fn.dataTable.render.number(',', '.', 0, 'post', '%')},
+                    {targets:5, render: $.fn.dataTable.render.number(',', '.', 0, 'post', '%')}
                 ],
                 order:[[6, 'desc']],
             }
