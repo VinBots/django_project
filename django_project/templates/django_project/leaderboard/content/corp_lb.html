@@ -51,6 +51,15 @@
     $(document).ready(function () {
         $('#example').DataTable(
             {
+                columns: [
+                    {'data': 'Rank'},
+                    {'data': 'Corporate'},
+                    {'data': 'Transparency'},
+                    {'data': 'Commitments'},
+                    {'data': 'Actions'},
+                    {'data': 'Score'},
+                ],
+                'order': [[3, 'desc']],
                 responsive: true,
                 columnDefs: [
                     { responsivePriority: 1, targets: 0 },
