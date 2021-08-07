@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th></th>
+                    <th>Rank</th>
                     <th>Corporate</th>
                     <th>Transparency</th>
                     <th>Commitments</th>
@@ -25,6 +26,7 @@
                 <tr>
                     <td><img src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png" alt="picture_2">
                     </td>
+                    <td>{{forloop.counter}}</td>
                     <td>{{i.company_name}}</td>
                     <td>{{i.transp_score}}</td>
                     <td>{{i.comm_score}}</td>
