@@ -23,7 +23,8 @@
 
                 {% for i in scores %}
                 <tr>
-                    <td><img src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png" alt="picture_2"></td>
+                    <td><img src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png" alt="picture_2">
+                    </td>
                     <td>{{i.company_name}}</td>
                     <td>{{i.transp_score}}</td>
                     <td>{{i.comm_score}}</td>
@@ -32,7 +33,7 @@
                 </tr>
 
                 {% endfor %}
-              
+
 
             </tbody>
             <tfoot>
@@ -56,7 +57,12 @@
     $(document).ready(function () {
         $('#example').DataTable(
             {
-                responsive: true
+                responsive: true,
+                columnDefs: [
+                    { responsivePriority: 1, targets: 1 },
+                    { responsivePriority: 2, targets: -1 },
+                    { responsivePriority: 3, targets: 0 }
+                ]
             }
         );
     });
