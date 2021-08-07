@@ -1,13 +1,14 @@
+from django_project.corporates.utilities import get_data
 from django.shortcuts import render
 import os
-
+from leaderboard.utilities import get_scores_xls
 
 # Create your views here.
 
 
 def leaderboard_home(request):
     
-    data_dict = {}
+    data_dict = get_scores_xls
 
     return render(
         request,
