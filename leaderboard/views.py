@@ -1,4 +1,3 @@
-from django_project.corporates.utilities import get_data
 from django.shortcuts import render
 import os
 from leaderboard.utilities import get_scores_xls
