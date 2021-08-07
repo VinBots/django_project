@@ -8,7 +8,7 @@
     </header>
     <div class="container" width=100%>
 
-        <table id="example" class = "lb_corporates">
+        <table id="example" class="lb_corporates">
             <thead>
                 <tr>
                     <th></th>
@@ -20,19 +20,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+
                 {% for corp_score in scores %}
-                <td><img src="{% static 'django_project/images/logos/' %}logo_1.png" alt="picture_2">
-                </td>
-                <td>{{corp_score.company_name}}</td>
-                <td>{{corp_score.transp_score}}</td>
-                <td>{{corp_score.comm_score}}</td>
-                <td>{{corp_score.actions_score}}</td>
-                <td>{{corp_score.score}}</td>
-                
-                {% endfor %}
+                <tr>
+                    <td><img src="{% static 'django_project/images/logos/' %}logo_1.png" alt="picture_2"></td>
+                    <td>{{corp_score.company_name}}</td>
+                    <td>{{corp_score.transp_score}}</td>
+                    <td>{{corp_score.comm_score}}</td>
+                    <td>{{corp_score.actions_score}}</td>
+                    <td>{{corp_score.score}}</td>
                 </tr>
-                
+
+                {% endfor %}
+
             </tbody>
             <tfoot>
                 <tr>
