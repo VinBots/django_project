@@ -29,7 +29,7 @@
                     <td>{{i.rank}}</td>
                     <td>{{i.company_name}}</td>
                     <td>{{i.transp_score}}</td>
-                    <td>{% widthratio i.comm_score 1 100 %}</td>
+                    <td>{{i.comm_score}}</td>
                     <td>{{i.actions_score}}</td>
                     <td>{{i.score}}</td>
                 </tr>
@@ -51,14 +51,17 @@
     $(document).ready(function () {
         $('#example').DataTable(
             {                
-                order:[[6, 'desc']],
+                responsive: true,
                 columnDefs: [
                     { responsivePriority: 1, targets: 0 },
-                    { responsivePriority: 2, render: $.fn.dataTable.render.percentBar('round','#fff', '#FF9CAB', '#FF0033', '#FF9CAB', 0, 'solid'), targets: -1},
+                    { 
+                        targets: -1,
+                        responsivePriority: 2, 
+                        render: $.fn.dataTable.render.percentBar('round','#fff', '#FF9CAB', '#FF0033', '#FF9CAB', 0, 'solid')},
                     { responsivePriority: 3, targets: 1 },
                     { responsivePriority: 4, targets: 2 },
                 ],
-                responsive: true,
+                order:[[6, 'desc']],
             }
         );
     });
