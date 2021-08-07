@@ -60,7 +60,7 @@ def corporates_home(request):
   #add_new_records(id_list)
   return render(
     request,
-    "django_project/corporates/main.html", 
+    "django_project/corporates/home.html", 
     {
       "error_msg":"",
       "corporates_names": Corporate.objects.all(),
