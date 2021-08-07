@@ -57,12 +57,9 @@
                     { responsivePriority: 2, targets: -1 },
                     { responsivePriority: 3, targets: 1 },
                     { responsivePriority: 4, targets: 2 },
+                    {targets:6, render: $.fn.dataTable.render.percentBar('round','#fff', '#FF9CAB', '#FF0033', '#FF9CAB', 0, 'solid')}
                 ],
                 order:[[6, 'desc']],
-                columns:[
-                    {data:"Score", render: $.fn.dataTable.render.number(' ', ',', 0, '', ' €')},
-
-                ],
             }
         );
     });
