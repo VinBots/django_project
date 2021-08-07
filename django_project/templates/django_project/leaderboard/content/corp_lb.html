@@ -51,8 +51,8 @@
     $(document).ready(function () {
         $('#example').DataTable(
             {
-                data: 'Score',
-                render: $.fn.dataTable.render.number( ',', '.', 2, '$' ),
+                {data: 'Score',
+                render: $.fn.dataTable.render.number( ',', '.', 2, '$' )},
                 responsive: true,
                 columnDefs: [
                     { responsivePriority: 1, targets: 0 },
