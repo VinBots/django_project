@@ -1,6 +1,7 @@
 from corporates.utilities import get_data
 import os
 from pathlib import Path
+import json
 #import pandas as pd
 
 
@@ -20,6 +21,9 @@ def get_scores_xls(top_rank = 100):
         sheet_name, 
         None,
         )
-    scores_dict = all_data.to_dict("series")
-    
-    return scores_dict
+      
+    # parsing the DataFrame in json format.
+    json_records = all_data.reset_index().to_json(orient ='records')
+    data = []
+    data = json.loads(json_records)
+    return data

@@ -21,18 +21,18 @@
             </thead>
             <tbody>
 
-                {% for corp_score in scores %}
+                {% for i in scores %}
                 <tr>
                     <td><img src="{% static 'django_project/images/logos/' %}logo_1.png" alt="picture_2"></td>
-                    <td>{{corp_score.company_name}}</td>
-                    <td>{{corp_score.transp_score}}</td>
-                    <td>{{corp_score.comm_score}}</td>
-                    <td>{{corp_score.actions_score}}</td>
-                    <td>{{corp_score.score}}</td>
+                    <td>{{i.company_name}}</td>
+                    <td>{{i.transp_score}}</td>
+                    <td>{{i.comm_score}}</td>
+                    <td>{{i.actions_score}}</td>
+                    <td>{{i.score}}</td>
                 </tr>
 
                 {% endfor %}
-                {{scores}}
+              
 
             </tbody>
             <tfoot>
