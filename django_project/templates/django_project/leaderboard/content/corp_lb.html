@@ -27,7 +27,7 @@
                     <td><img src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png" alt="picture_2">
                     </td>
                     <td>{{i.rank}}</td>
-                    <td>{{i.company_name}}</td>
+                    <td><a href="{% url 'corporates_home'%}{{i.company_name}}" title = "{{i.company_name}}">{{i.company_name}}</a></td>
                     <td>{{i.transp_score}}</td>
                     <td>{{i.comm_score}}</td>
                     <td>{{i.actions_score}}</td>
