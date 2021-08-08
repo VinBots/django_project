@@ -1,29 +1,40 @@
-{% load static %}                    
+{% load static %}
 <!-- Post -->
-<article id = "top" class="post">
+<article id="top" class="post">
     <header>
-        <div class = "container" width = 100%>									
-                <div class="title">
-                    <h2><font face = "sans-serif" size = "6">Net Zero Tracker</font><font face = "sans-serif" size = "3">    [under development]</font></h2>
-                    <p>xxx</p>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">Net Zero Tracker</font>
+                    <font face="sans-serif" size="3"> [under development]</font>
+                </h2>
+                <p>xxx</p>
 
-                </div>
+            </div>
         </div>
 
-        </header>
+    </header>
 
+    <section>
         <div class="container" width=100% align="center">
             {% include "django_project/leaderboard/content/top5_lb.html" %}
         </div>
+    </section>
 
-        {% include "django_project/home/content/search.html" %}
+    <section>
+        <div class="container" width=100% align="center">
+            {% include "django_project/home/content/search.html" %}
+        </div>
+    </section>
 
-        <footer>
-            <blockquote>
-                “It is vital that businesses go net zero, as part of our fight against climate change. Which is why we look to all sectors to reach a point at which a clean way of operating becomes the norm. Because if every sector plays its part, we will see the global economy on the right path to achieving net zero by 2050.”
-                <strong>COP26 President Designate Alok Sharma</strong> 
-            </blockquote>
-        </footer>
+    <footer>
+        <blockquote>
+            “It is vital that businesses go net zero, as part of our fight against climate change. Which is why we look
+            to all sectors to reach a point at which a clean way of operating becomes the norm. Because if every sector
+            plays its part, we will see the global economy on the right path to achieving net zero by 2050.”
+            <strong>COP26 President Designate Alok Sharma</strong>
+        </blockquote>
+    </footer>
 
 
 </article>
