@@ -38,8 +38,8 @@ def home(request):
 
 
   return render (request, "django_project/home/main.html", {
-    "corporates_names": corporates_names, #autofill
-    "random_logos": get_random_logos(), #display 5 random logos in the search area
+    "corporates_names": corporates_names,
+    "random_logos": get_random_logos(),
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
     "angle3":angle_deg[2],"value3":str(pct_values[2]),
