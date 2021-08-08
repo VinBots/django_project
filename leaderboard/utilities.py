@@ -21,9 +21,10 @@ def get_scores_xls(top_rank = 100):
         sheet_name, 
         None,
         )
-      
+    all_data = all_data.loc[all_data['rank']<=top_rank].sort_values(by=['rank'])
     # parsing the DataFrame in json format.
     json_records = all_data.reset_index().to_json(orient ='records')
     data = []
     data = json.loads(json_records)
     return data
+
