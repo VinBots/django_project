@@ -78,6 +78,7 @@
 
 .lb_right .lboard_mem .name_bar p span{
 	margin-right: 5px;
+	text-align: left;
 }
 
 .lb_right .lboard_mem .points{
