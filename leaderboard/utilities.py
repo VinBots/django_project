@@ -8,7 +8,7 @@ import json
 BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 
 
-def get_scores_xls(top_rank = 100):
+def get_scores_xls(corp_rank = 100, top_rank=True):
 
     scores_dict={}
     #Excel file path
@@ -21,7 +21,11 @@ def get_scores_xls(top_rank = 100):
         sheet_name, 
         None,
         )
-    all_data = all_data.loc[all_data['rank']<=top_rank].sort_values(by=['rank'])
+    max_rank = 100
+    if top_rank:
+        all_data = all_data.loc[all_data['rank']<=corp_rank].sort_values(by=['rank'])
+    else:
+        all_data = all_data.loc[all_data['rank']>=max_rank - corp_rank].sort_values(by=['rank'])
     # parsing the DataFrame in json format.
     json_records = all_data.reset_index().to_json(orient ='records')
     data = []

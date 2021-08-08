@@ -45,7 +45,8 @@ def home(request):
     "angle3":angle_deg[2],"value3":str(pct_values[2]),
     "angle4":angle_deg[3],"value4":str(pct_values[3]),
     "angle5":angle_deg[4], "value5":str(pct_values[4]),
-    "top5_scores": get_scores_xls(top_rank=5),
+    "top5_scores": get_scores_xls(corp_rank=5, top_rank=True),
+    "bottom5_scores": get_scores_xls(corp_rank=5, top_rank=False),
     }
       )
 
