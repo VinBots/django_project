@@ -1,4 +1,4 @@
-<div class = "col-12 col-12-medium">
+<div class="col-12 col-12-medium">
     <h3>Greenhouse Gas Emissions</h3>
 </div>
 
@@ -15,7 +15,10 @@
         <tbody>
             <tr>
                 <td>Direct (Scope 1)</td>
-                <td>{{xls_corp.ghg.2017.scope1}}</td>
+                <td><a href="#" class="demo_img" title="" target="_blank">
+                    {{xls_corp.ghg.2017.scope1}}
+                    <div><img src="{% static 'django_project/images/logos/' %}logo_{{selected_corp.company_id}}.png" alt="" /></div>
+                    </a></td>
                 <td>{{xls_corp.ghg.2018.scope1}}</td>
                 <td>{{xls_corp.ghg.2019.scope1}}</td>
             </tr>
@@ -39,6 +42,6 @@
                 <td><strong>{{xls_corp.ghg.2019.total}}</strong></td>
             </tr>
         </tbody>
-        
+
     </table>
 </div>
