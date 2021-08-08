@@ -48,6 +48,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <th>Transparency</th>
+                        <th></th>
+                        <th>60.0</th>
+                        <th>18.0</th>
+                        <th>Scope 3 is not fully verified</th>
+                    </tr>
                     {% for i in corp_scores_details %}
                     <tr>
                         <td>{{i.category}}</td>
@@ -80,6 +87,18 @@
         $('#score_summary').DataTable(
             {
                 responsive: true,
+                columnDefs: [
+                    {targets: 0, responsivePriority: 1},
+                    {
+                        targets: 2,
+                        responsivePriority: 3,
+                        render: $.fn.dataTable.render.percentBar('round', '#000000', '#0d3532', '#2ebaae', '#def7f5', 1, 'solid')
+                    },
+                    {
+                        targets: 3,
+                        responsivePriority: 2,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', 'pts')
+                     }],
             }
         );
     });
