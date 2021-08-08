@@ -35,7 +35,7 @@ def home(request):
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
 
 
-  return render (request, "django_project/home/home.html", {
+  return render (request, "django_project/home/main.html", {
     "corporates_names": corporates_names,
     "color_key_fig": "#00b118",
     "random_logos": get_random_logos(),

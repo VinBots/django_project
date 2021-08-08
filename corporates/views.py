@@ -41,7 +41,7 @@ def corporates_search(request, corp_name=None):
   else:
     return render(
       request, 
-      "django_project/corporates/main.html", 
+      "django_project/corporates/home.html", 
       {"error_msg":"No match found",
       "corporates_names": Corporate.objects.all(),
       "random_logos": get_random_logos(),
