@@ -1,3 +1,10 @@
+<!--
+
+    <a href="www.yahoo.fr" class="hover_img" title="" target="_blank">{{xls_corp.ghg.2017.scope1}}
+                    <div><img src="{% static 'django_project/images/logos/' %}logo_{{selected_corp.company_id}}.png" alt="" /></div>
+                    </a>
+
+
 <div class = "col-4 col-12-medium">
     <h3>Transparency</h3>
     <p>GHG Emissions disclosed: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
@@ -17,3 +24,57 @@
     Supplier Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i><br>
     Client Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
 </div>
+
+-->
+{% load static %}
+<div class="container">
+    <table id="score_summary" class="score_summary" data-show-columns="true">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Criteria</th>
+                <th>Score</th>
+                <th>Points</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in corp_scores_details %}
+            <tr>
+                <td>{{i.category}}</td>
+                <td>{{i.criteria}}</td>
+                <td>{{i.scores}}</td>
+                <td>{{i.points}}</td>
+                <td>{{i.comments}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#score_summary').DataTable(
+            {
+                responsive: true,
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 },
+                    {
+                        targets: -1,
+                        responsivePriority: 2,
+                        render: $.fn.dataTable.render.percentBar('round', '#000000', '#0d3532', '#2ebaae', '#def7f5', 1, 'solid')
+                    },
+                    { responsivePriority: 3, targets: 1 },
+                    { responsivePriority: 4, targets: 2 },
+                    { targets: 3, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') },
+                    { targets: 4, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') },
+                    { targets: 5, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') }
+                ],
+                order: [[6, 'desc']],
+            }
+        );
+    });
+</script>
