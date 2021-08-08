@@ -1,5 +1,6 @@
-<!--
+{% load static %}
 
+{% comment %}
     <a href="www.yahoo.fr" class="hover_img" title="" target="_blank">{{xls_corp.ghg.2017.scope1}}
                     <div><img src="{% static 'django_project/images/logos/' %}logo_{{selected_corp.company_id}}.png" alt="" /></div>
                     </a>
@@ -25,8 +26,8 @@
     Client Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
 </div>
 
--->
-{% load static %}
+{% endcomment %}
+
 <div class="container">
     <table id="score_summary" class="score_summary" data-show-columns="true">
         <thead>
