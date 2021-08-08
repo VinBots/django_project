@@ -27,6 +27,9 @@ tabs.forEach(function(tab){
 		else if(currenttab == "level3"){
 			level2.style.display = "block";
 		}
+		else {
+			level1.style.display = "block";
+		}
 
 	})
 })
