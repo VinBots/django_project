@@ -21,7 +21,7 @@ def get_scores_xls(corp_rank = 100, top_rank=True):
         sheet_name, 
         None,
         )
-    max_rank = 100
+    max_rank = all_data['rank'].max()
     if top_rank:
         all_data = all_data.loc[all_data['rank']<=corp_rank].sort_values(by=['rank'])
     else:
