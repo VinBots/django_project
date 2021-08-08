@@ -3784,3 +3784,52 @@ form.search-corp:before {
 	width: 100%; 
 	height: 100%;
 }
+
+a.demo_img {
+	display: block;
+	width:300px;
+	position:relative;
+	line-height:25px;
+}
+
+a.demo_img>div {
+	position:absolute;
+	padding:0;
+	margin:0;
+	left: 155px; /* change this value to one that works best for you */
+	top: -18px; /* change this value to one that works best for you */
+	background: transparent url(/generator/show-clickable-imge-link-on-hover_files/arrow-down-grey.png) left 23px no-repeat;
+	
+	opacity:0;
+	height: 0;
+	overflow: hidden;
+	
+	/* Enable transitions */
+	/*-webkit-transition: all .3s ease .15s;
+	-moz-transition: all .3s ease .15s;
+	-o-transition: all .3s ease .15s;
+	-ms-transition: all .3s ease .15s;
+	transition: all .3s ease .15s;*/
+}
+
+a.demo_img>div img {
+	padding:8px;
+	margin-left:4px;
+	border:1px solid #BCBDC0;
+	background-color:#BCBDC0;
+	-webkit-border-radius: 5px;
+		  -moz-border-radius: 5px;
+			border-radius: 5px;
+	
+	-webkit-box-sizing:border-box; 
+	   -moz-box-sizing:border-box; 
+			box-sizing:border-box;
+}
+a.demo_img:hover>div {
+	
+	opacity:1;
+	height: 200px;
+	padding: 8px;   
+	
+	z-index:1;
+}
