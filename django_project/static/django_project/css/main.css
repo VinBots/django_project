@@ -3785,14 +3785,14 @@ form.search-corp:before {
 	height: 100%;
 }
 
-a.demo_img {
+a.hover_img {
 	display: block;
 	width:300px;
 	position:relative;
 	line-height:25px;
 }
 
-a.demo_img>div {
+a.hover_img>div {
 	position:absolute;
 	padding:0;
 	margin:0;
@@ -3812,7 +3812,7 @@ a.demo_img>div {
 	transition: all .3s ease .15s;*/
 }
 
-a.demo_img>div img {
+a.hover_img>div img {
 	padding:8px;
 	margin-left:4px;
 	border:1px solid #BCBDC0;
@@ -3825,7 +3825,7 @@ a.demo_img>div img {
 	   -moz-box-sizing:border-box; 
 			box-sizing:border-box;
 }
-a.demo_img:hover>div {
+a.hover_img:hover>div {
 	
 	opacity:1;
 	height: 200px;
