@@ -1,10 +1,9 @@
 <!-- Post -->
 {% load static %}
 <article id="leaderboard" class="post">
-
     <header>
         <div class="title">
-            <h2><a href="single.html">My LeaderBoard</a></h2>
+            <h2><a href="{% url 'leaderboard_home' %}">Corporates LeaderBoard</a></h2>
             <p>Net 0 tracker - Design Only</p>
         </div>
     </header>
@@ -28,6 +27,31 @@
         <div class="lb_right">
 
             <div class="lboard_item level1" style="display: block;">
+                {% for i in scores %}
+                    {% if i.rank <= 5 %}
+                    <div class="lboard_mem">
+                        <div class="img">
+                            <img src="{% static 'django_project/images/logos/logo_'+i.company_id %}" alt="">
+                        </div>
+                        <div class="name_bar">
+                            <p><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
+                            <div class="bar_wrap">
+                                <div class="inner_bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="points">
+                            {{i.score}} points
+                        </div>
+                    </div>
+
+                    {% endif %}
+                {% endfor %}
+
+
+
+
+
+                <!--
                 <div class="lboard_mem">
                     <div class="img">
                         <img src="{% static 'django_project/images/logos/' %}logo_66.png" alt="picture_1">
@@ -42,6 +66,7 @@
                         195 points
                     </div>
                 </div>
+
                 <div class="lboard_mem">
                     <div class="img">
                         <img src="{% static 'django_project/images/logos/' %}logo_4.png" alt="picture_2">
@@ -99,6 +124,7 @@
                     </div>
                 </div>
             </div>
+            -->
             <div class="lboard_item level2" style="display: none;">
                 <div class="lboard_mem">
                     <div class="img">
