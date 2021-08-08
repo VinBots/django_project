@@ -3798,7 +3798,7 @@ a.demo_img>div {
 	margin:0;
 	left: 155px; /* change this value to one that works best for you */
 	top: -18px; /* change this value to one that works best for you */
-	background: transparent url(/generator/show-clickable-imge-link-on-hover_files/arrow-down-grey.png) left 23px no-repeat;
+	background: transparent url(../images/arrow-down-grey.png) left 23px no-repeat;
 	
 	opacity:0;
 	height: 0;
