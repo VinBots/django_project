@@ -3,7 +3,7 @@
 	width: 500px;
 	height: 400px;
 	margin: 100px auto 0;
-	background: #f94f62;
+	background: #646464;
 	padding: 25px 40px;
 	position: relative;
 	border-radius: 5px;
@@ -25,7 +25,7 @@
 .lb_left .lboard_tabs ul li{
 	font-size: 18px;
 	font-weight: 600;
-	color: #3a3d51;
+	color: #2ebaae;
 	margin-right:1rem;
 	list-style:none;
 	cursor: pointer;
@@ -46,7 +46,7 @@
 	display: flex;
 	align-items: center;
 	padding: 15px 0;
-	border-bottom: 1px solid #ffe773;
+	border-bottom: 1px solid #2ebaae;
 }
 
 .lb_right .lboard_mem:first-child{
