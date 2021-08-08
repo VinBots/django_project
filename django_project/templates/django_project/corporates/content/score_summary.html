@@ -28,6 +28,39 @@
 
 {% endcomment %}
 
+<article class="post">
+    <header>
+        <div class="title">
+            <h2>Key Figures</h2>
+        </div>
+    </header>
+    <section>
+    <div class="row">
+        {% block score_summary %}
+        {% endblock %}   
+    </div>
+    
+        {% block ghg_emissions %}
+        {% endblock %}
+
+    <div class="row">
+        {% block targets %}
+        {% endblock %}
+    </div>
+</section>
+
+
+    <footer>
+        <ul class="stats">
+            <li><a href="#">Methodology</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </footer>
+    
+</article>
+
+
+{% comment %}
 <div class="container" width=100%>
     <table id="score_summary" class="score_summary" data-show-columns="true">
         <thead>
@@ -174,6 +207,7 @@
         </tfoot>
     </table>
 </div>
+{% endcomment %}
 
 
 <script>
