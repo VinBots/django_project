@@ -31,7 +31,7 @@
                     {% if i.rank <= 5 %}
                     <div class="lboard_mem">
                         <div class="img">
-                            <img src="{% static 'django_project/images/logos/logo_'+i.company_id %}" alt="">
+                            <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id }}" alt="">
                         </div>
                         <div class="name_bar">
                             <p><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
