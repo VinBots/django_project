@@ -50,21 +50,21 @@
                 <tbody>
                     <tr>
                         <th>Transparency</th>
-                        <th></th>
+                        <th>1</th>
                         <th>60.0</th>
                         <th>18.0</th>
                         <th>Scope 3 is not fully verified</th>
                     </tr>
                     <tr>
                         <th>Commitments</th>
-                        <th></th>
+                        <th>2</th>
                         <th>60.0</th>
                         <th>25.0</th>
                         <th>No SBTi target</th>
                     </tr>
                     <tr>
                         <th>Actions</th>
-                        <th></th>
+                        <th>3</th>
                         <th>60.0</th>
                         <th>20.0</th>
                         <th>xxx</th>
@@ -112,7 +112,9 @@
                         targets: 3,
                         responsivePriority: 2,
                         render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
-                     }],
+                     }
+                ],
+                order: [[1, 'asc']]
             }
         );
     });
