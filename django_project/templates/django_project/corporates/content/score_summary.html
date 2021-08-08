@@ -1,29 +1,29 @@
 {% load static %}
 
 {% comment %}
-    <a href="www.yahoo.fr" class="hover_img" title="" target="_blank">{{xls_corp.ghg.2017.scope1}}
-                    <div><img src="{% static 'django_project/images/logos/' %}logo_{{selected_corp.company_id}}.png" alt="" /></div>
-                    </a>
+<a href="www.yahoo.fr" class="hover_img" title="" target="_blank">{{xls_corp.ghg.2017.scope1}}
+    <div><img src="{% static 'django_project/images/logos/' %}logo_{{selected_corp.company_id}}.png" alt="" /></div>
+</a>
 
 
-<div class = "col-4 col-12-medium">
+<div class="col-4 col-12-medium">
     <h3>Transparency</h3>
     <p>GHG Emissions disclosed: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-    Scope 3 disclosed: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-    Full Scope 3 disclosed: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
+        Scope 3 disclosed: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
+        Full Scope 3 disclosed: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
 </div>
-<div class = "col-4 col-12-medium">
+<div class="col-4 col-12-medium">
     <h3>Seriousness</h3>
     <p>Net Zero Targets: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-    Temperature-equivalent: 2.8 degrees <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-    Science-Based Targets: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
+        Temperature-equivalent: 2.8 degrees <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
+        Science-Based Targets: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
 </div>
-<div class = "col-4 col-12-medium">
+<div class="col-4 col-12-medium">
     <h3>Momentum</h3>
     <p>% reduction achieved<i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-    On-pace: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-    Supplier Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i><br>
-    Client Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
+        On-pace: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
+        Supplier Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i><br>
+        Client Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
 </div>
 
 {% endcomment %}
@@ -31,24 +31,159 @@
 <article class="post">
     <header>
         <div class="title">
-            <h2>Key Figures</h2>
+            <h2>Score Summary</h2>
         </div>
     </header>
     <section>
-    <div class="row">
-        {% block score_summary %}
-        {% endblock %}   
-    </div>
-    
-        {% block ghg_emissions %}
-        {% endblock %}
 
-    <div class="row">
-        {% block targets %}
-        {% endblock %}
-    </div>
-</section>
+        <div class="container" width=100%>
+            <table id="score_summary" class="score_summary" data-show-columns="true">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Score</th>
+                        <th>Points</th>
+                        <th>Comments</th>
+                    </tr>
 
+                    {% for i in corp_scores_details %}
+                    <tr>
+                        <td>{{i.category}}</td>
+                        <td>{{i.criteria}}</td>
+                        <td>{{i.scores}}</td>
+                        <td>{{i.points}}</td>
+                        <td>{{i.comments}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+
+    </section>
 
     <footer>
         <ul class="stats">
@@ -56,158 +191,8 @@
             <li><a href="#">FAQ</a></li>
         </ul>
     </footer>
-    
+
 </article>
-
-
-{% comment %}
-<div class="container" width=100%>
-    <table id="score_summary" class="score_summary" data-show-columns="true">
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <th>Criteria</th>
-                <th>Score</th>
-                <th>Points</th>
-                <th>Comments</th>
-            </tr>
-
-            {% for i in corp_scores_details %}
-            <tr>
-                <td>{{i.category}}</td>
-                <td>{{i.criteria}}</td>
-                <td>{{i.scores}}</td>
-                <td>{{i.points}}</td>
-                <td>{{i.comments}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-        <tfoot>
-        </tfoot>
-    </table>
-</div>
-{% endcomment %}
 
 
 <script>
