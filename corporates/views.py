@@ -1,4 +1,4 @@
-from django_project.corporates.utilities import get_score_data
+#from django_project.corporates.utilities import get_score_data
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
