@@ -65,10 +65,23 @@ def get_ghg_xls(company_id):
     return ghg_dict
 
 def get_score_data(company_id):
+    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+        
     score_data={
         'score':'25.4',
         'rank':'14',
     }
+    all_data = get_data(
+        xlsx_path,
+        'corp_scores',
+        None,
+    )
+    score_record_data=all_data[all_data['company_id']==company_id]
+    score_data = {
+        'score':score_record_data.loc('score'),
+        'rank': score_record_data.loc('rank')
+    }
+
     return score_data
 
 
