@@ -35,47 +35,23 @@
         </div>
     </header>
     <section>
-
         <div class="container" width=100%>
             <table id="score_summary" class="score_summary" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
-                        <th>Category</th>
-                        <th>Criteria</th>
-                        <th>Rating</th>
+                        <th>Principle</th>
                         <th>Score</th>
+                        <th>Max Score</th>
                         <th>Comments</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for score in corp_scores_summary %}
                     <tr>
-                        <td>Transparency</td>
-                        <td>1</td>
-                        <td>60.0</td>
-                        <td>18.0</td>
-                        <td>Scope 3 is not fully verified</td>
-                    </tr>
-                    <tr>
-                        <td>Commitments</td>
-                        <td>2</td>
-                        <td>40.0</td>
-                        <td>25.0</td>
-                        <td>No SBTi target</td>
-                    </tr>
-                    <tr>
-                        <td>Actions</td>
-                        <td>3</td>
-                        <td>20.0</td>
-                        <td>20.0</td>
-                        <td>xxx</td>
-                    </tr>
-                    {% for i in corp_scores_details %}
-                    <tr>
-                        <td>{{i.category}}</td>
-                        <td>{{i.criteria}}</td>
-                        <td>{{i.scores}}</td>
-                        <td>{{i.points}}</td>
-                        <td>{{i.comments}}</td>
+                        <td></td>
+                        <td>{{score}}</td>
+                        <td>10 pts</td>
+                        <td>no comment</td>
                     </tr>
                     {% endfor %}
                 </tbody>

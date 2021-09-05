@@ -1,8 +1,7 @@
-#from django_project.corporates.utilities import get_score_data
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
-from corporates.utilities import get_path_to_chart, check_validity, get_ghg_xls, get_path_to_img, get_score_data
+from corporates.utilities import get_path_to_chart, check_validity, get_ghg_xls, get_path_to_img, get_score_data, get_scores_summary
 from corporates.add_records import add_new_records
 from django_project.utilities import get_random_logos
 from pathlib import Path
@@ -19,7 +18,8 @@ def corporates_search(request, corp_name=None):
     selected_corp = Corporate.objects.get(name=corp_name)
     xls_corp = {
       'ghg': get_ghg_xls(company_id=selected_corp.company_id),
-      'score_data': get_score_data(company_id=selected_corp.company_id)
+      'score_data': get_score_data(company_id=selected_corp.company_id),
+      'corp_scores_summary': get_scores_summary(company_id=selected_corp.company_id)
     }
 
     corp_data = {

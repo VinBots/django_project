@@ -81,6 +81,22 @@ def get_score_data(company_id):
     return score_data
 
 
+def get_scores_summary(company_id):
+
+    score_data=[]
+    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+    all_data = get_data(
+        xlsx_path,
+        'score_summary',
+        None,
+    )
+    scores_summary_data=all_data[all_data['company_id']==company_id]
+    for i in range(1, 11):
+        score_data.append(scores_summary_data.iloc[0, i])
+
+    return score_data
+
+
 def get_data(xlsx_path, sheetname, cols_to_use):
     
     return pd.read_excel(
