@@ -2,7 +2,7 @@
     <header>
         <div class="title">
             <h2>Reduction and Net Zero Targets</h2>
-            <p><i>>Note: intensity targets are not represented in the current version - see Method</i></p>
+            <p><i>>Note: intensity targets are not represented in the current version - see Methodology</i></p>
         </div>
     </header>
     <section>
@@ -11,10 +11,10 @@
             <table id="target_summary" class="target_summary" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
-                        <th>Category</th>
-                        <th>Criteria</th>
-                        <th>Rating</th>
-                        <th>Score</th>
+                        <th>Type</th>
+                        <th>Source</th>
+                        <th>Period</th>
+                        <th>Reduction</th>
                         <th>Comments</th>
                     </tr>
                 </thead>
@@ -71,6 +71,10 @@
     $(document).ready(function () {
         $('#target_summary').DataTable(
             {
+                "searching": false,   // Search Box will Be Disabled
+                "ordering": false,    // Ordering (Sorting on Each Column)will Be Disabled
+                "info": false,         // Will show "1 to n of n entries" Text at bottom
+                "lengthChange": false, // Will Disabled Record number per page
                 responsive: true,
                 columnDefs: [
                     {targets: 0, responsivePriority: 1},
