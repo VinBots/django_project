@@ -52,8 +52,11 @@ def get_momentum_pct(all_data):
 def get_top_stats():
 
     #Excel file path
-    xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
+    #xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
     
+    BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
+    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+
     # Connect to the data source
     all_data = get_data(
         xlsx_path, 
