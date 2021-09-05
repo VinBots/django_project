@@ -5,7 +5,8 @@ import pandas as pd
 import os
 import math
 
-BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
+#BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
+BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
 #DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
 DIR_TO_CORP_CHARTS_TEMPLATES = "/corporates.html/charts/html_exports/"
 DIR_TO_CORP_CHARTS_IMG = "django_project/images/charts/"
@@ -38,7 +39,8 @@ def check_validity(corp_name):
 def get_ghg_xls(company_id):
     ghg_dict={}
     #Excel file path
-    xlsx_path = os.path.join (BASE_DIR, 'static/django_project', 'data', 'sp100_data.xlsx')
+    #xlsx_path = os.path.join (BASE_DIR, 'static/django_project', 'data', 'sp100_data.xlsx')
+    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
     year_ghgsheet = [('2017','GHG17'), ('2018','GHG18'), ('2019','GHG19')]
 
     # Connect to the data source
