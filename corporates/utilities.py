@@ -78,7 +78,7 @@ def get_score_data(company_id):
     #    'rank': score_record_data.loc[0, 'rank']
     #}
     score_data = {
-        'score': score_record_data,
+        'score': score_record_data.iloc[0,6],
         'rank':12,
     }
 
