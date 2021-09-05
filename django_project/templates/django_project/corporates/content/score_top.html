@@ -8,7 +8,7 @@
             <div class="title">
                 <div>
                     <img src="{% static 'django_project/images/logos/' %}logo_{{selected_corp.company_id}}.png" />
-                    <h2>Net Zero Tracker - {{selected_corp.name}}</h2>
+                    <h2>{{selected_corp.name}}</h2>
                 </div>
             </div>
         </div>
@@ -18,14 +18,14 @@
     <section>
 
         <div class="row">
-            <div class="col-6 col-12-medium">
+            <div align="center" class="col-6 col-12-medium">
                 <h2>Score</h2>
-                <p>: 65.3 pts</p>
+                <h3>{{xls_corp.score_data.score}} / 100 pts</h3>
             </div>
 
-            <div class="col-6 col-12-medium">
+            <div align="center" class="col-6 col-12-medium">
                 <h2>Ranking</h2>
-                <p>28 / 100</p>
+                <h3>#{{xls_corp.score_data.rank}}/100</h3>
             </div>
 
         </div>

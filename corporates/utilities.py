@@ -64,6 +64,13 @@ def get_ghg_xls(company_id):
     
     return ghg_dict
 
+def get_score_data(company_id):
+    score_data={
+        'score':'25.4',
+        'rank':'14',
+    }
+    return score_data
+
 
 def get_data(xlsx_path, sheetname, cols_to_use):
     
