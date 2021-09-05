@@ -83,7 +83,7 @@ def get_score_data(company_id):
 
 def get_scores_summary(company_id):
 
-    score_data=[]
+    score_data=[0]*10
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
     all_data = get_data(
         xlsx_path,
@@ -92,7 +92,7 @@ def get_scores_summary(company_id):
     )
     scores_summary_data=all_data[all_data['company_id']==company_id]
     for i in range(1, 11):
-        score_data.append(scores_summary_data.iloc[0, i])
+        score_data[i-1]=scores_summary_data.iloc[0, i]
 
     return score_data
 
