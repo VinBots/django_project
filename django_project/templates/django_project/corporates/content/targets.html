@@ -1,0 +1,91 @@
+<article class="post">
+    <header>
+        <div class="title">
+            <h2>GHG Emissions Reduction Targets</h2>
+        </div>
+    </header>
+    <section>
+
+        <div class="container" width=100%>
+            <table id="target_summary" class="target_summary" data-show-columns="true" width=100%>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Rating</th>
+                        <th>Score</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Transparency</td>
+                        <td>1</td>
+                        <td>60.0</td>
+                        <td>18.0</td>
+                        <td>Scope 3 is not fully verified</td>
+                    </tr>
+                    <tr>
+                        <td>Commitments</td>
+                        <td>2</td>
+                        <td>40.0</td>
+                        <td>25.0</td>
+                        <td>No SBTi target</td>
+                    </tr>
+                    <tr>
+                        <td>Actions</td>
+                        <td>3</td>
+                        <td>20.0</td>
+                        <td>20.0</td>
+                        <td>xxx</td>
+                    </tr>
+                    {% for i in corp_scores_details %}
+                    <tr>
+                        <td>{{i.category}}</td>
+                        <td>{{i.criteria}}</td>
+                        <td>{{i.scores}}</td>
+                        <td>{{i.points}}</td>
+                        <td>{{i.comments}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+
+    </section>
+
+    <footer>
+        <ul class="stats">
+            <li><a href="#">Methodology</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </footer>
+
+</article>
+
+
+<script>
+    $(document).ready(function () {
+        $('#target_summary').DataTable(
+            {
+                responsive: true,
+                columnDefs: [
+                    {targets: 0, responsivePriority: 1},
+                    {
+                        targets: 2,
+                        responsivePriority: 3,
+                        render: $.fn.dataTable.render.percentBar('round', '#000000', '#0d3532', '#2ebaae', '#def7f5', 1, 'solid')
+                    },
+                    {
+                        targets: 3,
+                        responsivePriority: 2,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
+                     }
+                ],
+                order: [[1, 'asc']]
+            }
+        );
+    });
+</script>
