@@ -82,6 +82,19 @@ def get_score_data(company_id):
 
 
 def get_scores_summary(company_id):
+    
+    principle_statement = [
+        'At least 2 years of GHG emissions for scope 1 and 2 are publicly-available',
+        'scope 3',
+        'verification',
+        'net zero target',
+        'intermediate',
+        'ambitious',
+        'pourquoi pas',
+        'super perf',
+        'momentum',
+        'remuneration ou offsets'
+    ]
 
     score_data=[0]*10
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
@@ -92,8 +105,10 @@ def get_scores_summary(company_id):
     )
     scores_summary_data=all_data[all_data['company_id']==company_id]
     for i in range(1, 11):
-        score_data[i-1]=scores_summary_data.iloc[0, i]
-
+        score_data[i-1]=[
+            scores_summary_data.iloc[0, i],
+            principle_statement[i-1]
+        ]
     return score_data
 
 

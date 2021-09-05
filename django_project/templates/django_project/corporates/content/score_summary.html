@@ -48,8 +48,8 @@
                 <tbody>
                     {% for score in xls_corp.corp_scores_summary %}
                     <tr>
-                        <td></td>
-                        <td>{{xls_corp.corp_scores_summary}}</td>
+                        <td>{{score[0]}}</td>
+                        <td>{{score[1]}}</td>
                         <td>10 pts</td>
                         <td>no comment</td>
                     </tr>
@@ -80,17 +80,15 @@
                 columnDefs: [
                     {targets: 0, responsivePriority: 1},
                     {
-                        targets: 2,
-                        responsivePriority: 3,
-                        render: $.fn.dataTable.render.percentBar('round', '#000000', '#0d3532', '#2ebaae', '#def7f5', 1, 'solid')
+                        targets: 1,
+                        responsivePriority: 2,
                     },
                     {
-                        targets: 3,
-                        responsivePriority: 2,
+                        targets: 2,
+                        responsivePriority: 3,
                         render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
                      }
                 ],
-                order: [[1, 'asc']]
             }
         );
     });
