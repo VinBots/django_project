@@ -93,10 +93,10 @@ def get_scores_summary(company_id):
         'pourquoi pas',
         'super perf',
         'momentum',
-        'remuneration ou offsets'
+        'remuneration ou offsets',
     ]
 
-    score_data=[0]*10
+    score_data=[0]*10 # 10 principles
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
     all_data = get_data(
         xlsx_path,
