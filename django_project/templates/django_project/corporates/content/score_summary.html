@@ -59,7 +59,7 @@
                     <tr>
                         <td>Total</td>
                         <td>{{xls_corp.score_data.score}}</td>
-                        <td>100 pts</td>
+                        <td>100.0 pts</td>
                         <td>xls_corp.score_data.score</td>
                     </tr>
                 </tfoot>
@@ -93,6 +93,8 @@
                     {
                         targets: 1,
                         responsivePriority: 2,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
+
                     },
                     {
                         targets: 2,
