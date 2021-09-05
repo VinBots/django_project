@@ -76,6 +76,11 @@
     $(document).ready(function () {
         $('#score_summary').DataTable(
             {
+                "searching": false,   // Disabling search
+                "ordering": false,    // Disabling ordering
+                "paging":false,       // Disabling paging
+                "info": false,         // Disabling info about number of entries
+                "lengthChange": false, // Disable record number per page
                 responsive: true,
                 columnDefs: [
                     {targets: 0, responsivePriority: 1},

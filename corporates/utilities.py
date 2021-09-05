@@ -82,7 +82,7 @@ def get_score_data(company_id):
 
 
 def get_scores_summary(company_id):
-    
+
     principle_statement = [
         'At least 2 years of GHG emissions for scope 1 and 2 are publicly-available',
         'scope 3',
@@ -106,8 +106,8 @@ def get_scores_summary(company_id):
     scores_summary_data=all_data[all_data['company_id']==company_id]
     for i in range(1, 11):
         score_data[i-1]=[
+            principle_statement[i-1],
             scores_summary_data.iloc[0, i],
-            principle_statement[i-1]
         ]
     return score_data
 
