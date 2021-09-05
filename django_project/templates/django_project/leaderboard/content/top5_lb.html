@@ -21,7 +21,7 @@
                 {% for i in top5_scores %}
                 <div class="lboard_mem">
                     <div class="img">
-                        <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id }}.png" alt="">
+                        <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
                     </div>
                     <div class="name_bar">
                         <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
@@ -40,7 +40,7 @@
                 {% for i in bottom5_scores %}
                 <div class="lboard_mem">
                     <div class="img">
-                        <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id }}.png" alt="">
+                        <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
                     </div>
                     <div class="name_bar">
                         <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>

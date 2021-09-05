@@ -21,7 +21,6 @@ def get_scores_xls(corp_number = None, top_rank=True):
 
 
     #Excel file path
-    #xlsx_path = os.path.join (BASE_DIR, 'static/django_project', 'data', 'sp100_data.xlsx')
     BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
 
