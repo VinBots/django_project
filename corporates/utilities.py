@@ -42,6 +42,7 @@ def get_ghg_xls(company_id):
     ghg_dict={}
     #Excel file path
     #xlsx_path = os.path.join (BASE_DIR, 'static/django_project', 'data', 'sp100_data.xlsx')
+    '''
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
     year_ghgsheet = [('2017','GHG17'), ('2018','GHG18'), ('2019','GHG19')]
 
@@ -64,7 +65,7 @@ def get_ghg_xls(company_id):
                 'scope3':ghg_format(corp_record_data.iloc[0,2]),
                 'total':ghg_format(corp_record_data.iloc[0,3]),
                 }
-    
+    '''
     return ghg_dict
 
 def get_score_data(company_id):
