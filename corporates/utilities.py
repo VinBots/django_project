@@ -130,7 +130,7 @@ def get_scores_summary(company_id):
     ]
     comments = [''] * 13
 
-    score_data=[0]*10 # 10 principles
+    score_data=[0]*13
 
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
     all_data = get_data(
@@ -140,10 +140,7 @@ def get_scores_summary(company_id):
     )
     scores_summary_data=all_data[all_data['company_id']==company_id]
     for i in range(1, 14):
-        score_data[i-1]=[
-            principle_statement[i-1],
-            scores_summary_data.iloc[0, i],
-        ]
+        score_data[i-1]= scores_summary_data.iloc[0, i]
 
     score_data_dict = {
         'transparency': {
@@ -155,7 +152,7 @@ def get_scores_summary(company_id):
                 comments[i] for i in range(0,3)],
             'total': score_data[3],
         },
-        'commitments':{
+        'commitments': {
             'details': [
                 principle_ref[i],
                 principle_statement[i],
@@ -164,7 +161,7 @@ def get_scores_summary(company_id):
                 comments[i] for i in range(4,8)],
             'total': score_data[8],
         },
-        'actions':{
+        'actions': {
             'details': [
                 principle_ref[i],
                 principle_statement[i],
