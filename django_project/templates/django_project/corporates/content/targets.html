@@ -80,11 +80,11 @@
     <section>
         {{xls_corp.targets.net_zero_policy}}
         
-        {% if xls_corp.targets.net_zero_policy.scope %}
-        The company has a net zero policy on {{xls_corp.targets.net_zero_policy.scope}} scope emissions. 
+        {% if xls_corp.targets.net_zero_policy.0 %}
+        The company has a net zero policy on {{xls_corp.targets.net_zero_policy.0.scope}} scope emissions. 
         {% endif %}
         
-        {% if xls_corp.targets.net_zero_policy.cov_s3 == 'partly' %}
+        {% if xls_corp.targets.net_zero_policy.0.cov_s3 == 'partly' %}
         Note that Scope 3 emissions are not fully covered.
         {% endif %}
     </section>
