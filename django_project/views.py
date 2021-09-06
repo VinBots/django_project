@@ -67,4 +67,5 @@ def aboutus(request):
 def blog(request):
   return render (request, "django_project/blog/main.html")
 
-
+def faq(request):
+  return render (request, "django_project/faq/main.html")

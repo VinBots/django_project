@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'dpd_static_support',
     'corporates',
-    'leaderboard'
+    'leaderboard',
 ]
 
 MIDDLEWARE = [
