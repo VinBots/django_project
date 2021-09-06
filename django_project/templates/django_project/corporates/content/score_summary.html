@@ -31,7 +31,7 @@
                     </tr>
                     {% endfor %}
 
-                    <tr style="background-color:#2ebaae; color:white">
+                    <tr style="background-color:#2ebaae; color:white; font-weight:bold">
                         <td></td>
                         <td>Total Transparency</td>
                         <td>{{xls_corp.corp_scores_summary.transparency.total}}</td>
@@ -39,52 +39,52 @@
                         <td></td>
                     </tr>
 
-                {% for score in xls_corp.corp_scores_summary.commitments.details %}
-                <tr>
-                    <td>{{score.0}}</td>
-                    <td>{{score.1}}</td>
-                    <td>{{score.2}}</td>
-                    <td>{{score.3}}</td>
-                    <td>{{score.4}}</td>
-                </tr>
-                {% endfor %}
+                    {% for score in xls_corp.corp_scores_summary.commitments.details %}
+                    <tr>
+                        <td>{{score.0}}</td>
+                        <td>{{score.1}}</td>
+                        <td>{{score.2}}</td>
+                        <td>{{score.3}}</td>
+                        <td>{{score.4}}</td>
+                    </tr>
+                    {% endfor %}
 
-                <tr style="background-color:#2ebaae; color:white">
-                    <td></td>
-                    <td>Total Commitments</td>
-                    <td>{{xls_corp.corp_scores_summary.commitments.total}}</td>
-                    <td>30</td>
-                    <td></td>
-                </tr>
+                    <tr style="background-color:#2ebaae; color:white; font-weight:bold">
+                        <td></td>
+                        <td>Total Commitments</td>
+                        <td>{{xls_corp.corp_scores_summary.commitments.total}}</td>
+                        <td>30</td>
+                        <td></td>
+                    </tr>
 
-                {% for score in xls_corp.corp_scores_summary.actions.details %}
-                <tr>
-                    <td>{{score.0}}</td>
-                    <td>{{score.1}}</td>
-                    <td>{{score.2}}</td>
-                    <td>{{score.3}}</td>
-                    <td>{{score.4}}</td>
-                </tr>
-                {% endfor %}
+                    {% for score in xls_corp.corp_scores_summary.actions.details %}
+                    <tr>
+                        <td>{{score.0}}</td>
+                        <td>{{score.1}}</td>
+                        <td>{{score.2}}</td>
+                        <td>{{score.3}}</td>
+                        <td>{{score.4}}</td>
+                    </tr>
+                    {% endfor %}
 
-                <tr style="background-color:#2ebaae; color:white">
-                    <td></td>
-                    <td>Total Actions</td>
-                    <td>{{xls_corp.corp_scores_summary.actions.total}}</td>
-                    <td>30</td>
-                    <td></td>
-                </tr>
+                    <tr style="background-color:#2ebaae; color:white; font-weight:bold">
+                        <td></td>
+                        <td>Total Actions</td>
+                        <td>{{xls_corp.corp_scores_summary.actions.total}}</td>
+                        <td>30</td>
+                        <td></td>
+                    </tr>
 
                 </tbody>
 
                 <tfoot>
                     <tr>
-                        
-                            <td></td>
-                            <td><strong>TOTAL</strong></td>
-                            <td><strong>{{xls_corp.corp_scores_summary.actions.total}}</strong></td>
-                            <td><strong>100.0</strong></td>
-                            <td></td>
+
+                        <td></td>
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>{{xls_corp.corp_scores_summary.actions.total}}</strong></td>
+                        <td><strong>100.0</strong></td>
+                        <td></td>
                         </strong>
                     </tr>
                 </tfoot>
