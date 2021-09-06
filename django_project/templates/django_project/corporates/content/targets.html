@@ -11,42 +11,25 @@
             <table id="target_summary" class="target_summary" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
-                        <th>Type</th>
-                        <th>Source</th>
-                        <th>Period</th>
-                        <th>Reduction</th>
+                        <th>Scope</th>
+                        <th>Reduction Objectives</th>
+                        <th>Base Year</th>
+                        <th>Target Year</th>
                         <th>Comments</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for i in targets.gross_abs %}
                     <tr>
-                        <td>Transparency</td>
-                        <td>1</td>
-                        <td>60.0</td>
-                        <td>18.0</td>
-                        <td>Scope 3 is not fully verified</td>
-                    </tr>
-                    <tr>
-                        <td>Commitments</td>
-                        <td>2</td>
-                        <td>40.0</td>
-                        <td>25.0</td>
-                        <td>No SBTi target</td>
-                    </tr>
-                    <tr>
-                        <td>Actions</td>
-                        <td>3</td>
-                        <td>20.0</td>
-                        <td>20.0</td>
-                        <td>xxx</td>
-                    </tr>
-                    {% for i in corp_scores_details %}
-                    <tr>
-                        <td>{{i.category}}</td>
-                        <td>{{i.criteria}}</td>
-                        <td>{{i.scores}}</td>
-                        <td>{{i.points}}</td>
-                        <td>{{i.comments}}</td>
+                        <td>{{i.scope}}</td>
+                        <td>{{i.reduction_obj}}</td>
+                        <td>{{i.base_year}}</td>
+                        <td>{{i.target_year}}</td>
+                        <td>
+                            {% if i.cov_s3 !='NR' %}
+                            Coverage S3: {{i.cov_s3}}
+                            {% endif %}
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -79,14 +62,7 @@
                 responsive: true,
                 columnDefs: [
                     {targets: 0, responsivePriority: 1},
-                    {
-                        targets: 2,
-                        responsivePriority: 3,
-                    },
-                    {
-                        targets: 3,
-                        responsivePriority: 2,
-                     }
+                    {targets: 1, responsivePriority: 2,},
                 ],
             }
         );

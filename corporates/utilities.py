@@ -4,6 +4,8 @@ from corporates.models import Corporate
 import pandas as pd
 import os
 import math
+import json
+
 
 #BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
@@ -174,8 +176,35 @@ def get_scores_summary(company_id):
 
     return score_data_dict
 
+def get_targets(company_id):
+
+    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+        
+    all_data = get_data(
+        xlsx_path,
+        'targets_quant',
+        None,
+    )
+    
+    targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
+    targets_select_data = targets_record_data[['target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year']]
+
+    data_gross_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_zero_policy')].sort_values(by='scope').reset_index().to_json(orient ='records'))
+    data_net_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_zero_policy')].sort_values(by='scope').reset_index().to_json(orient ='records'))
+    data_net_zero_policy = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_zero_policy')].sort_values(by='scope').reset_index().to_json(orient ='records'))
+
+    targets_dict = {
+        'net_zero_policy' : data_net_zero_policy,
+        'gross_abs' : data_gross_abs,
+        'net_abs' : data_net_abs,
+    }
+    
+    return targets_dict
+
+
 
 def get_data(xlsx_path, sheetname, cols_to_use):
+    
     
     return pd.read_excel(
         xlsx_path,
