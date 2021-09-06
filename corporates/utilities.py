@@ -117,12 +117,12 @@ def get_scores_summary(company_id):
         '10',
         '10',
         '10',
-        '30,'
+        '30',
         '10',
         '10',
         '10',
         '10',
-        '40'
+        '40',
         '10',
         '10',
         '10',
@@ -144,30 +144,30 @@ def get_scores_summary(company_id):
 
     score_data_dict = {
         'transparency': {
-            'details': [
+            'details': [[
                 principle_ref[i],
                 principle_statement[i],
                 score_data[i],
                 max_score[i],
-                comments[i] for i in range(0,3)],
+                comments[i]] for i in range(0,3)],
             'total': score_data[3],
         },
         'commitments': {
-            'details': [
+            'details': [[
                 principle_ref[i],
                 principle_statement[i],
                 score_data[i],
                 max_score[i],
-                comments[i] for i in range(4,8)],
+                comments[i]] for i in range(4,8)],
             'total': score_data[8],
         },
         'actions': {
-            'details': [
+            'details': [[
                 principle_ref[i],
                 principle_statement[i],
                 score_data[i],
                 max_score[i],
-                comments[i] for i in range(9,12)],
+                comments[i]] for i in range(9,12)],
             'total': score_data[12],
         },
     }
