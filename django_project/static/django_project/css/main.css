@@ -3833,3 +3833,8 @@ a.hover_img:hover>div {
 	
 	z-index:1;
 }
+
+corp_score, corp_rank {
+	font-size: 1.1em;
+	background-color:#2ebaae;
+}
