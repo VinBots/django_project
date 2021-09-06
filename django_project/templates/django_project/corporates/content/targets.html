@@ -8,8 +8,9 @@
     <section>
 
         <div class="container" width=100%>
-            {{xls_corp.targets}}
-            <table id="target_summary" class="target_summary" data-show-columns="true" width=100%>
+
+            <h3>Gross Absolute Emission Reductions</h3>
+            <table id="gross_target" class="gross_target" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
                         <th>Scope</th>
@@ -34,8 +35,40 @@
                 </tfoot>
             </table>
         </div>
-
     </section>
+
+    <section>
+
+        <div class="container" width=100%>
+
+            <h3>Net Absolute Emission Reductions</h3>
+            <table id="net_target" class="net_target" data-show-columns="true" width=100%>
+                <thead>
+                    <tr>
+                        <th>Scope</th>
+                        <th>Reduction Objectives</th>
+                        <th>Base Year</th>
+                        <th>Target Year</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in xls_corp.targets.net_abs %}
+                    <tr>
+                        <td>{{i.scope}}</td>
+                        <td>{{i.reduction_obj}}</td>
+                        <td>{{i.base_year}}</td>
+                        <td>{{i.target_year}}</td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
 
     <footer>
         <ul class="stats">
@@ -46,10 +79,28 @@
 
 </article>
 
+<script>
+    $(document).ready(function () {
+        $('#gross_target').DataTable(
+            {
+                "searching": false,   // Disabling search
+                "ordering": false,    // Disabling ordering
+                "paging":false,       // Disabling paging
+                "info": false,         // Disabling info about number of entries
+                "lengthChange": false, // Disable record number per page
+                responsive: true,
+                columnDefs: [
+                    {targets: 0, responsivePriority: 1},
+                    {targets: 1, responsivePriority: 2,},
+                ],
+            }
+        );
+    });
+</script>
 
 <script>
     $(document).ready(function () {
-        $('#target_summary').DataTable(
+        $('#net_target').DataTable(
             {
                 "searching": false,   // Disabling search
                 "ordering": false,    // Disabling ordering
