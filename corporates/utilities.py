@@ -78,9 +78,9 @@ def get_score_data(company_id):
     score_data = {
         'score': score_record_data.iloc[0,6],
         'rank':score_record_data.iloc[0,7],
-        'transp_ratio':score_record_data.iloc[0,10],
-        'comm_ratio':score_record_data.iloc[0,11],
-        'actions_ratio':score_record_data.iloc[0,12],
+        'transp_ratio':score_record_data.iloc[0,10]*100,
+        'comm_ratio':score_record_data.iloc[0,11]*100,
+        'actions_ratio':score_record_data.iloc[0,12]*100,
     }
 
     return score_data
