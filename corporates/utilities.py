@@ -99,18 +99,18 @@ def get_scores_summary(company_id):
         '',
     ]
     principle_statement = [
-        'At least 2 years of GHG emissions for scope 1 and 2 are publicly-available',
-        'scope 3',
-        'verification',
+        'At least 2 years of GHG emissions for scope 1 and 2 are publicly-available and externally-verified',
+        'Scope 3 emissions are fully reported and externally-verified',
+        'CDP score and interim reporting demonstrate the highest level of transparency',
         '',
-        'net zero target',
-        'intermediate',
-        'ambitious',
-        'pourquoi pas',
+        'Net Zero Commitments by 2050 include an intermediate target and cover all the emissions',
+        'Net Zero targets demonstrate a high-level of emergency',
+        'Emission reduction targets on a forward-looking basis are ambitious',
+        'Targets are science-based as validated by SBTi',
         '',
-        'super perf',
-        'momentum',
-        'remuneration ou offsets',
+        'Emissions reduction are on-pace vs. cumulative target (performance-to-date)',
+        'Recent emissions reduction are on-pace with forward-looking targets (momentum)',
+        'Performance can be unambiguously tracked based on a yearly reduction path and a clear stance on offsets contributions',
         '',
     ]
     max_score = [
