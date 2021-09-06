@@ -61,5 +61,7 @@ def sectors(request, sector_name):
 def sectors_search(request):
   return render (request, "django_project/sectors/main.html")
 
+def aboutus(request):
+  return render (request, "django_project/aboutus/main.html")
 
 
