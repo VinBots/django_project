@@ -179,29 +179,28 @@ def get_scores_summary(company_id):
 def get_targets(company_id):
 
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-    cols_to_use = ['scope', 'reduction_obj']    
+    cols_to_use = ['company_id', 'target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year','source']
     all_data = get_data(
         xlsx_path,
         'targets_quant',
         cols_to_use,
     )
     
-    #targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
-    #targets_select_data = targets_record_data[['target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year']]
+    targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
+    targets_select_data = targets_record_data[['target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year']]
 
-    #data_gross_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'gross_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
-    #data_net_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
-    #data_net_zero_policy = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_zero_policy')].sort_values(by='scope').reset_index().to_json(orient ='records'))
+    data_gross_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'gross_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
+    data_net_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
+    data_net_zero_policy = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_zero_policy')].sort_values(by='scope').reset_index().to_json(orient ='records'))
 
-    #targets_dict = {
-    #    'net_zero_policy' : data_net_zero_policy,
-    #    'gross_abs' : data_gross_abs,
-    #    'net_abs' : data_net_abs,
-    #}
+    targets_dict = {
+        'net_zero_policy' : data_net_zero_policy,
+        'gross_abs' : data_gross_abs,
+        'net_abs' : data_net_abs,
+    }
 
-    #return targets_dict
-    return all_data
-
+    return targets_dict
+    
 
 
 def get_data(xlsx_path, sheetname, cols_to_use):
