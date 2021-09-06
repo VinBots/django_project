@@ -20,7 +20,7 @@ def corporates_search(request, corp_name=None):
       'ghg': get_ghg_xls(company_id=selected_corp.company_id),
       'score_data': get_score_data(company_id=selected_corp.company_id),
       'corp_scores_summary': get_scores_summary(company_id=selected_corp.company_id),
-      'targets': '', #get_targets(company_id=selected_corp.company_id),
+      'targets': get_targets(company_id=selected_corp.company_id),
     }
 
     corp_data = {
