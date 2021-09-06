@@ -19,9 +19,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for score in xls_corp.corp_scores_summary.transparency %}
+                    {% for score in xls_corp.corp_scores_summary.transparency.details %}
                     <tr>
-                        <td>{{score.0}}</td>
+                        <td>{{score}}</td>
                         <td>{{score.1}}</td>
                         <td>{{score.2}}</td>
                         <td>{{score.3}}</td>
@@ -29,64 +29,21 @@
                     </tr>
                     {% endfor %}
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td>Total</td>
-                        <td>{{xls_corp.corp_scores_summary.transparency.total}}</td>
-                        <td>100.0</td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
 
-            <table id="score_summary_commitments" class="score_summary_commitments" data-show-columns="true" width=100%>
-                <thead>
+                    {% for score in xls_corp.corp_scores_summary.commitments.details %}
                     <tr>
-                        <th>Ref</th>
-                        <th>Principle</th>
-                        <th>Score</th>
-                        <th>Max Score</th>
-                        <th>Comments</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for score in xls_corp.corp_scores_summary.commitments %}
-                    <tr>
-                        <td>{{score.0}}</td>
+                        <td>{{score}}</td>
                         <td>{{score.1}}</td>
                         <td>{{score.2}}</td>
                         <td>{{score.3}}</td>
                         <td>{{score.4}}</td>
                     </tr>
                     {% endfor %}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>Ref</td>
-                        <td>Total</td>
-                        <td>{{xls_corp.corp_scores_summary.commitments.total}}</td>
-                        <td>100.0</td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
 
-            <table id="score_summary_actions" class="score_summary_actions" data-show-columns="true" width=100%>
-                <thead>
-                    <tr>
-                        <th>Ref</th>
-                        <th>Principle</th>
-                        <th>Score</th>
-                        <th>Max Score</th>
-                        <th>Comments</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for score in xls_corp.corp_scores_summary.actions %}
+                    {% for score in xls_corp.corp_scores_summary.actions.details %}
                     <tr>
                         <td></td>
-                        <td>{{score.0}}</td>
+                        <td>{{score}}</td>
                         <td>{{score.1}}</td>
                         <td>{{score.2}}</td>
                         <td>{{score.3}}</td>
