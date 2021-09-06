@@ -71,11 +71,11 @@
             <div align = "center" class="col-4 col-12-medium">
                 <div class="circle-wrap circle-wrap3">						
                     <div class="circle circle3">					
-                    <div class="mask full mask3 full3" style = "transform:rotate({% widthratio xls_corp.score_data.actions_ratio 1 2 %}deg)">
-                        <div class="fill fill3" style = "background-color:#2000b1;transform:rotate({% widthratio xls_corp.score_data.actions_ratio 1 2 %}deg)"></div>
+                    <div class="mask full mask3 full3" style = "transform:rotate({{xls_corp.score_data.actions_angle}}deg)">
+                        <div class="fill fill3" style = "background-color:#2000b1;transform:rotate({{xls_corp.score_data.actions_angle}}deg)"></div>
                     </div>							
                     <div class="mask half mask3 half3">
-                        <div class="fill fill3" style = "background-color:#2000b1;transform:rotate({% widthratio xls_corp.score_data.actions_ratio 1 2 %}deg)"></div>
+                        <div class="fill fill3" style = "background-color:#2000b1;transform:rotate({{xls_corp.score_data.actions_angle}}deg)"></div>
                     </div>							
                     <div class="inside-circle inside-circle3">
                         <a href="#top">{{xls_corp.score_data.actions_ratio}}%</a>
