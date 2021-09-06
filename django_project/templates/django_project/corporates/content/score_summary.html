@@ -82,8 +82,8 @@
 
                         <td></td>
                         <td><strong>TOTAL</strong></td>
-                        <td><strong>{{xls_corp.corp_scores_summary.actions.total}}</strong></td>
-                        <td><strong>100.0</strong></td>
+                        <td><strong>{{xls_corp.score_data.score}} pts</strong></td>
+                        <td><strong>100.0 pts</strong></td>
                         <td></td>
                         </strong>
                     </tr>
@@ -118,14 +118,14 @@
                 columnDefs: [
                     { targets: 0, responsivePriority: 1 },
                     {
-                        targets: 1,
-                        responsivePriority: 1,
+                        targets: 2,
+                        responsivePriority: 2,
                         render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
 
                     },
                     {
-                        targets: 2,
-                        responsivePriority: 2,
+                        targets: 3,
+                        responsivePriority: 3,
                         render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
                     }
                 ],
