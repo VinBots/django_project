@@ -220,7 +220,8 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         )
 
 def ghg_format(number):
-    if math.isnan(number):
-        return "not found"
-    else:
-        return f'{float(number):,.0f}'
+    if number:
+        if math.isnan(number):
+            return "not found"
+        else:
+            return f'{float(number):,.0f}'
