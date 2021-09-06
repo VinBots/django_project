@@ -76,6 +76,18 @@
         </div>
     </section>
 
+    <br><br>
+    <section>
+        {% if xls_corp.targets.net_zero_policy.index %}
+        The company has a net zero policy on {{xls_corp.targets.net_zero_policy}} scope emissions. 
+        {% endif %}
+        {% if xls_corp.targets.net_zero_policy.cov_s3 == 'partly' %}
+        Note that Scope 3 emissions are not fully covered.
+        {% endif %}
+    </section>
+
+
+
 
     <footer>
         <ul class="stats">
