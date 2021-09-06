@@ -21,7 +21,7 @@
                 <tbody>
                     {% for score in xls_corp.corp_scores_summary.transparency.details %}
                     <tr>
-                        <td>{{score}}</td>
+                        <td>{{score.0}}</td>
                         <td>{{score.1}}</td>
                         <td>{{score.2}}</td>
                         <td>{{score.3}}</td>
@@ -32,7 +32,7 @@
 
                     {% for score in xls_corp.corp_scores_summary.commitments.details %}
                     <tr>
-                        <td>{{score}}</td>
+                        <td>{{score.0}}</td>
                         <td>{{score.1}}</td>
                         <td>{{score.2}}</td>
                         <td>{{score.3}}</td>
@@ -43,7 +43,7 @@
                     {% for score in xls_corp.corp_scores_summary.actions.details %}
                     <tr>
                         <td></td>
-                        <td>{{score}}</td>
+                        <td>{{score.0}}</td>
                         <td>{{score.1}}</td>
                         <td>{{score.2}}</td>
                         <td>{{score.3}}</td>
