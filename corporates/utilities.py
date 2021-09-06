@@ -179,11 +179,11 @@ def get_scores_summary(company_id):
 def get_targets(company_id):
 
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-        
+    cols_to_use = ['scope', 'reduction_obj']    
     all_data = get_data(
         xlsx_path,
         'targets_quant',
-        None,
+        cols_to_use,
     )
     
     #targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
