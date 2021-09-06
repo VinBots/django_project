@@ -24,7 +24,7 @@
                     {% for i in xls_corp.targets.gross_abs %}
                     <tr>
                         <td>{{i.scope}}</td>
-                        <td>{{i.reduction_obj}}</td>
+                        <td>{% widthratio i.reduction_obj 1 100 %}</td>
                         <td>{{i.base_year}}</td>
                         <td>{{i.target_year}}</td>
                         <td></td>
@@ -93,7 +93,7 @@
                     {
                         targets: 1,
                         responsivePriority: 2,
-                        render: $.fn.dataTable.render.number(',', '.', 1, '', '%'),
+                        render: $.fn.dataTable.render.number(',', '.', 0, '', '%'),
                     },
                 ],
             }
@@ -115,7 +115,7 @@
                     {targets: 0, responsivePriority: 1},
                     {
                         targets: 1,
-                        render: $.fn.dataTable.render.number(',', '.', 1, '', '%'),
+                        render: $.fn.dataTable.render.number(',', '.', 0, '', '%'),
                         responsivePriority: 2,},
                 ],
             }
