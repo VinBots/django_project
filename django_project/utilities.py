@@ -31,7 +31,7 @@ def get_rpt_pct(all_data):
 def get_perf_pct(all_data):
     # query
     
-    return 48
+    return 42
        
 def get_net0_pct(all_data):
     # query
@@ -48,7 +48,7 @@ def get_sbt_pct(all_data):
 def get_momentum_pct(all_data):
     # query
     
-    return 24
+    return 49
 
 
 
@@ -56,7 +56,7 @@ def get_top_stats():
 
     #Excel file path
     #xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
-    
+    '''
     BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
 
@@ -74,6 +74,8 @@ def get_top_stats():
     momentum_pct = get_momentum_pct(all_data)
 
     return [rep_pct, perf_pct, net0_pct, sbt_pct, momentum_pct]
+    '''
+    retunr [16, 49, 42]
 
 
 def get_random_logos(nb_logos = 5):
