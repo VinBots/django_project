@@ -53,16 +53,17 @@ def get_ghg_xls(company_id):
             None,
             )
         corp_record =  all_data[all_data['company_id']==company_id]
-        corp_record_data = corp_record[['gross_total_scope1', 'gross_scope2_calc', 'gross_total_scope3', 'total_scope']]
-        corp_record_data = corp_record_data.apply(pd.to_numeric, errors='coerce')
-        #merged_df_sector = merged_df_sector.dropna()
+        if corp_record:
+            corp_record_data = corp_record[['gross_total_scope1', 'gross_scope2_calc', 'gross_total_scope3', 'total_scope']]
+            corp_record_data = corp_record_data.apply(pd.to_numeric, errors='coerce')
+            #merged_df_sector = merged_df_sector.dropna()
 
-        ghg_dict[year] = {
-            'scope1':ghg_format(corp_record_data.iloc[0,0]),
-            'scope2':ghg_format(corp_record_data.iloc[0,1]),
-            'scope3':ghg_format(corp_record_data.iloc[0,2]),
-            'total':ghg_format(corp_record_data.iloc[0,3]),
-            }
+            ghg_dict[year] = {
+                'scope1':ghg_format(corp_record_data.iloc[0,0]),
+                'scope2':ghg_format(corp_record_data.iloc[0,1]),
+                'scope3':ghg_format(corp_record_data.iloc[0,2]),
+                'total':ghg_format(corp_record_data.iloc[0,3]),
+                }
     
     return ghg_dict
 
@@ -220,8 +221,7 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         )
 
 def ghg_format(number):
-    if number:
-        if math.isnan(number):
-            return "not found"
-        else:
-            return f'{float(number):,.0f}'
+    if math.isnan(number):
+        return "not found"
+    else:
+        return f'{float(number):,.0f}'
