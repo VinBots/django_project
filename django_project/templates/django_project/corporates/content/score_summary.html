@@ -42,7 +42,6 @@
 
                     {% for score in xls_corp.corp_scores_summary.actions.details %}
                     <tr>
-                        <td></td>
                         <td>{{score.0}}</td>
                         <td>{{score.1}}</td>
                         <td>{{score.2}}</td>
@@ -54,7 +53,7 @@
                 <tfoot>
                     <tr>
                         <td></td>
-                        <td>Total</td>
+                        <td>TOTAL</td>
                         <td>{{xls_corp.corp_scores_summary.actions.total}}</td>
                         <td>100.0</td>
                         <td></td>
