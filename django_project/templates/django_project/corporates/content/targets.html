@@ -58,7 +58,11 @@
                         <td>{% widthratio i.reduction_obj 1 100 %}</td>
                         <td>{{i.base_year}}</td>
                         <td>{{i.target_year}}</td>
-                        <td></td>
+                        <td>
+                            {% if i.cov_s3% == 'NR'}
+                            Hello
+                            {% endif %}
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
