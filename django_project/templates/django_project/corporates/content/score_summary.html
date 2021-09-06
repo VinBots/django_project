@@ -1,33 +1,5 @@
 {% load static %}
 
-{% comment %}
-<a href="www.yahoo.fr" class="hover_img" title="" target="_blank">{{xls_corp.ghg.2017.scope1}}
-    <div><img src="{% static 'django_project/images/logos/' %}logo_{{selected_corp.company_id}}.png" alt="" /></div>
-</a>
-
-
-<div class="col-4 col-12-medium">
-    <h3>Transparency</h3>
-    <p>GHG Emissions disclosed: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-        Scope 3 disclosed: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-        Full Scope 3 disclosed: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
-</div>
-<div class="col-4 col-12-medium">
-    <h3>Seriousness</h3>
-    <p>Net Zero Targets: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-        Temperature-equivalent: 2.8 degrees <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-        Science-Based Targets: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
-</div>
-<div class="col-4 col-12-medium">
-    <h3>Momentum</h3>
-    <p>% reduction achieved<i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-        On-pace: YES <i class="fas fa-check fa-1x" style="color:rgb(23, 136, 70);"></i><br>
-        Supplier Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i><br>
-        Client Engagement: NO <i class="fa fa-times fa-1x" style="color:rgb(182, 6, 6);"></i></p>
-</div>
-
-{% endcomment %}
-
 <article class="post">
     <header>
         <div class="title">
@@ -36,9 +8,10 @@
     </header>
     <section>
         <div class="container" width=100%>
-            <table id="score_summary" class="score_summary" data-show-columns="true" width=100%>
+            <table id="score_summary_transparency" class="score_summary_transparency" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
+                        <th>Ref</th>
                         <th>Principle</th>
                         <th>Score</th>
                         <th>Max Score</th>
@@ -46,24 +19,92 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for score in xls_corp.corp_scores_summary %}
+                    {% for score in xls_corp.corp_scores_summary.transparency %}
                     <tr>
                         <td>{{score.0}}</td>
                         <td>{{score.1}}</td>
-                        <td>10 pts</td>
-                        <td>no comment</td>
+                        <td>{{score.2}}</td>
+                        <td>{{score.3}}</td>
+                        <td>{{score.4}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
                 <tfoot>
                     <tr>
+                        <td></td>
                         <td>Total</td>
-                        <td>{{xls_corp.score_data.score}}</td>
+                        <td>{{xls_corp.corp_scores_summary.transparency.total}}</td>
                         <td>100.0</td>
                         <td></td>
                     </tr>
                 </tfoot>
             </table>
+
+            <table id="score_summary_commitments" class="score_summary_commitments" data-show-columns="true" width=100%>
+                <thead>
+                    <tr>
+                        <th>Ref</th>
+                        <th>Principle</th>
+                        <th>Score</th>
+                        <th>Max Score</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score in xls_corp.corp_scores_summary.commitments %}
+                    <tr>
+                        <td>{{score.0}}</td>
+                        <td>{{score.1}}</td>
+                        <td>{{score.2}}</td>
+                        <td>{{score.3}}</td>
+                        <td>{{score.4}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Ref</td>
+                        <td>Total</td>
+                        <td>{{xls_corp.corp_scores_summary.commitments.total}}</td>
+                        <td>100.0</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table id="score_summary_actions" class="score_summary_actions" data-show-columns="true" width=100%>
+                <thead>
+                    <tr>
+                        <th>Ref</th>
+                        <th>Principle</th>
+                        <th>Score</th>
+                        <th>Max Score</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score in xls_corp.corp_scores_summary.actions %}
+                    <tr>
+                        <td></td>
+                        <td>{{score.0}}</td>
+                        <td>{{score.1}}</td>
+                        <td>{{score.2}}</td>
+                        <td>{{score.3}}</td>
+                        <td>{{score.4}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td>Total</td>
+                        <td>{{xls_corp.corp_scores_summary.actions.total}}</td>
+                        <td>100.0</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
         </div>
 
     </section>
@@ -81,7 +122,63 @@
 
 <script>
     $(document).ready(function () {
-        $('#score_summary').DataTable(
+        $('#score_summary_transparency').DataTable(
+            {
+                "searching": false,   // Disabling search
+                "ordering": false,    // Disabling ordering
+                "paging":false,       // Disabling paging
+                "info": false,         // Disabling info about number of entries
+                "lengthChange": false, // Disable record number per page
+                responsive: true,
+                columnDefs: [
+                    {targets: 0, responsivePriority: 1},
+                    {
+                        targets: 1,
+                        responsivePriority: 2,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
+
+                    },
+                    {
+                        targets: 2,
+                        responsivePriority: 3,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
+                     }
+                ],
+            }
+        );
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#score_summary_commitments').DataTable(
+            {
+                "searching": false,   // Disabling search
+                "ordering": false,    // Disabling ordering
+                "paging":false,       // Disabling paging
+                "info": false,         // Disabling info about number of entries
+                "lengthChange": false, // Disable record number per page
+                responsive: true,
+                columnDefs: [
+                    {targets: 0, responsivePriority: 1},
+                    {
+                        targets: 1,
+                        responsivePriority: 2,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
+
+                    },
+                    {
+                        targets: 2,
+                        responsivePriority: 3,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
+                     }
+                ],
+            }
+        );
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#score_summary_actions').DataTable(
             {
                 "searching": false,   // Disabling search
                 "ordering": false,    // Disabling ordering

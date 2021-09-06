@@ -83,20 +83,55 @@ def get_score_data(company_id):
 
 def get_scores_summary(company_id):
 
+    principle_ref = [
+        '1',
+        '2',
+        '3',
+        '',
+        '4',
+        '5',
+        '6',
+        '7',
+        '',
+        '8',
+        '9',
+        '10',
+        '',
+    ]
     principle_statement = [
         'At least 2 years of GHG emissions for scope 1 and 2 are publicly-available',
         'scope 3',
         'verification',
+        '',
         'net zero target',
         'intermediate',
         'ambitious',
         'pourquoi pas',
+        '',
         'super perf',
         'momentum',
         'remuneration ou offsets',
+        '',
     ]
+    max_score = [
+        '10',
+        '10',
+        '10',
+        '30,'
+        '10',
+        '10',
+        '10',
+        '10',
+        '40'
+        '10',
+        '10',
+        '10',
+        '30',
+    ]
+    comments = [''] * 13
 
     score_data=[0]*10 # 10 principles
+
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
     all_data = get_data(
         xlsx_path,
@@ -104,12 +139,43 @@ def get_scores_summary(company_id):
         None,
     )
     scores_summary_data=all_data[all_data['company_id']==company_id]
-    for i in range(1, 11):
+    for i in range(1, 14):
         score_data[i-1]=[
             principle_statement[i-1],
             scores_summary_data.iloc[0, i],
         ]
-    return score_data
+
+    score_data_dict = {
+        'transparency': {
+            'details': [
+                principle_ref[i],
+                principle_statement[i],
+                score_data[i],
+                max_score[i],
+                comments[i] for i in range(0,3)],
+            'total': score_data[3],
+        },
+        'commitments':{
+            'details': [
+                principle_ref[i],
+                principle_statement[i],
+                score_data[i],
+                max_score[i],
+                comments[i] for i in range(4,8)],
+            'total': score_data[8],
+        },
+        'actions':{
+            'details': [
+                principle_ref[i],
+                principle_statement[i],
+                score_data[i],
+                max_score[i],
+                comments[i] for i in range(9,12)],
+            'total': score_data[12],
+        },
+    }
+
+    return score_data_dict
 
 
 def get_data(xlsx_path, sheetname, cols_to_use):
