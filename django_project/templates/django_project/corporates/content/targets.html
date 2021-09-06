@@ -8,6 +8,7 @@
     <section>
 
         <div class="container" width=100%>
+            {{xls_corp.targets}}
             <table id="target_summary" class="target_summary" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
@@ -25,11 +26,7 @@
                         <td>{{i.reduction_obj}}</td>
                         <td>{{i.base_year}}</td>
                         <td>{{i.target_year}}</td>
-                        <td>
-                            {% if i.cov_s3 !='NR' %}
-                            Coverage S3: {{i.cov_s3}}
-                            {% endif %}
-                        </td>
+                        <td></td>
                     </tr>
                     {% endfor %}
                 </tbody>
