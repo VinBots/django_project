@@ -88,8 +88,11 @@
             The company has a net zero policy or practice, i.e. balances its emissions with carbon offsets, on {{xls_corp.targets.net_zero_policy.0.scope}} scope emissions.
             {% endif %}
             {% if xls_corp.targets.net_zero_policy.0.cov_s3 == 'partly' %}
-            Note that Scope 3 emissions are not fully covered.
+            Scope 3 emissions are not fully covered.
+            {% elif xls_corp.targets.net_zero_policy.0.cov_s3 == 'full' %}
+            Emissions cover all the (relevant) scope 3 categories
             {% endif %}
+
     
     </section>
 
