@@ -24,7 +24,10 @@
                         <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
                     </div>
                     <div class="name_bar">
-                        <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
+                        <a href="{% url 'corporates_home'%}{{i.company_name}}">
+                            <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
+                        </a>
+        
                         <div class="bar_wrap">
                             <div class="inner_bar" style="width: {{i.score}}%"></div>
                         </div>
