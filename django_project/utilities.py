@@ -75,7 +75,7 @@ def get_top_stats():
 
     return [rep_pct, perf_pct, net0_pct, sbt_pct, momentum_pct]
     '''
-    retunr [16, 49, 42]
+    return [16, 49, 42, 0, 0]
 
 
 def get_random_logos(nb_logos = 5):
