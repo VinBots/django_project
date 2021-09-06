@@ -90,7 +90,11 @@
                 responsive: true,
                 columnDefs: [
                     {targets: 0, responsivePriority: 1},
-                    {targets: 1, responsivePriority: 2,},
+                    {
+                        targets: 1,
+                        responsivePriority: 2,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', '%'),
+                    },
                 ],
             }
         );
@@ -109,7 +113,10 @@
                 responsive: true,
                 columnDefs: [
                     {targets: 0, responsivePriority: 1},
-                    {targets: 1, responsivePriority: 2,},
+                    {
+                        targets: 1,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', '%'),
+                        responsivePriority: 2,},
                 ],
             }
         );
