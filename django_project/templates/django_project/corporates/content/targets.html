@@ -8,8 +8,6 @@
     <section>
 
         <div class="container" width=100%>
-            {{targets}}
-            {% comment %}
             <table id="target_summary" class="target_summary" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
@@ -21,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for i in targets.gross_abs %}
+                    {% for i in xls_corp.targets.gross_abs %}
                     <tr>
                         <td>{{i.scope}}</td>
                         <td>{{i.reduction_obj}}</td>
@@ -38,7 +36,6 @@
                 <tfoot>
                 </tfoot>
             </table>
-            {% endcomment %}
         </div>
 
     </section>
