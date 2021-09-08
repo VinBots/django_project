@@ -23,23 +23,16 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th>{{xls_corp.ghg.reporting_year.0}}</th>
+                                <th>{{xls_corp.ghg.reporting_year.1}}</th>
+                                <th>{{xls_corp.ghg.reporting_year.2}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for i in xls_corp.ghg.data %}
-                            <tr>
-                                <td>{{i}}</td>
-                                {% for ghg in xls_corp.ghg.data.i%}
-                                <td>{{ghg}}</td>
-                                {% endfor %}
-                            </tr>
-                            {% endfor %}
-
+                            <th>Scope 1</th>
+                            <th>{{xls_corp.ghg.ghg_scope_1.0}}</th>
+                            <th>{{xls_corp.ghg.ghg_scope_1.1}}</th>
+                            <th>{{xls_corp.ghg.ghg_scope_1.2}}</th>
                         </tbody>
 
                     </table>
