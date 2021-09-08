@@ -16,6 +16,7 @@ def corporates_search(request, corp_name=None):
 
   if check_validity(corp_name):
     selected_corp = Corporate.objects.get(name=corp_name)
+    
     xls_corp = {
       'ghg': get_ghg_xls(company_id=selected_corp.company_id),
       'score_data': get_score_data(company_id=selected_corp.company_id),

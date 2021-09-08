@@ -210,6 +210,26 @@ def get_targets(company_id):
     return targets_dict
     
 
+def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields = ['reporting_year','ghg_scope_1','ghg_loc_scope_2','ghg_mkt_scope_2','ghg_scope3_total','ghg_total']):
+    
+    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+        
+    all_data = get_data(
+        xlsx_path,
+        'ghg_quant',
+        None,
+    )
+
+    cond1 = all_data['company_id']==company_id
+    cond2 = all_data['Source'].isin(['Public'])
+    cond3 = all_data['reporting_year'] <= last_reporting_year
+    cond4 = all_data['reporting_year'] >= last_reporting_year - 2
+    filter_conditions = cond1 & cond2 & cond3 & cond4
+
+    record_data=all_data.loc[filter_conditions].reset_index().sort_values('reporting_year', ascending=False)
+    record_data = record_data[fields] #specific fields only
+    
+    return record_data.to_dict()
 
 def get_data(xlsx_path, sheetname, cols_to_use):
     

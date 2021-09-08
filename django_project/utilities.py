@@ -19,8 +19,14 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         usecols=cols_to_use
         )
 
+def get_random_logos(nb_logos = 5):
+
+    return Corporate.objects.random()
 
 
+
+# NOT IN USE
+'''
 def get_rpt_pct(all_data):
     # query
     cond1 = all_data['2019 Scope 3 '].astype(str).str.isdigit() == True
@@ -49,14 +55,15 @@ def get_momentum_pct(all_data):
     # query
     
     return 49
+'''
 
-
-
+# NOT IN USE
+'''
 def get_top_stats():
 
     #Excel file path
     #xlsx_path = os.path.join ('django_project/static/django_project', 'data', 'sp100_data.xlsx')
-    '''
+    
     BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
 
@@ -74,16 +81,9 @@ def get_top_stats():
     momentum_pct = get_momentum_pct(all_data)
 
     return [rep_pct, perf_pct, net0_pct, sbt_pct, momentum_pct]
-    '''
-    return [16, 49, 42, 0, 0]
+'''
 
 
-def get_random_logos(nb_logos = 5):
 
-    #total_records = Corporate.objects.all().count()
-    #logos_list = random.sample(range(total_records), nb_logos)
-    #Corporate.objects.filter()
-
-    return Corporate.objects.random()
 
 

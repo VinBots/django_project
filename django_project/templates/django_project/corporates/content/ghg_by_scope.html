@@ -22,37 +22,22 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>2017</th>
-                                <th>2018</th>
-                                <th>2019</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
+                            {% for i in xls_corp.ghg.data %}
                             <tr>
-                                <td>Direct (Scope 1)</td>
-                                <td>{{xls_corp.ghg.2017.scope1}}</td>
-                                <td>{{xls_corp.ghg.2018.scope1}}</td>
-                                <td>{{xls_corp.ghg.2019.scope1}}</td>
+                                <td>{{i}}</td>
+                                {% for ghg in xls_corp.ghg.data.i%}
+                                <td>{{ghg}}</td>
+                                {% endfor %}
                             </tr>
-                            <tr>
-                                <td>Direct (Scope 2)</td>
-                                <td>{{xls_corp.ghg.2017.scope2}}</td>
-                                <td>{{xls_corp.ghg.2018.scope2}}</td>
-                                <td>{{xls_corp.ghg.2019.scope2}}</td>
 
-                            </tr>
-                            <tr>
-                                <td>Indirect (Scope 3)</td>
-                                <td>{{xls_corp.ghg.2017.scope3}}</td>
-                                <td>{{xls_corp.ghg.2018.scope3}}</td>
-                                <td>{{xls_corp.ghg.2019.scope3}}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Total Emissions</strong></td>
-                                <td><strong>{{xls_corp.ghg.2017.total}}</strong></td>
-                                <td><strong>{{xls_corp.ghg.2018.total}}</strong></td>
-                                <td><strong>{{xls_corp.ghg.2019.total}}</strong></td>
-                            </tr>
                         </tbody>
 
                     </table>
