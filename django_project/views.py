@@ -34,7 +34,7 @@ def home(request):
   #form = EntryCreationForm(instance=Entry.objects.first())
   corporates_names = Corporate.objects.all()
   pct_values = [16, 49, 42]  #get_top_stats()
-  angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(5)]
+  angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(3)]
 
 
   return render (request, "django_project/home/main.html", {
