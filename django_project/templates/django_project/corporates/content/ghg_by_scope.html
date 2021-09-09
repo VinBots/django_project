@@ -20,27 +20,23 @@
 
                 {% for i in xls_corp.ghg %}
 
-                {{i}}
-
-                {% endfor %}
-
                 <div class="table-wrapper">
                     <table>
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>{{xls_corp.ghg.Final.reporting_year.0}}</th>
-                                <th>{{xls_corp.ghg.Final.reporting_year.1}}</th>
-                                <th>{{xls_corp.ghg.Final.reporting_year.2}}</th>
+                                <th>{{i.reporting_year.0}}</th>
+                                <th>{{i.reporting_year.1}}</th>
+                                <th>{{i.reporting_year.2}}</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
                                 <td>Scope 1</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope_1.0}}</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope_1.1}}</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope_1.2}}</td>
+                                <td>{{i.ghg_scope_1.0}}</td>
+                                <td>{{i.ghg_scope_1.1}}</td>
+                                <td>{{i.ghg_scope_1.2}}</td>
                             </tr>
 
                             <tr>
@@ -68,6 +64,9 @@
 
                     </table>
                 </div>
+
+                {% endfor %}
+
 
             </div>
 
