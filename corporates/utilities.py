@@ -221,7 +221,7 @@ def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields
     )
 
     cond1 = all_data['company_id']==company_id
-    cond2 = all_data['Source'].isin(['Public'])
+    cond2 = all_data['Source'].isin(['Public', 'CDP', 'Total'])
     cond3 = all_data['reporting_year'] <= last_reporting_year
     cond4 = all_data['reporting_year'] >= last_reporting_year - 2
     filter_conditions = cond1 & cond2 & cond3 & cond4
@@ -232,7 +232,6 @@ def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields
     return record_data.to_dict()
 
 def get_data(xlsx_path, sheetname, cols_to_use):
-    
     
     return pd.read_excel(
         xlsx_path,
