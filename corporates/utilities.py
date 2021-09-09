@@ -210,7 +210,7 @@ def get_targets(company_id):
     return targets_dict
     
 
-def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields = ['reporting_year', 'ghg_scope_1','ghg_loc_scope_2','ghg_mkt_scope_2','ghg_scope3_total','ghg_total']):
+def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields = ['reporting_year', 'Source', 'ghg_scope_1','ghg_loc_scope_2','ghg_mkt_scope_2','ghg_scope3_total','ghg_total']):
     
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
         
