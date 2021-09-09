@@ -229,9 +229,9 @@ def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields
     record_data=all_data.loc[filter_conditions].reset_index().sort_values('reporting_year', ascending=False)
     record_data = record_data[fields] #specific fields only
     data = {
-        'CDP': record_data['Source'].isin(['CDP']).to_dict(),
-        'public' : record_data['Source'].isin(['Public']).to_dict(),
-        'Final': record_data['Source'].isin(['Final']).to_dict(),
+        'CDP': record_data.loc[record_data['Source'].isin(['CDP'])].to_dict(),
+        'public' : record_data.loc[record_data['Source'].isin(['Public'])].to_dict(),
+        'Final': record_data.loc[record_data['Source'].isin(['Final'])].to_dict(),
     }
     return data
 
