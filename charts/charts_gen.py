@@ -74,7 +74,7 @@ def produce_charts(id_list, chart_type):
 
 if __name__ == "__main__":
 
-    id_list = list(range(1, 101, 1))
+    id_list = list(range(1, 114, 1))
 
     CHART_TYPES = {
         "bullet":{
@@ -94,11 +94,9 @@ if __name__ == "__main__":
         "ghg_bar":{
             "name":"ghg_bar",
             "generator": ghg_bar_charts.ghg_bar_chart_from_xls,
-            "params": {
-                "years": ["2017", "2018", "2019"],
-            },
+            "params": {},
         },
     }
 
-    res = produce_charts(id_list, CHART_TYPES["bubble"])
+    res = produce_charts(id_list, CHART_TYPES["ghg_bar"])
     print ("Number of failures = {} for company ids = {}".format(len(res), res))
