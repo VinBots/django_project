@@ -3,7 +3,7 @@
     <header>
 
         <div class="title">
-            <h2>Greenhouse Gas Emissions: Evolution by Scope</h2>
+            <h2>Greenhouse Gas Emissions</h2>
             <br>
         </div>
     </header>
@@ -14,16 +14,23 @@
                 <a href="" class="image featured"><img src="{% static selected_corp_ghg_bar_chart.img %}" alt="" /></a>
 
                 <div class="col-12 col-12-medium">
-                    <h3>Greenhouse Gas Emissions</h3>
+                    <h3>Greenhouse Gas Emissions Data</h3>
+                    {% include "django_project/corporates/content/ghg_datatable.html" %}
                 </div>
-                {% include "django_project/corporates/content/ghg_datatable.html" %}
             </div>
 
         </div>
 
     </section>
+    <section>
+        <div class="row">
+            <div align="center" class="col-12 col-12-medium">
+                <a href="" class="image featured"><img src="{% static selected_corp_ghg_scope3_pie_chart.img %}" alt="" /></a>
+            </div>
 
-    <footer>
-    </footer>
+        </div>
+
+        <footer>
+        </footer>
 
 </article>

@@ -1,4 +1,4 @@
-from chart_types import bubble_charts, bullet_charts, ghg_bar_charts
+from chart_types import bubble_charts, bullet_charts, ghg_bar_charts, ghg_scope3_pie_chart
 from plotly.offline import plot
 
 
@@ -74,7 +74,7 @@ def produce_charts(id_list, chart_type):
 
 if __name__ == "__main__":
 
-    id_list = list(range(14, 20, 1))
+    id_list = list(range(1, 114, 1))
 
     CHART_TYPES = {
         "bullet":{
@@ -96,7 +96,12 @@ if __name__ == "__main__":
             "generator": ghg_bar_charts.ghg_bar_chart_from_xls,
             "params": {},
         },
+        "ghg_pie_chart":{
+            "name":"ghg_pie_chart",
+            "generator": ghg_scope3_pie_chart.ghg_scope3_pie_chart_from_xls,
+            "params": {},
+        }
     }
 
-    res = produce_charts(id_list, CHART_TYPES["ghg_bar"])
+    res = produce_charts(id_list, CHART_TYPES["ghg_pie_chart"])
     print ("Number of failures = {} for company ids = {}".format(len(res), res))

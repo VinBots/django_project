@@ -39,6 +39,10 @@ def corporates_search(request, corp_name=None):
       'html': get_path_to_chart(selected_corp.company_id, "ghg_bar"),
       'img':get_path_to_img (selected_corp.company_id, "ghg_bar"),
     },
+    "selected_corp_ghg_scope3_pie_chart": {
+      'html': get_path_to_chart(selected_corp.company_id, "ghg_pie_chart"),
+      'img':get_path_to_img (selected_corp.company_id, "ghg_pie_chart"),
+    }
     }
     
     return render (request, "django_project/corporates/main.html", corp_data)

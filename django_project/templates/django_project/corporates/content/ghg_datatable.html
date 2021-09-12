@@ -1,55 +1,57 @@
 {% load humanize %}
 
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Y{{xls_corp.ghg.final.reporting_year.0}}</th>
-                                <th>Y{{xls_corp.ghg.final.reporting_year.1}}</th>
-                                <th>Y{{xls_corp.ghg.final.reporting_year.2}}</th>
-                            </tr>
-                        </thead>
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Y{{xls_corp.ghg.final.reporting_year.0}}</th>
+                <th>Y{{xls_corp.ghg.final.reporting_year.1}}</th>
+                <th>Y{{xls_corp.ghg.final.reporting_year.2}}</th>
+            </tr>
+        </thead>
 
-                        <tbody>
-                            <tr>
-                                <td>Scope 1</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope_1.0|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope_1.1|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope_1.2|intcomma}}</td>
-                            </tr>
+        <tbody>
+            <tr>
+                <td>Scope 1</td>
+                <td>{{xls_corp.ghg.final.ghg_scope_1.0|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_scope_1.1|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_scope_1.2|intcomma}}</td>
+            </tr>
 
-                            <tr>
-                                <td>Scope 2 - location-based</td>
-                                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.0|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.1|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.2|intcomma}}</td>
-                            </tr>
+            <tr>
+                <td>Scope 2 - location-based</td>
+                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.0|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.1|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.2|intcomma}}</td>
+            </tr>
 
-                            <tr>
-                                <td>Scope 2 - market-based</td>
-                                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.0|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.1|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.2|intcomma}}</td>
-                            </tr>
+            <tr>
+                <td>Scope 2 - market-based</td>
+                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.0|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.1|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.2|intcomma}}</td>
+            </tr>
 
-                            <tr>
-                                <td>Scope 3</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope3_total.0|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope3_total.1|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope3_total.2|intcomma}}</td>
-                            </tr>
+            <tr>
+                <td>Scope 3</td>
+                <td>{{xls_corp.ghg.final.ghg_scope3_total.0|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_scope3_total.1|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_scope3_total.2|intcomma}}</td>
+            </tr>
 
-                            <tr>
-                                <td>Total</td>
-                                <td>{{xls_corp.ghg.final.ghg_total.0|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_total.1|intcomma}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_total.2|intcomma}}</td>
-                            </tr>
+            <tr>
+                <td>Total</td>
+                <td>{{xls_corp.ghg.final.ghg_total.0|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_total.1|intcomma}}</td>
+                <td>{{xls_corp.ghg.final.ghg_total.2|intcomma}}</td>
+            </tr>
 
-                        </tbody>
+        </tbody>
 
-                    </table>
-                    <p style ="text-align:left">Total GHG emissions is computed with all the available reported data. In case both location-based and market-based scope 2 emissions are reported, the minimum is included in the total emissions.
-                    </p>
-                </div>
+    </table>
+    <p style="text-align:left"><b>Note: </b>Total GHG emissions is computed with all the available reported data. In
+        case both location-based and market-based scope 2 emissions are reported, the minimum is included in the total
+        emissions.
+    </p>
+</div>
