@@ -198,6 +198,12 @@ def get_targets(company_id):
     targets_select_data = targets_record_data[['target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year']]
 
     data_gross_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'gross_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
+
+    #for year in data_gross_abs['base_year']:
+
+
+
+
     data_net_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
     data_net_zero_policy = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_zero_policy')].sort_values(by='scope').reset_index().to_json(orient ='records'))
 
