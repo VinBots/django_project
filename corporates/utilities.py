@@ -219,6 +219,7 @@ def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields
         'ghg_quant',
         None,
     )
+    last_reporting_year = get_last_reporting_year(company_id)
 
     cond1 = all_data['company_id']==company_id
     cond2 = all_data['Source'].isin(['Final'])
@@ -241,6 +242,19 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         engine = 'openpyxl',
         usecols=cols_to_use
         )
+
+def get_last_reporting_year(company_id):
+    
+    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+        
+    all_data = get_data(
+        xlsx_path,
+        'reporting',
+        None,
+    )
+    last_reporting_year=all_data.loc[all_data['company_id']==company_id][['last_reporting_year']].iloc[0,0]
+
+    return last_reporting_year
 
 def ghg_format(number):
     if math.isnan(number):
