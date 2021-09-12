@@ -270,7 +270,7 @@ def ghg_format(number):
         return f'{float(number):,.0f}'
 
 def file_exist(path_name):
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).parent.parent
 
-    DIR_NAME = Path(os.path.dirname (os.getcwd()))
-    return os.path.join(DIR_NAME,path_name)
+    return os.path.join(BASE_DIR, 'django_project/static/',path_name)
 #    return os.path.isfile (os.path.join(DIR_NAME,path_name))
