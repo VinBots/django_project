@@ -221,7 +221,7 @@ def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields
     )
 
     cond1 = all_data['company_id']==company_id
-    cond2 = all_data['Source'].isin(['Public', 'CDP', 'Final'])
+    cond2 = all_data['Source'].isin(['Final'])
     cond3 = all_data['reporting_year'] <= last_reporting_year
     cond4 = all_data['reporting_year'] >= last_reporting_year - 2
     filter_conditions = cond1 & cond2 & cond3 & cond4
@@ -229,9 +229,7 @@ def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields
     record_data=all_data.loc[filter_conditions].reset_index().sort_values('reporting_year', ascending=False)
     record_data = record_data[fields] #specific fields only
     data = {
-        'CDP': record_data.loc[record_data['Source'].isin(['CDP'])].reset_index().to_dict(),
-        'public' : record_data.loc[record_data['Source'].isin(['Public'])].reset_index().to_dict(),
-        'Final': record_data.loc[record_data['Source'].isin(['Final'])].reset_index().to_dict(),
+        'final': record_data.loc[record_data['Source'].isin(['Final'])].reset_index().to_dict(),
     }
     return data
 

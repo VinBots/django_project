@@ -16,58 +16,7 @@
                 <div class="col-12 col-12-medium">
                     <h3>Greenhouse Gas Emissions</h3>
                 </div>
-                {{xls_corp.ghg}}
-
-                {% for i in xls_corp.ghg %}
-
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>{{i.reporting_year.0}}</th>
-                                <th>{{i.reporting_year.1}}</th>
-                                <th>{{i.reporting_year.2}}</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Scope 1</td>
-                                <td>{{xls_corp.ghg.i.ghg_scope_1.0}}</td>
-                                <td>{{xls_corp.ghg.i.ghg_scope_1.1}}</td>
-                                <td>{{xls_corp.ghg.i.ghg_scope_1.2}}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Scope 2</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope_1.0}}</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope_1.1}}</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope_1.2}}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Scope 3</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope3_total.0}}</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope3_total.1}}</td>
-                                <td>{{xls_corp.ghg.Final.ghg_scope3_total.2}}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Total</td>
-                                <td>{{xls_corp.ghg.Final.ghg_total.0}}</td>
-                                <td>{{xls_corp.ghg.Final.ghg_total.1}}</td>
-                                <td>{{xls_corp.ghg.Final.ghg_total.2}}</td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-                </div>
-
-                {% endfor %}
-
-
+                {% include "django_project/corporates/content/ghg_datatable.html" %}
             </div>
 
         </div>

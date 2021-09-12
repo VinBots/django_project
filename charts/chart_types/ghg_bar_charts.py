@@ -177,25 +177,27 @@ def ghg_bar_chart_from_xls(company_id, params):
                 x="<b>Target</b><br>(Y"+str(int(target_year))+")",
                 y= target_data[0],
                 xanchor="right",
-                text = "Reduction Objectives<br><b>-"+str(red_obj)+"%</b> vs. "+str(int(baseline_year)),
+                text = "Objective<br><b>-"+str(red_obj)+"%</b> vs. "+str(int(baseline_year)),
                 bgcolor = "wheat",
                 bordercolor= "red",
                 borderwidth=1,
             )
-        year_index = 0
-        for i,j in zip (scope1_list, scope2_list):
-            if (i ==0) or (j == 0):
-                if i+j == 0:
-                    warning_text = "1-2"
-                elif i==0:
-                    warning_text = "1"
-                elif j==0:
-                    warning_text = "2"
-                fig.add_annotation(
-                    x=trace_scope12_x[year_index],
-                    y= i + j,
-                    xanchor="center",
-                    text = "Scope "+ warning_text + "<br>not reported",
-                )
-            year_index +=1
+        company_id_exceptions = [14, 19] #Apple and Blackrock
+        if company_id not in company_id_exceptions:
+            year_index = 0
+            for i,j in zip (scope1_list, scope2_list):
+                if (i ==0) or (j == 0):
+                    if i+j == 0:
+                        warning_text = "1-2"
+                    elif i==0:
+                        warning_text = "1"
+                    elif j==0:
+                        warning_text = "2"
+                    fig.add_annotation(
+                        x=trace_scope12_x[year_index],
+                        y= i + j,
+                        xanchor="center",
+                        text = "Scope "+ warning_text + "<br>not reported",
+                    )
+                year_index +=1
         return fig
