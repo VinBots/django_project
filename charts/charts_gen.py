@@ -25,7 +25,7 @@ class Charts:
                 "../django_project/static/django_project/images/charts/{}/{}.jpeg".format(
                     self.chart_type["name"],
                     name_fig),
-                scale=1,
+                scale=3,
                 )
             
             plot(
