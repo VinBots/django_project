@@ -74,7 +74,7 @@ def produce_charts(id_list, chart_type):
 
 if __name__ == "__main__":
 
-    id_list = list(range(1, 114, 1))
+    id_list = list(range(6, 114, 1))
 
     CHART_TYPES = {
         "bullet":{
@@ -103,5 +103,5 @@ if __name__ == "__main__":
         }
     }
 
-    res = produce_charts(id_list, CHART_TYPES["ghg_pie_chart"])
+    res = produce_charts(id_list, CHART_TYPES["bubble"])
     print ("Number of failures = {} for company ids = {}".format(len(res), res))
