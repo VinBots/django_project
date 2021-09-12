@@ -271,5 +271,5 @@ def ghg_format(number):
 
 def file_exist(path_name):
 
-    return os.path.join('/home/django/django_project/django_project/static',path_name)
-#    return os.path.isfile (os.path.join(DIR_NAME,path_name))
+    path = os.path.join('/home/django/django_project/django_project/static', path_name)
+    return os.path.isfile (path)
