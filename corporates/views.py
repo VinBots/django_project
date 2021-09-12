@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
-from corporates.utilities import get_path_to_chart, check_validity, get_ghg, get_path_to_img, get_score_data, get_scores_summary, get_targets
+from corporates.utilities import get_path_to_chart, check_validity, get_ghg, get_path_to_img, get_score_data, get_scores_summary, get_targets, file_exist
 from corporates.add_records import add_new_records
 from django_project.utilities import get_random_logos
 from pathlib import Path
@@ -42,6 +42,7 @@ def corporates_search(request, corp_name=None):
     "selected_corp_ghg_scope3_pie_chart": {
       'html': get_path_to_chart(selected_corp.company_id, "ghg_pie_chart"),
       'img':get_path_to_img (selected_corp.company_id, "ghg_pie_chart"),
+      'exist': file_exist(get_path_to_img (selected_corp.company_id, "ghg_pie_chart"))
     }
     }
     

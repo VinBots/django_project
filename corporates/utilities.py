@@ -268,3 +268,6 @@ def ghg_format(number):
         return "not found"
     else:
         return f'{float(number):,.0f}'
+
+def file_exist(path_name):
+    return os.path.isfile (path_name)
