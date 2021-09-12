@@ -1,63 +1,65 @@
 <!-- Post -->
 {% load static %}
 
-    <div class="lb_container">
-        <div class="lb_left">
-            <div class="lboard_tabs">
-                <div class="tabs">
-                    <ul>
-                        <li class="active" data-li="level1">Top5</li>
-                        <li data-li="level2">Bottom5</li>
-                        <!--<li data-li="level3">All</li>-->
-                        <li><a href="{% url 'leaderboard_home' %}">All Companies</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="lb_right">
-
-            <div class="lboard_item level1" style="display: block;">
-                {% for i in top5_scores %}
-                <div class="lboard_mem">
-                    <div class="img">
-                        <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
-                    </div>
-                    <div class="name_bar">
-                        <a href="{% url 'corporates_home'%}{{i.company_name}}">
-                            <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
-                        </a>
-        
-                        <div class="bar_wrap">
-                            <div class="inner_bar" style="width: {{i.score}}%"></div>
-                        </div>
-                    </div>
-                    <div class="points">
-                        {{i.score}} points
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="lboard_item level2" style="display: none;">
-                {% for i in bottom5_scores %}
-                <div class="lboard_mem">
-                    <div class="img">
-                        <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
-                    </div>
-                    <div class="name_bar">
-                        <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
-                        <div class="bar_wrap">
-                            <div class="inner_bar" style="width: {{i.score}}%"></div>
-                        </div>
-                    </div>
-                    <div class="points">
-                        {{i.score}} points
-                    </div>
-                </div>
-                {% endfor %}
-
+<div class="lb_container">
+    <div class="lb_left">
+        <div class="lboard_tabs">
+            <div class="tabs">
+                <ul>
+                    <li class="active" data-li="level1">Top5</li>
+                    <li data-li="level2">Bottom5</li>
+                    <!--<li data-li="level3">All</li>-->
+                    <li><a href="{% url 'leaderboard_home' %}">All Companies</a></li>
+                </ul>
             </div>
         </div>
     </div>
-    <script src="{% static 'django_project/scripts/leaderboard.js' %}"></script>
+
+    <div class="lb_right">
+
+        <div class="lboard_item level1" style="display: block;">
+            {% for i in top5_scores %}
+            <div class="lboard_mem">
+                <div class="img">
+                    <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
+                </div>
+                <div class="name_bar">
+                    <a href="{% url 'corporates_home'%}{{i.company_name}}">
+                        <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
+                    </a>
+
+                    <div class="bar_wrap">
+                        <div class="inner_bar" style="width: {{i.score}}%"></div>
+                    </div>
+                </div>
+                <div class="points">
+                    {{i.score}} points
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="lboard_item level2" style="display: none;">
+            {% for i in bottom5_scores %}
+            <div class="lboard_mem">
+                <div class="img">
+                    <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
+                </div>
+                <div class="name_bar">
+                    <a href="{% url 'corporates_home'%}{{i.company_name}}">
+                        <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
+                    </a>
+                    <div class="bar_wrap">
+                        <div class="inner_bar" style="width: {{i.score}}%"></div>
+                    </div>
+                </div>
+                <div class="points">
+                    {{i.score}} points
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<script src="{% static 'django_project/scripts/leaderboard.js' %}"></script>
