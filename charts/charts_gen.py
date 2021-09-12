@@ -74,7 +74,7 @@ def produce_charts(id_list, chart_type):
 
 if __name__ == "__main__":
 
-    id_list = list(range(1, 5, 1))
+    id_list = list(range(1, 2, 1))
 
     CHART_TYPES = {
         "bullet":{
