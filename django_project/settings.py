@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'dpd_static_support',
     'corporates',
     'leaderboard',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

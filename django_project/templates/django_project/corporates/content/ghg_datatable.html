@@ -1,3 +1,4 @@
+{% load humanize %}
 {{xls_corp.ghg}}
 
                 <div class="table-wrapper">
@@ -14,9 +15,9 @@
                         <tbody>
                             <tr>
                                 <td>Scope 1</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope_1.0}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope_1.1}}</td>
-                                <td>{{xls_corp.ghg.final.ghg_scope_1.2}}</td>
+                                <td>{{xls_corp.ghg.final.ghg_scope_1.0|intcomma}}</td>
+                                <td>{{xls_corp.ghg.final.ghg_scope_1.1|intcomma}}</td>
+                                <td>{{xls_corp.ghg.final.ghg_scope_1.2|intcomma}}</td>
                             </tr>
 
                             <tr>
