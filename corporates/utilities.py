@@ -270,4 +270,7 @@ def ghg_format(number):
         return f'{float(number):,.0f}'
 
 def file_exist(path_name):
-    return os.path.isfile (path_name)
+
+    DIR_NAME = Path(os.path.dirname (os.getcwd().parent))
+    return os.path.join(DIR_NAME,path_name)
+#    return os.path.isfile (os.path.join(DIR_NAME,path_name))
