@@ -1,4 +1,36 @@
 {% extends 'django_project/core/layout.html' %}
 {% block content %}
-{% include path %}
-{% endblock %}
+{% load static %}
+
+<article id="top" class="post">
+
+    <header>
+
+        <div class="container" width=100%>
+            <div class="title">
+                <div>
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <section>
+
+        <div class="row">
+            <div align="center" class="col-12 col-12-medium">
+                <h2>xx</h2>
+                {% include path %}
+            </div>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+
+</article>
+
+
+
+    {% endblock %}
