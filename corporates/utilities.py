@@ -271,6 +271,6 @@ def ghg_format(number):
 
 def file_exist(path_name):
 
-    DIR_NAME = Path(os.path.dirname (os.getcwd().parent))
+    DIR_NAME = Path(os.path.dirname (os.getcwd()))
     return os.path.join(DIR_NAME,path_name)
 #    return os.path.isfile (os.path.join(DIR_NAME,path_name))
