@@ -9,29 +9,42 @@
     </header>
 
     <section>
+        <h3>Operational (scope 1-2) Emissions Data</h3>
         <div class="row">
             <div align="center" class="col-12 col-12-medium">
                 <a href="" class="image featured"><img src="{% static selected_corp_ghg_bar_chart.img %}" alt="" /></a>
-
-                <div class="col-12 col-12-medium">
-                    <h3>Greenhouse Gas Emissions Data</h3>
-                    {% include "django_project/corporates/content/ghg_datatable.html" %}
-                </div>
             </div>
-
         </div>
 
     </section>
+
+    <br><br>
+
     <section>
         <h3>Value Chain (scope 3) Emissions by Category</h3>
         <div class="row">
             <div align="center" class="col-12 col-12-medium">
-                <a href="" class="image featured"><img src="{% static selected_corp_ghg_scope3_pie_chart.img %}" alt="" /></a>
+                <a href="" class="image featured"><img src="{% static selected_corp_ghg_scope3_pie_chart.img %}"
+                        alt="" /></a>
             </div>
-
         </div>
+        <br><br>
 
-        <footer>
-        </footer>
+    </section>
+
+    <br><br>
+    
+    <section>
+        <h3>Emissions Data Summary</h3>
+        <div class="row">
+            <div align="center" class="col-12 col-12-medium">
+                {% include "django_project/corporates/content/ghg_datatable.html" %}
+            </div>
+        </div>
+    </section>
+    <br><br>
+
+    <footer>
+    </footer>
 
 </article>
