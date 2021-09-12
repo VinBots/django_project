@@ -230,6 +230,12 @@ def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields
     record_data=all_data.loc[filter_conditions].reset_index().sort_values('reporting_year', ascending=False)
     record_data = record_data[fields] #specific fields only
     dict = record_data.loc[record_data['Source'].isin(['Final'])].reset_index().to_dict()
+
+    for each_dict in dict:
+        for key, value in dict[each_dict].items():
+            if isinstance(value, float):
+                dict[each_dict][key] = int(value)
+
     data = {
         'final': dict,
     }
