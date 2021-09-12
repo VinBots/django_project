@@ -157,9 +157,9 @@ def bubble_chart_from_xls(company_id, params):
     #full_fig = fig.full_figure_for_development(warn=False)
                     
     fig.update_layout(
-        autosize=False,
-        width=2000,
-        height=1000,
+        autosize=True,
+        #width=1000,
+        height=500,
         margin=dict(
             l=50,
             r=50,
