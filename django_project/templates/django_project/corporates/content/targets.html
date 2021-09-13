@@ -86,13 +86,13 @@
 
             <h3>Net Zero Policy</h3>
 
-            The company has a net zero policy, i.e. balances its emissions with carbon offsets, on
+            The company has a net zero policy : every year, carbon emissions will be balanced with carbon offsets, on
             {{xls_corp.targets.net_zero_policy.0.scope}} scope emissions.
             {% endif %}
             {% if xls_corp.targets.net_zero_policy.0.cov_s3 == 'partly' %}
-            Scope 3 emissions are not fully covered.
+            Note that <b>only a portion</b> of scope 3 emissions are covered.
             {% elif xls_corp.targets.net_zero_policy.0.cov_s3 == 'full' %}
-            Emissions cover all the (relevant) scope 3 categories
+            Note that emissions cover all the (relevant) scope 3 categories
             {% endif %}
             <br><br>
     </section>
