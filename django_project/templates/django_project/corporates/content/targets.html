@@ -86,7 +86,7 @@
 
             <h3>Net Zero Policy</h3>
 
-            The company has a net zero policy or practice, i.e. balances its emissions with carbon offsets, on
+            The company has a net zero policy, i.e. balances its emissions with carbon offsets, on
             {{xls_corp.targets.net_zero_policy.0.scope}} scope emissions.
             {% endif %}
             {% if xls_corp.targets.net_zero_policy.0.cov_s3 == 'partly' %}
@@ -98,6 +98,7 @@
     </section>
 
     <footer>
+        {% include "django_project/core/data_quality.html" %}
     </footer>
 
 </article>
