@@ -14,7 +14,7 @@
 
             <div align="center" class="col-12 col-12-medium">
                 {% if selected_corp_ghg_bar_chart.exist %}
-                <a href="" class="image featured"><img src="{% static selected_corp_ghg_bar_chart.img %}" alt="" /></a>
+                <a href=""{{selected_corp_ghg_bar_chart.html}}"" class="image featured"><img src="{% static selected_corp_ghg_bar_chart.img %}" alt="" /></a>
                 <p style="text-align:left"><b>Note: </b>Actual (and target data if communicated) come from publicly-available information,
                     usually the annual
                     sustainability report. We also use CDP data with a 5% tolerance threshold (if data from CDP differs
@@ -51,7 +51,7 @@
 
                 {% if selected_corp_ghg_scope3_pie_chart.exist %}
 
-                <a href="" class="image featured"><img src="{% static selected_corp_ghg_scope3_pie_chart.img %}"
+                <a href="{{selected_corp_ghg_scope3_pie_chart.html}}" class="image featured"><img src="{% static selected_corp_ghg_scope3_pie_chart.img %}"
                         alt="" /></a>
 
 
