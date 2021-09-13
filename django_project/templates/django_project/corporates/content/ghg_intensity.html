@@ -1,25 +1,31 @@
-{% load static %}                    
+{% load static %}
 <article class="post">
     <header>
-        
+
         <div class="title">
             <h2>Sector Benchmark</h2>
             <br>
         </div>
     </header>
-    
+
     <section>
         <div class="row">
-            <div align = "center" class = "col-12 col-12-medium" width>
-                <a href="{{selected_corp_bubble_chart.html}}" class="image featured"><img src="{% static selected_corp_bubble_chart.img %}" alt="" /></a>
-            </div>      
+            <div align="center" class="col-12 col-12-medium" width>
+                <a href="{{selected_corp_bubble_chart.html}}" class="image featured"><img
+                        src="{% static selected_corp_bubble_chart.img %}" alt="" /></a>
+            </div>
         </div>
         <p align="center"><a href="{{selected_corp_bubble_chart.html}}">
-            Click here for the interactive chart
-        </a></p>
+                Click here for the interactive chart
+            </a></p>
     </section>
     <p>
-        <b>Note: </b>Emissions and revenue data are the latest reported emissions.
+        <b>Note: </b>2019 Emissions and latest revenue data (based on tradingview.com) are used to benchmark GHG
+        emissions intensity by sector.
+        Sectors follow the Global Industry Classification Standard (GICS) that organize companies based on their primary
+        business activities. The 11 sectors are : Information Technology, Health Care, Financials, Consumer
+        Discretionary, Communication Services, Industrials, Consumer Staples, Energy, Utilities, Real Estate, and
+        Materials.
     </p>
 
     <section>
