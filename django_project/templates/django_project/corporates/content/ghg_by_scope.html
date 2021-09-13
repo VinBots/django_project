@@ -15,8 +15,6 @@
             <div align="center" class="col-12 col-12-medium">
                 {% if selected_corp_ghg_bar_chart.exist %}
                 <a href="" class="image featured"><img src="{% static selected_corp_ghg_bar_chart.img %}" alt="" /></a>
-                {% else %}
-
                 <p style="text-align:left"><b>Note: </b>Actual and target data come from publicly-available information,
                     usually the annual
                     sustainability report. We also use CDP data with a 5% tolerance threshold (if data from CDP differs
@@ -27,7 +25,7 @@
                     target (e.g. if the target covers scope 1 and scope 2 location-based emissions, reported actual
                     scope 2 emissions will be location-based)
                 </p>
-
+                {% else %}
                 <br>
                 <h4>Emissions Data not available</h4>
                 {% endif %}
