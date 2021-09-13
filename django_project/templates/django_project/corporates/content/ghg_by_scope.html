@@ -15,7 +15,7 @@
             <div align="center" class="col-12 col-12-medium">
                 {% if selected_corp_ghg_bar_chart.exist %}
                 <a href="" class="image featured"><img src="{% static selected_corp_ghg_bar_chart.img %}" alt="" /></a>
-                <p style="text-align:left"><b>Note: </b>Actual and target data come from publicly-available information,
+                <p style="text-align:left"><b>Note: </b>Actual (and target data if communicated) come from publicly-available information,
                     usually the annual
                     sustainability report. We also use CDP data with a 5% tolerance threshold (if data from CDP differs
                     by more than 5% with other public data, we exclude them). The rationale is that CDP data tends to be
@@ -23,8 +23,11 @@
                     (no rounding for example).
                     We select the type of scope 2 emissions (location-based or market-based) based on the scope of the
                     target (e.g. if the target covers scope 1 and scope 2 location-based emissions, reported actual
-                    scope 2 emissions will be location-based)
-                </p>
+                    scope 2 emissions will be location-based). 
+                    In case several targets exist, only the shorter-term target is displayed.
+                </p><br>
+                {% include "django_project/core/data_quality.html" %}
+
                 {% else %}
                 <br>
                 <h4>Emissions Data not available</h4>
@@ -33,7 +36,6 @@
         </div>
 
         {% if selected_corp_ghg_bar_chart.exist %}
-
         <p align="center"><a href="{{selected_corp_ghg_bar_chart.html}}">
                 Click here for the interactive chart
             </a></p>
@@ -52,17 +54,22 @@
 
                 <a href="" class="image featured"><img src="{% static selected_corp_ghg_scope3_pie_chart.img %}"
                         alt="" /></a>
+
+
                 {% else %}
                 <br>
                 <h4>Scope 3 Emissions not available</h4>
                 {% endif %}
-
+                {% include "django_project/core/data_quality.html" %}
 
             </div>
         </div>
+        {% if selected_corp_ghg_scope3_pie_chart.exist %}
         <p align="center"><a href="{{selected_corp_ghg_scope3_pie_chart.html}}">
                 Click here for the interactive chart
             </a></p>
+        {% endif %}
+
         <br><br>
 
     </section>
@@ -75,6 +82,7 @@
             <div align="center" class="col-12 col-12-medium">
                 {% include "django_project/corporates/content/ghg_datatable.html" %}
             </div>
+            
         </div>
     </section>
     <br><br>
