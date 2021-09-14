@@ -1,51 +1,57 @@
 {% load static %}
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SVM8FB4930"></script>
-		<script>
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-SVM8FB4930"></script>
+	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
+		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
 
 		gtag('config', 'G-SVM8FB4930');
-		</script>
-		<title>Net 0 Tracker</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="shortcut icon" type="image/png" href="{% static 'django_project/images/favicon32.png' %}"/>
-    	
-		
-		<link rel="stylesheet" href="{% static 'django_project/css/main.css' %}" />
-		<link rel="stylesheet" href="{% static 'django_project/css/star_rating.css' %}" />
-		<link rel="stylesheet" href="{% static 'django_project/css/fontawesome-all.min.css' %}"/>
-		<link rel="stylesheet" href="{% static 'django_project/css/leaderboard.css' %}"/>
-		
-		<!-- Autocomplete plugin -->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		
-		
-		<meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
-		<meta prefix="og: http://ogp.me/ns#"property="og:title" content="Net 0 Tracker" />
-		<meta prefix="og: http://ogp.me/ns#"property="og:description" content="Free, transparent and real-time data on corporate CO2 emissions and commitments"/>
-		<meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://net0tracker.org/"/>
-		<meta prefix="og: http://ogp.me/ns#" property="og:image" content="{% static 'django_project/images/home_img_medium.JPG' %}"/>
-		<!--Insert Twitter Card Markup -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@VincentManier" />
-		<meta name="twitter:domain" content="{% url 'main_home' %}" />
-		<meta name="twitter:title" content="Net 0 Tracker" />
-		<meta name="twitter:description" content="Free, transparent and real-time data on corporate CO2 emissions and commitments" />
-		<!--
+	</script>
+	<title>Net 0 Tracker</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" type="image/png" href="{% static 'django_project/images/favicon32.png' %}" />
+
+
+	<link rel="stylesheet" href="{% static 'django_project/css/main.css' %}" />
+	<link rel="stylesheet" href="{% static 'django_project/css/star_rating.css' %}" />
+	<link rel="stylesheet" href="{% static 'django_project/css/fontawesome-all.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'django_project/css/leaderboard.css' %}" />
+
+	<!-- Autocomplete plugin -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+	<meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
+	<meta prefix="og: http://ogp.me/ns#" property="og:title" content="Net 0 Tracker" />
+	<meta prefix="og: http://ogp.me/ns#" property="og:description"
+		content="Net0Tracker tracks the climate performance of major companies with a vision that climate data should be a public good"/>
+	<meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://net0tracker.org/" />
+	<meta prefix="og: http://ogp.me/ns#" property="og:image"
+		content="{% static 'django_project/images/home_img_medium.JPG' %}" />
+	<!--Insert Twitter Card Markup -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@VincentManier" />
+	<meta name="twitter:domain" content="{% url 'main_home' %}" />
+	<meta name="twitter:title" content="Net 0 Tracker" />
+	<meta name="twitter:description"
+		content="Net0Tracker tracks the climate performance of major companies with a vision that climate data should be a public good" />
+	<!--
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		-->
-		
-		<!-- Styling and Script for Datatables (leaderboard)-->
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/r-2.2.9/datatables.min.css"/>
-		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/r-2.2.9/datatables.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.25/dataRender/percentageBars.js"></script>
-		
-		</head>
+
+	<!-- Styling and Script for Datatables (leaderboard)-->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/v/dt/dt-1.10.25/r-2.2.9/datatables.min.css" />
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/r-2.2.9/datatables.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/plug-ins/1.10.25/dataRender/percentageBars.js"></script>
+
+</head>
