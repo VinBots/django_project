@@ -6,7 +6,7 @@
         $( function() {
         var availableTags = [
             {% for corp in corporates_names %}
-                "{{corp.name}}",
+                "{{corp.name|safe}}",
             {% endfor %}
         ];  
         $("#tags").autocomplete({
