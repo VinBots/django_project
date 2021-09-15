@@ -33,7 +33,7 @@ def home(request):
 
   #form = EntryCreationForm(instance=Entry.objects.first())
   corporates_names = Corporate.objects.all()
-  pct_values = [16, 49, 42]  #get_top_stats()
+  pct_values = [16, 50, 42]  #get_top_stats()
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(3)]
 
 
