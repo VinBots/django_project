@@ -39,7 +39,7 @@ def ip_addresses():
     return ip_list
 
 #ALLOWED_HOSTS = ip_addresses()
-ALLOWED_HOSTS = ['planetbonus.com', 'net0tracker.org', 'net0tracker.com', '64.227.14.214']
+ALLOWED_HOSTS = ['planetbonus.com', 'net0tracker.org', 'net0tracker.com', '64.227.14.214', 'www.net0tracker.com', 'www.net0tracker.org', 'www.planetbonus.com']
 #ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 # Application definition
