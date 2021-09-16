@@ -7,6 +7,8 @@ from plotly.offline import plot
 from corporates.models import Corporate
 import random
 from pathlib import Path
+import json
+
 
 
 
@@ -87,3 +89,12 @@ def get_top_stats():
 
 
 
+def get_top10_wo_zero():
+ 
+    # Opening JSON file
+    filename = os.path.join ('django_project/static/django_project', 'data', 'top10_wo_net_zero.json')
+
+    with open(filename) as f:
+        data = json.load(f)
+    
+    return data

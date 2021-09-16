@@ -2,7 +2,7 @@ from corporates.models import Corporate
 from django.urls import reverse
 from leaderboard.utilities import get_scores_xls
 from django.shortcuts import render, redirect
-from django_project.utilities import get_random_logos
+from django_project.utilities import get_random_logos, get_top10_wo_zero
 
 
 #from django.http import HttpResponse, HttpRequest
@@ -48,6 +48,7 @@ def home(request):
     # "angle5":angle_deg[4], "value5":str(pct_values[4]),
     "top5_scores": get_scores_xls(corp_number=5, top_rank=True),
     "bottom5_scores": get_scores_xls(corp_number=5, top_rank=False),
+    "top10_wo_zero" : get_top10_wo_zero()
     }
       )
 

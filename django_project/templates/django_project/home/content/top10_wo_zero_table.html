@@ -1,0 +1,32 @@
+{% load humanize %}
+
+<div class="container" width=100%>
+
+    <table id="lb_corp_table" class="lb_corporates" data-show-columns="true">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Company</th>
+                <th>Revenue</th>
+                <th>Ranking</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for i in top10_wo_zero %}
+            <tr>
+                <td><a href="{% url 'corporates_home'%}{{i.company_name}}" title="{{i.company_name}}"><img
+                            src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
+                            alt="picture_2"></a>
+                </td>
+                <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
+                        title="{{i.company_name}}">{{i.company_name}}</a></td>
+                <td>{{i.Revenue_num_tradingview|intword}}</td>
+                <td>{{i.rank}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
