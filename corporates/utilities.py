@@ -49,7 +49,7 @@ def get_score_data(company_id, all_data = None):
     #)
 
     score_record_data=all_data[all_data['company_id']==company_id]
-    num_cols = ['transp_score','comm_score','actions_score','score','rank','score_ratio','transp_ratio','comm_ratio','actions_ratio']
+    num_cols = ['transp_score','comm_score','actions_score','score','rank']#,'score_ratio','transp_ratio','comm_ratio','actions_ratio']
     score_record_data[num_cols] = score_record_data[num_cols].apply(pd.to_numeric)
 
     score_data = {
@@ -236,10 +236,10 @@ def get_all_data_from_xls():
         sheet_name=sheet_names,
         engine = 'openpyxl')
 
-def get_all_data_from_csv():
+def get_all_data_from_csv(sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant']):
+    
     pd_dict = {}
     prefix = 'sp100_data.xlsx - '
-    sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant']
     for sheetname in sheet_names:
         csv_path = os.path.join (BASE_DIR_XL_DB, prefix + sheetname + '.csv')
         pd_dict[sheetname] = pd.read_csv (csv_path)

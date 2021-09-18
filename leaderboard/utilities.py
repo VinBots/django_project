@@ -1,4 +1,4 @@
-from corporates.utilities import get_data
+from corporates.utilities import get_data, get_all_data_from_csv
 import os
 from pathlib import Path
 import json
@@ -24,14 +24,11 @@ def get_scores_xls(corp_number = None, top_rank=True):
     BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
 
-    sheet_name = "corp_scores"
+
 
     # Connect to the data source
-    all_data = get_data(
-        xlsx_path, 
-        sheet_name, 
-        None,
-        )
+    all_data = get_all_data_from_csv("corp_scores")["corp_scores"]
+
     max_rank = all_data['rank'].max()
     all_data['company_id'] = pd.to_numeric(all_data['company_id'], downcast='integer')
     all_data['rank'] = pd.to_numeric(all_data['rank'], downcast='integer')
