@@ -49,7 +49,8 @@ def get_score_data(company_id, all_data = None):
     #)
 
     score_record_data=all_data[all_data['company_id']==company_id]
-    score_record_data = score_record_data.apply(pd.to_numeric)
+    num_cols = ['transp_score','comm_score','actions_score','score','rank','score_ratio	transp_ratio','	comm_ratio','actions_ratio']
+    score_record_data[num_cols] = score_record_data[num_cols].apply(pd.to_numeric)
 
     score_data = {
         'score': score_record_data.iloc[0,6],
