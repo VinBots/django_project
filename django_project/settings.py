@@ -23,7 +23,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = ''
-with open('/env/secret.txt') as f:
+with open('../env/secret.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
