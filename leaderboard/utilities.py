@@ -27,7 +27,7 @@ def get_scores_xls(corp_number = None, top_rank=True):
 
 
     # Connect to the data source
-    all_data = get_all_data_from_csv("corp_scores")["corp_scores"]
+    all_data = get_all_data_from_csv(["corp_scores"])["corp_scores"]
 
     max_rank = all_data['rank'].max()
     all_data['company_id'] = pd.to_numeric(all_data['company_id'], downcast='integer')
