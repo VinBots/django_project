@@ -20,8 +20,8 @@ def corporates_search(request, corp_name=None):
     all_data = get_all_data()
 
     xls_corp = {
-      'ghg': get_ghg(company_id=selected_corp.company_id, all_data = all_data['ghg_quant']),
-      #'score_data': get_score_data(company_id=selected_corp.company_id, all_data = all_data['corp_scores']),
+      #'ghg': get_ghg(company_id=selected_corp.company_id, all_data = all_data['ghg_quant']),
+      'score_data': get_score_data(company_id=selected_corp.company_id, all_data = all_data['corp_scores']),
       #'corp_scores_summary': get_scores_summary(company_id=selected_corp.company_id, all_data = all_data['score_summary']),
       #'targets': get_targets(company_id=selected_corp.company_id, all_data = all_data['targets_quant']),
     } 
