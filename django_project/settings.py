@@ -19,7 +19,7 @@ import netifaces
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 X_FRAME_OPTIONS = 'DENY' #'SAMEORIGIN'
-
+SECURE_CONTENT_TYPE_NOSNIFF = True
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
