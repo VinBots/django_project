@@ -2,7 +2,7 @@ from corporates.utilities import get_data
 import os
 from pathlib import Path
 import json
-#import pandas as pd
+import pandas as pd
 
 
 BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
@@ -33,6 +33,9 @@ def get_scores_xls(corp_number = None, top_rank=True):
         None,
         )
     max_rank = all_data['rank'].max()
+    all_data['company_id'] = pd.to_numeric(all_data['company_id'], downcast='integer')
+    all_data['rank'] = pd.to_numeric(all_data['rank'], downcast='integer')
+
     if not corp_number:
         corp_number = max_rank
 
