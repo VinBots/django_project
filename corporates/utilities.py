@@ -9,6 +9,7 @@ import json
 
 #BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
+#BASE_DIR_XL_DB = '/Users/vincentmanier/Documents/django_project/'
 #DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
 DIR_TO_CORP_CHARTS_TEMPLATES = "/corporates.html/charts/html_exports/"
 DIR_TO_CORP_CHARTS_IMG = "django_project/images/charts/"
@@ -38,14 +39,15 @@ def check_validity(corp_name):
   conditions = [cond1, cond2]
   return all(conditions)
 
-def get_score_data(company_id):
-    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+def get_score_data(company_id, all_data = None):
+    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
 
-    all_data = get_data(
-        xlsx_path,
-        'corp_scores',
-        None,
-    )
+    #all_data = get_data(
+    #    xlsx_path,
+    #    'corp_scores',
+    #    None,
+    #)
+
     score_record_data=all_data[all_data['company_id']==company_id]
     score_data = {
         'score': score_record_data.iloc[0,6],
@@ -61,7 +63,7 @@ def get_score_data(company_id):
     return score_data
 
 
-def get_scores_summary(company_id):
+def get_scores_summary(company_id, all_data= None):
 
     principle_ref = [
         '1',
@@ -112,12 +114,12 @@ def get_scores_summary(company_id):
 
     score_data=[0]*13
 
-    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-    all_data = get_data(
-        xlsx_path,
-        'score_summary',
-        None,
-    )
+    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+    #all_data = get_data(
+    #    xlsx_path,
+    #    'score_summary',
+    #    None,
+    #)
     scores_summary_data=all_data[all_data['company_id']==company_id]
     for i in range(1, 14):
         score_data[i-1]= scores_summary_data.iloc[0, i]
@@ -154,15 +156,15 @@ def get_scores_summary(company_id):
 
     return score_data_dict
 
-def get_targets(company_id):
+def get_targets(company_id, all_data=None):
 
-    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-    cols_to_use = ['company_id', 'target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year','source']
-    all_data = get_data(
-        xlsx_path,
-        'targets_quant',
-        cols_to_use,
-    )
+    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+    #cols_to_use = ['company_id', 'target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year','source']
+    #all_data = get_data(
+    #    xlsx_path,
+    #    'targets_quant',
+    #    cols_to_use,
+    #)
     
     targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
     targets_select_data = targets_record_data[['target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year']]
@@ -181,15 +183,16 @@ def get_targets(company_id):
     return targets_dict
     
 
-def get_ghg(company_id = 113, source = 'CDP', last_reporting_year = 2019, fields = ['reporting_year', 'Source', 'ghg_scope_1','ghg_loc_scope_2','ghg_mkt_scope_2','ghg_scope3_total','ghg_total']):
+def get_ghg(company_id = 113, all_data = None, source = 'CDP', last_reporting_year = 2019, fields = ['reporting_year', 'Source', 'ghg_scope_1','ghg_loc_scope_2','ghg_mkt_scope_2','ghg_scope3_total','ghg_total']):
     
-    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
         
-    all_data = get_data(
-        xlsx_path,
-        'ghg_quant',
-        None,
-    )
+    #all_data = get_data(
+    #    xlsx_path,
+    #    'ghg_quant',
+    #    None,
+    #)
+    
     last_reporting_year = get_last_reporting_year(company_id)
 
     cond1 = all_data['company_id']==company_id
@@ -220,6 +223,12 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         engine = 'openpyxl',
         usecols=cols_to_use
         )
+
+def get_all_data():
+    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
+    sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant']
+    return pd.read_excel(xlsx_path, sheet_name=sheet_names)
+
 
 def get_last_reporting_year(company_id):
     
