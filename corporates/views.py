@@ -17,8 +17,7 @@ def corporates_search(request, corp_name=None):
   if check_validity(corp_name):
 
     selected_corp = Corporate.objects.get(name=corp_name)
-    #all_data = get_all_data()
-    all_data = {}
+    all_data = get_all_data()
 
     xls_corp = {
       'ghg': get_ghg(company_id=selected_corp.company_id, all_data = all_data['ghg_quant']),
