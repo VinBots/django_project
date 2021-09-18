@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
-from corporates.utilities import get_path_to_chart, check_validity, get_ghg, get_path_to_img, get_score_data, get_scores_summary, get_targets, file_exist, get_all_data
+from corporates.utilities import get_path_to_chart, check_validity, get_ghg, get_path_to_img, get_score_data, get_scores_summary, get_targets, file_exist, get_all_data_from_xls, get_all_data_from_csv
 #from corporates.add_records import add_new_records
 from django_project.utilities import get_random_logos
 from pathlib import Path
@@ -17,7 +17,8 @@ def corporates_search(request, corp_name=None):
   if check_validity(corp_name):
 
     selected_corp = Corporate.objects.get(name=corp_name)
-    all_data = get_all_data()
+    #all_data = get_all_data_from_xls()
+    all_data = get_all_data_from_csv()
 
     xls_corp = {
       'ghg': get_ghg(company_id=selected_corp.company_id, all_data = all_data['ghg_quant']),
