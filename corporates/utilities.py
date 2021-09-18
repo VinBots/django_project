@@ -49,6 +49,8 @@ def get_score_data(company_id, all_data = None):
     #)
 
     score_record_data=all_data[all_data['company_id']==company_id]
+    score_record_data = score_record_data.apply(pd.to_numeric)
+
     score_data = {
         'score': score_record_data.iloc[0,6],
         'rank':score_record_data.iloc[0,7],
