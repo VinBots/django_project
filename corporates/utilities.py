@@ -224,15 +224,23 @@ def get_data(xlsx_path, sheetname, cols_to_use):
         usecols=cols_to_use
         )
 
-def get_all_data():
+def get_all_data_from_xls():
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
     sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant']
-    #sheet_names =['targets_quant'] 
 
     return pd.read_excel(
         xlsx_path, 
         sheet_name=sheet_names,
         engine = 'openpyxl')
+
+def get_all_data_from_csv():
+    pd_dict = {}
+    prefix = 'sp100_data.xlsx - '
+    sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant']
+    for sheetname in sheet_names:
+        csv_path = os.path.join (BASE_DIR_XL_DB, prefix + sheetname + '.csv')
+        pd_dict[sheetname] = pd.read_csv (csv_path)
+    return pd_dict
 
 
 def get_last_reporting_year(company_id):
