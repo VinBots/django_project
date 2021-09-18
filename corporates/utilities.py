@@ -226,8 +226,8 @@ def get_data(xlsx_path, sheetname, cols_to_use):
 
 def get_all_data():
     xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-    sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant']
-    sheet_names =['ghg_quant', 'corp_scores'] 
+    sheet_names =['ghg_quant', 'corp_scores', , 'targets_quant']
+    sheet_names =['ghg_quant', 'corp_scores', 'score_summary'] 
 
     return pd.read_excel(
         xlsx_path, 
