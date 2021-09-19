@@ -11,7 +11,6 @@
         <div class="container" width=100%>
 
             <h3>Gross Absolute Emission Reductions</h3>
-            {{xls_corp.targets}}
             <table id="gross_target" class="gross_target" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
@@ -26,7 +25,7 @@
                     {% for i in xls_corp.targets.gross_abs %}
                     <tr>
                         <td>{{i.scope}}</td>
-                        <td>{% widthratio i.reduction_obj 1 100 %}</td>
+                        <td>{% i.reduction_obj %}</td>
                         <td>{{i.base_year|apnumber}}</td>
                         <td>{{i.target_year|apnumber}}</td>
                         <td>
@@ -62,7 +61,7 @@
                     {% for i in xls_corp.targets.net_abs %}
                     <tr>
                         <td>{{i.scope}}</td>
-                        <td>{% widthratio i.reduction_obj 1 100 %}</td>
+                        <td>{% i.reduction_obj %}</td>
                         <td>{{i.base_year|apnumber}}</td>
                         <td>{{i.target_year|apnumber}}</td>
                         <td> {% if i.cov_s3 == 'partly' %}
