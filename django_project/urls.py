@@ -13,27 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.shortcuts import render
+#from django.shortcuts import render
 from django.contrib import admin
-from django.conf.urls import url
+#from django.conf.urls import url
 from django.urls import path, include
 from . import views
-from django.views.generic import TemplateView
-from django.conf import settings
-from django.conf.urls.static import static
-from typing import Dict
-import dash
-import dash_table
-from dash.dependencies import Input, Output
-import pandas as pd
-from django_plotly_dash import DjangoDash
-import dash_html_components as html
-from django_project.utilities import get_data
-import dash_core_components as dcc
-import os
-import plotly.graph_objs as go
-import dash_table.FormatTemplate as FormatTemplate
-from dash_table.Format import Format, Group, Scheme
+#from django.views.generic import TemplateView
+#from django.conf import settings
+#from django.conf.urls.static import static
+#from typing import Dict
+#import dash
+#import dash_table
+#from dash.dependencies import Input, Output
+#import pandas as pd
+#from django_plotly_dash import DjangoDash
+#import dash_html_components as html
+#from django_project.utilities import get_data
+#import dash_core_components as dcc
+#import os
+#import plotly.graph_objs as go
+#import dash_table.FormatTemplate as FormatTemplate
+#from dash_table.Format import Format, Group, Scheme
 
 
 # Loading plotly Dash apps script
