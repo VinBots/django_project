@@ -14,20 +14,20 @@
             <table id="gross_target" class="gross_target" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
-                        <th>Scope</th>
-                        <th>Reduction Objectives</th>
-                        <th>Base Year</th>
-                        <th>Target Year</th>
+                        <th style='text-align:center; vertical-align:middle'>Scope</th>
+                        <th style='text-align:center; vertical-align:middle'>Reduction Objectives</th>
+                        <th style='text-align:center; vertical-align:middle'>Base Year</th>
+                        <th style='text-align:center; vertical-align:middle'>Target Year</th>
                         <th>Comments</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for i in xls_corp.targets.gross_abs %}
                     <tr>
-                        <td>{{i.scope}}</td>
-                        <td>{{ i.reduction_obj }}</td>
-                        <td>{{i.base_year|apnumber}}</td>
-                        <td>{{i.target_year|apnumber}}</td>
+                        <td style='text-align:center; vertical-align:middle'>{{i.scope}}</td>
+                        <td style='text-align:center; vertical-align:middle'>{{ i.reduction_obj }}</td>
+                        <td style='text-align:center; vertical-align:middle'>{{i.base_year|apnumber}}</td>
+                        <td style='text-align:center; vertical-align:middle'>{{i.target_year|apnumber}}</td>
                         <td>
                             {% if i.cov_s3 == 'partly' %}
                             Not that all the scope 3 emissions categories are not fully covered
@@ -50,10 +50,10 @@
             <table id="net_target" class="net_target" data-show-columns="true" width=100%>
                 <thead>
                     <tr>
-                        <th>Scope</th>
-                        <th>Reduction Objectives</th>
-                        <th>Base Year</th>
-                        <th>Target Year</th>
+                        <th style='text-align:center; vertical-align:middle'>Scope</th>
+                        <th style='text-align:center; vertical-align:middle'>Reduction Objectives</th>
+                        <th style='text-align:center; vertical-align:middle'>Base Year</th>
+                        <th style='text-align:center; vertical-align:middle'>Target Year</th>
                         <th>Comments</th>
                     </tr>
                 </thead>
