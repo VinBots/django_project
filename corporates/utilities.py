@@ -93,9 +93,9 @@ def get_scores_summary(company_id, all_data= None):
         'Emission reduction targets on a forward-looking basis are ambitious',
         'Targets are science-based as validated by SBTi',
         '',
-        'Emissions reduction are on-pace vs. cumulative target (performance-to-date)',
-        'Recent emissions reduction are on-pace with forward-looking targets (momentum)',
-        'Performance can be unambiguously tracked based on a yearly reduction path and a clear stance on offsets contributions',
+        'Results re. operational emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)',
+        'Results re. value chain emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)',
+        'Criteria not yet defined (executive compensation, stance on offsets under study)',
         '',
     ]
     max_score = [
