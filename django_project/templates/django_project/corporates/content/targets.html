@@ -25,7 +25,7 @@
                     {% for i in xls_corp.targets.gross_abs %}
                     <tr>
                         <td>{{i.scope}}</td>
-                        <td>{% i.reduction_obj %}</td>
+                        <td>{{ i.reduction_obj }}</td>
                         <td>{{i.base_year|apnumber}}</td>
                         <td>{{i.target_year|apnumber}}</td>
                         <td>
@@ -61,7 +61,7 @@
                     {% for i in xls_corp.targets.net_abs %}
                     <tr>
                         <td>{{i.scope}}</td>
-                        <td>{% i.reduction_obj %}</td>
+                        <td>{{ i.reduction_obj }}</td>
                         <td>{{i.base_year|apnumber}}</td>
                         <td>{{i.target_year|apnumber}}</td>
                         <td> {% if i.cov_s3 == 'partly' %}
