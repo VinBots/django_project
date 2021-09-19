@@ -21,9 +21,8 @@ def get_scores_xls(corp_number = None, top_rank=True):
 
 
     #Excel file path
-    BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
-    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-
+    #BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
+    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
 
 
     # Connect to the data source
@@ -32,6 +31,11 @@ def get_scores_xls(corp_number = None, top_rank=True):
     max_rank = all_data['rank'].max()
     all_data['company_id'] = pd.to_numeric(all_data['company_id'], downcast='integer')
     all_data['rank'] = pd.to_numeric(all_data['rank'], downcast='integer')
+    all_data['transp_ratio'] = pd.to_numeric(all_data['transp_ratio']) * 100
+    all_data['comm_ratio'] = pd.to_numeric(all_data['comm_ratio']) * 100
+    all_data['actions_ratio'] = pd.to_numeric(all_data['actions_ratio']) * 100
+
+
 
     if not corp_number:
         corp_number = max_rank
