@@ -60,10 +60,10 @@
                 <tbody>
                     {% for i in xls_corp.targets.net_abs %}
                     <tr>
-                        <td>{{i.scope}}</td>
-                        <td>{{ i.reduction_obj }}</td>
-                        <td>{{i.base_year|apnumber}}</td>
-                        <td>{{i.target_year|apnumber}}</td>
+                        <td style='text-align:center; vertical-align:middle'>{{i.scope}}</td>
+                        <td style='text-align:center; vertical-align:middle'>{{ i.reduction_obj }}</td>
+                        <td style='text-align:center; vertical-align:middle'>{{i.base_year|apnumber}}</td>
+                        <td style='text-align:center; vertical-align:middle'>{{i.target_year|apnumber}}</td>
                         <td> {% if i.cov_s3 == 'partly' %}
                             Not that all the scope 3 emissions categories are not fully covered
                             {% endif %}
