@@ -12,29 +12,29 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Rank</th>
+                    <th style='text-align:center; vertical-align:middle'>Rank</th>
                     <th>Corporate</th>
-                    <th>Transparency</th>
-                    <th>Commitments</th>
-                    <th>Results</th>
-                    <th>Score</th>
+                    <th style='text-align:center; vertical-align:middle'>Transparency</th>
+                    <th style='text-align:center; vertical-align:middle'>Commitments</th>
+                    <th style='text-align:center; vertical-align:middle'>Results</th>
+                    <th style='text-align:center; vertical-align:middle'>Score</th>
                 </tr>
             </thead>
             <tbody>
 
                 {% for i in scores %}
                 <tr>
-                    <td><a href="{% url 'corporates_home'%}{{i.company_name}}" title="{{i.company_name}}"><img
+                    <td style='text-align:center; vertical-align:middle'><a href="{% url 'corporates_home'%}{{i.company_name}}" title="{{i.company_name}}"><img
                                 src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
                                 alt="picture_2"></a>
                     </td>
-                    <td>{{i.rank}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.rank}}</td>
                     <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
                             title="{{i.company_name}}">{{i.company_name}}</a></td>
-                    <td>{{i.transp_ratio}}</td>
-                    <td>{{i.comm_ratio}}</td>
-                    <td>{{i.actions_ratio}}</td>
-                    <td>{{i.score}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.transp_ratio}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.comm_ratio}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.actions_ratio}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.score}}</td>
                 </tr>
 
                 {% endfor %}
