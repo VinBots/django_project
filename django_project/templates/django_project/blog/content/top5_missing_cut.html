@@ -21,9 +21,10 @@
 
                 </td>
                 <td>
+                    {{value}}
 
-                {% for (id, name) in (value.company_id, value.company_name) %}
-                {{id}} {{name}}
+                {% for data in value %}
+                {{data.company_id}} {{data.company_name}}
                 {% endfor %}
                 </td>
             
