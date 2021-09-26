@@ -2,7 +2,7 @@
 {% load static %}
 
 <div class="container" width=100%>
-
+{{top5_mising_cut}}
     <table id="lb_corp_table" class="lb_corporates" data-show-columns="true">
         <thead>
             <tr>
@@ -19,9 +19,8 @@
                     {{key|safe}}
                 </td>
                 <td>
-                {% for key, data in value.company_name.items %}
-                <a href="{% url 'corporates_home'%}{{data}}"
-                title="{{data}}">{{data}}</a>                
+                {% for key, data in value.data.items %}
+                {{key}} {{data}}                
                 {% endfor %}
 
                 </td>
