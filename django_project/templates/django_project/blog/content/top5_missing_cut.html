@@ -1,0 +1,39 @@
+{% load humanize %}
+{% load static %}
+
+
+<div class="container" width=100%>
+
+    <table id="lb_corp_table" class="lb_corporates" data-show-columns="true">
+        <thead>
+            <tr>
+                <th>Transparency Criteria</th>
+                <th>Top 5 Revenue Companies Missing the Cut</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for criteria in top5_mising_cut %}
+            <tr>
+
+                <td>
+                    {{criteria}}
+
+                </td>
+                {% for i in criteria %}
+                <td><a href="{% url 'corporates_home'%}{{i.company_name}}" title="{{i.company_name}}"><img
+                            src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
+                            alt="picture_2"></a>
+                <a href="{% url 'corporates_home'%}{{i.company_name}}"
+                        title="{{i.company_name}}">{{i.company_name}}</a>
+                    </td>
+
+                {% endfor %}
+            
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
