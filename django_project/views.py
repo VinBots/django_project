@@ -2,7 +2,7 @@ from corporates.models import Corporate
 from django.urls import reverse
 from leaderboard.utilities import get_scores_xls
 from django.shortcuts import render, redirect
-from django_project.utilities import get_random_logos, get_top10_wo_zero
+from django_project.utilities import get_random_logos, get_top10_wo_zero, get_top5_transp_miss_cut
 
 
 #from django.http import HttpResponse, HttpRequest
@@ -68,7 +68,14 @@ def aboutus(request):
   return render (request, "django_project/aboutus/main.html")
 
 def blog(request):
-  return render (request, "django_project/blog/main.html")
+
+  return render (
+    request,
+    "django_project/blog/main.html",
+    {
+      "top5_mising_cut": get_top5_transp_miss_cut(),
+    }
+  )
 
 def faq(request):
   return render (request, "django_project/faq/main.html")
