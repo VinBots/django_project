@@ -12,15 +12,15 @@
         </thead>
         <tbody>
 
-            {% for key, value in top5_mising_cut.items %}
+            {% for key, value in top5_mising_cut %}
             <tr>
 
                 <td>
                     {{key|safe}}
                 </td>
                 <td>
-                {% for key, data in value.data.items %}
-                {{key}} {{data}}                
+                {% for data in value.data %}
+                {{data.0}} + {{data.1}}                
                 {% endfor %}
 
                 </td>
