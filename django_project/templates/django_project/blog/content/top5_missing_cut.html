@@ -23,7 +23,9 @@
                 </td>
                 <td>
                 {% for key, data in value.company_id.items %}
-                Company ID = {{data}}; 
+
+                Company ID = {{value.company_id.key}};
+                Company Name = {{value.company_name.key}} 
                 {% endfor %}
                 </td>
                 <td>
