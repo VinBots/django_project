@@ -1,15 +1,13 @@
 {% load humanize %}
 {% load static %}
 
-{{top5_mising_cut}}
 <div class="container" width=100%>
 
     <table id="lb_corp_table" class="lb_corporates" data-show-columns="true">
         <thead>
             <tr>
                 <th>Transparency Criteria</th>
-                <th>Id</th>
-                <th>Company Name</th>
+                <th>Major Companies <b>Not</b> Meeting the Transparency Criteria</th>
             </tr>
         </thead>
         <tbody>
@@ -19,18 +17,10 @@
 
                 <td>
                     {{key|safe}}
-
-                </td>
-                <td>                    
-                {% for key, data in value.company_id.items %}
-                <a href="" title=""><img
-                    src="{% static 'django_project/images/logos/' %}logo_{{data}}.png"
-                    alt="picture_2"></a>
-                {% endfor %}
                 </td>
                 <td>
                 {% for key, data in value.company_name.items %}
-                <a href="{% url 'corporates_home'%}{{i.company_name}}"
+                <a href="{% url 'corporates_home'%}{{data}}"
                 title="{{data}}">{{data}}</a>                
                 {% endfor %}
 
