@@ -21,8 +21,8 @@
 
                 </td>
                 <td>
-                {% for i in value.company_id %}
-                {{i}} hello
+                {% for id, name in value.company_id, value.company_name %}
+                {{i}} {{name}}
                 {% endfor %}
                 </td>
             
