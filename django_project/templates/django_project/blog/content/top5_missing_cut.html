@@ -21,16 +21,17 @@
                     {{key|safe}}
 
                 </td>
-                <td>
+                <td>                    
                 {% for key, data in value.company_id.items %}
-
-                Company ID = {{value.company_id.key}};
-                Company Name = {{value.company_name.key}} 
+                <a href="" title=""><img
+                    src="{% static 'django_project/images/logos/' %}logo_{{data}}.png"
+                    alt="picture_2"></a>
                 {% endfor %}
                 </td>
                 <td>
                 {% for key, data in value.company_name.items %}
-                Company name = {{data}}; 
+                <a href="{% url 'corporates_home'%}{{i.company_name}}"
+                title="{{data}}">{{data}}</a>                
                 {% endfor %}
 
                 </td>
@@ -45,10 +46,7 @@
 
 {% comment %}
 
-<a href="{% url 'corporates_home'%}{{i.company_name}}" title="{{i.company_name}}"><img
-    src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
-    alt="picture_2"></a>
-<a href="{% url 'corporates_home'%}{{i.company_name}}"
-title="{{i.company_name}}">{{i.company_name}}</a>
+
+
 
 {% endcomment %}
