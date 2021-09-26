@@ -98,3 +98,13 @@ def get_top10_wo_zero():
         data = json.load(f)
     
     return data
+
+def get_top5_transp_miss_cut():
+ 
+    # Opening JSON file
+    filename = os.path.join ('django_project/static/django_project', 'data', 'top5_transp_miss_cut.json')
+
+    with open(filename) as f:
+        data = json.load(f)
+    
+    return data

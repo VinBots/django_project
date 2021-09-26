@@ -1,54 +1,53 @@
 {% load static %}
 
 <!-- Post -->
-<article id="aboutus" class="post">
+<article id="transparency" class="post">
     <header>
         <div class="title">
-            <h2>Blog</h2>
+            <h2>Fight against Climate Change Starts with Transparency</h2>
         </div>
     </header>
 
     <section>
-        <h2>The Vision</h3>
-            <p>
-            <h3>Net0Tracker tracks the climate performance of major companies with a vision that climate data should be
-                a
-                public good</h3> <br><br>
-                France, September 2021 - The climate change equation to avoid catastrophic consequences is well-known : cut our greenhouse gas
-                (GHG) emissions by half by
-                2030 and reach net zero by 2050. In the corporate world, the sharp decline in direct and indirect GHG
-                emissions on an absolute basis must happen now, in our everyday actions, our business models, our decision-making rationale
-                and
-                our incentives mechanisms. Over the past 2 years, the increase of net zero commitments and science-based
-                targets has been encouraging but the sense of urgency must increase with concrete actions and better
-                accountability. <br><br>
-                Even in the absence of regulation, carbon must now be managed with the <b>same discipline as
-                    finance</b>,
-                especially in terms of transparency, completeness, verification, standardization and accuracy.
-                I created Net0Tracker as an attempt to simply represent the level of <b>transparency, commitments and
-                    actions</b>
-                of major corporates beyond marketing campaigns and participation in task forces or working groups.
-                Like COVID-related data, climate data should be considered as a <b>public good</b> in order to trigger
-                more
-                collaboration and transparency. I observe that there is a lack of publicly-available aggregated
-                information
-                about GHG emissions of companies. <a href="https://www.cdp.net/en/" target="_blank"
-                    rel="noopener noreferrer">CDP</a> does not make its data
-                open-source and many private data providers
-                (e.g. MSCI, Trucost, Bloomberg…) are mainly selling their data and analysis to investors and portfolio
-                managers. On
-                top of it, emissions inventory and reporting are still a painful process which causes climate data
-                to be released very late (
-                generally 7-8 months after year-close) and challenging to track on a timely basis. 
-                I hope that Net0Tracker will encourage companies to better disclose their climate
-                performance
-                and implement best-in-class practices. <br><br>
+        <h2>The Big Picture (1/5)</h3>
 
-                Please feel free to reach out for ideas and contributions.
-                <a href="mailto: vmanier2020@gmail.com" target="_blank" rel="noopener noreferrer"
-                    class="icon solid fa-envelope"><span class="label">Email</span></a>
+            <p>The general public should be able to understand and track the climate performance of companies they work
+                for
+                or buy products or services from. I believe that our collective awareness of climate change risks is
+                going
+                to intensify in the coming years and new regulations will soon impose more stringent obligations on
+                greenhouse gas emissions disclosure. Looking at the top 100 largest American companies, what is our
+                starting
+                point? How do we define climate transparency? What do Amazon, Berkshire and Tesla have in common? <br>
 
-                </p>
+
+                Transparency refers to clear public disclosures, completeness, timeliness, verification and
+                quality of climate performance data within generall-accepted accounting frameworks. For GreenHouse Gas
+                (GHG)
+                emissions, it means reporting full scope emissions over at least 2 comparable years, fully and
+                positively
+                verified by an external party, and publicly disclosing supporting materials. The level of disclosure is
+                also
+                assessed by reporting the climate change questionnaire to <a href="https://www.cdp.net/en/"
+                    target="_blank" rel="noopener noreferrer">CDP</a>.
+            </p>
+
+            <div class="row">
+
+            <div align="center" class="col-6 col-12-medium">
+                <h3></h3>
+                <img src="{% static 'django_project/images/charts/general/transparency_analysis.jpeg' %}" class="image featured" alt="" />
+                </p><br>
+            </div>
+
+            <div align="center" class="col-6 col-12-medium">
+                <h3>Top 5 Revenue Companies Missing the Cut</h3><br>          
+                {% include "django_project/home/content/top5_missing_cut.html" %}
+
+            </div>
+    
+            </div>
+
     </section>
 
     <hr />
@@ -61,10 +60,10 @@
                     class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
             <li><a href="mailto: vmanier2020@gmail.com" target="_blank" rel="noopener noreferrer"
                     class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-                    {% comment %}
-                    <li><a href="https://github.com/VinBots/django_project" target="_blank" rel="noopener noreferrer"
+            {% comment %}
+            <li><a href="https://github.com/VinBots/django_project" target="_blank" rel="noopener noreferrer"
                     class="icon brands fa-github"><span class="label">Github</span></a></li>
-                    {% endcomment %}
+            {% endcomment %}
         </ul>
     </footer>
 </article>
