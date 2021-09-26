@@ -2,7 +2,7 @@
 {% load static %}
 
 <div class="container" width=100%>
-{{top5_mising_cut}}
+    {{top5_mising_cut}}
     <table id="lb_corp_table" class="lb_corporates" data-show-columns="true">
         <thead>
             <tr>
@@ -19,12 +19,16 @@
                     {{key|safe}}
                 </td>
                 <td>
-                {% for data in value.data %}
-                {{data.0}} + {{data.1}}                
-                {% endfor %}
+                    {% for data in value.data %}
+                    <a href="{% url 'corporates_home'%}{{data.1}}" title="{{data.1}}"><img
+                            src="{% static 'django_project/images/logos/' %}logo_{{data.0}}.png" alt="picture_2"></a>
+
+                    <a href="{% url 'corporates_home'%}{{data.1}}" title="{{data.1}}">{{data.1}}</a>
+                    <br>
+                    {% endfor %}
 
                 </td>
-            
+
             </tr>
             {% endfor %}
         </tbody>
