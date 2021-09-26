@@ -13,16 +13,16 @@
         </thead>
         <tbody>
 
-            {% for criteria in top5_mising_cut %}
+            {% for key, value in top5_mising_cut.items %}
             <tr>
 
                 <td>
-                    {{criteria|safe}}
+                    {{key|safe}}
 
                 </td>
                 <td>
-                {% for i in criteria %}
-                {{i.1}}
+                {% for i in value %}
+                {{i}}
                     
                 {% endfor %}
                 </td>
