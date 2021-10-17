@@ -1,0 +1,94 @@
+{% load static %}
+
+<!-- Post -->
+<article id="scope3" class="post">
+    <header>
+        <div class="title">
+            <h2>Fight against Climate Change Starts with Transparency (2/5)</h2>
+        </div>
+    </header>
+
+    <section>
+        <h2>Value Chain Emissions are Significantly Under-Reported</h2>
+
+        <p>If ony the consumers could get in the game... before the regulator
+
+            In the previous blog, we saw that only 1 out of 6 companies are fully transparent in their
+            carbon emission reporting, even if about 4 out of 5 companies report scope 1-2 and a part of scope 3
+            emissions. The real game-changer is the full transparency on value chain (scope 3) emissions but today,
+            I estimate that only 44% companies report all scope 3 emissions and only 16% get them fully verified by
+            an external third-party. <br>
+        </p>
+        <p>
+            Reporting value chain GHG emissions, both upstream (supply chain) and downstream (end-use), remains a
+            major challenge for most corporates, in terms of data availability, accuracy, consistency, frequency and
+            completeness. However, value chain emissions usually represent more than 80% total GHG emissions with
+            some sectors well-above 90% (for example, 98% in consumer discretionary, 95% in financial services, 94%
+            in consumer staples).
+            MSCi recently published a study with similar findings, that shows the emissions intensity by scope and
+            by sector and also tracks the progress in scope 3 reporting.
+        </p>
+        <img src="{% static 'django_project/images/blog/msci_scope3.PNG' %}" class="image featured" alt="" />
+        <p>Among companies reporting some scope 3 emissions, I estimate that about 2/3 scope 3 emissions are omitted on
+            average. The chart below helps visualize the gap by sector. </p>
+
+        <div class="row">
+
+            <div align="center" class="col-6 col-12-medium">
+
+                <img src="{% static 'django_project/images/charts/general/real_scope_heatmap.jpeg' %}"
+                    class="image featured" alt="" />
+                <p style="text-align:left"><b>Note: </b> Only S&P 100 companies (44%) fully disclosing their scope 3
+                    emissions are selected.
+                </p><br>
+
+            </div>
+
+            <div align="center" class="col-6 col-12-medium">
+
+                <img src="{% static 'django_project/images/charts/general/reported_scope_heatmap.jpeg' %}"
+                    class="image featured" alt="" />
+                <p style="text-align:left"><b>Note: </b> Based on all scope 3 emissions reported by S&P 100 companies
+                </p><br>
+
+            </div>
+
+        </div>
+
+        <p>
+
+            Yet, assessing the completeness of scope 3 emissions sounds like a judgement call. The relevance of
+            scope 3 categories depends on the type of activities and even if <a href="https://www.cdp.net/en/"
+                target="_blank" rel="noopener noreferrer">CDP</a> requires justification for every
+            category of scope 3 emissions (section C6 of CDP questionnaire), companies within the same sector tend to
+            have different
+            approach or rationale to exclude some categories. This scope 3 completeness issue highlights the need
+            for stronger sectorial guidance, methodologies and reporting framework standards specifically focused on
+            scope 3
+            emissions. For example, banks tend not to report on scope 15 - Investments because of lack of
+            widely-recognized methodologies; 3M does an excellent job at reporting their emissions but faces
+            understandable challenges to report on product-level emissions (+50,000 products with various end-use);
+            tech companies like Amazon and Apple are merging some scope 3 categories (IP reasons?).
+
+            In summary: scope 3 emissions are significantly under-reported but there is hope as many companies are
+            leading the way in adopting new tools and methodologies to not only demonstrate transparency but also
+            disclose and optimize the full carbon footprint of their products and services. In terms of timing, I
+            wish the consumers would get in the game before the regulators!
+        </p>
+    </section>
+
+    <footer>
+        <ul class="icons">
+            <li><a href="https://twitter.com/VincentManier" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="https://www.linkedin.com/in/vincent-manier-85aa257/" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="mailto: vmanier2020@gmail.com" target="_blank" rel="noopener noreferrer"
+                    class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            {% comment %}
+            <li><a href="https://github.com/VinBots/django_project" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-github"><span class="label">Github</span></a></li>
+            {% endcomment %}
+        </ul>
+    </footer>
+</article>
