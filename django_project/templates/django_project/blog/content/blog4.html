@@ -1,0 +1,78 @@
+{% load static %}
+
+<!-- Post -->
+<article id="scope3" class="post">
+    <header>
+        <div class="title">
+            <h2>Fight against Climate Change Starts with Transparency (3/5)</h2>
+        </div>
+    </header>
+
+    <section>
+        <h2>3 Major Challenges to Trust Carbon Data</h2>
+
+        <p> Exploring GHG emissions data in a ESG or sustainability report is a very similar experience to reading
+            financials in an annual report: it is technical, full of footnotes, appendix, references to frameworks (e.g.
+            CDP, GRI, SASB, TCFD...) and external documents. Like finance, the language makes it hardly accessible to
+            non-experts.
+            A major difference with financial reporting is the level of verification and regulation. For non-financial
+            data, we often talk about assurance, not audit, to name the verification process of disclosures. In the
+            absence of regulation, many assurance providers have adopted various standards, such as ISO14064-3, ISAE
+            3000, AICPA, AA100 or proprietary methodology. This naturally leads to a lack of consistency and
+            comparability across companies. <br>
+        </p>
+        <div class="row">
+            <div align="center" class="col-12 col-12-medium">
+                <img src="{% static 'django_project/images/blog/trust_carbon_infographics.jpg' %}" class="image featured"
+                    alt="" />
+            </div>
+        </div>
+
+
+        <p>Today, I see 3 major issues in carbon emissions data reporting:
+        <ul>
+            <li> <b>Scope is too partial</b>: Very few companies (1 out of 6) get value chain or scope 3 emissions
+                verified, which
+                usually represent more than 80% total emissions.</li>
+            <li><b>Verification is too light</b>: The vast majority (>90%) of assurance statements are 'limited', a type
+                of
+                'negative' assurance, which means that it is expressed in a negative form. For example, in a limited
+                assurance, the assurer states that it did not find evidence that data is incorrect. Not really
+                re-assuring.</li>
+            <li><b>Performance reporting is not rigorous enough</b>: performance against targets are rarely verified,
+                some past
+                period data and GHG emissions baselines can be modified without additional verification and restatements
+            </li>
+        </ul>
+
+
+
+        What's next? In the US, regulation is expected to strengthen reporting requirements for major companies. All
+        the eyes are now on the U.S. Security and Exchange Commission (SEC) that launched a public consultation
+        about climate change disclosures in Q1 with the objective to provide guidance about new climate reporting
+        requirements and standards by end of 2021. On top of more regulation, we will also need to strengthen
+        standards, mainly on scope 3 reporting (e.g. sectorial approach) and emissions reduction claims (e.g.
+        criteria for net zero claims). Many initiatives, like
+        <a href="https://www.fsb-tcfd.org/" target="_blank" rel="noopener noreferrer">TCFD</a>,
+        <a href="https://carbonaccountingfinancials.com/" target="_blank" rel="noopener noreferrer">PCAF</a> and
+        <a href="https://sciencebasedtargets.org/net-zero" target="_blank" rel="noopener noreferrer">SBTi net zero
+            standard</a>, will undoubtedly support this movement and make carbon reporting more trustworthy.
+        </p>
+
+    </section>
+
+    <footer>
+        <ul class="icons">
+            <li><a href="https://twitter.com/VincentManier" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="https://www.linkedin.com/in/vincent-manier-85aa257/" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="mailto: vmanier2020@gmail.com" target="_blank" rel="noopener noreferrer"
+                    class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            {% comment %}
+            <li><a href="https://github.com/VinBots/django_project" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-github"><span class="label">Github</span></a></li>
+            {% endcomment %}
+        </ul>
+    </footer>
+</article>
