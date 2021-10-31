@@ -1,0 +1,109 @@
+{% load static %}
+
+<!-- Post -->
+<article id="scope3" class="post">
+    <header>
+        <div class="title">
+            <h2>Fight against Climate Change Starts with Transparency (4/5)</h2>
+        </div>
+    </header>
+
+    <section>
+        <h2>Do Not Be Fooled By The (CDP) Score!</h2>
+
+        <p> For most sustainability professionals, the ultimate measure of climate reporting quality and transparency is
+            the CDP score to the climate change questionnaire. It is used by most companies to advertise their progress
+            towards environmental stewardship and communicate to investors.
+            Over the past few months, I have explored the parallels between finance and carbon reporting and realized
+            that a CDP score does not tell the full story. Many experienced leaders in sustainability told me that this
+            score is more related to the completeness of answers to the questionnaire than real climate performance and
+            carbon emission reductions. You would think that there must be a relation between transparency and
+            performance. How can we measure this relation?
+            <b>Good news</b>: this week, MSCi made public a new forward-looking indicator to measure the alignment of
+            companies, portfolios and funds with global climate targets: <a
+                href="https://www.msci.com/our-solutions/climate-investing/net-zero-solutions/implied-temperature-rise"
+                target="_blank" rel="noopener noreferrer">the Implied Temperature Rise (ITR)</a>. You can search over
+            2,900
+            companies and check
+            their ITR and decarbonization target. Thank you MSCi for this contribution!
+            So let's compare the 2 metrics for the top 100 US companies, starting with the distribution of scores as
+            shown below. <br>
+        </p>
+        <div class="row">
+            <div align="center" class="col-6 col-12-medium">
+                <img src="{% static 'django_project/images/blog/cdp_scores_dist.jpeg' %}" class="image featured"
+                    alt="" />
+            </div>
+            <div align="center" class="col-6 col-12-medium">
+                <img src="{% static 'django_project/images/blog/itr_scores_dist.jpeg' %}" class="image featured"
+                    alt="" />
+            </div>
+        </div>
+
+
+        <p>CDP score distribution is significantly skewed to good scores with x%, y% and z% of companies scoring
+            respectively A, A- and B. ITR score distribution looks similar but proportions are quite different with only
+            x% of companies below 1.5 degrees and y% between x% and y%. This distribution is a sad reminder that despite
+            all the net zero pledges and alignment to 1.5 degree scenario, US companies are very far from a 1.5 degree
+            alignment according to MSCi.
+
+            Let's now plot ITR by CDP score category to understand the relationship. </p>
+
+        <div class="row">
+
+            <div align="center" class="col-6 col-12-medium">
+
+                <img src="{% static 'django_project/images/images/blog/cdp_itr.jpeg' %}"
+                    class="image featured" alt="" />
+                <p style="text-align:left"><b>Note: </b> Only S&P 100 companies (44%) fully disclosing their scope 3
+                    emissions are selected.
+                </p><br>
+            </div>
+        </div>
+
+        <p>
+            A few observations:
+        <ul>
+            <li>
+                No clear correlation between CDP and ITR scores, even if most of the companies aligning with a below 2
+                degrees scenario have a good CDP score
+            </li>
+
+
+            <li>>Most of C-score companies are below 2 degrees (AIG, Paypal, Verizon, McDonald, Target, Comcast)</li>
+            <li>F-score companies (no CDP reporting) show a few surprises: Berkshire Hathaway and Tesla that do not
+                disclose carbon data respectively show a 2.25 and 2.81 degree alignment. Facebook and Netflix are well
+                below
+                2 degrees and committed to reporting to CDP this year. Charter Communications (1.7) could be the next
+                one?
+            </li>
+            <li>High temperatures (>3.5) are among all the CDP scores categories: General Motors (A / 4), Southern
+                Company
+                (A- / 4), Dow (B / 4), Kraft Heinz (B- / 3.8), General Electric (D / 4), Nextera Energy (F / 3.61) and
+                Exxon
+                Mobil (F / 4)</li></ul>
+
+            Based on this comparison, we cannot conclude that there is a link between the 2 metrics even if transparency
+            should naturally be correlated with the level of carbon reduction targets and climate scenarios. We should
+            also challenge the methodology of the new MSCi indicator as some results are surprising (for example,
+            Microsoft or Tesla).
+
+            Please feel free to share your comments.
+            </p>
+    </section>
+
+    <footer>
+        <ul class="icons">
+            <li><a href="https://twitter.com/VincentManier" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="https://www.linkedin.com/in/vincent-manier-85aa257/" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="mailto: vmanier2020@gmail.com" target="_blank" rel="noopener noreferrer"
+                    class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            {% comment %}
+            <li><a href="https://github.com/VinBots/django_project" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-github"><span class="label">Github</span></a></li>
+            {% endcomment %}
+        </ul>
+    </footer>
+</article>
