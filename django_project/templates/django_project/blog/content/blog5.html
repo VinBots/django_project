@@ -30,7 +30,11 @@
             shown below. <br>
         </p>
         <div class="row">
-            <div align="center" class="col-12 col-12-medium">
+            <div align="center" class="col-6 col-12-medium">
+                <img src="{% static 'django_project/images/blog/cdp_scores_dist.jpeg' %}" class="image featured"
+                    alt="" />
+            </div>
+            <div align="center" class="col-6 col-12-medium">
                 <img src="{% static 'django_project/images/blog/itr_scores_dist.jpeg' %}" class="image featured"
                     alt="" />
             </div>
@@ -46,12 +50,6 @@
             Let's now plot ITR by CDP score category to understand the relationship. </p>
 
         <div class="row">
-
-            <div align="center" class="col-12 col-12-medium">
-
-                <img src="{% static 'django_project/images/blog/cdp_itr.jpeg' %}"
-                    class="image featured" alt="" />
-            </div>
             <div align="center" class="col-12 col-12-medium">
                 {% include 'django_project/blog/cdp_itr.html' %}
             </div>
