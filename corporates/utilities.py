@@ -95,7 +95,7 @@ def get_scores_summary(company_id, all_data= None):
         '',
         'Results re. operational emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)',
         'Results re. value chain emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)',
-        'Criteria not yet defined (executive compensation, stance on offsets under study)',
+        'Implied Temperature Rating by MSCi',
         '',
     ]
     max_score = [
