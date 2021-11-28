@@ -27,7 +27,7 @@ def corporates_search(request, corp_name=None):
     }
 
     library_corp = {
-      'verification': get_path_to_library()
+      'sust_report': "2020_" + selected_corp.company_id + ".pdf"
     }
 
     corp_data = {
