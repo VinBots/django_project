@@ -101,6 +101,6 @@ def download_file (request, filename = 'test.txt'):#filename = '2020_43_1.pdf'):
     # Set the return value of the HttpResponse
     response = HttpResponse(path, content_type=mime_type)
     # Set the HTTP header for sending to browser
-    #response['Content-Disposition'] = "attachment; filename=%s" % filename
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
     # Return the response value
     return response
