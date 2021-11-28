@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 
 <article class="post">
     <header>
@@ -10,8 +11,8 @@
         <table>
             <thead>
                 <tr>
-                    <th><b>Criteria / Tests</b></th>
-                    <th><b>Points</b></th>
+                    <th><b>Criteria</b></th>
+                    <th><b>Results</b></th>
                 </tr>
             </thead>
             <tbody>
@@ -97,12 +98,12 @@
                 <tr>
                     <td>Target year for achieving net zero emissions for S1+S2?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_5_1_meta}}</td>
+                    <td>{{xls_corp.corp_scores_details.rat_5_1_meta|apnumber}}</td>
                 </tr>
                 <tr>
                     <td>Target year for achieving net zero emissions for S1+S2+S3 combined?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_5_2_meta}}</td>
+                    <td>{{xls_corp.corp_scores_details.rat_5_2_meta|apnumber}}</td>
                 </tr>
 
                 <tr>
