@@ -84,7 +84,7 @@ def faq(request):
   return render (request, "django_project/faq/main.html")
 
 
-def download_file (request, filename = '2020_43_1.pdf'):
+def download_file (request, filename = ''):
 
     if filename !='':
       BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
