@@ -83,14 +83,14 @@ def faq(request):
   return render (request, "django_project/faq/main.html")
 
 
-def download_file (request):
+def download_file (request, filename = ''):
    # Define Django project base directory
     #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # Define text file name
     BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
-    filepath = os.path.join (BASE_DIR_LIB, 'ghg','test.txt')
+    filepath = os.path.join (BASE_DIR_LIB, 'ghg', filename)
 
-    filename = 'test.txt'
+    #filename = 'test.txt'
     # Define the full file path
     #filepath = BASE_DIR + '/downloadapp/Files/' + filename
     # Open the file for reading content
