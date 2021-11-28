@@ -9,7 +9,7 @@
     </header>
     <section>
         <h3>Sustainability Reports</h3>
-        Year 2020<a href="{% url 'download_file' filename='2020_'+ selected_corp.company_id + '.pdf' %}">
+        Year 2020<a href="{% url 'download_file' filename=library_corp.sust_report %}">
             <button type="button">Download PDF</button>
         </a>
         <h3>GreenHouse Gas Reporting</h3>
