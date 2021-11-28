@@ -117,12 +117,6 @@ def get_scores_summary(company_id, all_data= None):
 
     score_data=[0]*13
 
-    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-    #all_data = get_data(
-    #    xlsx_path,
-    #    'score_summary',
-    #    None,
-    #)
     scores_summary_data=all_data[all_data['company_id']==company_id]
     for i in range(1, 14):
         score_data[i-1]= scores_summary_data.iloc[0, i]
@@ -159,15 +153,12 @@ def get_scores_summary(company_id, all_data= None):
 
     return score_data_dict
 
-def get_targets(company_id, all_data=None):
+def get_scores_details(company_id, all_data= None):
+    """Returns detailed score data"""
+    scores_details_data=all_data[all_data['company_id']==company_id]
+    return scores_details_data.to_dict(orient='records')[0]
 
-    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-    #cols_to_use = ['company_id', 'target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year','source']
-    #all_data = get_data(
-    #    xlsx_path,
-    #    'targets_quant',
-    #    cols_to_use,
-    #)
+def get_targets(company_id, all_data=None):
     
     targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
     targets_select_data = targets_record_data[['target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year']]
@@ -187,14 +178,6 @@ def get_targets(company_id, all_data=None):
     
 
 def get_ghg(company_id = 113, all_data = None, source = 'CDP', last_reporting_year = 2019, fields = ['reporting_year', 'Source', 'ghg_scope_1','ghg_loc_scope_2','ghg_mkt_scope_2','ghg_scope3_total','ghg_total']):
-    
-    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-        
-    #all_data = get_data(
-    #    xlsx_path,
-    #    'ghg_quant',
-    #    None,
-    #)
     
     last_reporting_year = get_last_reporting_year(company_id)
 
@@ -236,7 +219,7 @@ def get_all_data_from_xls():
         sheet_name=sheet_names,
         engine = 'openpyxl')
 
-def get_all_data_from_csv(sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant']):
+def get_all_data_from_csv(sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant', 'score_details']):
     
     pd_dict = {}
     prefix = 'sp100_data.xlsx - '
