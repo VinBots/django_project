@@ -155,7 +155,7 @@ def get_scores_summary(company_id, all_data= None):
 
 def get_scores_details(company_id, all_data= None):
     """Returns detailed score data"""
-    scores_details_data=all_data[all_data['company_id']==company_id]
+    scores_details_data=all_data[all_data['company_id']==company_id].fillna('NA')
     return scores_details_data.to_dict(orient='records')[0]
 
 def get_targets(company_id, all_data=None):
