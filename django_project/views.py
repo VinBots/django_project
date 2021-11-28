@@ -95,11 +95,12 @@ def download_file (request, filename = '2020_43_1.pdf'):
     #filepath = BASE_DIR + '/downloadapp/Files/' + filename
     # Open the file for reading content
     path = open(filepath, 'r')
+    content = open (filepath).read()
     # Set the mime type
     mime_type, _ = mimetypes.guess_type(filepath)
     # Set the return value of the HttpResponse
     response = HttpResponse(path, content_type=mime_type)
     # Set the HTTP header for sending to browser
-    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    #response['Content-Disposition'] = "attachment; filename=%s" % filename
     # Return the response value
     return response
