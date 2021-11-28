@@ -97,3 +97,5 @@ def download_file (request, filename = ''):#filename = '2020_43_1.pdf'):
       response['Content-Disposition'] = "attachment; filename=%s" % filename
       # Return the response value
       return response
+    else:
+      return render (request, "django_project/home/main.html")
