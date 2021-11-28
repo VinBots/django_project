@@ -3,9 +3,10 @@ from django.urls import reverse
 from leaderboard.utilities import get_scores_xls
 from django.shortcuts import render, redirect
 from django_project.utilities import get_random_logos, get_top10_wo_zero, get_top5_transp_miss_cut
+import mimetypes
+import os
+from django.http import HttpResponse
 
-
-#from django.http import HttpResponse, HttpRequest
 #import random
 #from typing import Dict
 #import dash
@@ -15,7 +16,6 @@ from django_project.utilities import get_random_logos, get_top10_wo_zero, get_to
 #from django_plotly_dash import DjangoDash
 #import dash_html_components as html
 #import dash_core_components as dcc
-#import os
 #import plotly.graph_objs as go
 #import dash_table.FormatTemplate as FormatTemplate
 #from dash_table.Format import Format, Group, Scheme
@@ -79,3 +79,25 @@ def blog(request):
 
 def faq(request):
   return render (request, "django_project/faq/main.html")
+
+
+def download_file (request):
+   # Define Django project base directory
+    #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    # Define text file name
+    BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
+    filepath = os.path.join (BASE_DIR_LIB, 'ghg','2017_83.png')
+
+    filename = '2017_83.png'
+    # Define the full file path
+    #filepath = BASE_DIR + '/downloadapp/Files/' + filename
+    # Open the file for reading content
+    path = open(filepath, 'r')
+    # Set the mime type
+    mime_type, _ = mimetypes.guess_type(filepath)
+    # Set the return value of the HttpResponse
+    response = HttpResponse(path, content_type=mime_type)
+    # Set the HTTP header for sending to browser
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    # Return the response value
+    return response
