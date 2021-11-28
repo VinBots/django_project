@@ -6,6 +6,8 @@ from django_project.utilities import get_random_logos, get_top10_wo_zero, get_to
 import mimetypes
 import os
 from django.http import HttpResponse
+from pathlib import Path
+
 
 #import random
 #from typing import Dict
