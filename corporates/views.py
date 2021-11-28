@@ -27,7 +27,7 @@ def corporates_search(request, corp_name=None):
     }
 
     library_corp = {
-      'sust_report': "2020_" + str(selected_corp.company_id) + ".png"
+      'ghg': "2020_" + str(selected_corp.company_id) + ".png"
     }
 
     corp_data = {
