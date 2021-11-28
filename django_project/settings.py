@@ -65,8 +65,7 @@ INSTALLED_APPS = [
     'dpd_static_support',
     'corporates',
     'leaderboard',
-    'django.contrib.humanize',
-]
+    'django.contrib.humanize',]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
