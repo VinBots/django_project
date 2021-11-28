@@ -62,7 +62,6 @@ urlpatterns = [
     path('blog.html/', views.blog, name = 'blog'),
     path('leaderboard.html/', include('leaderboard.urls')),
     path('download/', views.download_file, name = 'download_file'),
-    path('download//', views.download_file, name = 'download_file'),
     ]
 
     #OLD paths
