@@ -88,7 +88,7 @@ def download_file (request, filename = '2020_43_1.pdf'):
 
     if filename !='':
       BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
-      filepath = os.path.join (BASE_DIR_LIB, 'sust_report', filename)
+      filepath = os.path.join (BASE_DIR_LIB, 'ghg', filename)
       #path = open(filepath, 'r')
       f = open(filepath, 'rb')
       pdfFile = File(f)
