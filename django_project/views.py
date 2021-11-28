@@ -83,7 +83,7 @@ def faq(request):
   return render (request, "django_project/faq/main.html")
 
 
-def download_file (request, filename = ''):
+def download_file (request, filename = '2020_43_1.pdf'):
    # Define Django project base directory
     #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # Define text file name
