@@ -89,21 +89,13 @@ def download_file (request, filename = '2020_43_1.pdf'):
     if filename !='':
       BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
       filepath = os.path.join (BASE_DIR_LIB, 'ghg', filename)
-      #path = open(filepath, 'r')
-      f = open(filepath, 'rb')
-      pdfFile = File(f)
-      response = HttpResponse(pdfFile.read())
-      response['Content-Disposition'] = "attachment;filename=%s" % filename
-
-
-      # Set the mime type
-      #mime_type, _ = mimetypes.guess_type(filepath)
-      # Set the return value of the HttpResponse
-      #response = HttpResponse(path, content_type=mime_type)
-      #response = HttpResponse(path, content_type="application/pdf")
-      # Set the HTTP header for sending to browser
-      #response['Content-Disposition'] = "attachment; filename=%s" % filename
-      # Return the response value
-      return response
+      if os.path.exists(filepath):
+        f = open(filepath, 'rb')
+        pdfFile = File(f)
+        response = HttpResponse(pdfFile.read())
+        response['Content-Disposition'] = "attachment;filename=%s" % filename
+        return response
+      else:
+        return None
     else:
       return redirect(reverse('main_home'))
