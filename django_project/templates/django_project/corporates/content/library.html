@@ -8,9 +8,18 @@
         </div>
     </header>
     <section>
+        <a href="{% url 'download_file' filename='test.txt' %}">
+            <button type="button">Download TEXT</button>
+        </a>
+
         <a href="{% url 'download_file' filename='2020_43_1.pdf' %}">
-            <button type="button">Download</button>
-            </a>
+            <button type="button">Download PDF</button>
+        </a>
+
+        <a href="{% url 'download_file' filename='2020_103_1.png' %}">
+            <button type="button">Download PNG</button>
+        </a>
+
         <p>
         </p>
 
