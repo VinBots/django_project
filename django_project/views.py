@@ -98,4 +98,4 @@ def download_file (request, filename = ''):#filename = '2020_43_1.pdf'):
       # Return the response value
       return response
     else:
-      return render (request, "django_project/home/main.html")
+      return redirect('')
