@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
-from corporates.utilities import get_path_to_chart, check_validity, get_ghg, get_path_to_img, get_score_data, get_scores_summary, get_targets, file_exist, get_scores_details, get_all_data_from_csv
+from corporates.utilities import get_path_to_library, get_path_to_chart, check_validity, get_ghg, get_path_to_img, get_score_data, get_scores_summary, get_targets, file_exist, get_scores_details, get_all_data_from_csv
 from django_project.utilities import get_random_logos
 from pathlib import Path
 import os
@@ -24,10 +24,16 @@ def corporates_search(request, corp_name=None):
       'corp_scores_summary': get_scores_summary(company_id=selected_corp.company_id, all_data = all_data['score_summary']),
       'corp_scores_details': get_scores_details(company_id=selected_corp.company_id, all_data = all_data['score_details']),
       'targets': get_targets(company_id=selected_corp.company_id, all_data = all_data['targets_quant']),
-    }    
+    }
+
+    library_corp = {
+      'verification': get_path_to_library()
+    }
+
     corp_data = {
     "selected_corp": selected_corp,
     "xls_corp": xls_corp,
+    "library_corp": library_corp,
     "selected_corp_bullet_chart": {
       'html': get_path_to_chart(selected_corp.company_id, "bullet"),
       'img': get_path_to_img (selected_corp.company_id, "bullet"),

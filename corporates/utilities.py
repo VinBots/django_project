@@ -9,6 +9,7 @@ import json
 
 #BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
+BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
 #BASE_DIR_XL_DB = '/Users/vincentmanier/Documents/django_project/'
 #DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
 DIR_TO_CORP_CHARTS_TEMPLATES = "/corporates.html/charts/html_exports/"
@@ -31,6 +32,12 @@ def get_path_to_img (company_id, chart_name):
         chart_name + str(company_id) + ".jpeg")
 
     return path
+
+def get_path_to_library():
+    
+    path = os.path.join (BASE_DIR_LIB, 'ghg','2017_83.png')
+    return path
+
 
 def check_validity(corp_name):
 
