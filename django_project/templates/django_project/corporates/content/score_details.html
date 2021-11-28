@@ -38,17 +38,14 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Are the 15 categories disclosed? Total scope 3 can be aggregated or details are provided
-                        in
-                        the CDP report (link to the questionnaire to be provided. Link to CDP website is not
-                        enough)
+                    <td>Are the 15 categories disclosed?
                     </td>
-                    <td>partly</td>
+                    <td>{{xls_corp.corp_scores_details.rat_2_1}}</td>
                 </tr>
                 <tr>
                     <td>Are S3 figures verified by a 3rd-party for the last reporting year?
                     </td>
-                    <td>partly</td>
+                    <td>{{xls_corp.corp_scores_details.rat_2_2}}</td>
                 </tr>
                 <tr>
                     <td><b>Criteria 3 : Quality and Frequency of reporting</b>
@@ -58,13 +55,13 @@
                 <tr>
                     <td>What is the latest CDP score (no later than the preceding year)?
                     </td>
-                    <td>B-</td>
+                    <td>{{xls_corp.corp_scores_details.rat_3_1}}</td>
                 </tr>
                 <tr>
                     <td> How many interim reporting were provided between 2 reporting periods (GHG emissions
                         only)?
                     </td>
-                    <td>0</td>
+                    <td>{{xls_corp.corp_scores_details.rat_3_2}}</td>
                 </tr>
 
                 <tr>
@@ -78,18 +75,18 @@
                         target
                         by 2050?
                     </td>
-                    <td>Yes</td>
+                    <td>{{xls_corp.corp_scores_details.rat_4_1}}</td>
                 </tr>
                 <tr>
                     <td>Does the net zero target include an intermediate target by 2030?
                     </td>
-                    <td>Yes</td>
+                    <td>{{xls_corp.corp_scores_details.rat_4_2}}</td>
                 </tr>
 
                 <tr>
                     <td>Does the net zero target include all the emissions?
                     </td>
-                    <td>Yes</td>
+                    <td>{{xls_corp.corp_scores_details.rat_4_3}}</td>
                 </tr>
                 <tr>
                     <td><b>Criteria 5 : Target year for Net Zero Commitments</b>
@@ -100,12 +97,12 @@
                 <tr>
                     <td>Target year for achieving net zero emissions for S1+S2?
                     </td>
-                    <td>2025</td>
+                    <td>{{xls_corp.corp_scores_details.rat_5_1_meta}}</td>
                 </tr>
                 <tr>
                     <td>Target year for achieving net zero emissions for S1+S2+S3 combined?
                     </td>
-                    <td>2050</td>
+                    <td>{{xls_corp.corp_scores_details.rat_5_2_meta}}</td>
                 </tr>
 
                 <tr>
@@ -117,12 +114,12 @@
                 <tr>
                     <td>What is the forward-looking GHG% reduction (without compensation) for scope 1+2?
                     </td>
-                    <td>3.2%</td>
+                    <td>{{xls_corp.corp_scores_details.rat_6_1}}</td>
                 </tr>
                 <tr>
                     <td>What is the forward-looking GHG% reduction (without compensation) for scope 1+2+3?
                     </td>
-                    <td>2.8%</td>
+                    <td>{{xls_corp.corp_scores_details.rat_6_2}}</td>
                 </tr>
                 <tr>
                     <td><b>Criteria 7 : Science-Based Targets</b>
@@ -133,7 +130,7 @@
                 <tr>
                     <td>What type of science-based target (as validated by SBTi) did the company commit to?
                     </td>
-                    <td>Targets Set_1.5°C</td>
+                    <td>{{xls_corp.corp_scores_details.rat_7_1}}</td>
                 </tr>
                 <tr>
                     <td><b>Criteria 8 : Results based on scope 1 - 2</b>
@@ -143,12 +140,16 @@
                 <tr>
                     <td>Performance to date: cumulative% reduction in line with target for Scope 1 - 2?
                     </td>
-                    <td>2.5% - not in line</td>
+                    <td>Objective: {{xls_corp.corp_scores_details.rat_8_1_meta_1}}<br>
+                        Actual: {{xls_corp.corp_scores_details.rat_8_1_meta_2}}
+                    </td>
                 </tr>
                 <tr>
                     <td>Momentum: last year % reduction in line with forward-looking target for Scope 1 - 2?
                     </td>
-                    <td>2.4% - in line</td>
+                    <td>Objective: {{xls_corp.corp_scores_details.rat_8_2_meta_1}}<br>
+                        Actual: {{xls_corp.corp_scores_details.rat_8_2_meta_2}}
+                    </td>
                 </tr>
                 <tr>
                     <td><b>Criteria 9 : Results based on scope 1 - 2 - 3</b>
@@ -158,12 +159,16 @@
                 <tr>
                     <td>Performance to date: cumulative% reduction in line with target for Scope 1 - 2 - 3?
                     </td>
-                    <td>in line</td>
+                    <td>Objective: {{xls_corp.corp_scores_details.rat_9_1_meta_1}}<br>
+                        Actual: {{xls_corp.corp_scores_details.rat_9_1_meta_2}}
+                    </td>
                 </tr>
                 <tr>
                     <td>Momentum: last year % reduction in line with forward-looking target for Scope 1 - 2 - 3?
                     </td>
-                    <td>in line</td>
+                    <td>Objective: {{xls_corp.corp_scores_details.rat_9_2_meta_1}}<br>
+                        Actual: {{xls_corp.corp_scores_details.rat_9_2_meta_2}}
+                    </td>
                 </tr>
                 <tr>
                     <td><b>Criteria 10 : <a
@@ -174,12 +179,12 @@
                 </tr>
                 <tr>
                     <td>Is the company aligned with global climate targets?</td>
-                    <td>1.8°C</td>
+                    <td>ITR: {{xls_corp.corp_scores_details.rat_10_1}}°C</td>
                 </tr>
             </tbody>
         </table>
 
-        
+
     </section>
     <br><br>
     <footer>
