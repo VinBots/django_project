@@ -84,16 +84,16 @@ def faq(request):
   return render (request, "django_project/faq/main.html")
 
 
-def download_file (request, filepath = ''):
+def download_file (request, filename = ''):
 
-    if filepath !='':
+    if filename !='':
       BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
-      filepath = os.path.join (BASE_DIR_LIB, 'ghg', filepath)
+      filepath = os.path.join (BASE_DIR_LIB, 'ghg', filename)
       if os.path.exists(filepath):
         f = open(filepath, 'rb')
         pdfFile = File(f)
         response = HttpResponse(pdfFile.read())
-        response['Content-Disposition'] = "attachment;filename=%s" % filepath
+        response['Content-Disposition'] = "attachment;filename=%s" % filename
         return response
       else:
         return None
