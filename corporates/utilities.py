@@ -226,12 +226,12 @@ def get_all_data_from_xls():
         sheet_name=sheet_names,
         engine = 'openpyxl')
 
-def get_all_data_from_csv(sheet_names =['ghg_quant', 'corp_scores', 'score_summary', 'targets_quant', 'score_details']):
+def get_all_data_from_csv(sheet_names):
     
     pd_dict = {}
-    prefix = 'sp100_data.xlsx - '
+    
     for sheetname in sheet_names:
-        csv_path = os.path.join (BASE_DIR_XL_DB, prefix + sheetname + '.csv')
+        csv_path = os.path.join (BASE_DIR_XL_DB, sheetname + '.csv')
         pd_dict[sheetname] = pd.read_csv (csv_path)
     return pd_dict
 

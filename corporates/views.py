@@ -16,7 +16,15 @@ def corporates_search(request, corp_name=None):
   if check_validity(corp_name):
 
     selected_corp = Corporate.objects.get(name=corp_name)
-    all_data = get_all_data_from_csv()
+    sheet_names =[
+      'ghg_quant',
+      'corp_scores',
+      'score_summary',
+      'targets_quant',
+      'score_details',
+      'library_db']
+
+    all_data = get_all_data_from_csv(sheet_names)
 
     xls_corp = {
       'ghg': get_ghg(company_id=selected_corp.company_id, all_data = all_data['ghg_quant']),
