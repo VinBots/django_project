@@ -182,7 +182,9 @@ def get_library_data(company_id, all_data=None):
         filter_conditions = cond1 & cond2
         record_data=all_data.loc[filter_conditions].sort_values(
             ['year', 'part'], ascending=[False, True])
-        dict[category] = record_data[fields].to_dict('records')
+        record = record_data[fields].to_dict('records')
+        if len(record) > 0:
+            dict[category] = record
 
     return dict
 
