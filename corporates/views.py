@@ -34,9 +34,7 @@ def corporates_search(request, corp_name=None):
       'targets': get_targets(company_id=selected_corp.company_id, all_data = all_data['targets_quant']),
     }
 
-    library_corp = {
-      'ghg': get_library_data(company_id=selected_corp.company_id, all_data = all_data['library_db'])
-    }
+    library_corp = get_library_data(company_id=selected_corp.company_id, all_data = all_data['library_db'])
 
     corp_data = {
     "selected_corp": selected_corp,
