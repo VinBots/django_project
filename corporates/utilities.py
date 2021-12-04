@@ -160,10 +160,10 @@ def get_scores_summary(company_id, all_data= None):
 
     return score_data_dict
 
-def to_pct(df, field):
-    """Converts a field into numeric and multiply by 100 - used for percentage"""
+def to_pct(df, field, decimal=1):
+    """Converts a field into numeric, multiply by 100 and rounded - used for percentage"""
     df[field] = pd.to_numeric(df[field], errors = 'coerce') * 100
-    return df
+    return df.round(decimal)
 
 def get_scores_details(company_id, all_data= None):
     """Returns detailed score data"""
