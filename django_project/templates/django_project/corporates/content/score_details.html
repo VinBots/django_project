@@ -186,9 +186,9 @@
                     <td>Momentum: last year % reduction vs. forward-looking target
                     </td>
                     <td>Objective: 
-                        {%if xls_corp.corp_scores_details.rat_8_2_meta_1 !="nan" %}
+                        {% if xls_corp.corp_scores_details.rat_8_2_meta_1 !="nan" %}
                         {{xls_corp.corp_scores_details.rat_8_2_meta_1}}%<br>
-                        {%else %}
+                        {% else %}
                         NA
                         {% endif %}
                         
