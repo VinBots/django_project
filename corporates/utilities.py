@@ -180,7 +180,8 @@ def get_library_data(company_id, all_data=None):
     for folder_name, category in folders_list:
         cond2 = all_data['folder_name']==folder_name
         filter_conditions = cond1 & cond2
-        record_data=all_data.loc[filter_conditions].sort_values('part', ascending=True)
+        record_data=all_data.loc[filter_conditions].sort_values(
+            ['year', 'part'], ascending=[False, True])
         dict[category] = record_data[fields].to_dict('records')
 
     return dict
