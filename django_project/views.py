@@ -93,7 +93,7 @@ def download_file (request, filename = ''):
         f = open(filepath, 'rb')
         pdfFile = File(f)
         response = HttpResponse(pdfFile.read())
-        response['Content-Disposition'] = "attachment;filename=%s" % filename
+        response['Content-Disposition'] = "attachment;filename=%s" % filename + "HELLO"
         return response
       else:
         return None
