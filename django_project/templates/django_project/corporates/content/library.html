@@ -9,8 +9,7 @@
     </header>
     <section>
         {{library_corp}}
-        {% comment %}
-        {% for key, value in library_corp%}
+        {% for key, value in library_corp.items%}
         <h3>{{key}}</h3>
         
         {% for data in value %}
@@ -19,7 +18,6 @@
         {% endfor %}
         
         {% endfor %}
-        {% endcomment %}
         
         {% comment %}
 
