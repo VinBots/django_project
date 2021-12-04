@@ -14,9 +14,9 @@
         
         {% for data in value %}
 
-        <p>{{data.desc}}<a href="{% url 'download_file' filepath=data.filename %}">
-            <button type="button">Download</button>
-        </a></p>
+        <p>{{data.desc}} 
+        </p>
+        <p>{{data.filename}}</p>
 
         {% endfor %}
         
