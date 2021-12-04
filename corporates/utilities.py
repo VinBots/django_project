@@ -166,18 +166,23 @@ def get_scores_details(company_id, all_data= None):
     return scores_details_data.to_dict(orient='records')[0]
 
 def get_library_data(company_id, all_data=None):
-    
-    dict = {
-        'GHG' : [
-            {
-                'desc': 'abc',
-                'filepath': 'abcdef'},
-            {
-                'desc': 'def',
-                'filepath': 'xxxxx'
-            }
-        ]
-    }
+    dict ={}
+    fields = ["filename", "desc"]
+    cond1 = all_data['company_id']== company_id
+    folders_list = [
+        ['ghg','GHG data'],
+        ['cdp','CDP report'],
+        ['sust_report', 'Sustainability Reporting'],
+        ['targets','Targets reporting'],
+        ['verification', 'Verification']
+    ]
+
+    for folder_name, category in folders_list:
+        cond2 = all_data['folder_name']==folder_name
+        filter_conditions = cond1 & cond2
+        record_data=all_data.loc[filter_conditions].sort_values('part', ascending=True)
+        dict[category] = record_data[fields].reset_index().to_dict('records')
+
     return dict
 
 def get_targets(company_id, all_data=None):
