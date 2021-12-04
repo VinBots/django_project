@@ -170,9 +170,9 @@ def get_library_data(company_id, all_data=None):
     fields = ["folder_name", "filename", "desc"]
     cond1 = all_data['company_id']== company_id
     folders_list = [
-        ['ghg','GHG data'],
-        ['cdp','CDP report'],
         ['sust_report', 'Sustainability Reporting'],
+        ['ghg','GHG data'],
+        #['cdp','CDP report'],
         ['targets','Targets reporting'],
         ['verification', 'Verification']
     ]
