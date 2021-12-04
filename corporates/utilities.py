@@ -160,9 +160,29 @@ def get_scores_summary(company_id, all_data= None):
 
     return score_data_dict
 
+def to_pct(df, field):
+    """Converts a field into numeric and multiply by 100 - used for percentage"""
+    df[field] = pd.to_numeric(df[field], errors = 'coerce') * 100
+    return df
+
 def get_scores_details(company_id, all_data= None):
     """Returns detailed score data"""
     scores_details_data=all_data[all_data['company_id']==company_id].fillna('NA')
+    pct_fields = [
+        'rat_6_1',
+        'rat_6_2',
+        'rat_8_1_meta_1',
+        'rat_8_1_meta_2',
+        'rat_8_2_meta_1',
+        'rat_8_2_meta_2',
+        'rat_9_1_meta_1',
+        'rat_9_1_meta_2',
+        'rat_9_2_meta_1',
+        'rat_9_2_meta_2',
+        ]
+    for field_name in pct_fields:
+        scores_details_data = to_pct(scores_details_data, field_name)
+
     return scores_details_data.to_dict(orient='records')[0]
 
 def get_library_data(company_id, all_data=None):
@@ -193,7 +213,6 @@ def get_targets(company_id, all_data=None):
     targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
     targets_select_data = targets_record_data[['target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year']]
     targets_select_data['reduction_obj'] = pd.to_numeric(targets_select_data['reduction_obj'], errors = 'coerce') * 100
-    #targets_select_data['reduction_obj'] = targets_select_data['reduction_obj'] * 100
     data_gross_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'gross_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
     data_net_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
     data_net_zero_policy = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_zero_policy')].sort_values(by='scope').reset_index().to_json(orient ='records'))
