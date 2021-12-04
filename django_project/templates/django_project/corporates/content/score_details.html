@@ -229,8 +229,16 @@
                 <tr>
                     <td>Momentum: last year % reduction vs. forward-looking target 
                     </td>
-                    <td>Objective: {{xls_corp.corp_scores_details.rat_9_2_meta_1}}%<br>
-                        Actual: {{xls_corp.corp_scores_details.rat_9_2_meta_2}}%
+                    <td>Objective: {{xls_corp.corp_scores_details.rat_9_2_meta_1}}
+                        {% if xls_corp.corp_scores_details.rat_9_2_meta_1 != 'NA' %}
+                        %
+                        {% endif %}
+
+                        <br>
+                        Actual: {{xls_corp.corp_scores_details.rat_9_2_meta_2}}
+                        {% if xls_corp.corp_scores_details.rat_9_2_meta_2 != 'NA' %}
+                        %
+                        {% endif %}
                     </td>
                     <td>{{xls_corp.corp_scores_details.sco_9_2}}</td>
 
