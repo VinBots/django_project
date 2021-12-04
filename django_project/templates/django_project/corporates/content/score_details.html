@@ -187,13 +187,17 @@
                     </td>
                     <td>Objective: 
                         {{xls_corp.corp_scores_details.rat_8_2_meta_1}}
+                        
                         {% if xls_corp.corp_scores_details.rat_8_2_meta_1 != 'NA' %}
                         %
                         {% endif %}
                         <br>
                         
-                        
-                        Actual: {{xls_corp.corp_scores_details.rat_8_2_meta_2}}%
+                        Actual: {{xls_corp.corp_scores_details.rat_8_2_meta_2}}
+                        {% if xls_corp.corp_scores_details.rat_8_2_meta_2 != 'NA' %}
+                        %
+                        {% endif %}
+
                     </td>
                     <td>{{xls_corp.corp_scores_details.sco_8_2}}</td>
 
@@ -207,8 +211,17 @@
                 <tr>
                     <td>Performance to date: cumulative% reduction vs. target
                     </td>
-                    <td>Objective: {{xls_corp.corp_scores_details.rat_9_1_meta_1}}%<br>
-                        Actual: {{xls_corp.corp_scores_details.rat_9_1_meta_2}}%
+                    <td>Objective: {{xls_corp.corp_scores_details.rat_9_1_meta_1}}
+                        {% if xls_corp.corp_scores_details.rat_9_1_meta_1 != 'NA' %}
+                        %
+                        {% endif %}
+
+                        <br>
+                        Actual: {{xls_corp.corp_scores_details.rat_9_1_meta_2}}
+                        {% if xls_corp.corp_scores_details.rat_9_1_meta_2 != 'NA' %}
+                        %
+                        {% endif %}
+
                     </td>
                     <td>{{xls_corp.corp_scores_details.sco_9_1}}</td>
 
