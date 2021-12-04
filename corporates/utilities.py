@@ -165,6 +165,21 @@ def get_scores_details(company_id, all_data= None):
     scores_details_data=all_data[all_data['company_id']==company_id].fillna('NA')
     return scores_details_data.to_dict(orient='records')[0]
 
+def get_library_data(company_id, all_data=None):
+    
+    dict = {
+        'GHG' : [
+            {
+                'desc': 'abc',
+                'filepath': 'abcdef'},
+            {
+                'desc': 'def',
+                'filepath': 'xxxxx'
+            }
+        ]
+    }
+    return dict
+
 def get_targets(company_id, all_data=None):
     
     targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
