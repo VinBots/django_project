@@ -15,6 +15,9 @@
         <p>{{data.desc}} <a href="{% url 'download_file' folder_name=data.folder_name file_name=data.filename %}">
             <button type="button">Download</button>
         </a></p>
+        <i class="fa-solid fa-download"></i><p><a href="{% url 'download_file' folder_name=data.folder_name file_name=data.filename %}">
+            {{data.desc}}
+        </a></p>
 
         {% endfor %}
         
