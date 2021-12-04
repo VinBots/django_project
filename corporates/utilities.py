@@ -181,8 +181,8 @@ def get_scores_details(company_id, all_data= None):
         'rat_9_2_meta_1',
         'rat_9_2_meta_2',
         ]
-    #for field_name in pct_fields:
-        #scores_details_data = to_pct(scores_details_data, field_name)
+    for field_name in pct_fields:
+        scores_details_data = to_pct(scores_details_data, field_name)
 
     return scores_details_data.to_dict(orient='records')[0]
 
