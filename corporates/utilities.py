@@ -192,8 +192,8 @@ def get_targets(company_id, all_data=None):
     
     targets_record_data=all_data.loc[(all_data['company_id']==company_id) & (all_data['source'].isin(['sbti','public', 'cdp']))]
     targets_select_data = targets_record_data[['target_type','scope', 'cov_s3', 'reduction_obj', 'base_year', 'target_year']]
-    targets_select_data['reduction_obj'] = pd.to_numeric(targets_select_data['reduction_obj'], errors = 'coerce')
-    targets_select_data['reduction_obj'] = targets_select_data['reduction_obj'] * 100
+    targets_select_data['reduction_obj'] = pd.to_numeric(targets_select_data['reduction_obj'], errors = 'coerce') * 100
+    #targets_select_data['reduction_obj'] = targets_select_data['reduction_obj'] * 100
     data_gross_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'gross_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
     data_net_abs = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_abs')].sort_values(by='scope').reset_index().to_json(orient ='records'))
     data_net_zero_policy = json.loads(targets_select_data.loc[(targets_select_data['target_type'] == 'net_zero_policy')].sort_values(by='scope').reset_index().to_json(orient ='records'))
