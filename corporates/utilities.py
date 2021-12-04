@@ -184,6 +184,8 @@ def get_scores_details(company_id, all_data= None):
     for field_name in pct_fields:
         scores_details_data = to_pct(scores_details_data, field_name)
 
+    scores_details_data = scores_details_data.fillna('NA')
+
     return scores_details_data.to_dict(orient='records')[0]
 
 def get_library_data(company_id, all_data=None):
