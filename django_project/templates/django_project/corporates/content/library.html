@@ -8,15 +8,28 @@
         </div>
     </header>
     <section>
+        {% for key, value in library_corp%}
+        <h3>{{key}}</h3>
+        
+        {% for data in value %}
+        <p>data.desc</p><br>
+        <p>data.filepath</p>
+        <p>data.desc<a href="{% url 'download_file' filepath=data.filepath %}">
+            <button type="button">Download</button>
+        {% endfor %}
+        
+        {% endfor %}
+        {% comment %}
+
         <h3>Sustainability Reports</h3>
         <p>Work in progress</p>
         <h3>GreenHouse Gas Reporting</h3>
         <p>Work in progress</p>
-        {% comment %}
-        <p>Year 2020<a href="{% url 'download_file' filename=library_corp.ghg %}">
+        
+        <p>Year 2020<a href="{% url 'download_file' filepath=library_corp.ghg %}">
             <button type="button">Download</button>
         </a></p>
-        {% endcomment %}
+        
 
         <h3>Targets</h3>
         <p>Work in progress</p>
@@ -25,11 +38,9 @@
         <h3>CDP</h3>
         <p>Work in progress</p>
 
-
-
-
         <p>
         </p>
+        {% endcomment %}
 
     </section>
     <br><br>

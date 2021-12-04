@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from corporates.models import Corporate
 from django.urls import reverse
-from corporates.utilities import get_path_to_library, get_path_to_chart, check_validity, get_ghg, get_path_to_img, get_score_data, get_scores_summary, get_targets, file_exist, get_scores_details, get_all_data_from_csv
+from corporates.utilities import get_library_data, get_path_to_chart, check_validity, get_ghg, get_path_to_img, get_score_data, get_scores_summary, get_targets, file_exist, get_scores_details, get_all_data_from_csv
 from django_project.utilities import get_random_logos
 from pathlib import Path
 import os
@@ -35,7 +35,7 @@ def corporates_search(request, corp_name=None):
     }
 
     library_corp = {
-      'ghg': "2020_" + str(selected_corp.company_id) + ".png"
+      'ghg': get_library_data(company_id=selected_corp.company_id, all_data = all_data['library_db'])
     }
 
     corp_data = {
