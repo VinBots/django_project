@@ -13,10 +13,9 @@
         <h3>{{key}}</h3>
         
         {% for data in value %}
-
-        <p>{{data.desc}} 
-        </p>
-        <p>{{data.filename}}</p>
+        <p>{{data.desc}} <a href="{% url 'download_file' filename=data.filename %}">
+            <button type="button">Download</button>
+        </a></p>
 
         {% endfor %}
         
@@ -29,7 +28,7 @@
         <h3>GreenHouse Gas Reporting</h3>
         <p>Work in progress</p>
         
-        <p>Year 2020<a href="{% url 'download_file' filepath=library_corp.ghg %}">
+        <p>Year 2020<a href="{% url 'download_file' filename=library_corp.ghg %}">
             <button type="button">Download</button>
         </a></p>
         
