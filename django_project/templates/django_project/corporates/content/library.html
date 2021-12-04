@@ -9,40 +9,19 @@
     </header>
     <section>
         {{library_corp}}
+
         {% for key, value in library_corp.items%}
         <h3>{{key}}</h3>
         
         {% for data in value %}
-        <p>{{data.desc}} <a href="{% url 'download_file' filename=data.filename %}">
+        <p>{{data.desc}} <a href="{% url 'download_file' folder_name=data.folder_name file_name=data.filename %}">
             <button type="button">Download</button>
         </a></p>
 
         {% endfor %}
         
         {% endfor %}
-        
-        {% comment %}
 
-        <h3>Sustainability Reports</h3>
-        <p>Work in progress</p>
-        <h3>GreenHouse Gas Reporting</h3>
-        <p>Work in progress</p>
-        
-        <p>Year 2020<a href="{% url 'download_file' filename=library_corp.ghg %}">
-            <button type="button">Download</button>
-        </a></p>
-        
-
-        <h3>Targets</h3>
-        <p>Work in progress</p>
-        <h3>Verification</h3>
-        <p>Work in progress</p>
-        <h3>CDP</h3>
-        <p>Work in progress</p>
-
-        <p>
-        </p>
-        {% endcomment %}
 
     </section>
     <br><br>

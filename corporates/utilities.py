@@ -167,7 +167,7 @@ def get_scores_details(company_id, all_data= None):
 
 def get_library_data(company_id, all_data=None):
     dict ={}
-    fields = ["filename", "desc"]
+    fields = ["folder_name", "filename", "desc"]
     cond1 = all_data['company_id']== company_id
     folders_list = [
         ['ghg','GHG data'],
