@@ -8,17 +8,19 @@
         </div>
     </header>
     <section>
+        {{library_corp}}
+        {% comment %}
         {% for key, value in library_corp%}
         <h3>{{key}}</h3>
         
         {% for data in value %}
         <p>data.desc</p><br>
         <p>data.filepath</p>
-        <p>data.desc<a href="{% url 'download_file' filepath=data.filepath %}">
-            <button type="button">Download</button>
         {% endfor %}
         
         {% endfor %}
+        {% endcomment %}
+        
         {% comment %}
 
         <h3>Sustainability Reports</h3>
