@@ -1,0 +1,53 @@
+{% load static %}
+
+<!-- Post -->
+<article id="scope3" class="post">
+    <header>
+        <div class="title">
+            <h2>NEW 2021 SCORES RELEASED BY CDP</h2>
+        </div>
+    </header>
+
+    <section>
+        <h2>NEW: First Look at the 2021 CDP Scores</h2>
+
+        <p> New York, December 2021 - Here's my first take-aways on the new 2021 CDP scores:
+            <br>✅  Acceleration of disclosures: +35% vs. 2020 (64% market) increase in participation, representing 13,000+ companies worldwide 
+            <br>✅  Average rating for S&P 100 US companies remain stable at B-
+            <br>✅  Among S&P 100, 26 downgrades but by only 1 notch (except Lockeed Martin downgraded from A to B)
+            <br>✅  Among S&P 100, 20 upgrades including many significant improvements due to new-comers like Raytheon (A-), Nextera (A-), Netflix (C) but also Starbucks, General Dynamics and American Tower (D to B)
+            <br>✅  The distribution vs last year is evolving towards much less A-rated companies and a concentration in A- and B
+
+            <br>
+        </p>
+        <div class="row">
+            <div align="center" class="col-6 col-12-medium">
+                <img src="{% static 'django_project/images/blog/2021_CDP_total.svg' %}" class="image featured"
+                    alt="" />
+            </div>
+            <div align="center" class="col-6 col-12-medium">
+                <img src="{% static 'django_project/images/blog/2021_cdp_scores_dist.jpeg' %}" class="image featured"
+                    alt="" />
+            </div>
+        </div>
+
+
+        <br>Please feel free to share your comments.
+        </p>
+    </section>
+
+    <footer>
+        <ul class="icons">
+            <li><a href="https://twitter.com/VincentManier" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="https://www.linkedin.com/in/vincent-manier-85aa257/" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="mailto: vmanier2020@gmail.com" target="_blank" rel="noopener noreferrer"
+                    class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            {% comment %}
+            <li><a href="https://github.com/VinBots/django_project" target="_blank" rel="noopener noreferrer"
+                    class="icon brands fa-github"><span class="label">Github</span></a></li>
+            {% endcomment %}
+        </ul>
+    </footer>
+</article>
