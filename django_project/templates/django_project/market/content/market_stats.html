@@ -1,0 +1,74 @@
+{% load static %}
+<article id="aboutus" class="post">
+    <header>
+        <div class="title">
+            <h2>Net Zero Tracker - Capital Market Indicators pre and post CO2 pricing</h2>
+        </div>
+    </header>
+    <div class="container" width=100%>
+
+        <table id="lb_corp_table" class="lb_corporates" data-show-columns="true" data-page-length='100'>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th style='text-align:center; vertical-align:middle'>Rank</th>
+                    <th>Corporate</th>
+                    <th style='text-align:center; vertical-align:middle'>Transparency</th>
+                    <th style='text-align:center; vertical-align:middle'>Commitments</th>
+                    <th style='text-align:center; vertical-align:middle'>Results</th>
+                    <th style='text-align:center; vertical-align:middle'>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for i in scores %}
+                <tr>
+                    <td style='text-align:center; vertical-align:middle'><a href="{% url 'corporates_home'%}{{i.company_name}}" title="{{i.company_name}}"><img
+                                src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
+                                alt="picture_2"></a>
+                    </td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.rank}}</td>
+                    <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
+                            title="{{i.company_name}}">{{i.company_name}}</a></td>
+                    <td style='text-align:center; vertical-align:middle'></td>
+                    <td style='text-align:center; vertical-align:middle'></td>
+                    <td style='text-align:center; vertical-align:middle'></td>
+                    <td style='text-align:center; vertical-align:middle'></td>
+                </tr>
+
+                {% endfor %}
+
+
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+
+    <footer>
+    </footer>
+</article>
+
+<script>
+    $(document).ready(function () {
+        $('#lb_corp_table').DataTable(
+            {
+                responsive: true,
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 },
+                    {
+                        targets: -1,
+                        responsivePriority: 2,
+                        render: $.fn.dataTable.render.percentBar('round', '#000000', '#0d3532', '#2ebaae', '#def7f5', 1, 'solid')
+                    },
+                    { responsivePriority: 3, targets: 1 },
+                    { responsivePriority: 4, targets: 2 },
+                    { targets: 3, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') },
+                    { targets: 4, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') },
+                    { targets: 5, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') }
+                ],
+                order: [[6, 'desc']],
+            }
+        );
+    });
+</script>
