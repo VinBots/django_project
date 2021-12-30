@@ -31,7 +31,7 @@
                     <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
                             title="{{i.company_name}}">{{i.company_name}}</a></td>
                     <td style='text-align:center; vertical-align:middle'><i class="fas fa-arrow-up" style="color:greenyellow"></i></td>
-                    <td style='text-align:center; vertical-align:middle'></td>
+                    <td style='text-align:center; vertical-align:middle'><i class="fas fa-arrow-down" style="color:red"></i></td>
                     <td style='text-align:center; vertical-align:middle'></td>
                     <td style='text-align:center; vertical-align:middle'></td>
                 </tr>
@@ -59,12 +59,9 @@
                     {
                         targets: -1,
                         responsivePriority: 2,
-                        render: $.fn.dataTable.render.percentBar('round', '#000000', '#0d3532', '#2ebaae', '#def7f5', 1, 'solid')
                     },
                     { responsivePriority: 3, targets: 1 },
                     { responsivePriority: 4, targets: 2 },
-                    { targets: 4, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') },
-                    { targets: 5, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') }
                 ],
                 order: [[6, 'desc']],
             }
