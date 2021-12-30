@@ -63,6 +63,7 @@ urlpatterns = [
     path('leaderboard.html/', include('leaderboard.urls')),
     path('download/', views.download_file, name = 'download_file'),
     path('download/<str:folder_name>/<str:file_name>', views.download_file, name = 'download_file'),
+    path('market.html/', include('market.urls')),
     ]
 
     #OLD paths
