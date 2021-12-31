@@ -10,5 +10,5 @@ def market_home(request):
     return render(
         request,
         "django_project/market/main.html",
-        {'scores':get_market_stats()}
+        {'market_stats':get_market_stats()}
         )
