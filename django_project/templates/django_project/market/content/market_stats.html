@@ -48,7 +48,16 @@
                     <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
                             title="{{i.company_name}}">{{i.company_name}}</a></td>
                     <td style='text-align:center; vertical-align:middle'><i class="fas fa-chevron-up"></i>{{i.last_price}}</td>
-                    <td style='text-align:center; vertical-align:middle'><i class="fas fa-chevron-down" style="color:red"></i>{{i.pre_pct_chg}}</td>
+                    <td style='text-align:center; vertical-align:middle'>
+                    </td>
+                    {% if i.pre_pct_chg < 0 %}
+                    <i class="fas fa-chevron-down" style="color:red"></i>
+                    {% else %}
+                    <i class="fas fa-chevron-up" style="color:green"></i>
+                    {% endif %}
+                    
+                    {{i.pre_pct_chg}}</td>
+
                     <td style='text-align:center; vertical-align:middle'>{{i.pre_ytd_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>{{i.post_pct_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>{{i.post_ytd_chg}}</td>
