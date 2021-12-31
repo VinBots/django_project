@@ -11,12 +11,22 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th style='text-align:center; vertical-align:middle'>Rank</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th colspan="2">Pre Carbon Price</th>
+                    <th colspan="2">Post Carbon Price</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th style='text-align:center; vertical-align:middle'>Net0</th>
                     <th>Corporate</th>
-                    <th style='text-align:center; vertical-align:middle'>Transparency</th>
-                    <th style='text-align:center; vertical-align:middle'>Commitments</th>
-                    <th style='text-align:center; vertical-align:middle'>Results</th>
-                    <th style='text-align:center; vertical-align:middle'>Score</th>
+                    <th style='text-align:center; vertical-align:middle'>Last</th>
+
+                    <th style='text-align:center; vertical-align:middle'>% CHG</th>
+                    <th style='text-align:center; vertical-align:middle'>% YTD</th>
+                    <th style='text-align:center; vertical-align:middle'>% CHG</th>
+                    <th style='text-align:center; vertical-align:middle'>% YTD</th>                    
                 </tr>
             </thead>
             <tbody>
@@ -30,14 +40,14 @@
                     <td style='text-align:center; vertical-align:middle'>{{i.rank}}</td>
                     <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
                             title="{{i.company_name}}">{{i.company_name}}</a></td>
-                    <td style='text-align:center; vertical-align:middle'><i class="fas fa-chevron-up"></i></td>
-                    <td style='text-align:center; vertical-align:middle'><i class="fas fa-chevron-down" style="color:red"></i></td>
-                    <td style='text-align:center; vertical-align:middle'></td>
-                    <td style='text-align:center; vertical-align:middle'></td>
+                    <td style='text-align:center; vertical-align:middle'><i class="fas fa-chevron-up"></i>15.2</td>
+                    <td style='text-align:center; vertical-align:middle'><i class="fas fa-chevron-down" style="color:red"></i>1.2%</td>
+                    <td style='text-align:center; vertical-align:middle'>25.2%</td>
+                    <td style='text-align:center; vertical-align:middle'>-1.3%</td>
+                    <td style='text-align:center; vertical-align:middle'>-14%</td>
                 </tr>
 
                 {% endfor %}
-
 
             </tbody>
             <tfoot>
