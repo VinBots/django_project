@@ -45,28 +45,24 @@
                                 src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
                                 alt="picture_2"></a>
                     </td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.rank}}</td>
+                    <td style='text-align:center; vertical-align:middle'>soon{{i.net0_score}}</td>
                     <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
                             title="{{i.company_name}}">{{i.company_name}}</a></td>
                     <td style='text-align:center; vertical-align:middle'>${{i.last_price}}</td>
                     <td style='text-align:center; vertical-align:middle;
-
                         {% if i.pre_pct_chg < 0 %}
-                        color:red'><i class="fas fa-chevron-down" ></i>
-                        
+                        color:red'><i class="fas fa-chevron-down"></i>
                         {% else %}
-                        
                         color:green'><i class="fas fa-chevron-up"></i>
-                        
                         {% endif %}
-                        
+
                         {{i.pre_pct_chg}}%
 
                     </td>
 
-                    <td style='text-align:center; vertical-align:middle'>{{i.pre_ytd_chg}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.post_pct_chg}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.post_ytd_chg}}</td>
+                    <td style='text-align:center; vertical-align:middle'>soon{{i.pre_ytd_chg}}</td>
+                    <td style='text-align:center; vertical-align:middle'>soon{{i.post_pct_chg}}</td>
+                    <td style='text-align:center; vertical-align:middle'>soon{{i.post_ytd_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon</td>
                     <td style='text-align:center; vertical-align:middle'>soon</td>
                     <td style='text-align:center; vertical-align:middle'>soon</td>
