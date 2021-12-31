@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import os
-from leaderboard.utilities import get_scores_xls
+from market.utilities import get_market_stats
 
 # Create your views here.
 
@@ -10,5 +10,5 @@ def market_home(request):
     return render(
         request,
         "django_project/market/main.html",
-        {'scores':get_scores_xls()}
+        {'scores':get_market_stats()}
         )

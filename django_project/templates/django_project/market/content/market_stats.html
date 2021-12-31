@@ -7,14 +7,10 @@
     </header>
     <div class="container" width=100%>
         
-        {{scores.1}}
+        {{market_stats.1}}
 
         <table id="lb_corp_table" class="lb_corporates" data-show-columns="true" data-page-length='100'>
             <thead>
-                
-                <tr>
-                    <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                </tr>
                 
                 <tr>
                     <th></th>
@@ -44,7 +40,7 @@
             </thead>
             <tbody>
 
-                {% for i in scores %}
+                {% for i in market_stats %}
                 <tr>
                     <td style='text-align:center; vertical-align:middle'><a href="{% url 'corporates_home'%}{{i.company_name}}" title="{{i.company_name}}"><img
                                 src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
