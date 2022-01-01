@@ -1,4 +1,6 @@
 {% load static %}
+{% load humanize %}
+
 <article id="aboutus" class="post">
     <header>
         <div class="title">
@@ -75,8 +77,8 @@
                     
                     <td style='text-align:center; vertical-align:middle'>soon{{i.post_pct_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon{{i.post_ytd_chg}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.Revenue}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.EBITDA}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.Revenue|intcomma}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.EBITDA|intcomma}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon</td>
                 </tr>
 
