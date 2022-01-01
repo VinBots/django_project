@@ -19,7 +19,7 @@
                     <th></th>
                     <th style='text-align:center; vertical-align:middle' colspan="2">Pre Carbon Price</th>
                     <th style='text-align:center; vertical-align:middle' colspan="2">Post Carbon Price</th>
-                    <th style='text-align:center; vertical-align:middle' colspan="3">Carbon Exposure</th>
+                    <th style='text-align:center; vertical-align:middle' colspan="4">Carbon Exposure</th>
 
                 </tr>
                 <tr>
@@ -32,9 +32,11 @@
                     <th style='text-align:center; vertical-align:middle'>% YTD</th>
                     <th style='text-align:center; vertical-align:middle'>% CHG</th>
                     <th style='text-align:center; vertical-align:middle'>% YTD</th>
-                    <th style='text-align:center; vertical-align:middle'>% Rev</th>
-                    <th style='text-align:center; vertical-align:middle'>% EBITDA</th>
+                    <th style='text-align:center; vertical-align:middle'>Rev</th>
+                    <th style='text-align:center; vertical-align:middle'>EBITDA</th>
                     <th style='text-align:center; vertical-align:middle'>% MktCap</th>
+                    <th style='text-align:center; vertical-align:middle'>ITR</th>
+
 
                 </tr>
             </thead>
@@ -80,6 +82,8 @@
                     <td style='text-align:center; vertical-align:middle'>{{i.Revenue|intcomma}}</td>
                     <td style='text-align:center; vertical-align:middle'>{{i.EBITDA|intcomma}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.ITR}}</td>
+
                 </tr>
 
                 {% endfor %}
