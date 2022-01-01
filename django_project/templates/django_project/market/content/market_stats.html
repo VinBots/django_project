@@ -45,7 +45,7 @@
                                 src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
                                 alt="picture_2"></a>
                     </td>
-                    <td style='text-align:center; vertical-align:middle'>soon{{i.score}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.score}}</td>
                     <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
                             title="{{i.company_name}}">{{i.company_name}}</a></td>
                     <td style='text-align:center; vertical-align:middle'>${{i.last_price}}</td>
@@ -60,7 +60,7 @@
 
                     </td>
 
-                    <td style='text-align:center; vertical-align:middle'>soon{{i.pre_ytd_chg}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.pre_ytd_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon{{i.post_pct_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon{{i.post_ytd_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon</td>
