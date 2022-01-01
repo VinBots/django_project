@@ -60,7 +60,19 @@
 
                     </td>
 
-                    <td style='text-align:center; vertical-align:middle'>{{i.pre_ytd_chg}}</td>
+                    <td style='text-align:center; vertical-align:middle;
+                        {% if i.pre_ytd_chg < 0 %}
+                        color:red'><i class="fas fa-chevron-down"></i>
+                        {% else %}
+                        color:green'><i class="fas fa-chevron-up"></i>
+                        {% endif %}
+
+                        {{i.pre_ytd_chg}}%
+                    
+                    </td>
+                    
+                    
+                    
                     <td style='text-align:center; vertical-align:middle'>soon{{i.post_pct_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon{{i.post_ytd_chg}}</td>
                     <td style='text-align:center; vertical-align:middle'>soon</td>
