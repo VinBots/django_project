@@ -19,7 +19,7 @@
                     <th></th>
                     <th style='text-align:center; vertical-align:middle' colspan="2">Pre Carbon Price</th>
                     <th style='text-align:center; vertical-align:middle' colspan="2">Post Carbon Price</th>
-                    <th style='text-align:center; vertical-align:middle' colspan="5">Carbon Exposure</th>
+                    <th style='text-align:center; vertical-align:middle' colspan="4">Carbon Exposure</th>
 
                 </tr>
                 <tr>
@@ -32,7 +32,6 @@
                     <th style='text-align:center; vertical-align:middle'>% YTD</th>
                     <th style='text-align:center; vertical-align:middle'>% CHG</th>
                     <th style='text-align:center; vertical-align:middle'>% YTD</th>
-                    <th style='text-align:center; vertical-align:middle'>Rev</th>
                     <th style='text-align:center; vertical-align:middle'>Rev%</th>
                     <th style='text-align:center; vertical-align:middle'>EBITDA%</th>
                     <th style='text-align:center; vertical-align:middle'>CO2 footprint</th>
@@ -94,8 +93,17 @@
 
                     </td>
 
-                    <td style='text-align:center; vertical-align:middle'>{{i.ebitda_exp_t_year_end}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.rev_co2_exposure}}%</td>
+
+                    <td style='text-align:center; vertical-align:middle
+                    {% if i.post_ytd_chg > 0 %};color:blue'>{{i.rev_co2_exposure}}%
+                        {% else %}
+                        '>
+                        {% endif %}
+
+                    </td>
+
+
+
                     <td style='text-align:center; vertical-align:middle'>{{i.ebitda_exp_t1}}%</td>
                     <td style='text-align:center; vertical-align:middle'>{{i.total_footprint|intcomma}}</td>
                     <td style='text-align:center; vertical-align:middle'>{{i.ITR}}°C</td>
