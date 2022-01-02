@@ -88,12 +88,8 @@
                 </td>
                     
                     <td style='text-align:center; vertical-align:middle;
-                    {% if i.post_ytd_chg < 0 %}
-                        color:red'><i class="fas fa-chevron-down"></i>
-                        {{i.post_ytd_chg}}
-                    {% elif i.post_ytd_chg > 0 %}
-                    color:green'><i class="fas fa-chevron-up"></i>
-                    {{i.post_ytd_chg}}
+                    {% if i.post_ytd_chg < 0 %}color:red'><i class="fas fa-chevron-down"></i>{{i.post_ytd_chg}}
+                    {% elif i.post_ytd_chg > 0 %}color:green'><i class="fas fa-chevron-up"></i>{{i.post_ytd_chg}}
                         {% else %}
                         '>
                         {% endif %}
