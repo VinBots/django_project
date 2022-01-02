@@ -90,14 +90,15 @@
                     <td style='text-align:center; vertical-align:middle;
                     {% if i.post_ytd_chg < 0 %}
                         color:red'><i class="fas fa-chevron-down"></i>
+                        {{i.post_ytd_chg}}
                     {% elif i.post_ytd_chg > 0 %}
                     color:green'><i class="fas fa-chevron-up"></i>
-
+                    {{i.post_ytd_chg}}
                         {% else %}
                         '>
                         {% endif %}
 
-                    {{i.post_ytd_chg}}</td>
+                    </td>
 
                     <td style='text-align:center; vertical-align:middle'>{{i.ebitda_exp_t_year_end}}</td>
                     <td style='text-align:center; vertical-align:middle'>{{i.rev_co2_exposure}}%</td>
@@ -126,7 +127,7 @@
                 responsive: true,
                 columnDefs: [
                     {responsivePriority: 1, targets: 0 },
-                    { targets: 8, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') }
+                    { targets: 7, render: $.fn.dataTable.render.number(',', '.', 1, '', '%') }
                 ],
                 order: [[1, 'desc']],
             }
