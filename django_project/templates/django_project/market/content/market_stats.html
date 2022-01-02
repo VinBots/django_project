@@ -140,16 +140,12 @@
                       if (data.replace(/[%]/g, '') < 10) {
                         color = 'green';
                       }
-                      if (data.replace(/[%]/g, '') > 20) {
-                        color = 'yellow';
-                      }
-                      if (data.replace(/[%]/g, '') > 20) {
+                      if (data.replace(/[%]/g, '') > 10) {
                         color = 'orange';
-                      }
-                      if (data.replace(/[%]/g, '') > 40) {
+                      if (data.replace(/[%]/g, '') > 25) {
                         color = 'red';
                       }
-                      return '<span style="background-color:' + color + '">' + data + '</span>';
+                      return '<span style="color:' + color + '">' + data + '</span>';
                     }
                }
 
