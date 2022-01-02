@@ -95,18 +95,23 @@
 
 
                     <td style='text-align:center; vertical-align:middle
-                    {% if i.post_ytd_chg >= 0 %};color:blue'>{{i.rev_co2_exposure}}%
+                    {% if i.rev_co2_exposure >= 0 %};color:blue'>{{i.rev_co2_exposure}}%
                         {% else %}
                         '>
                         {% endif %}
 
                     </td>
 
+                    <td style='text-align:center; vertical-align:middle
+                    {% if i.ebitda_exp_t1 >= 0 %};color:blue'>{{i.ebitda_exp_t1}}%
+                        {% else %}
+                        '>
+                        {% endif %}
 
+                    </td>
 
-                    <td style='text-align:center; vertical-align:middle'>{{i.ebitda_exp_t1}}%</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.total_footprint|intcomma}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.ITR}}°C</td>
+                    <td style='text-align:center; vertical-align:middle color:magenta'>{{i.total_footprint|intcomma}}</td>
+                    <td style='text-align:center; vertical-align:middle color:magenta'>{{i.ITR}}°C</td>
 
                 </tr>
 
