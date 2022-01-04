@@ -7,7 +7,11 @@
             <h2>Net Zero Tracker - Capital Market Indicators pre and post CO2 pricing</h2>
         </div>
     </header>
-    {{meta}}
+    <h3>Data:</h3>
+    ✅ Current Date: {{meta.current_date}} (daily variation vs. {{meta.last_date}})
+    <br>✅ CO2 Price: {{co2_price_current}} as of {{meta.current_date}} (vs. {{co2_price_last}} as of {{meta.last_date}}
+    <br>
+    
     <div class="container" width=100%>
 
         <table id="lb_corp_table" class="lb_corporates" data-show-columns="true" data-page-length='100'>
