@@ -45,3 +45,7 @@ def get_market_stats(corp_number = None, top_rank=True):
 
     return data
 
+def get_meta_data():
+    path = '/home/django/scripts/data/meta_data.json'
+    with open(path) as json_file:
+        return json.load(json_file)
