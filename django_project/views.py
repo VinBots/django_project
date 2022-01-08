@@ -7,7 +7,7 @@ import os
 from django.http import HttpResponse
 from pathlib import Path
 from django.core.files import File
-from utilities import get_general_stats
+from django_project.utilities import get_general_stats
 
 
 def home(request):
