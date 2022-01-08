@@ -7,7 +7,6 @@ class CorporatesManager(models.Manager):
 
     def random(self):
         count = self.aggregate(count = Count('company_id'))['count']
-        #random_index = random.randint(0, count - 1)
         random_indexes = random.sample(range(count), 5)
 
         return [self.all()[i] for i in random_indexes]
