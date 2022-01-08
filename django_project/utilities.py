@@ -27,6 +27,9 @@ def get_top5_transp_miss_cut():
     
     return data
 
-def get_general_stats():
+def get_general_stats(indicators):
+    path = os.path.join (c.DATA_FOLDER, c.TOP_STATS_FILE)
+    with open (path) as json_file:
+        dict = json.load(json_file)
 
-    return c.TOP_STATS
+    return [dict[indicator] for indicator in indicators]
