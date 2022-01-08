@@ -18,7 +18,7 @@ def home(request):
 
   corporates_names = Corporate.objects.all()
   pct_values = get_general_stats(['trust', 'commitments', 'science'])
-  angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(3)]
+  angle_deg = [str(pct_value * 1.8) + "deg" for pct_value in pct_values]
 
   return render (request, "django_project/home/main.html", {
     "corporates_names": corporates_names,
