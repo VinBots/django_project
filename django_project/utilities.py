@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from corporates.models import Corporate
 import json
+from config import Config as c
 
 
 def get_random_logos():
@@ -25,3 +26,7 @@ def get_top5_transp_miss_cut():
         data = json.load(f)
     
     return data
+
+def get_general_stats():
+
+    return c.TOP_STATS

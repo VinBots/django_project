@@ -3,58 +3,35 @@ from django.urls import reverse
 from leaderboard.utilities import get_scores_xls
 from django.shortcuts import render, redirect
 from django_project.utilities import get_random_logos, get_top10_wo_zero, get_top5_transp_miss_cut
-import mimetypes
 import os
 from django.http import HttpResponse
 from pathlib import Path
 from django.core.files import File
-
-
-#import random
-#from typing import Dict
-#import dash
-#import dash_table
-#from dash.dependencies import Input, Output
-#import pandas as pd
-#from django_plotly_dash import DjangoDash
-#import dash_html_components as html
-#import dash_core_components as dcc
-#import plotly.graph_objs as go
-#import dash_table.FormatTemplate as FormatTemplate
-#from dash_table.Format import Format, Group, Scheme
-#from django_project.dashboards.record_dashboard_benchmark import record
-#from django_project.forms import EntryCreationForm
-#from django_project.models import Entry, Corporates
+from utilities import get_general_stats
 
 
 def home(request):
 
   if request.GET.get("query") is not None:
-    #path = '/corporates.html/' + request.GET.get("query")
     path = reverse('corporates_home') + request.GET.get("query")
     return redirect(path)
 
-  #form = EntryCreationForm(instance=Entry.objects.first())
   corporates_names = Corporate.objects.all()
-  pct_values = [16, 50, 42]  #get_top_stats()
+  #pct_values = [16, 50, 42]
+  pct_values = get_general_stats()
   angle_deg = [str(pct_values[i] * 1.8) + "deg" for i in range(3)]
-
 
   return render (request, "django_project/home/main.html", {
     "corporates_names": corporates_names,
-    #"color_key_fig": "#00b118",
     "random_logos": get_random_logos(),
     "angle1":angle_deg[0],"value1":str(pct_values[0]),
     "angle2":angle_deg[1],"value2":str(pct_values[1]),
     "angle3":angle_deg[2],"value3":str(pct_values[2]),
-    # "angle4":angle_deg[3],"value4":str(pct_values[3]),
-    # "angle5":angle_deg[4], "value5":str(pct_values[4]),
     "top5_scores": get_scores_xls(corp_number=5, top_rank=True),
     "bottom5_scores": get_scores_xls(corp_number=5, top_rank=False),
     "top10_wo_zero" : get_top10_wo_zero()
     }
       )
-
 
 def sectors(request, sector_name):
 
@@ -82,7 +59,6 @@ def blog(request):
 
 def faq(request):
   return render (request, "django_project/faq/main.html")
-
 
 def download_file (request, folder_name = '', file_name = ''):
 
