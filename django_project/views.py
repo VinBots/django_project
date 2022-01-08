@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from pathlib import Path
 from django.core.files import File
 from django_project.utilities import get_general_stats
+from config import Config as c
 
 
 def home(request):
@@ -62,7 +63,8 @@ def faq(request):
 def download_file (request, folder_name = '', file_name = ''):
 
     if file_name !='':
-      BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
+      #BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
+      BASE_DIR_LIB = os.path.join (c.DATA_FOLDER, c.LIBRARY_FOLDER)
       filepath = os.path.join (BASE_DIR_LIB, folder_name, file_name)
       if os.path.exists(filepath):
         f = open(filepath, 'rb')
