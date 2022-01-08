@@ -7,7 +7,6 @@ import pandas as pd
 
 BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
 
-
 def get_scores_xls(corp_number = None, top_rank=True):
     """
     Fetch companies information according to their score
@@ -15,17 +14,8 @@ def get_scores_xls(corp_number = None, top_rank=True):
     corp_number specifies the number of companies to return
     if top_rank is set to True, it returns the top ranked companies
     if top_rank is set to False, it returns the bottom ranked companies
-    
-    
     """
 
-
-    #Excel file path
-    #BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
-    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-
-
-    # Connect to the data source
     all_data = get_all_data_from_csv(["corp_scores"])["corp_scores"]
 
     max_rank = all_data['rank'].max()
@@ -34,8 +24,6 @@ def get_scores_xls(corp_number = None, top_rank=True):
     all_data['transp_ratio'] = pd.to_numeric(all_data['transp_ratio']) * 100
     all_data['comm_ratio'] = pd.to_numeric(all_data['comm_ratio']) * 100
     all_data['actions_ratio'] = pd.to_numeric(all_data['actions_ratio']) * 100
-
-
 
     if not corp_number:
         corp_number = max_rank
