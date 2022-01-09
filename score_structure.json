@@ -64,7 +64,10 @@
         ],
         "total": {
             "score": 0,
-            "field": "comm_score"
+            "field": "comm_score",
+            "desc": "Total Commitments",
+            "max_score": 40
+
         }
     },
     "actions": {
@@ -93,7 +96,10 @@
         ],
         "total": {
             "score": 0,
-            "field": "actions_score"
+            "field": "actions_score",
+            "desc": "Total Results",
+            "max_score": 30
+
         }
     }
 }
