@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 import json
 import pandas as pd
+from config import Config as c
+
 
 
 BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
@@ -18,12 +20,12 @@ def get_scores_xls(corp_number = None, top_rank=True):
 
     all_data = get_all_data_from_csv(["corp_scores"])["corp_scores"]
 
-    max_rank = all_data['rank'].max()
-    all_data['company_id'] = pd.to_numeric(all_data['company_id'], downcast='integer')
-    all_data['rank'] = pd.to_numeric(all_data['rank'], downcast='integer')
-    all_data['transp_ratio'] = pd.to_numeric(all_data['transp_ratio']) * 100
-    all_data['comm_ratio'] = pd.to_numeric(all_data['comm_ratio']) * 100
-    all_data['actions_ratio'] = pd.to_numeric(all_data['actions_ratio']) * 100
+    max_rank = all_data[c.SCORES.RANK].max()
+    all_data[c.FIELDS.COMPANY_ID] = pd.to_numeric(all_data[c.FIELDS.COMPANY_ID], downcast='integer')
+    all_data[c.SCORES.RANK] = pd.to_numeric(all_data[c.SCORES.RANK], downcast='integer')
+    all_data[c.SCORES.TRANSPARENCY_RATIO] = pd.to_numeric(all_data[c.SCORES.TRANSPARENCY_RATIO]) * 100
+    all_data[c.SCORES.COMMITMENTS_RATIO] = pd.to_numeric(all_data[c.SCORES.COMMITMENTS_RATIO]) * 100
+    all_data[c.SCORES.ACTIONS_RATIO] = pd.to_numeric(all_data[c.SCORES.ACTIONS_RATIO]) * 100
 
     if not corp_number:
         corp_number = max_rank
