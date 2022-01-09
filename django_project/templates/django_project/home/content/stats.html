@@ -15,7 +15,7 @@
                 100% {
                     transform: rotate( {
                                 {
-                                general_stats.0.angle
+                                {{general_stats.0.angle}}
                             }
                         }
 
@@ -53,7 +53,7 @@
                 100% {
                     transform: rotate( {
                                 {
-                                general_stats.1.angle
+                                {{general_stats.1.angle}}
                             }
                         }
 
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <h3 style="background-color:#2ebaae;">{{general_stats.1.display_name}}</h3>
-            <p></p>
+            <p>{{general_stats.1.desc|safe}}</p>
         </div>
         <style>
             @keyframes fill3 {
@@ -90,7 +90,7 @@
                 100% {
                     transform: rotate( {
                                 {
-                                general_stats.2.angle
+                                {{general_stats.2.angle}}
                             }
                         }
 
@@ -116,8 +116,7 @@
                 </div>
             </div>
             <h3 style="background-color:#2ebaae;">{{general_stats.2.display_name}}</h3>
-            <p>% companies that <strong>committed or set science-based targets</strong> as validated by SBTi. Among
-                them, <strong>62%</strong> are aligned with a <strong>1.5°C scenario</strong> </p>
+            <p>{{general_stats.1.desc|safe}}</p>
         </div>
     </div>
     {% comment %}
