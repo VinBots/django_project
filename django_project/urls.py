@@ -23,8 +23,6 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),	
     path('', views.home, name='main_home'),
     path('corporates.html/', include('corporates.urls')),
-    #path('sectors.html/<str:sector_name>/', views.sectors, name = 'sectors'),
-    #path('sectors.html/', views.sectors_search, name = 'sectors_search'),
     path('aboutus.html/', views.aboutus, name = 'aboutus'),
     path('faq.html/', views.faq, name = 'faq'),
     path('blog.html/', views.blog, name = 'blog'),
