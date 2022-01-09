@@ -196,7 +196,7 @@ def get_all_data_from_csv(sheet_names):
 def get_last_reporting_year(all_data, company_id):
 
     last_reporting_year = all_data.loc[all_data[
-        c.FIELDS.COMPANY_ID] == company_id][['last_reporting_year']].values[0]
+        c.FIELDS.COMPANY_ID] == company_id][['last_reporting_year']].iloc[0,0]
     return last_reporting_year
 
 
