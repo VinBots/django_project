@@ -46,8 +46,8 @@ def get_score_data(company_id, all_data=None):
         pd.to_numeric)
 
     score_data = {
-        'score': score_record_data.iloc[0, 6],
-        'rank': score_record_data.iloc[0, 7],
+        'score': score_record_data['score'].values[0],
+        'rank': score_record_data['rank'].values[0],
         'transp_ratio': str(round(score_record_data.iloc[0, 9] * 100, 1)),
         'transp_angle': score_record_data.iloc[0, 9] * 180,
         'comm_ratio': str(round(score_record_data.iloc[0, 10] * 100, 1)),
@@ -187,7 +187,6 @@ def get_ghg(company_id, all_data, reporting_year_data):
 def get_all_data_from_csv(sheet_names):
 
     pd_dict = {}
-
     for sheetname in sheet_names:
         csv_path = os.path.join(BASE_DIR_XL_DB, sheetname + '.csv')
         pd_dict[sheetname] = pd.read_csv(csv_path)
@@ -198,7 +197,6 @@ def get_last_reporting_year(all_data, company_id):
 
     last_reporting_year = all_data.loc[all_data[
         c.FIELDS.COMPANY_ID] == company_id][['last_reporting_year']].iloc[0, 0]
-
     return last_reporting_year
 
 
