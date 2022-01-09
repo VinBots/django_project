@@ -38,10 +38,10 @@ def check_validity(corp_name):
 def get_score_data(company_id, all_data=None):
 
     score_record_data = all_data[all_data[c.FIELDS.COMPANY_ID] == company_id]
-    num_cols = [
-        c.SCORES.TRANSPARENCY, c.SCORES.COMMITMENTS, c.SCORES.ACTIONS,
+    num_cols = c.SCORES.CATEGORIES + [
         c.SCORES.TOTAL, c.SCORES.RANK
     ]
+
     score_record_data[num_cols] = score_record_data[num_cols].apply(
         pd.to_numeric)
 
@@ -66,6 +66,15 @@ def get_scores_summary(company_id, all_data=None):
     scores_summary_data = all_data[all_data[c.FIELDS.COMPANY_ID] == company_id]
     for i in range(1, 14):
         score_data[i - 1] = scores_summary_data.iloc[0, i]
+
+    score_data_dict = c.SCORES.STRUCTURE
+
+    for category in score_data_dict.keys():
+        for score in score_data_dict[category]["details"]:
+            score["score"] = scores_summary_data.loc[score["field"]]
+        score_data_dict[category]["total"]["score"] = scores_summary_data.loc[score_data_dict[category]["total"]["field"]]
+
+    """
 
     score_data_dict = {
         'transparency': {
@@ -93,7 +102,10 @@ def get_scores_summary(company_id, all_data=None):
             score_data[12],
         },
     }
+    """
 
+    #print (score_data_dict)
+    
     return score_data_dict
 
 
@@ -208,7 +220,6 @@ def get_ghg(company_id, all_data, reporting_year_data):
         'final': dict,
     }
     return data
-
 
 def get_all_data_from_csv(sheet_names):
 

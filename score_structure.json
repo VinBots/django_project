@@ -1,0 +1,97 @@
+{
+    "transparency": {
+        "details": [
+            {
+                "ref": "1",
+                "desc": "At least 2 years of GHG emissions for scope 1 and 2 are publicly-available and externally-verified",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_1"
+            },
+            {
+                "ref": "2",
+                "desc": "Scope 3 emissions are fully reported and externally-verified",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_2"
+            },
+            {
+                "ref": "3",
+                "desc": "CDP score and interim reporting demonstrate the highest level of transparency",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_3"
+            }
+        ],
+        "total": {
+            "score": 0,
+            "field": "transp_score"
+        }
+    },
+    "commitments": {
+        "details": [
+            {
+                "ref": "4",
+                "desc": "Net Zero Commitments by 2050 include an intermediate target and cover all the emissions",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_4"
+            },
+            {
+                "ref": "5",
+                "desc": "Net Zero targets demonstrate a high-level of emergency",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_5"
+            },
+            {
+                "ref": "6",
+                "desc": "Emission reduction targets on a forward-looking basis are ambitious",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_6"
+            },
+            {
+                "ref": "7",
+                "desc": "Targets are science-based as validated by SBTi",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_7"
+            }
+
+        ],
+        "total": {
+            "score": 0,
+            "field": "comm_score"
+        }
+    },
+    "actions": {
+        "details": [
+            {
+                "ref": "8",
+                "desc": "Results re. operational emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_8"
+            },
+            {
+                "ref": "9",
+                "desc": "Results re. value chain emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_9"
+            },
+            {
+                "ref": "10",
+                "desc": "Implied Temperature Rating by MSCi",
+                "max_score": "10",
+                "score": "0",
+                "field": "princ_score_10"
+            }
+        ],
+        "total": {
+            "score": 0,
+            "field": "actions_score"
+        }
+    }
+}

@@ -1,3 +1,10 @@
+import json
+
+
+def load_json(filename):
+    with open (filename) as f:
+        return json.load(f).to_dict()
+
 class FieldsName:
     COMPANY_ID = "company_id"
     SOURCE = 'source'
@@ -29,7 +36,7 @@ class GHG:
     SCOPE2_MKT = "ghg_mkt_scope_2"
     SCOPE3 = "ghg_scope3_total"
     TOTAL = "ghg_total"
-
+"""
 class ScoreMethodology:
     PRINCIPLES_REF = [
         '1',
@@ -76,15 +83,17 @@ class ScoreMethodology:
         '10',
         '30',
     ]
+"""
 
 class Scores:
-    METHODOLOGY = ScoreMethodology
     TRANSPARENCY = "transp_score"
     COMMITMENTS = "comm_score"
     ACTIONS = "actions_score"
+    CATEGORIES = [TRANSPARENCY, COMMITMENTS, ACTIONS]
     TOTAL = "score"
     RANK = "rank"
-
+    STRUCTURE = load_json('score_structure.json')
+ 
 class Config:
     DATA_FOLDER = "/home/django/net0_docs"
     XLS_FOLDER = 'excel_db'
