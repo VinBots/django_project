@@ -61,50 +61,13 @@ def get_score_data(company_id, all_data=None):
 
 def get_scores_summary(company_id, all_data=None):
 
-    score_data = [0] * 13
-
     scores_summary_data = all_data[all_data[c.FIELDS.COMPANY_ID] == company_id]
-    for i in range(1, 14):
-        score_data[i - 1] = scores_summary_data.iloc[0, i]
-
     score_data_dict = c.SCORES.STRUCTURE
     
     for category in score_data_dict.keys():
         for score in score_data_dict[category]["details"]:
             score["score"] = scores_summary_data[score["field"]].values[0]
         score_data_dict[category]["total"]["score"] = scores_summary_data[score_data_dict[category]["total"]["field"]].values[0]
-    
-    """
-
-    score_data_dict = {
-        'transparency': {
-            'details': [[
-                c.SCORES.METHODOLOGY.PRINCIPLES_REF[i], c.SCORES.METHODOLOGY.PRINCIPLES_DESC[i],
-                score_data[i], c.SCORES.METHODOLOGY.MAX_SCORES[i], ''
-            ] for i in range(0, 3)],
-            'total':
-            score_data[3],
-        },
-        'commitments': {
-            'details': [[
-                c.SCORES.METHODOLOGY.PRINCIPLES_REF[i], c.SCORES.METHODOLOGY.PRINCIPLES_DESC[i],
-                score_data[i], c.SCORES.METHODOLOGY.MAX_SCORES[i], ''
-            ] for i in range(4, 8)],
-            'total':
-            score_data[8],
-        },
-        'actions': {
-            'details': [[
-                c.SCORES.METHODOLOGY.PRINCIPLES_REF[i], c.SCORES.METHODOLOGY.PRINCIPLES_DESC[i],
-                score_data[i], c.SCORES.METHODOLOGY.MAX_SCORES[i], ''
-            ] for i in range(9, 12)],
-            'total':
-            score_data[12],
-        },
-    }
-    """
-
-    #print (score_data_dict)
     
     return score_data_dict
 

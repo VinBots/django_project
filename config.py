@@ -36,54 +36,6 @@ class GHG:
     SCOPE2_MKT = "ghg_mkt_scope_2"
     SCOPE3 = "ghg_scope3_total"
     TOTAL = "ghg_total"
-"""
-class ScoreMethodology:
-    PRINCIPLES_REF = [
-        '1',
-        '2',
-        '3',
-        '',
-        '4',
-        '5',
-        '6',
-        '7',
-        '',
-        '8',
-        '9',
-        '10',
-        '',
-    ]
-    PRINCIPLES_DESC = [
-        'At least 2 years of GHG emissions for scope 1 and 2 are publicly-available and externally-verified',
-        'Scope 3 emissions are fully reported and externally-verified',
-        'CDP score and interim reporting demonstrate the highest level of transparency',
-        '',
-        'Net Zero Commitments by 2050 include an intermediate target and cover all the emissions',
-        'Net Zero targets demonstrate a high-level of emergency',
-        'Emission reduction targets on a forward-looking basis are ambitious',
-        'Targets are science-based as validated by SBTi',
-        '',
-        'Results re. operational emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)',
-        'Results re. value chain emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)',
-        'Implied Temperature Rating by MSCi',
-        '',
-    ]
-    MAX_SCORES = [
-        '10',
-        '10',
-        '10',
-        '30',
-        '10',
-        '10',
-        '10',
-        '10',
-        '40',
-        '10',
-        '10',
-        '10',
-        '30',
-    ]
-"""
 
 class Scores:
     TRANSPARENCY = "transp_score"
