@@ -25,7 +25,9 @@
         ],
         "total": {
             "score": 0,
-            "field": "transp_score"
+            "field": "transp_score",
+            "desc": "Total Transparency",
+            "max_score": 30
         }
     },
     "commitments": {

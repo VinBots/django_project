@@ -21,6 +21,30 @@
                 </thead>
 
                 <tbody>
+                    {% for category in xls_corp.corp_scores_summary %}
+
+                    {% for score in category.details %}
+                    <tr>
+                        <td>{{score.ref}}</td>
+                        <td>{{score.desc}}</td>
+                        <td>{{score.score}}</td>
+                        <td>{{score.max_score}}</td>
+                        <td>{{score.comments}}</td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr style="background-color:#2ebaae; color:white; font-weight:bold">
+                        <td></td>
+                        <td>{{category.total.desc}}</td>
+                        <td>{{category.total.score}}</td>
+                        <td>{{category.total.max_score}}</td>
+                        <td></td>
+                    </tr>
+
+                    {% endfor %}
+
+
+                {% comment %}    
                     {% for score in xls_corp.corp_scores_summary.transparency.details %}
                     <tr>
                         <td>{{score.ref}}</td>
@@ -33,7 +57,7 @@
 
                     <tr style="background-color:#2ebaae; color:white; font-weight:bold">
                         <td></td>
-                        <td>Total Transparency</td>
+                        <td>{{xls_corp.corp_scores_summary.transparency.total.desc}}</td>
                         <td>{{xls_corp.corp_scores_summary.transparency.total.score}}</td>
                         <td>30</td>
                         <td></td>
@@ -74,6 +98,8 @@
                         <td>30</td>
                         <td></td>
                     </tr>
+                
+                {% endcomment %}
 
                 </tbody>
 
