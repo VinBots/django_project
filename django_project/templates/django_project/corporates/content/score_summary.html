@@ -35,43 +35,43 @@
                     <tr style="background-color:#2ebaae; color:white; font-weight:bold">
                         <td></td>
                         <td>Total Transparency</td>
-                        <td>{{xls_corp.corp_scores_summary.transparency.total}}</td>
+                        <td>{{xls_corp.corp_scores_summary.transparency.total.score}}</td>
                         <td>30</td>
                         <td></td>
                     </tr>
 
                     {% for score in xls_corp.corp_scores_summary.commitments.details %}
                     <tr>
-                        <td>{{score.0}}</td>
-                        <td>{{score.1}}</td>
-                        <td>{{score.2}}</td>
-                        <td>{{score.3}}</td>
-                        <td>{{score.4}}</td>
+                        <td>{{score.ref}}</td>
+                        <td>{{score.desc}}</td>
+                        <td>{{score.score}}</td>
+                        <td>{{score.max_score}}</td>
+                        <td>{{score.comments}}</td>
                     </tr>
                     {% endfor %}
 
                     <tr style="background-color:#2ebaae; color:white; font-weight:bold">
                         <td></td>
                         <td>Total Commitments</td>
-                        <td>{{xls_corp.corp_scores_summary.commitments.total}}</td>
+                        <td>{{xls_corp.corp_scores_summary.commitments.total.score}}</td>
                         <td>40</td>
                         <td></td>
                     </tr>
 
                     {% for score in xls_corp.corp_scores_summary.actions.details %}
                     <tr>
-                        <td>{{score.0}}</td>
-                        <td>{{score.1}}</td>
-                        <td>{{score.2}}</td>
-                        <td>{{score.3}}</td>
-                        <td>{{score.4}}</td>
+                        <td>{{score.ref}}</td>
+                        <td>{{score.desc}}</td>
+                        <td>{{score.score}}</td>
+                        <td>{{score.max_score}}</td>
+                        <td>{{score.comments}}</td>
                     </tr>
                     {% endfor %}
 
                     <tr style="background-color:#2ebaae; color:white; font-weight:bold">
                         <td></td>
                         <td>Total Results</td>
-                        <td>{{xls_corp.corp_scores_summary.actions.total}}</td>
+                        <td>{{xls_corp.corp_scores_summary.actions.total.score}}</td>
                         <td>30</td>
                         <td></td>
                     </tr>
