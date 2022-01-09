@@ -6,6 +6,58 @@
     </header>
 
     <div class="row">
+
+        {% for stat in general_stats %}
+
+        <style>
+            @keyframes fill1 {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate( {
+                                {
+                                {{stat.angle}}
+                            }
+                        }
+
+                    );
+                }
+            }
+        </style>
+
+        <div align="center" class="col-4 col-12-medium">
+            <div class="circle-wrap circle-wrap1">
+                <div class="circle circle1">
+                    <div class="mask full mask1 full1" style="transform:rotate({{stat.angle}})">
+                        <div class="fill fill1"
+                            style="background-color:#b1002c;transform:rotate({{stat.angle}})"></div>
+                    </div>
+                    <div class="mask half mask1 half1">
+                        <div class="fill fill1"
+                            style="background-color:#b1002c;transform:rotate({{stat.angle}})"></div>
+                    </div>
+                    <div class="inside-circle inside-circle1">
+                        <a href="{% url 'blog' %}#transparency">{{general_stats.0.value}}%</a>
+                    </div>
+                </div>
+            </div>
+            <h3 style="background-color:#2ebaae;">{{stat.display_name}}</h3>
+            <p>{{stat.desc|safe}}</p>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+
+
+
+
+    {% comment %}
+    <div class="row">
+
         <style>
             @keyframes fill1 {
                 0% {
@@ -119,7 +171,7 @@
             <p>{{general_stats.1.desc|safe}}</p>
         </div>
     </div>
-    {% comment %}
+    
     <!-- template for adding an animated circular figure (replace number by a digit)
 
             <style>
