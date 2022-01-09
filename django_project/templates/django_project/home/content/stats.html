@@ -16,13 +16,7 @@
                 }
 
                 100% {
-                    transform: rotate( {
-                                {
-                                {{stat.angle}}
-                            }
-                        }
-
-                    );
+                    transform: rotate({{{{stat.angle}}}});
                 }
             }
         </style>
@@ -31,12 +25,10 @@
             <div class="circle-wrap circle-wrap1">
                 <div class="circle circle1">
                     <div class="mask full mask1 full1" style="transform:rotate({{stat.angle}})">
-                        <div class="fill fill1"
-                            style="background-color:#b1002c;transform:rotate({{stat.angle}})"></div>
+                        <div class="fill fill1" style="background-color:#b1002c;transform:rotate({{stat.angle}})"></div>
                     </div>
                     <div class="mask half mask1 half1">
-                        <div class="fill fill1"
-                            style="background-color:#b1002c;transform:rotate({{stat.angle}})"></div>
+                        <div class="fill fill1" style="background-color:#b1002c;transform:rotate({{stat.angle}})"></div>
                     </div>
                     <div class="inside-circle inside-circle1">
                         <a href="{% url 'blog' %}#transparency">{{stat.value}}%</a>
@@ -53,125 +45,7 @@
     </div>
 
 
-
-
     {% comment %}
-    <div class="row">
-
-        <style>
-            @keyframes fill1 {
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    transform: rotate( {
-                                {
-                                {{general_stats.0.angle}}
-                            }
-                        }
-
-                    );
-                }
-            }
-        </style>
-
-        <div align="center" class="col-4 col-12-medium">
-            <div class="circle-wrap circle-wrap1">
-                <div class="circle circle1">
-                    <div class="mask full mask1 full1" style="transform:rotate({{general_stats.0.angle}})">
-                        <div class="fill fill1"
-                            style="background-color:#b1002c;transform:rotate({{general_stats.0.angle}})"></div>
-                    </div>
-                    <div class="mask half mask1 half1">
-                        <div class="fill fill1"
-                            style="background-color:#b1002c;transform:rotate({{general_stats.0.angle}})"></div>
-                    </div>
-                    <div class="inside-circle inside-circle1">
-                        <a href="{% url 'blog' %}#transparency">{{general_stats.0.value}}%</a>
-                    </div>
-                </div>
-            </div>
-            <h3 style="background-color:#2ebaae;">{{general_stats.0.display_name}}</h3>
-            <p>{{general_stats.0.desc|safe}}</p>
-        </div>
-
-        <style>
-            @keyframes fill2 {
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    transform: rotate( {
-                                {
-                                {{general_stats.1.angle}}
-                            }
-                        }
-
-                    );
-                }
-            }
-        </style>
-
-        <div align="center" class="col-4 col-12-medium">
-            <div class="circle-wrap circle-wrap2">
-                <div class="circle circle2">
-                    <div class="mask full mask2 full2" style="transform:rotate({{general_stats.1.angle}})">
-                        <div class="fill fill2"
-                            style="background-color:#9fb100;transform:rotate({{general_stats.1.angle}})"></div>
-                    </div>
-                    <div class="mask half mask2 half2">
-                        <div class="fill fill2"
-                            style="background-color:#9fb100;transform:rotate({{general_stats.1.angle}})"></div>
-                    </div>
-                    <div class="inside-circle inside-circle2">
-                        <a href="#top">{{general_stats.1.value}}%</a>
-                    </div>
-                </div>
-            </div>
-            <h3 style="background-color:#2ebaae;">{{general_stats.1.display_name}}</h3>
-            <p>{{general_stats.1.desc|safe}}</p>
-        </div>
-        <style>
-            @keyframes fill3 {
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    transform: rotate( {
-                                {
-                                {{general_stats.2.angle}}
-                            }
-                        }
-
-                    );
-                }
-            }
-        </style>
-
-        <div align="center" class="col-4 col-12-medium">
-            <div class="circle-wrap circle-wrap3">
-                <div class="circle circle3">
-                    <div class="mask full mask3 full3" style="transform:rotate({{general_stats.2.angle}})">
-                        <div class="fill fill3"
-                            style="background-color:#2000b1;transform:rotate({{general_stats.2.angle}})"></div>
-                    </div>
-                    <div class="mask half mask3 half3">
-                        <div class="fill fill3"
-                            style="background-color:#2000b1;transform:rotate({{general_stats.2.angle}})"></div>
-                    </div>
-                    <div class="inside-circle inside-circle3">
-                        <a href="#top">{{general_stats.2.value}}%</a>
-                    </div>
-                </div>
-            </div>
-            <h3 style="background-color:#2ebaae;">{{general_stats.2.display_name}}</h3>
-            <p>{{general_stats.1.desc|safe}}</p>
-        </div>
-    </div>
-    
     <!-- template for adding an animated circular figure (replace number by a digit)
 
             <style>
