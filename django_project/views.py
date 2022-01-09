@@ -22,7 +22,7 @@ def home(request):
         request, "django_project/home/main.html", {
             "corporates_names": corporates_names,
             "random_logos": get_random_logos(),
-            "general_stats": get_general_stats(['trust', 'commitments', 'science']),
+            "general_stats": get_general_stats(['trust', 'trust', 'science']),
             "top5_scores": get_scores_xls(corp_number=5, top_rank=True),
             "bottom5_scores": get_scores_xls(corp_number=5, top_rank=False),
             "top10_wo_zero": get_top10_wo_zero()
