@@ -23,12 +23,6 @@ def home(request):
             "corporates_names": corporates_names,
             "random_logos": get_random_logos(),
             "general_stats": get_general_stats(['trust', 'commitments', 'science']),
-            "angle1": angle_deg[0],
-            "value1": str(pct_values[0]),
-            "angle2": angle_deg[1],
-            "value2": str(pct_values[1]),
-            "angle3": angle_deg[2],
-            "value3": str(pct_values[2]),
             "top5_scores": get_scores_xls(corp_number=5, top_rank=True),
             "bottom5_scores": get_scores_xls(corp_number=5, top_rank=False),
             "top10_wo_zero": get_top10_wo_zero()
