@@ -46,14 +46,14 @@ def get_score_data(company_id, all_data=None):
         pd.to_numeric)
 
     score_data = {
-        'score': score_record_data['score'].values[0],
-        'rank': score_record_data['rank'].values[0],
-        'transp_ratio': str(round(score_record_data.iloc[0, 9] * 100, 1)),
-        'transp_angle': score_record_data.iloc[0, 9] * 180,
-        'comm_ratio': str(round(score_record_data.iloc[0, 10] * 100, 1)),
-        'comm_angle': score_record_data.iloc[0, 10] * 180,
-        'actions_ratio': str(round(score_record_data.iloc[0, 11] * 100, 1)),
-        'actions_angle': score_record_data.iloc[0, 11] * 180,
+        'score': score_record_data[c.SCORES.TOTAL].values[0],
+        'rank': score_record_data[c.SCORES.RANK].values[0],
+        'transp_ratio': str(round(score_record_data[c.SCORES.TRANSPARENCY_RATIO].values[0] * 100, 1)),
+        'transp_angle': score_record_data[c.SCORES.TRANSPARENCY_RATIO].values[0] * 180,
+        'comm_ratio': str(round(score_record_data[c.SCORES.COMMITMENTS_RATIO].values[0] * 100, 1)),
+        'comm_angle': score_record_data[c.SCORES.COMMITMENTS_RATIO].values[0] * 180,
+        'actions_ratio': str(round(score_record_data[c.SCORES.ACTIONS_RATIO].values[0] * 100, 1)),
+        'actions_angle': score_record_data[c.SCORES.ACTIONS_RATIO].values[0] * 180,
     }
 
     return score_data

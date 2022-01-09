@@ -41,6 +41,9 @@ class Scores:
     TRANSPARENCY = "transp_score"
     COMMITMENTS = "comm_score"
     ACTIONS = "actions_score"
+    TRANSPARENCY_RATIO = "transp_ratio"
+    COMMITMENTS_RATIO = "comm_ratio"
+    ACTIONS_RATIO = "actions_ratio"
     CATEGORIES = [TRANSPARENCY, COMMITMENTS, ACTIONS]
     TOTAL = "score"
     RANK = "rank"
