@@ -49,11 +49,31 @@ class Scores:
     RANK = "rank"
     STRUCTURE = load_json('score_structure.json')
  
+class Library:
+    FOLDER = 'reports'
+    SUB_FOLDER_NAME = 'folder_name'
+    FILENAME = 'filename'
+    DESC = 'desc'
+    YEAR = 'year'
+    PART = 'part'
+    SUST_REPORT = "sust_report"
+    GHG = "ghg"
+    TARGETS = "targets"
+    VERIFICATION = "verification"
+    CATEGORIES_NAME = [SUST_REPORT, GHG, TARGETS, VERIFICATION]
+    CATEGORIES_DESC = {
+        SUST_REPORT: "Sustainability Reporting",
+        GHG: "GHG data",
+        TARGETS: "Targets reporting",
+        VERIFICATION: "Verification"
+        }
+
 class Config:
     DATA_FOLDER = "/home/django/net0_docs"
     XLS_FOLDER = 'excel_db'
     TOP_STATS_FILE = "stats/general_stats.json"
     LIBRARY_FOLDER = "reports"
+    LIBRARY = Library
     FIELDS = FieldsName
     SCORES = Scores
     TARGETS = Targets

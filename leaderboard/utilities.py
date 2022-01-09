@@ -31,9 +31,9 @@ def get_scores_xls(corp_number = None, top_rank=True):
         corp_number = max_rank
 
     if top_rank:
-        all_data = all_data.loc[all_data['rank']<=corp_number].sort_values(by=['rank'])
+        all_data = all_data.loc[all_data[c.SCORES.RANK]<=corp_number].sort_values(by=[c.SCORES.RANK])
     else:
-        all_data = all_data.loc[all_data['rank']>max_rank - corp_number].sort_values(by=['rank'])
+        all_data = all_data.loc[all_data[c.SCORES.RANK]>max_rank - corp_number].sort_values(by=[c.SCORES.RANK])
 
     # parsing the DataFrame in json format.
     json_records = all_data.reset_index().to_json(orient ='records')
