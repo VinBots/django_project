@@ -68,14 +68,12 @@ def get_scores_summary(company_id, all_data=None):
         score_data[i - 1] = scores_summary_data.iloc[0, i]
 
     score_data_dict = c.SCORES.STRUCTURE
-
     
     for category in score_data_dict.keys():
         for score in score_data_dict[category]["details"]:
-            score["score"] = scores_summary_data.at[0, score["field"]]
-        score_data_dict[category]["total"]["score"] = scores_summary_data.at[0, score_data_dict[category]["total"]["field"]]
+            score["score"] = scores_summary_data[score["field"]].values[0]
+        score_data_dict[category]["total"]["score"] = scores_summary_data[score_data_dict[category]["total"]["field"]].values[0]
     
-
     """
 
     score_data_dict = {
