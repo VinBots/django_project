@@ -17,20 +17,12 @@ def home(request):
         return redirect(path)
 
     corporates_names = Corporate.objects.all()
-    pct_values = get_general_stats(['trust', 'commitments', 'science'])
-    angle_deg = [str(pct_value * 1.8) + "deg" for pct_value in pct_values]
 
     return render(
         request, "django_project/home/main.html", {
             "corporates_names": corporates_names,
             "random_logos": get_random_logos(),
-            "general_stats": [{
-                "value": 18
-            }, {
-                "value": 50
-            }, {
-                "value": 42
-            }],
+            "general_stats": get_general_stats(['trust', 'commitments', 'science']),
             "angle1": angle_deg[0],
             "value1": str(pct_values[0]),
             "angle2": angle_deg[1],
