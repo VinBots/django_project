@@ -15,7 +15,7 @@
                 100% {
                     transform: rotate( {
                                 {
-                                angle1
+                                general_stats.0.angle
                             }
                         }
 
@@ -27,11 +27,13 @@
         <div align="center" class="col-4 col-12-medium">
             <div class="circle-wrap circle-wrap1">
                 <div class="circle circle1">
-                    <div class="mask full mask1 full1" style="transform:rotate({{angle1}})">
-                        <div class="fill fill1" style="background-color:#b1002c;transform:rotate({{angle1}})"></div>
+                    <div class="mask full mask1 full1" style="transform:rotate({{general_stats.0.angle}})">
+                        <div class="fill fill1"
+                            style="background-color:#b1002c;transform:rotate({{general_stats.0.angle}})"></div>
                     </div>
                     <div class="mask half mask1 half1">
-                        <div class="fill fill1" style="background-color:#b1002c;transform:rotate({{angle1}})"></div>
+                        <div class="fill fill1"
+                            style="background-color:#b1002c;transform:rotate({{general_stats.0.angle}})"></div>
                     </div>
                     <div class="inside-circle inside-circle1">
                         <a href="{% url 'blog' %}#transparency">{{general_stats.0.value}}%</a>
