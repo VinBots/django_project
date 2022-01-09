@@ -39,12 +39,9 @@ def get_score_data(company_id, all_data=None):
 
     score_record_data = all_data[all_data[c.FIELDS.COMPANY_ID] == company_id]
     num_cols = [
-        c.SCORES.TRANSPARENCY,
-        c.SCORES.COMMITMENTS,
-        c.SCORES.ACTIONS,
-        c.SCORES.TOTAL,
-        c.SCORES.RANK
-        ]
+        c.SCORES.TRANSPARENCY, c.SCORES.COMMITMENTS, c.SCORES.ACTIONS,
+        c.SCORES.TOTAL, c.SCORES.RANK
+    ]
     score_record_data[num_cols] = score_record_data[num_cols].apply(
         pd.to_numeric)
 
@@ -64,53 +61,6 @@ def get_score_data(company_id, all_data=None):
 
 def get_scores_summary(company_id, all_data=None):
 
-    principle_ref = [
-        '1',
-        '2',
-        '3',
-        '',
-        '4',
-        '5',
-        '6',
-        '7',
-        '',
-        '8',
-        '9',
-        '10',
-        '',
-    ]
-    principle_statement = [
-        'At least 2 years of GHG emissions for scope 1 and 2 are publicly-available and externally-verified',
-        'Scope 3 emissions are fully reported and externally-verified',
-        'CDP score and interim reporting demonstrate the highest level of transparency',
-        '',
-        'Net Zero Commitments by 2050 include an intermediate target and cover all the emissions',
-        'Net Zero targets demonstrate a high-level of emergency',
-        'Emission reduction targets on a forward-looking basis are ambitious',
-        'Targets are science-based as validated by SBTi',
-        '',
-        'Results re. operational emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)',
-        'Results re. value chain emissions reduction: on-pace (performance-to-date) and momentum (forward-looking targets)',
-        'Implied Temperature Rating by MSCi',
-        '',
-    ]
-    max_score = [
-        '10',
-        '10',
-        '10',
-        '30',
-        '10',
-        '10',
-        '10',
-        '10',
-        '40',
-        '10',
-        '10',
-        '10',
-        '30',
-    ]
-    comments = [''] * 13
-
     score_data = [0] * 13
 
     scores_summary_data = all_data[all_data[c.FIELDS.COMPANY_ID] == company_id]
@@ -120,24 +70,24 @@ def get_scores_summary(company_id, all_data=None):
     score_data_dict = {
         'transparency': {
             'details': [[
-                principle_ref[i], principle_statement[i], score_data[i],
-                max_score[i], comments[i]
+                c.SCORES.METHODOLOGY.PRINCIPLES_REF[i], c.SCORES.METHODOLOGY.PRINCIPLES_DESC[i],
+                score_data[i], c.SCORES.METHODOLOGY.MAX_SCORES[i], ''
             ] for i in range(0, 3)],
             'total':
             score_data[3],
         },
         'commitments': {
             'details': [[
-                principle_ref[i], principle_statement[i], score_data[i],
-                max_score[i], comments[i]
+                c.SCORES.METHODOLOGY.PRINCIPLES_REF[i], c.SCORES.METHODOLOGY.PRINCIPLES_DESC[i],
+                score_data[i], c.SCORES.METHODOLOGY.MAX_SCORES[i], ''
             ] for i in range(4, 8)],
             'total':
             score_data[8],
         },
         'actions': {
             'details': [[
-                principle_ref[i], principle_statement[i], score_data[i],
-                max_score[i], comments[i]
+                c.SCORES.METHODOLOGY.PRINCIPLES_REF[i], c.SCORES.METHODOLOGY.PRINCIPLES_DESC[i],
+                score_data[i], c.SCORES.METHODOLOGY.MAX_SCORES[i], ''
             ] for i in range(9, 12)],
             'total':
             score_data[12],
@@ -209,15 +159,15 @@ def get_targets(company_id, all_data=None):
     ]]
     targets_select_data[c.TARGETS.REDUCTION_OBJ] = pd.to_numeric(
         targets_select_data[c.TARGETS.REDUCTION_OBJ], errors='coerce') * 100
-    data_gross_abs = json.loads(targets_select_data.loc[(
-        targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.GROSS_ABSOLUTE)].sort_values(
+    data_gross_abs = json.loads(targets_select_data.loc[(targets_select_data[
+        c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.GROSS_ABSOLUTE)].sort_values(
             by='scope').reset_index().to_json(orient='records'))
-    data_net_abs = json.loads(targets_select_data.loc[(
-        targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.NET_ABSOLUTE)].sort_values(
+    data_net_abs = json.loads(targets_select_data.loc[(targets_select_data[
+        c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.NET_ABSOLUTE)].sort_values(
             by='scope').reset_index().to_json(orient='records'))
     data_net_zero_policy = json.loads(targets_select_data.loc[(
-        targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.NET0_POLICY)].sort_values(
-            by='scope').reset_index().to_json(orient='records'))
+        targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.NET0_POLICY
+    )].sort_values(by='scope').reset_index().to_json(orient='records'))
 
     targets_dict = {
         'net_zero_policy': data_net_zero_policy,
@@ -272,9 +222,8 @@ def get_all_data_from_csv(sheet_names):
 
 def get_last_reporting_year(all_data, company_id):
 
-    last_reporting_year = all_data.loc[all_data[c.FIELDS.COMPANY_ID] == company_id][[
-        'last_reporting_year'
-    ]].iloc[0, 0]
+    last_reporting_year = all_data.loc[all_data[
+        c.FIELDS.COMPANY_ID] == company_id][['last_reporting_year']].iloc[0, 0]
 
     return last_reporting_year
 
