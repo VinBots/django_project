@@ -3,7 +3,7 @@ import json
 
 def load_json(filename):
     with open (filename) as f:
-        return json.load(f).to_dict()
+        return json.load(f)
 
 class FieldsName:
     COMPANY_ID = "company_id"
