@@ -1,45 +1,36 @@
-class FIELDS_NAME:
+class FieldsName:
     COMPANY_ID = "company_id"
     SOURCE = 'source'
     TARGET_TYPE = "target_type"
     REPORTING_YEAR = "reporting_year"
 
-
-
-
-
-class TARGETS_TYPE:
+class TargetsType:
     NET0_POLICY = "net_zero_policy"
     NET_ABSOLUTE = "net_abs"
     GROSS_ABSOLUTE = "gross_abs"
 
-
-class TARGETS_SOURCES:
+class TargetsSources:
     SBTI = "sbti"
     PUBLIC = "public"
     CDP = "cdp"
 
-
-class TARGETS:
-    TYPE = TARGETS_TYPE
+class Targets:
+    TYPE = TargetsType
     REDUCTION_OBJ = "reduction_obj"
-    SOURCES = TARGETS_SOURCES
+    SOURCES = TargetsSources
 
-
-class GHG_DATA_SOURCES:
+class GhgDataSources:
     FINAL = "Final"
 
-
 class GHG:
-    SOURCES = GHG_DATA_SOURCES
+    SOURCES = GhgDataSources
     SCOPE1 = 'ghg_scope_1'
     SCOPE2_LOC = 'ghg_loc_scope_2'
     SCOPE2_MKT = "ghg_mkt_scope_2"
     SCOPE3 = "ghg_scope3_total"
     TOTAL = "ghg_total"
 
-
-class Score_Methodology:
+class ScoreMethodology:
     PRINCIPLES_REF = [
         '1',
         '2',
@@ -86,9 +77,8 @@ class Score_Methodology:
         '30',
     ]
 
-
-class SCORES:
-    METHODOLOGY = Score_Methodology
+class Scores:
+    METHODOLOGY = ScoreMethodology
     TRANSPARENCY = "transp_score"
     COMMITMENTS = "comm_score"
     ACTIONS = "actions_score"
@@ -100,7 +90,7 @@ class Config:
     XLS_FOLDER = 'excel_db'
     TOP_STATS_FILE = "stats/general_stats.json"
     LIBRARY_FOLDER = "reports"
-    FIELDS = FIELDS_NAME
-    SCORES = SCORES
-    TARGETS = TARGETS
+    FIELDS = FieldsName
+    SCORES = Scores
+    TARGETS = Targets
     GHG = GHG
