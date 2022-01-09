@@ -65,7 +65,7 @@ class Library:
         SUST_REPORT: "Sustainability Reporting",
         GHG: "GHG data",
         TARGETS: "Targets reporting",
-        VERIFICATION: "Verification"
+        VERIFICATION: "Verification helo"
         }
 
 class Config:
