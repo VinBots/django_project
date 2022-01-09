@@ -91,18 +91,7 @@ def get_scores_details(company_id, all_data=None):
     scores_details_data = all_data[all_data[c.FIELDS.COMPANY_ID] == company_id].fillna(
         "NA"
     )
-    pct_fields = [
-        "rat_6_1",
-        "rat_6_2",
-        "rat_8_1_meta_1",
-        "rat_8_1_meta_2",
-        "rat_8_2_meta_1",
-        "rat_8_2_meta_2",
-        "rat_9_1_meta_1",
-        "rat_9_1_meta_2",
-        "rat_9_2_meta_1",
-        "rat_9_2_meta_2",
-    ]
+    pct_fields = c.SCORES.PCT_FIELDS
     for field_name in pct_fields:
         scores_details_data = to_pct(scores_details_data, field_name)
 
@@ -112,15 +101,10 @@ def get_scores_details(company_id, all_data=None):
 
 
 def get_library_data(company_id, all_data=None):
+
     dict = {}
     fields = [c.LIBRARY.SUB_FOLDER_NAME, c.LIBRARY.FILENAME, c.LIBRARY.DESC]
     cond1 = all_data[c.FIELDS.COMPANY_ID] == company_id
-    #folders_list = [
-    #    ["sust_report", "Sustainability Reporting"],
-    #    ["ghg", "GHG data"],
-    #    ["targets", "Targets reporting"],
-    #    ["verification", "Verification"],
-    #]
 
     for folder_name, category in c.LIBRARY.CATEGORIES_DESC.items():
         cond2 = all_data[c.LIBRARY.SUB_FOLDER_NAME] == folder_name
@@ -139,10 +123,25 @@ def get_targets(company_id, all_data=None):
 
     targets_record_data = all_data.loc[
         (all_data[c.FIELDS.COMPANY_ID] == company_id)
-        & (all_data["source"].isin(["sbti", "public", "cdp"]))
+        & (
+            all_data[c.TARGETS.SOURCES.FIELD].isin(
+                [
+                    c.TARGETS.SOURCES.SBTI,
+                    c.TARGETS.SOURCES.PUBLIC,
+                    c.TARGETS.SOURCES.CDP,
+                ]
+            )
+        )
     ]
     targets_select_data = targets_record_data[
-        ["target_type", "scope", "cov_s3", "reduction_obj", "base_year", "target_year"]
+        [
+            c.TARGETS.TYPE.FIELD,
+            c.TARGETS.SCOPE,
+            c.TARGETS.COV_S3,
+            c.TARGETS.REDUCTION_OBJ,
+            c.TARGETS.BASE_YEAR,
+            c.TARGETS.TARGET_YEAR,
+        ]
     ]
     targets_select_data[c.TARGETS.REDUCTION_OBJ] = (
         pd.to_numeric(targets_select_data[c.TARGETS.REDUCTION_OBJ], errors="coerce")
@@ -152,7 +151,7 @@ def get_targets(company_id, all_data=None):
         targets_select_data.loc[
             (targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.GROSS_ABSOLUTE)
         ]
-        .sort_values(by="scope")
+        .sort_values(by=c.TARGETS.SCOPE)
         .reset_index()
         .to_json(orient="records")
     )
@@ -160,7 +159,7 @@ def get_targets(company_id, all_data=None):
         targets_select_data.loc[
             (targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.NET_ABSOLUTE)
         ]
-        .sort_values(by="scope")
+        .sort_values(by=c.TARGETS.SCOPE)
         .reset_index()
         .to_json(orient="records")
     )
@@ -168,15 +167,15 @@ def get_targets(company_id, all_data=None):
         targets_select_data.loc[
             (targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.NET0_POLICY)
         ]
-        .sort_values(by="scope")
+        .sort_values(by=c.TARGETS.SCOPE)
         .reset_index()
         .to_json(orient="records")
     )
 
     targets_dict = {
-        "net_zero_policy": data_net_zero_policy,
-        "gross_abs": data_gross_abs,
-        "net_abs": data_net_abs,
+        c.TARGETS.TYPE.NET0_POLICY: data_net_zero_policy,
+        c.TARGETS.TYPE.GROSS_ABSOLUTE: data_gross_abs,
+        c.TARGETS.TYPE.NET_ABSOLUTE: data_net_abs,
     }
 
     return targets_dict
@@ -185,30 +184,32 @@ def get_targets(company_id, all_data=None):
 def get_ghg(company_id, all_data, reporting_year_data):
 
     fields = [
-        "reporting_year",
-        "Source",
-        "ghg_scope_1",
-        "ghg_loc_scope_2",
-        "ghg_mkt_scope_2",
-        "ghg_scope3_total",
-        "ghg_total",
+        c.FIELDS.REPORTING_YEAR,
+        c.GHG.SOURCES.FIELD,
+        c.GHG.SCOPE1,
+        c.GHG.SCOPE2_LOC,
+        c.GHG.SCOPE2_MKT,
+        c.GHG.SCOPE3,
+        c.GHG.TOTAL,
     ]
     last_reporting_year = get_last_reporting_year(reporting_year_data, company_id)
 
     cond1 = all_data[c.FIELDS.COMPANY_ID] == company_id
-    cond2 = all_data["Source"].isin(["Final"])
-    cond3 = all_data["reporting_year"] <= last_reporting_year
-    cond4 = all_data["reporting_year"] >= last_reporting_year - 2
+    cond2 = all_data[c.GHG.SOURCES.FIELD].isin([c.GHG.SOURCES.FINAL])
+    cond3 = all_data[c.FIELDS.REPORTING_YEAR] <= last_reporting_year
+    cond4 = all_data[c.FIELDS.REPORTING_YEAR] >= last_reporting_year - 2
     filter_conditions = cond1 & cond2 & cond3 & cond4
 
     record_data = (
         all_data.loc[filter_conditions]
         .reset_index()
-        .sort_values("reporting_year", ascending=False)
+        .sort_values(c.FIELDS.REPORTING_YEAR, ascending=False)
     )
     record_data = record_data[fields]  # specific fields only
     dict = (
-        record_data.loc[record_data["Source"].isin(["Final"])].reset_index().to_dict()
+        record_data.loc[record_data[c.GHG.SOURCES.FIELD].isin([c.GHG.SOURCES.FINAL])]
+        .reset_index()
+        .to_dict()
     )
 
     for each_dict in dict:
@@ -216,10 +217,7 @@ def get_ghg(company_id, all_data, reporting_year_data):
             if isinstance(value, float):
                 dict[each_dict][key] = int(value)
 
-    data = {
-        "final": dict,
-    }
-    return data
+    return {"final": dict}
 
 
 def get_all_data_from_csv(sheet_names):
@@ -234,7 +232,7 @@ def get_all_data_from_csv(sheet_names):
 def get_last_reporting_year(all_data, company_id):
 
     last_reporting_year = all_data.loc[all_data[c.FIELDS.COMPANY_ID] == company_id][
-        ["last_reporting_year"]
+        [c.FIELDS.LAST_REPORTING_YEAR]
     ].iloc[0, 0]
     return last_reporting_year
 
