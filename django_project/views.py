@@ -24,6 +24,7 @@ def home(request):
         request, "django_project/home/main.html", {
             "corporates_names": corporates_names,
             "random_logos": get_random_logos(),
+            "general_stats": [{"value": 18},{"value": 50}, {"value": 42}]
             "angle1": angle_deg[0],
             "value1": str(pct_values[0]),
             "angle2": angle_deg[1],
@@ -34,20 +35,6 @@ def home(request):
             "bottom5_scores": get_scores_xls(corp_number=5, top_rank=False),
             "top10_wo_zero": get_top10_wo_zero()
         })
-
-
-"""
-def sectors(request, sector_name):
-
-  sector_data = {
-    "sector_name": sector_name,
-    "sector_code": "xxxx"
-  }
-  return render (request, "django_project/sectors/main.html", sector_data)
-
-def sectors_search(request):
-  return render (request, "django_project/sectors/main.html")
-"""
 
 
 def aboutus(request):
