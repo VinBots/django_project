@@ -25,13 +25,13 @@
             <div class="circle-wrap circle-wrap1">
                 <div class="circle circle1">
                     <div class="mask full mask1 full1" style="transform:rotate({{stat.angle}})">
-                        <div class="fill fill1" style="background-color:#b1002c;transform:rotate({{stat.angle}})"></div>
+                        <div class="fill fill1" style="background-color:{{stat.color}};transform:rotate({{stat.angle}})"></div>
                     </div>
                     <div class="mask half mask1 half1">
-                        <div class="fill fill1" style="background-color:#b1002c;transform:rotate({{stat.angle}})"></div>
+                        <div class="fill fill1" style="background-color:{{stat.color}};transform:rotate({{stat.angle}})"></div>
                     </div>
                     <div class="inside-circle inside-circle1">
-                        <a href="{% url 'blog' %}#transparency">{{stat.value}}%</a>
+                        {{stat.value}}%
                     </div>
                 </div>
             </div>
