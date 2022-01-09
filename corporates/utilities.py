@@ -37,8 +37,14 @@ def check_validity(corp_name):
 
 def get_score_data(company_id, all_data=None):
 
-    score_record_data = all_data[all_data['company_id'] == company_id]
-    num_cols = ['transp_score', 'comm_score', 'actions_score', 'score', 'rank']
+    score_record_data = all_data[all_data[c.FIELDS.COMPANY_ID] == company_id]
+    num_cols = [
+        c.SCORES.TRANSPARENCY,
+        c.SCORES.COMMITMENTS,
+        c.SCORES.ACTIONS,
+        c.SCORES.TOTAL,
+        c.SCORES.RANK
+        ]
     score_record_data[num_cols] = score_record_data[num_cols].apply(
         pd.to_numeric)
 
@@ -107,7 +113,7 @@ def get_scores_summary(company_id, all_data=None):
 
     score_data = [0] * 13
 
-    scores_summary_data = all_data[all_data['company_id'] == company_id]
+    scores_summary_data = all_data[all_data[c.FIELDS.COMPANY_ID] == company_id]
     for i in range(1, 14):
         score_data[i - 1] = scores_summary_data.iloc[0, i]
 
@@ -150,7 +156,7 @@ def to_pct(df, field, decimal=1):
 
 def get_scores_details(company_id, all_data=None):
     """Returns detailed score data"""
-    scores_details_data = all_data[all_data['company_id'] ==
+    scores_details_data = all_data[all_data[c.FIELDS.COMPANY_ID] ==
                                    company_id].fillna('NA')
     pct_fields = [
         'rat_6_1',
@@ -175,7 +181,7 @@ def get_scores_details(company_id, all_data=None):
 def get_library_data(company_id, all_data=None):
     dict = {}
     fields = ["folder_name", "filename", "desc"]
-    cond1 = all_data['company_id'] == company_id
+    cond1 = all_data[c.FIELDS.COMPANY_ID] == company_id
     folders_list = [['sust_report', 'Sustainability Reporting'],
                     ['ghg', 'GHG data'], ['targets', 'Targets reporting'],
                     ['verification', 'Verification']]
@@ -195,22 +201,22 @@ def get_library_data(company_id, all_data=None):
 def get_targets(company_id, all_data=None):
 
     targets_record_data = all_data.loc[
-        (all_data['company_id'] == company_id)
+        (all_data[c.FIELDS.COMPANY_ID] == company_id)
         & (all_data['source'].isin(['sbti', 'public', 'cdp']))]
     targets_select_data = targets_record_data[[
         'target_type', 'scope', 'cov_s3', 'reduction_obj', 'base_year',
         'target_year'
     ]]
-    targets_select_data['reduction_obj'] = pd.to_numeric(
-        targets_select_data['reduction_obj'], errors='coerce') * 100
+    targets_select_data[c.TARGETS.REDUCTION_OBJ] = pd.to_numeric(
+        targets_select_data[c.TARGETS.REDUCTION_OBJ], errors='coerce') * 100
     data_gross_abs = json.loads(targets_select_data.loc[(
-        targets_select_data['target_type'] == 'gross_abs')].sort_values(
+        targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.GROSS_ABSOLUTE)].sort_values(
             by='scope').reset_index().to_json(orient='records'))
     data_net_abs = json.loads(targets_select_data.loc[(
-        targets_select_data['target_type'] == 'net_abs')].sort_values(
+        targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.NET_ABSOLUTE)].sort_values(
             by='scope').reset_index().to_json(orient='records'))
     data_net_zero_policy = json.loads(targets_select_data.loc[(
-        targets_select_data['target_type'] == 'net_zero_policy')].sort_values(
+        targets_select_data[c.FIELDS.TARGET_TYPE] == c.TARGETS.TYPE.NET0_POLICY)].sort_values(
             by='scope').reset_index().to_json(orient='records'))
 
     targets_dict = {
@@ -231,7 +237,7 @@ def get_ghg(company_id, all_data, reporting_year_data):
     last_reporting_year = get_last_reporting_year(reporting_year_data,
                                                   company_id)
 
-    cond1 = all_data['company_id'] == company_id
+    cond1 = all_data[c.FIELDS.COMPANY_ID] == company_id
     cond2 = all_data['Source'].isin(['Final'])
     cond3 = all_data['reporting_year'] <= last_reporting_year
     cond4 = all_data['reporting_year'] >= last_reporting_year - 2
@@ -266,7 +272,7 @@ def get_all_data_from_csv(sheet_names):
 
 def get_last_reporting_year(all_data, company_id):
 
-    last_reporting_year = all_data.loc[all_data['company_id'] == company_id][[
+    last_reporting_year = all_data.loc[all_data[c.FIELDS.COMPANY_ID] == company_id][[
         'last_reporting_year'
     ]].iloc[0, 0]
 
