@@ -24,10 +24,10 @@
         <div align="center" class="col-4 col-12-medium">
             <div class="circle-wrap circle-wrap{{forloop.counter}}">
                 <div class="circle circle{{forloop.counter}}">
-                    <div class="mask full mask1 full1" style="transform:rotate({{stat.angle}})">
+                    <div class="mask full mask{{forloop.counter}} full{{forloop.counter}}" style="transform:rotate({{stat.angle}})">
                         <div class="fill fill{{forloop.counter}}" style="background-color:{{stat.color}};transform:rotate({{stat.angle}})"></div>
                     </div>
-                    <div class="mask half mask1 half{{forloop.counter}}">
+                    <div class="mask half mask{{forloop.counter}} half{{forloop.counter}}">
                         <div class="fill fill{{forloop.counter}}" style="background-color:{{stat.color}};transform:rotate({{stat.angle}})"></div>
                     </div>
                     <div class="inside-circle inside-circle{{forloop.counter}}">
