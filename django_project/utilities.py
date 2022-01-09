@@ -34,25 +34,12 @@ def get_top5_transp_miss_cut():
 
 def get_general_stats(indicators):
     path = os.path.join(c.DATA_FOLDER, c.TOP_STATS_FILE)
-    
+
     with open(path) as json_file:
         dict = json.load(json_file)
-    
+
     list_ind = [dict[indicator] for indicator in indicators]
     for ind_dict in list_ind:
         ind_dict['angle'] = str(ind_dict['value'] * 1.8) + "deg"
-    #angle_deg = [str(pct_value * 1.8) + "deg" for pct_value in pct_values]
 
     return list_ind
-
-
-'''
-[{
-                "value": 18,
-                "angle": xx,
-            }, {
-                "value": 50
-            }, {
-                "value": 42
-            }]
-'''

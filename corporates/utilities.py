@@ -5,13 +5,14 @@ import pandas as pd
 import os
 import math
 import json
+from config import Config as c 
 
 
-#BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
-BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
-BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
-#BASE_DIR_XL_DB = '/Users/vincentmanier/Documents/django_project/'
-#DIR_TO_CORP_CHARTS_TEMPLATES = "templates/django_project/corporates/charts/html_exports/"
+BASE_DIR_XL_DB = os.path.join(c.DATA_FOLDER, c.XLS_FOLDER)
+BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
+#BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
+#BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
+
 DIR_TO_CORP_CHARTS_TEMPLATES = "/corporates.html/charts/html_exports/"
 DIR_TO_CORP_CHARTS_IMG = "django_project/images/charts/"
 
