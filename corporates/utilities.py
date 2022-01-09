@@ -10,20 +10,15 @@ from config import Config as c
 
 BASE_DIR_XL_DB = os.path.join(c.DATA_FOLDER, c.XLS_FOLDER)
 BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
-#BASE_DIR_XL_DB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','excel_db')
-#BASE_DIR_LIB = os.path.join(Path(__file__).parent.parent.parent,'net0_docs','reports')
 
 DIR_TO_CORP_CHARTS_TEMPLATES = "/corporates.html/charts/html_exports/"
 DIR_TO_CORP_CHARTS_IMG = "django_project/images/charts/"
 
 def get_path_to_chart(company_id, chart_name):
     path = os.path.join(
-        #BASE_DIR,
         DIR_TO_CORP_CHARTS_TEMPLATES,
         chart_name,
         chart_name + str(company_id) + ".html")
-
-    #if os.path.exists(path):
     return path
 
 def get_path_to_img (company_id, chart_name):
@@ -34,10 +29,10 @@ def get_path_to_img (company_id, chart_name):
 
     return path
 
-def get_path_to_library():
+#def get_path_to_library():
     
-    path = os.path.join (BASE_DIR_LIB, 'ghg','2017_83.png')
-    return path
+    #path = os.path.join (BASE_DIR_LIB, 'ghg','2017_83.png')
+    #return path
 
 
 def check_validity(corp_name):
@@ -48,16 +43,9 @@ def check_validity(corp_name):
   return all(conditions)
 
 def get_score_data(company_id, all_data = None):
-    #xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-
-    #all_data = get_data(
-    #    xlsx_path,
-    #    'corp_scores',
-    #    None,
-    #)
 
     score_record_data=all_data[all_data['company_id']==company_id]
-    num_cols = ['transp_score','comm_score','actions_score','score','rank']#,'score_ratio','transp_ratio','comm_ratio','actions_ratio']
+    num_cols = ['transp_score','comm_score','actions_score','score','rank']
     score_record_data[num_cols] = score_record_data[num_cols].apply(pd.to_numeric)
 
     score_data = {
@@ -196,7 +184,6 @@ def get_library_data(company_id, all_data=None):
     folders_list = [
         ['sust_report', 'Sustainability Reporting'],
         ['ghg','GHG data'],
-        #['cdp','CDP report'],
         ['targets','Targets reporting'],
         ['verification', 'Verification']
     ]
@@ -230,9 +217,10 @@ def get_targets(company_id, all_data=None):
     return targets_dict
     
 
-def get_ghg(company_id = 113, all_data = None, source = 'CDP', last_reporting_year = 2019, fields = ['reporting_year', 'Source', 'ghg_scope_1','ghg_loc_scope_2','ghg_mkt_scope_2','ghg_scope3_total','ghg_total']):
+def get_ghg(company_id, all_data, reporting_year_data):
     
-    last_reporting_year = get_last_reporting_year(company_id)
+    fields = ['reporting_year', 'Source', 'ghg_scope_1','ghg_loc_scope_2','ghg_mkt_scope_2','ghg_scope3_total','ghg_total']
+    last_reporting_year = get_last_reporting_year(reporting_year_data, company_id)
 
     cond1 = all_data['company_id']==company_id
     cond2 = all_data['Source'].isin(['Final'])
@@ -253,7 +241,7 @@ def get_ghg(company_id = 113, all_data = None, source = 'CDP', last_reporting_ye
         'final': dict,
     }
     return data
-
+'''
 def get_data(xlsx_path, sheetname, cols_to_use):
     
     return pd.read_excel(
@@ -271,7 +259,7 @@ def get_all_data_from_xls():
         xlsx_path, 
         sheet_name=sheet_names,
         engine = 'openpyxl')
-
+'''
 def get_all_data_from_csv(sheet_names):
     
     pd_dict = {}
@@ -282,18 +270,12 @@ def get_all_data_from_csv(sheet_names):
     return pd_dict
 
 
-def get_last_reporting_year(company_id):
+def get_last_reporting_year(all_data, company_id):
     
-    xlsx_path = os.path.join (BASE_DIR_XL_DB, 'sp100.xlsx')
-        
-    all_data = get_data(
-        xlsx_path,
-        'reporting',
-        None,
-    )
     last_reporting_year=all_data.loc[all_data['company_id']==company_id][['last_reporting_year']].iloc[0,0]
 
     return last_reporting_year
+
 
 def ghg_format(number):
     if math.isnan(number):
