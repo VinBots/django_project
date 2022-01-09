@@ -24,7 +24,7 @@
                 <tbody>
                     {% for category, value in xls_corp.corp_scores_summary.items %}
 
-                    {% for score in category.details %}
+                    {% for score in value.details %}
                     <tr>
                         <td>{{score.ref}}</td>
                         <td>{{score.desc}}</td>
