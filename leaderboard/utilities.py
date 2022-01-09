@@ -1,4 +1,4 @@
-from corporates.utilities import get_data, get_all_data_from_csv
+from corporates.utilities import get_all_data_from_csv
 import os
 from pathlib import Path
 import json
