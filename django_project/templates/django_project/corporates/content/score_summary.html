@@ -21,7 +21,7 @@
                 </thead>
 
                 <tbody>
-                    {% for category in xls_corp.corp_scores_summary %}
+                    {% for category, value in xls_corp.corp_scores_summary.items %}
 
                     {% for score in category.details %}
                     <tr>
