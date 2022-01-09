@@ -24,11 +24,11 @@
                 <tbody>
                     {% for score in xls_corp.corp_scores_summary.transparency.details %}
                     <tr>
-                        <td>{{score.0}}</td>
-                        <td>{{score.1}}</td>
-                        <td>{{score.2}}</td>
-                        <td>{{score.3}}</td>
-                        <td>{{score.4}}</td>
+                        <td>{{score.ref}}</td>
+                        <td>{{score.desc}}</td>
+                        <td>{{score.score}}</td>
+                        <td>{{score.max_score}}</td>
+                        <td>{{score.comments}}</td>
                     </tr>
                     {% endfor %}
 
