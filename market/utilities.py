@@ -9,10 +9,6 @@ from config import Config as c
 def get_market_stats():
     """
     Fetch companies market statistics information
-    By default, fetch all the companies in the database. 
-    corp_number specifies the number of companies to return
-    if top_rank is set to True, it returns the top ranked companies
-    if top_rank is set to False, it returns the bottom ranked companies
     """
 
     # Connect to the data source
