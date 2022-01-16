@@ -62,7 +62,7 @@ class Scores:
     CATEGORIES = [TRANSPARENCY, COMMITMENTS, ACTIONS]
     TOTAL = "score"
     RANK = "rank"
-    STRUCTURE = load_json("score_structure.json")
+    STRUCTURE = load_json("/home/django/django_project/score_structure.json")
     PCT_FIELDS = [
         "rat_6_1",
         "rat_6_2",
@@ -116,7 +116,7 @@ class Config:
     LIBRARY_FOLDER = "reports"
     LIBRARY = Library
     FIELDS = FieldsName
-    #SCORES = Scores
+    SCORES = Scores
     TARGETS = Targets
     GHG = GHG
     DATA_FROM_XLSX = DataFromXlsx
