@@ -1,5 +1,5 @@
 import json
-from pydantic import Field
+from pydantic import Field, BaseModel
 
 
 def load_json(filename):
@@ -109,7 +109,7 @@ class DataFromXlsx:
     SCORES_DETAILS = "score_details"
     REPORTING = "reporting"
 
-class Company:
+class Company(BaseModel):
 
     company_name: str
     company_id: str
