@@ -116,7 +116,7 @@ class Config:
     LIBRARY_FOLDER = "reports"
     LIBRARY = Library
     FIELDS = FieldsName
-    SCORES = Scores
+    #SCORES = Scores
     TARGETS = Targets
     GHG = GHG
     DATA_FROM_XLSX = DataFromXlsx
