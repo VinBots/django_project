@@ -1,6 +1,6 @@
 import json
 from pydantic import Field, BaseModel
-
+from typing import Optional
 
 def load_json(filename):
     with open(filename) as f:
@@ -25,9 +25,14 @@ class TargetsType:
 
 class TargetsSources:
     FIELD = "source"
-    SBTI = "sbti"
+    SBTI = SBTI
     PUBLIC = "public"
     CDP = "cdp"
+
+class SBTI:
+    FIELD = "sbti"
+    NT_STATUS = "Near term - Target Status"
+    NT_CLASSIFICATION = "Near term - Target Classification"
 
 
 class Targets:
@@ -113,6 +118,8 @@ class Company(BaseModel):
 
     company_name: str
     company_id: int
+    sbti_nt_status : Optional[str]
+    sbti_nt_classification : Optional[str]
     # isic: str
     # ghg_s1s2: float
     # ghg_s3: float
@@ -131,7 +138,6 @@ class Company(BaseModel):
     # company_total_assets: Optional[float]
     # company_cash_equivalents: Optional[float]
 
-    sbti_validated: bool = Field(False, description='True if the SBTi target status is "Target set", false otherwise')
 
 class Config:
     DATA_FOLDER = "/home/django/net0_docs"
