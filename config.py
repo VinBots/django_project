@@ -112,7 +112,7 @@ class DataFromXlsx:
 class Company(BaseModel):
 
     company_name: str
-    company_id: str
+    company_id: int
     # isic: str
     # ghg_s1s2: float
     # ghg_s3: float
