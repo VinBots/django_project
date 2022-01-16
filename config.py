@@ -108,6 +108,7 @@ class DataFromXlsx:
     REPORTING = "reporting"
 
 
+
 class Config:
     DATA_FOLDER = "/home/django/net0_docs"
     XLS_FOLDER = "excel_db"
@@ -119,3 +120,5 @@ class Config:
     TARGETS = Targets
     GHG = GHG
     DATA_FROM_XLSX = DataFromXlsx
+    SBTI_XLSX = "/home/django/scripts/data/companies-taking-action.xlsx"
+    SBTI_CSV = "/home/django/scripts/data/sbti_data.csv"
