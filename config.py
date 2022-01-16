@@ -108,7 +108,29 @@ class DataFromXlsx:
     SCORES_DETAILS = "score_details"
     REPORTING = "reporting"
 
+class Company:
 
+    company_name: str
+    company_id: str
+    # isic: str
+    # ghg_s1s2: float
+    # ghg_s3: float
+
+    # country: Optional[str]
+    # region: Optional[str]
+    # sector: Optional[str]
+    # industry_level_1: Optional[str]
+    # industry_level_2: Optional[str]
+    # industry_level_3: Optional[str]
+    # industry_level_4: Optional[str]
+
+    # company_revenue: Optional[float]
+    # company_market_cap: Optional[float]
+    # company_enterprise_value: Optional[float]
+    # company_total_assets: Optional[float]
+    # company_cash_equivalents: Optional[float]
+
+    sbti_validated: bool = Field(False, description='True if the SBTi target status is "Target set", false otherwise')
 
 class Config:
     DATA_FOLDER = "/home/django/net0_docs"
@@ -124,3 +146,4 @@ class Config:
     SBTI_XLSX = "/home/django/scripts/data/companies-taking-action.xlsx"
     SBTI_CSV = "/home/django/scripts/data/sbti_data.csv"
     COMPANIES_CSV = f"{DATA_FOLDER}/{XLS_FOLDER}/companies.csv"
+    COMPANY = Company
