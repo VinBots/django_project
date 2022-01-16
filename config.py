@@ -122,3 +122,4 @@ class Config:
     DATA_FROM_XLSX = DataFromXlsx
     SBTI_XLSX = "/home/django/scripts/data/companies-taking-action.xlsx"
     SBTI_CSV = "/home/django/scripts/data/sbti_data.csv"
+    COMPANIES_CSV = f"{DATA_FOLDER}/{XLS_FOLDER}/companies.csv"
