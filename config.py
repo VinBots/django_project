@@ -8,6 +8,7 @@ def load_json(filename):
 
 class FieldsName:
     COMPANY_ID = "company_id"
+    COMPANY_ISIN = "ISIN"
     SOURCE = "source"
     TARGET_TYPE = "target_type"
     REPORTING_YEAR = "reporting_year"
