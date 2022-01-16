@@ -23,16 +23,17 @@ class TargetsType:
     GROSS_ABSOLUTE = "gross_abs"
 
 
+class SBTI:
+    FIELD = "sbti"
+    NT_STATUS = "Near term - Target Status"
+    NT_CLASSIFICATION = "Near term - Target Classification"
+
+
 class TargetsSources:
     FIELD = "source"
     SBTI = SBTI
     PUBLIC = "public"
     CDP = "cdp"
-
-class SBTI:
-    FIELD = "sbti"
-    NT_STATUS = "Near term - Target Status"
-    NT_CLASSIFICATION = "Near term - Target Classification"
 
 
 class Targets:
