@@ -61,6 +61,28 @@ class GHG:
     TOTAL = "ghg_total"
 
 class ScoreBreakdown:
+    
+    RAT1_1 = {"type": "rating", "name": "rat_1_1", "children": None, "score": {"name": "sco_1_1","value": 0}, "rating": {"name": "rat_1_1","value": 0}}
+    RAT1_2 = {"type": "rating", "name": "rat_1_2", "children": None, "score": {"name": "sco_1_2","value": 0}, "rating": {"name": "rat_1_2","value": 0}}
+    RAT2_1 = {"type": "rating", "name": "rat_2_1", "children": None, "score": {"name": "sco_2_1","value": 0}, "rating": {"name": "rat_2_1","value": 0}}
+    RAT2_2 = {"type": "rating", "name": "rat_2_2", "children": None, "score": {"name": "sco_2_2","value": 0}, "rating": {"name": "rat_2_2","value": 0}}
+    RAT3_1 = {"type": "rating", "name": "rat_3_1", "children": None, "score": {"name": "sco_3_1","value": 0}, "rating": {"name": "rat_3_1","value": 0}}
+    RAT3_2 = {"type": "rating", "name": "rat_3_2", "children": None, "score": {"name": "sco_3_2","value": 0}, "rating": {"name": "rat_3_2","value": 0}}
+    RAT4_1 = {"type": "rating", "name": "rat_4_1", "children": None, "score": {"name": "sco_4_1","value": 0}, "rating": {"name": "rat_4_1","value": 0}}
+    RAT4_2 = {"type": "rating", "name": "rat_4_2", "children": None, "score": {"name": "sco_4_2","value": 0}, "rating": {"name": "rat_4_2","value": 0}}
+    RAT4_3 = {"type": "rating", "name": "rat_4_3", "children": None, "score": {"name": "sco_4_3","value": 0}, "rating": {"name": "rat_4_3","value": 0}}
+    RAT5_1 = {"type": "rating", "name": "rat_5_1", "children": None, "score": {"name": "sco_5_1","value": 0}, "rating": {"name": "rat_5_1","value": 0}}
+    RAT5_2 = {"type": "rating", "name": "rat_5_2", "children": None, "score": {"name": "sco_5_2","value": 0}, "rating": {"name": "rat_5_2","value": 0}}
+    RAT6_1 = {"type": "rating", "name": "rat_6_1", "children": None, "score": {"name": "sco_6_1","value": 0}, "rating": {"name": "rat_6_1","value": 0}}
+    RAT6_2 = {"type": "rating", "name": "rat_6_2", "children": None, "score": {"name": "sco_6_2","value": 0}, "rating": {"name": "rat_6_2","value": 0}}
+    RAT7_1 = {"type": "rating", "name": "rat_7_1", "children": None, "score": {"name": "sco_7_1","value": 0}, "rating": {"name": "rat_7_1","value": 0}}
+    RAT8_1 = {"type": "rating", "name": "rat_8_1", "children": None, "score": {"name": "sco_8_1","value": 0}, "rating": {"name": "rat_8_1","value": 0}}
+    RAT8_2 = {"type": "rating", "name": "rat_8_2", "children": None, "score": {"name": "sco_8_2","value": 0}, "rating": {"name": "rat_8_2","value": 0}}
+    RAT9_1 = {"type": "rating", "name": "rat_9_1", "children": None, "score": {"name": "sco_9_1","value": 0}, "rating": {"name": "rat_9_1","value": 0}}
+    RAT9_2 = {"type": "rating", "name": "rat_9_2", "children": None, "score": {"name": "sco_9_2","value": 0}, "rating": {"name": "rat_9_2","value": 0}}
+    RAT10_1 ={"type": "rating", "name": "rat_10_1", "children": None, "score": {"name": "sco_10_1","value": 0}, "rating": {"name": "rat_10_1","value": 0}}
+    RAT10_2 ={"type": "rating", "name": "rat_10_2", "children": None, "score": {"name": "sco_10_2","value": 0}, "rating": {"name": "rat_10_2","value": 0}}
+    
     PRINC_1 = {"type": "aggr", "name": "princ_score_1", "children": [RAT1_1, RAT1_2]}
     PRINC_2 = {"type": "aggr", "name": "princ_score_2", "children": [RAT2_1, RAT2_2]}
     PRINC_3 = {"type": "aggr", "name": "princ_score_3", "children": [RAT3_1, RAT3_2]}
@@ -72,54 +94,10 @@ class ScoreBreakdown:
     PRINC_9 = {"type": "aggr", "name": "princ_score_9", "children": [RAT9_1, RAT9_2]}
     PRINC_10 = {"type": "aggr", "name": "princ_score_10", "children": [RAT10_1, RAT10_2]}
 
-
-
     CAT1 = {"type": "aggr", "name": "transp_score", "children": [PRINC_1, PRINC_2, PRINC_3]}
     CAT2 = {"type": "aggr", "name": "comm_score", "children": [PRINC_4, PRINC_5, PRINC_6, PRINC_7]}
     CAT3 = {"type": "aggr", "name": "actions_score", "children": [PRINC_8, PRINC_9, PRINC_10]}
     TOTAL_SCORE = {"type": "aggr", "name": "total_score", "children": [CAT1, CAT2, CAT3]}
-
-    "rat_1_1"
-    "sco_1_1"
-    "rat_1_2"
-    "sco_1_2"
-    "rat_2_1"
-    "sco_2_1"
-    "rat_2_2"
-    "sco_2_2"
-    "rat_3_1"
-    "sco_3_1"
-    rat_3_2
-    sco_3_2
-    rat_4_1
-    sco_4_1
-    rat_4_2
-    sco_4_2
-    rat_4_3
-    sco_4_3
-    rat_5_1
-    sco_5_1
-    rat_5_2
-    sco_5_2
-    rat_6_1
-    sco_6_1
-    rat_6_2
-    sco_6_2
-    rat_7_1
-    sco_7_1
-    rat_8_1
-    sco_8_1
-    rat_8_2
-    sco_8_2
-    rat_9_1
-    sco_9_1
-    rat_9_2
-    sco_9_2
-    rat_10_1
-    sco_10_1
-    rat_10_2
-    sco_10_2
-
 
 
 class Scores:
