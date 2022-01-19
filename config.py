@@ -2,6 +2,7 @@ import json
 from pydantic import Field, BaseModel
 from typing import Optional
 
+
 def load_json(filename):
     with open(filename) as f:
         return json.load(f)
@@ -60,44 +61,189 @@ class GHG:
     SCOPE3 = "ghg_scope3_total"
     TOTAL = "ghg_total"
 
+
 class ScoreBreakdown:
-    
-    RAT1_1 = {"type": "rating", "name": "rat_1_1", "children": None, "score": {"name": "sco_1_1","value": 0}, "rating": {"name": "rat_1_1","value": 0}}
-    RAT1_2 = {"type": "rating", "name": "rat_1_2", "children": None, "score": {"name": "sco_1_2","value": 0}, "rating": {"name": "rat_1_2","value": 0}}
-    RAT2_1 = {"type": "rating", "name": "rat_2_1", "children": None, "score": {"name": "sco_2_1","value": 0}, "rating": {"name": "rat_2_1","value": 0}}
-    RAT2_2 = {"type": "rating", "name": "rat_2_2", "children": None, "score": {"name": "sco_2_2","value": 0}, "rating": {"name": "rat_2_2","value": 0}}
-    RAT3_1 = {"type": "rating", "name": "rat_3_1", "children": None, "score": {"name": "sco_3_1","value": 0}, "rating": {"name": "rat_3_1","value": 0}}
-    RAT3_2 = {"type": "rating", "name": "rat_3_2", "children": None, "score": {"name": "sco_3_2","value": 0}, "rating": {"name": "rat_3_2","value": 0}}
-    RAT4_1 = {"type": "rating", "name": "rat_4_1", "children": None, "score": {"name": "sco_4_1","value": 0}, "rating": {"name": "rat_4_1","value": 0}}
-    RAT4_2 = {"type": "rating", "name": "rat_4_2", "children": None, "score": {"name": "sco_4_2","value": 0}, "rating": {"name": "rat_4_2","value": 0}}
-    RAT4_3 = {"type": "rating", "name": "rat_4_3", "children": None, "score": {"name": "sco_4_3","value": 0}, "rating": {"name": "rat_4_3","value": 0}}
-    RAT5_1 = {"type": "rating", "name": "rat_5_1", "children": None, "score": {"name": "sco_5_1","value": 0}, "rating": {"name": "rat_5_1","value": 0}}
-    RAT5_2 = {"type": "rating", "name": "rat_5_2", "children": None, "score": {"name": "sco_5_2","value": 0}, "rating": {"name": "rat_5_2","value": 0}}
-    RAT6_1 = {"type": "rating", "name": "rat_6_1", "children": None, "score": {"name": "sco_6_1","value": 0}, "rating": {"name": "rat_6_1","value": 0}}
-    RAT6_2 = {"type": "rating", "name": "rat_6_2", "children": None, "score": {"name": "sco_6_2","value": 0}, "rating": {"name": "rat_6_2","value": 0}}
-    RAT7_1 = {"type": "rating", "name": "rat_7_1", "children": None, "score": {"name": "sco_7_1","value": 0}, "rating": {"name": "rat_7_1","value": 0}}
-    RAT8_1 = {"type": "rating", "name": "rat_8_1", "children": None, "score": {"name": "sco_8_1","value": 0}, "rating": {"name": "rat_8_1","value": 0}}
-    RAT8_2 = {"type": "rating", "name": "rat_8_2", "children": None, "score": {"name": "sco_8_2","value": 0}, "rating": {"name": "rat_8_2","value": 0}}
-    RAT9_1 = {"type": "rating", "name": "rat_9_1", "children": None, "score": {"name": "sco_9_1","value": 0}, "rating": {"name": "rat_9_1","value": 0}}
-    RAT9_2 = {"type": "rating", "name": "rat_9_2", "children": None, "score": {"name": "sco_9_2","value": 0}, "rating": {"name": "rat_9_2","value": 0}}
-    RAT10_1 ={"type": "rating", "name": "rat_10_1", "children": None, "score": {"name": "sco_10_1","value": 0}, "rating": {"name": "rat_10_1","value": 0}}
-    RAT10_2 ={"type": "rating", "name": "rat_10_2", "children": None, "score": {"name": "sco_10_2","value": 0}, "rating": {"name": "rat_10_2","value": 0}}
-    
+
+    RAT1_1 = {
+        "type": "rating",
+        "name": "rat_1_1",
+        "children": None,
+        "score": {"name": "sco_1_1", "value": 0},
+        "rating": {"name": "rat_1_1", "value": 0},
+    }
+    RAT1_2 = {
+        "type": "rating",
+        "name": "rat_1_2",
+        "children": None,
+        "score": {"name": "sco_1_2", "value": 0},
+        "rating": {"name": "rat_1_2", "value": 0},
+    }
+    RAT2_1 = {
+        "type": "rating",
+        "name": "rat_2_1",
+        "children": None,
+        "score": {"name": "sco_2_1", "value": 0},
+        "rating": {"name": "rat_2_1", "value": 0},
+    }
+    RAT2_2 = {
+        "type": "rating",
+        "name": "rat_2_2",
+        "children": None,
+        "score": {"name": "sco_2_2", "value": 0},
+        "rating": {"name": "rat_2_2", "value": 0},
+    }
+    RAT3_1 = {
+        "type": "rating",
+        "name": "rat_3_1",
+        "children": None,
+        "score": {"name": "sco_3_1", "value": 0},
+        "rating": {"name": "rat_3_1", "value": 0},
+    }
+    RAT3_2 = {
+        "type": "rating",
+        "name": "rat_3_2",
+        "children": None,
+        "score": {"name": "sco_3_2", "value": 0},
+        "rating": {"name": "rat_3_2", "value": 0},
+    }
+    RAT4_1 = {
+        "type": "rating",
+        "name": "rat_4_1",
+        "children": None,
+        "score": {"name": "sco_4_1", "value": 0},
+        "rating": {"name": "rat_4_1", "value": 0},
+    }
+    RAT4_2 = {
+        "type": "rating",
+        "name": "rat_4_2",
+        "children": None,
+        "score": {"name": "sco_4_2", "value": 0},
+        "rating": {"name": "rat_4_2", "value": 0},
+    }
+    RAT4_3 = {
+        "type": "rating",
+        "name": "rat_4_3",
+        "children": None,
+        "score": {"name": "sco_4_3", "value": 0},
+        "rating": {"name": "rat_4_3", "value": 0},
+    }
+    RAT5_1 = {
+        "type": "rating",
+        "name": "rat_5_1",
+        "children": None,
+        "score": {"name": "sco_5_1", "value": 0},
+        "rating": {"name": "rat_5_1", "value": 0},
+    }
+    RAT5_2 = {
+        "type": "rating",
+        "name": "rat_5_2",
+        "children": None,
+        "score": {"name": "sco_5_2", "value": 0},
+        "rating": {"name": "rat_5_2", "value": 0},
+    }
+    RAT6_1 = {
+        "type": "rating",
+        "name": "rat_6_1",
+        "children": None,
+        "score": {"name": "sco_6_1", "value": 0},
+        "rating": {"name": "rat_6_1", "value": 0},
+    }
+    RAT6_2 = {
+        "type": "rating",
+        "name": "rat_6_2",
+        "children": None,
+        "score": {"name": "sco_6_2", "value": 0},
+        "rating": {"name": "rat_6_2", "value": 0},
+    }
+    RAT7_1 = {
+        "type": "rating",
+        "name": "rat_7_1",
+        "children": None,
+        "score": {"name": "sco_7_1", "value": 0},
+        "rating": {"name": "rat_7_1", "value": 0},
+    }
+    RAT8_1 = {
+        "type": "rating",
+        "name": "rat_8_1",
+        "children": None,
+        "score": {"name": "sco_8_1", "value": 0},
+        "rating": {"name": "rat_8_1", "value": 0},
+    }
+    RAT8_2 = {
+        "type": "rating",
+        "name": "rat_8_2",
+        "children": None,
+        "score": {"name": "sco_8_2", "value": 0},
+        "rating": {"name": "rat_8_2", "value": 0},
+    }
+    RAT9_1 = {
+        "type": "rating",
+        "name": "rat_9_1",
+        "children": None,
+        "score": {"name": "sco_9_1", "value": 0},
+        "rating": {"name": "rat_9_1", "value": 0},
+    }
+    RAT9_2 = {
+        "type": "rating",
+        "name": "rat_9_2",
+        "children": None,
+        "score": {"name": "sco_9_2", "value": 0},
+        "rating": {"name": "rat_9_2", "value": 0},
+    }
+    RAT10_1 = {
+        "type": "rating",
+        "name": "rat_10_1",
+        "children": None,
+        "score": {"name": "sco_10_1", "value": 0},
+        "rating": {"name": "rat_10_1", "value": 0},
+    }
+    RAT10_2 = {
+        "type": "rating",
+        "name": "rat_10_2",
+        "children": None,
+        "score": {"name": "sco_10_2", "value": 0},
+        "rating": {"name": "rat_10_2", "value": 0},
+    }
+
     PRINC_1 = {"type": "aggr", "name": "princ_score_1", "children": [RAT1_1, RAT1_2]}
     PRINC_2 = {"type": "aggr", "name": "princ_score_2", "children": [RAT2_1, RAT2_2]}
     PRINC_3 = {"type": "aggr", "name": "princ_score_3", "children": [RAT3_1, RAT3_2]}
-    PRINC_4 = {"type": "aggr", "name": "princ_score_4", "children": [RAT4_1, RAT4_2,RAT4_3]}
+    PRINC_4 = {
+        "type": "aggr",
+        "name": "princ_score_4",
+        "children": [RAT4_1, RAT4_2, RAT4_3],
+    }
     PRINC_5 = {"type": "aggr", "name": "princ_score_5", "children": [RAT5_1, RAT5_2]}
     PRINC_6 = {"type": "aggr", "name": "princ_score_6", "children": [RAT6_1, RAT6_2]}
     PRINC_7 = {"type": "aggr", "name": "princ_score_7", "children": [RAT7_1]}
     PRINC_8 = {"type": "aggr", "name": "princ_score_8", "children": [RAT8_1, RAT8_2]}
     PRINC_9 = {"type": "aggr", "name": "princ_score_9", "children": [RAT9_1, RAT9_2]}
-    PRINC_10 = {"type": "aggr", "name": "princ_score_10", "children": [RAT10_1, RAT10_2]}
+    PRINC_10 = {
+        "type": "aggr",
+        "name": "princ_score_10",
+        "children": [RAT10_1, RAT10_2],
+    }
 
-    CAT1 = {"type": "aggr", "name": "transp_score", "children": [PRINC_1, PRINC_2, PRINC_3]}
-    CAT2 = {"type": "aggr", "name": "comm_score", "children": [PRINC_4, PRINC_5, PRINC_6, PRINC_7]}
-    CAT3 = {"type": "aggr", "name": "actions_score", "children": [PRINC_8, PRINC_9, PRINC_10]}
-    TOTAL_SCORE = {"type": "aggr", "name": "total_score", "children": [CAT1, CAT2, CAT3]}
+    CAT1 = {
+        "type": "aggr",
+        "name": "transp_score",
+        "children": [PRINC_1, PRINC_2, PRINC_3],
+    }
+    CAT2 = {
+        "type": "aggr",
+        "name": "comm_score",
+        "children": [PRINC_4, PRINC_5, PRINC_6, PRINC_7],
+    }
+    CAT3 = {
+        "type": "aggr",
+        "name": "actions_score",
+        "children": [PRINC_8, PRINC_9, PRINC_10],
+    }
+    TOTAL_SCORE = {
+        "type": "aggr",
+        "name": "total_score",
+        "children": [CAT1, CAT2, CAT3],
+    }
 
 
 class Scores:
@@ -127,7 +273,7 @@ class Scores:
 
 
 class Library:
-    
+
     LIST_CSV = "library_db"
     FOLDER = "reports"
     SUB_FOLDER_NAME = "folder_name"
@@ -156,12 +302,13 @@ class DataFromXlsx:
     SCORES_DETAILS = "score_details"
     REPORTING = "reporting"
 
+
 class Company(BaseModel):
 
     company_name: str
     company_id: int
-    sbti_nt_status : Optional[str]
-    sbti_nt_classification : Optional[str]
+    sbti_nt_status: Optional[str]
+    sbti_nt_classification: Optional[str]
     # isic: str
     # ghg_s1s2: float
     # ghg_s3: float
@@ -181,20 +328,26 @@ class Company(BaseModel):
     # company_cash_equivalents: Optional[float]
 
 
-class Config:
+class FilesPath:
+
     DATA_FOLDER = "/home/django/net0_docs"
     XLS_FOLDER = "excel_db"
     TOP_STATS_FILE = "stats/general_stats.json"
     LIBRARY_FOLDER = "reports"
+
+    ORIGINAL_XLSX = "/home/django/net0_docs/excel_db/original/sp100.xlsx"
+    SBTI_XLSX = "/home/django/scripts/data/companies-taking-action.xlsx"
+    SBTI_CSV = "/home/django/scripts/data/sbti_data.csv"
+    COMPANIES_CSV = f"{DATA_FOLDER}/{XLS_FOLDER}/companies.csv"
+
+
+class Config:
+
     LIBRARY = Library
     FIELDS = FieldsName
     SCORES = Scores
     TARGETS = Targets
     GHG = GHG
     DATA_FROM_XLSX = DataFromXlsx
-    SBTI_XLSX = "/home/django/scripts/data/companies-taking-action.xlsx"
-    SBTI_CSV = "/home/django/scripts/data/sbti_data.csv"
-    COMPANIES_CSV = f"{DATA_FOLDER}/{XLS_FOLDER}/companies.csv"
     COMPANY = Company
-
-
+    FILES_PATH = FilesPath
