@@ -343,6 +343,16 @@ class FilesPath:
 
 class Config:
 
+    DATA_FOLDER = "/home/django/net0_docs"
+    XLS_FOLDER = "excel_db"
+    TOP_STATS_FILE = "stats/general_stats.json"
+    LIBRARY_FOLDER = "reports"
+
+    ORIGINAL_XLSX = "/home/django/net0_docs/excel_db/original/sp100.xlsx"
+    SBTI_XLSX = "/home/django/server/data/companies-taking-action.xlsx"
+    SBTI_CSV = "/home/django/scripts/data/sbti_data.csv"
+    COMPANIES_CSV = f"{DATA_FOLDER}/{XLS_FOLDER}/companies.csv"
+
     LIBRARY = Library
     FIELDS = FieldsName
     SCORES = Scores
