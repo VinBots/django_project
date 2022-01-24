@@ -221,7 +221,7 @@ class ScoreBreakdown:
     PRINC_10 = {
         "type": "aggr",
         "name": "princ_score_10",
-        "children": [RAT10_1, RAT10_2],
+        "children": [RAT10_1],
     }
 
     CAT1 = {
@@ -237,7 +237,7 @@ class ScoreBreakdown:
     CAT3 = {
         "type": "aggr",
         "name": "actions_score",
-        "children": [RAT8_1, RAT8_2, RAT9_1, RAT9_2, RAT10_1, RAT10_2],
+        "children": [RAT8_1, RAT8_2, RAT9_1, RAT9_2, RAT10_1],
     }
     TOTAL_SCORE = {
         "type": "aggr",
