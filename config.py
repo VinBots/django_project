@@ -227,22 +227,22 @@ class ScoreBreakdown:
     CAT1 = {
         "type": "aggr",
         "name": "transp_score",
-        "children": [PRINC_1, PRINC_2, PRINC_3],
+        "children": [RAT1_1, RAT1_2, RAT2_1, RAT2_2, RAT3_1, RAT3_2],
     }
     CAT2 = {
         "type": "aggr",
         "name": "comm_score",
-        "children": [PRINC_4, PRINC_5, PRINC_6, PRINC_7],
+        "children": [RAT4_1, RAT4_2, RAT4_3, RAT5_1, RAT5_2, RAT6_1, RAT6_2, RAT7_1],
     }
     CAT3 = {
         "type": "aggr",
         "name": "actions_score",
-        "children": [PRINC_8, PRINC_9, PRINC_10],
+        "children": [RAT8_1, RAT8_2, RAT9_1, RAT9_2, RAT10_1, RAT10_2],
     }
     TOTAL_SCORE = {
         "type": "aggr",
         "name": "total_score",
-        "children": [CAT1, CAT2, CAT3],
+        "children": "all",
     }
 
 
