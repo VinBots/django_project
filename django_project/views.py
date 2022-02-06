@@ -96,10 +96,10 @@ def registerPage(request):
 def loginPage(request):
     if request.method == "POST":
         username = request.POST.get("username")
-        password = request.POST.get("username")
+        password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            redirect("main_home")
+            return redirect("main_home")
     context = {}
     return render(request, "django_project/accounts/login.html", context)
