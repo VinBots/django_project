@@ -19,15 +19,21 @@ from . import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('django.contrib.auth.urls')),	
-    path('', views.home, name='main_home'),
-    path('corporates.html/', include('corporates.urls')),
-    path('aboutus.html/', views.aboutus, name = 'aboutus'),
-    path('faq.html/', views.faq, name = 'faq'),
-    path('blog.html/', views.blog, name = 'blog'),
-    path('leaderboard.html/', include('leaderboard.urls')),
-    path('download/', views.download_file, name = 'download_file'),
-    path('download/<str:folder_name>/<str:file_name>', views.download_file, name = 'download_file'),
-    path('market.html/', include('market.urls')),
-    ]
+    path("admin/", admin.site.urls),
+    path("", include("django.contrib.auth.urls")),
+    path("", views.home, name="main_home"),
+    path("corporates.html/", include("corporates.urls")),
+    path("aboutus.html/", views.aboutus, name="aboutus"),
+    path("faq.html/", views.faq, name="faq"),
+    path("blog.html/", views.blog, name="blog"),
+    path("leaderboard.html/", include("leaderboard.urls")),
+    path("download/", views.download_file, name="download_file"),
+    path(
+        "download/<str:folder_name>/<str:file_name>",
+        views.download_file,
+        name="download_file",
+    ),
+    path("market.html/", include("market.urls")),
+    path("register/", views.registerPage, name="registerPage"),
+    path("login/", views.loginPage, name="loginPage"),
+]
