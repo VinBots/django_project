@@ -85,6 +85,7 @@ def registerPage(request):
             form.save()
             user = form.cleaned_data.get("username")
             messages.success(request, "Account as created for " + user)
+            return redirect("loginpage")
     context = {"form": form}
     return render(request, "django_project/accounts/register.html", context)
 
