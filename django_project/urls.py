@@ -34,6 +34,6 @@ urlpatterns = [
         name="download_file",
     ),
     path("market.html/", include("market.urls")),
-    path("register/", views.registerPage, name="registerPage"),
-    path("login/", views.loginPage, name="loginPage"),
+    path("register/", views.registerPage, name="register"),
+    path("login/", views.loginPage, name="login"),
 ]
