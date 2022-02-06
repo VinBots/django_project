@@ -35,5 +35,5 @@ urlpatterns = [
     ),
     path("market.html/", include("market.urls")),
     path("register/", views.registerPage, name="register"),
-    path("login/", views.aboutus, name="loginpage"),
+    path("loginpage/", views.aboutus, name="loginpage"),
 ]
