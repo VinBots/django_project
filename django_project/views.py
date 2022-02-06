@@ -81,7 +81,7 @@ def registerPage(request):
         if form.is_valid():
             form.save()
     context = {"form": form}
-    return render(request, "django_project/aboutus/main.html", context)
+    return render(request, "django_project/accounts/register.html", context)
 
 
 def loginPage(request):
