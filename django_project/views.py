@@ -14,6 +14,7 @@ from django.core.files import File
 from django_project.utilities import get_general_stats
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
+from django.contrib import messages
 
 from config import Config as c
 
@@ -82,6 +83,8 @@ def registerPage(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get("username")
+            messages.success(request, "Account as created for " + user)
     context = {"form": form}
     return render(request, "django_project/accounts/register.html", context)
 
