@@ -87,4 +87,4 @@ def registerPage(request):
 
 
 def loginPage(request):
-    pass
+    return render(request, "django_project/accounts/login.html")
