@@ -12,9 +12,12 @@ import os
 from django.http import HttpResponse
 from django.core.files import File
 from django_project.utilities import get_general_stats
-from django.contrib.auth.forms import UserCreationForm
+
+# from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+
 
 from config import Config as c
 
@@ -91,5 +94,12 @@ def registerPage(request):
 
 
 def loginPage(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("username")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            redirect("main_home")
     context = {}
     return render(request, "django_project/accounts/login.html", context)
