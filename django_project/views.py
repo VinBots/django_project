@@ -101,5 +101,8 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             return redirect("main_home")
+        else:
+            messages.info(request, "Username OR password is incorrect")
+
     context = {}
     return render(request, "django_project/accounts/login.html", context)
