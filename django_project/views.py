@@ -13,6 +13,8 @@ from django.http import HttpResponse
 from django.core.files import File
 from django_project.utilities import get_general_stats
 from django.contrib.auth.forms import UserCreationForm
+from .forms import CreateUserForm
+
 from config import Config as c
 
 
@@ -75,9 +77,9 @@ def download_file(request, folder_name="", file_name=""):
 
 
 def registerPage(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
     context = {"form": form}
