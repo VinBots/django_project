@@ -76,13 +76,13 @@ def download_file(request, folder_name="", file_name=""):
 
 def registerPage(request):
     form = UserCreationForm()
-    if request.method == 'POST':
+    if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-    context = {'form': form}
-    return render (request, 'django_project/aboutus/main.html',context)
+    context = {"form": form}
+    return render(request, "django_project/aboutus/main.html", context)
 
 
-def loginpage(request):
+def loginPage(request):
     pass
