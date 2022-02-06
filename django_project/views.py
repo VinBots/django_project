@@ -87,4 +87,5 @@ def registerPage(request):
 
 
 def loginPage(request):
-    return render(request, "django_project/accounts/login.html")
+    context = {}
+    return render(request, "django_project/accounts/login.html", context)
