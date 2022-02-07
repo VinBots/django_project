@@ -106,3 +106,8 @@ def loginPage(request):
 
     context = {}
     return render(request, "django_project/accounts/login.html", context)
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect("loginpage")
