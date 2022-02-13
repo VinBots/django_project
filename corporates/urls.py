@@ -11,5 +11,5 @@ urlpatterns = [
         name="html_exports",
     ),
     path("list", GHGList.as_view(), name="ghg"),
-    path("update", GHGListUpdate.as_view(), name="update-ghg"),
+    path("update/<int:pk>/", GHGListUpdate.as_view(), name="update-ghg"),
 ]
