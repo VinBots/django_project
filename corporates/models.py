@@ -108,3 +108,6 @@ class GHGQuantPublic(models.Model):
 
     class Meta:
         verbose_name_plural = "GHG Quantitative (Public Sources)"
+
+    def __str__(self):
+        return f"{self.company__company_name}-{self.reporting_year}"
