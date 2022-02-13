@@ -105,3 +105,6 @@ class GHGQuantPublic(models.Model):
     purch_ghg_offsets = models.DecimalField(
         max_digits=12, decimal_places=1, blank=True, null=True
     )
+
+    class Meta:
+        verbose_name_plural = "GHG Quantitative (Public Sources)"
