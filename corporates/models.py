@@ -43,65 +43,65 @@ class GHGQuantPublic(models.Model):
     update_date = models.DateField(auto_now=True)
     reporting_year = models.PositiveIntegerField()
     ghg_scope_1 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_loc_scope_2 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_mkt_scope_2 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_purch_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_capital_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_fuel_energy_loc_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_fuel_energy_mkt_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_upstream_td_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_wate_ops_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_bus_travel_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_commute_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_up_leased_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_downstream_td_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_proc_sold_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_use_sold_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_eol_sold_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_down_leased_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_franchises_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_investments_scope3 = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     ghg_other = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
     purch_ghg_offsets = models.DecimalField(
-        max_digits=12, decimal_places=1, blank=True, Null=True
+        max_digits=12, decimal_places=1, blank=True, null=True
     )
