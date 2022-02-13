@@ -1,5 +1,8 @@
+from django.views.generic.list import ListView
+from .models import GHGQuantPublic
+
 from django.shortcuts import render, redirect
-from corporates.models import Corporate
+from corporates.models import Corporate, GHGQuantPublic
 from django.urls import reverse
 from corporates.utilities import (
     get_library_data,
@@ -147,3 +150,10 @@ def show_html(request, folder_name=None, file_name=None):
             "path": path,
         },
     )
+
+
+class GHGList(ListView):
+    model = GHGQuantPublic
+    context_object_name = 'ghg'
+
+    
