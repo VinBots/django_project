@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import GHGList
+from .views import GHGList, GHGListUpdate
 
 urlpatterns = [
     path("<str:corp_name>/", views.corporates_search, name="corporates_search"),
@@ -11,4 +11,5 @@ urlpatterns = [
         name="html_exports",
     ),
     path("list", GHGList.as_view(), name="ghg"),
+    path("update", GHGListUpdate.as_view(), name="update-ghg"),
 ]
