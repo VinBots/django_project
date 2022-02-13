@@ -161,5 +161,5 @@ class GHGList(ListView):
 
 class GHGListUpdate(UpdateView):
     model = GHGQuantPublic
-    # fields =
+    fields = "__all__"
     success_url = reverse_lazy("ghg")
