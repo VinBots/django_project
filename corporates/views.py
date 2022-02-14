@@ -157,10 +157,11 @@ def show_html(request, folder_name=None, file_name=None):
 class GHGList(ListView):
     model = GHGQuantPublic
     context_object_name = "ghg"
-    template_name = "corporates/ghg.html"
+    template_name = "corporates/ghg_view.html"
 
 
 class GHGListUpdate(UpdateView):
     model = GHGQuantPublic
     fields = "__all__"
     success_url = reverse_lazy("ghg")
+    template_name = "corporates/ghg_update.html"
