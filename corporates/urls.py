@@ -3,6 +3,7 @@ from . import views
 from .views import GHGList, GHGListCreate, GHGListUpdate
 
 urlpatterns = [
+    path("view", GHGList.as_view(), name="ghg"),
     path("<str:corp_name>/", views.corporates_search, name="corporates_search"),
     path("", views.corporates_home, name="corporates_home"),
     path(
@@ -10,7 +11,6 @@ urlpatterns = [
         views.show_html,
         name="html_exports",
     ),
-    path("view", GHGList.as_view(), name="ghg"),
     path("update/<int:pk>/", GHGListUpdate.as_view(), name="update-ghg"),
     path("create/", GHGListCreate.as_view(), name="create-ghg"),
 ]
