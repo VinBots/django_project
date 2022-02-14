@@ -166,6 +166,7 @@ class GHGListCreate(CreateView):
     model = GHGQuantPublic
     fields = "__all__"
     success_url = reverse_lazy("ghg")
+    template_name = "corporates/ghg_form.html"
 
 
 class GHGListUpdate(UpdateView):
