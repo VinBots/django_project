@@ -10,7 +10,7 @@ urlpatterns = [
         views.show_html,
         name="html_exports",
     ),
-    path("view/", GHGList.as_view(), name="ghg"),
+    path("view", GHGList.as_view(), name="ghg"),
     path("update/<int:pk>/", GHGListUpdate.as_view(), name="update-ghg"),
     path("create/", GHGListCreate.as_view(), name="create-ghg"),
 ]
