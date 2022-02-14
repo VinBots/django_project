@@ -3,7 +3,7 @@ from . import views
 from .views import GHGList, GHGListCreate, GHGListUpdate
 
 urlpatterns = [
-    # path("<str:corp_name>/", views.corporates_search, name="corporates_search"),
+    path("<str:corp_name>/", views.corporates_search, name="corporates_search"),
     path("", views.corporates_home, name="corporates_home"),
     path(
         "charts/html_exports/<str:folder_name>/<str:file_name>",
