@@ -157,6 +157,7 @@ def show_html(request, folder_name=None, file_name=None):
 class GHGList(ListView):
     model = GHGQuantPublic
     context_object_name = "ghg"
+    template_name = "corporates/ghg.html"
 
 
 class GHGListUpdate(UpdateView):
