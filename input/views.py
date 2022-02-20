@@ -22,7 +22,7 @@ class GHGList(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context["ghg"] = context["ghg"].filter(status="verified")
-        return super().get_context_data(**kwargs)
+        return context
 
 
 class GHGListCreate(LoginRequiredMixin, CreateView):
@@ -42,4 +42,4 @@ class GHGListUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context["ghg"] = context["ghg"].filter(status="verified")
-        return super().get_context_data(**kwargs)
+        return context
