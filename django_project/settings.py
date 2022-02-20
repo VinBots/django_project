@@ -171,6 +171,8 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+LOGIN_URL = "login"
+
 # ———- Add Django Dash start ——————————–
 # Adding ASGI Application
 ASGI_APPLICATION = "django_project.routing.application"
