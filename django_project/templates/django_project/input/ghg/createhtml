@@ -1,0 +1,17 @@
+<html>
+
+<head>
+
+</head>
+<h1>UPDATE</h1>
+
+<body>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>

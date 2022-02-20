@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     "corporates",
     "leaderboard",
     "market",
+    "input",
     "django.contrib.humanize",
 ]
 
