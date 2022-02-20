@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class CorporatesConfig(AppConfig):
+class InputConfig(AppConfig):
     name = "input"
