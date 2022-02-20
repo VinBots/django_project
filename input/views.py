@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from .models import GHGQuant
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from typing import Any, Dict
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -32,3 +33,8 @@ class GHGListUpdate(LoginRequiredMixin, UpdateView):
     fields = "__all__"
     success_url = reverse_lazy("ghg")
     template_name = "django_project/input/ghg/update.html"
+
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["ghg"] = context["ghg"].filter(status="verified")
+        return super().get_context_data(**kwargs)
