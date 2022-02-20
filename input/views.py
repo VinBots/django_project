@@ -8,7 +8,7 @@ class GHGList(ListView):
 
     model = GHGQuant
     context_object_name = "ghg"
-    template_name = "input/ghg/view.html"
+    template_name = "django_project/input/ghg/view.html"
 
 
 class GHGListCreate(CreateView):
@@ -16,11 +16,11 @@ class GHGListCreate(CreateView):
     model = GHGQuant
     fields = "__all__"
     success_url = reverse_lazy("ghg")
-    template_name = "input/ghg/create.html"
+    template_name = "django_project/input/ghg/create.html"
 
 
 class GHGListUpdate(UpdateView):
     model = GHGQuant
     fields = "__all__"
     success_url = reverse_lazy("ghg")
-    template_name = "input/ghg/update.html"
+    template_name = "django_project/input/ghg/update.html"
