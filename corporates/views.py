@@ -1,11 +1,6 @@
-from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
-from .models import GHGQuantPublic
-
-
 from django.shortcuts import render, redirect
-from corporates.models import Corporate, GHGQuantPublic
-from django.urls import reverse, reverse_lazy
+from corporates.models import Corporate
+from django.urls import reverse
 from corporates.utilities import (
     get_library_data,
     get_path_to_chart,
@@ -152,25 +147,3 @@ def show_html(request, folder_name=None, file_name=None):
             "path": path,
         },
     )
-
-
-class GHGList(ListView):
-
-    model = GHGQuantPublic
-    context_object_name = "ghg"
-    template_name = "corporates/ghg_view.html"
-
-
-class GHGListCreate(CreateView):
-
-    model = GHGQuantPublic
-    fields = "__all__"
-    success_url = reverse_lazy("ghg")
-    template_name = "corporates/ghg_form.html"
-
-
-class GHGListUpdate(UpdateView):
-    model = GHGQuantPublic
-    fields = "__all__"
-    success_url = reverse_lazy("ghg")
-    template_name = "corporates/ghg_update.html"
