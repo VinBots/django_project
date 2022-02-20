@@ -3,6 +3,6 @@ from . import views
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
-    path("", views.CustomLoginView.as_view(), name="login"),
-    path("", LogoutView.as_view(next_page="main_home"), name="logout"),
+    path("login/", views.CustomLoginView.as_view(), name="login"),
+    path("logout/", LogoutView.as_view(next_page="main_home"), name="logout"),
 ]
