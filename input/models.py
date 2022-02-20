@@ -107,6 +107,7 @@ class GHGQuant(models.Model):
 
     class Meta:
         verbose_name_plural = "GHG Quantitative"
+        ordering = ["update_date"]
 
     def __str__(self):
         return f"{self.company.company_short_name}-{self.reporting_year}"
