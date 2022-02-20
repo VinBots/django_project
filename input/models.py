@@ -18,7 +18,7 @@ class Company(models.Model):
 
 class GHGQuant(models.Model):
 
-    GHGQuant_id = models.AutoField(primary_key=True)
+    # GHGQuant_id = models.AutoField(primary_key=True)
     company = models.ForeignKey("Company", on_delete=models.DO_NOTHING)
     # source = models.ForeignKey("Source", on_delete=models.DO_NOTHING)
     # submitter = User
@@ -98,5 +98,5 @@ class GHGQuant(models.Model):
         return f"{self.company.company_short_name}-{self.reporting_year}"
 
     def save(self, *args, **kwargs):
-        self.GHGQuant_id = None
+        self.id = None
         super(GHGQuant, self).save(*args, **kwargs)
