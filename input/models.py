@@ -23,7 +23,8 @@ class GHGQuant(models.Model):
     # source = models.ForeignKey("Source", on_delete=models.DO_NOTHING)
     # submitter = User
     update_date = models.DateField(auto_now=True)
-    # status = models.ForeignKey("Source", on_delete=models.DO_NOTHING)
+    status = models.CharField(max_length=25, blank=True, null=True)
+    # ForeignKey("Source", on_delete=models.DO_NOTHING)
 
     reporting_year = models.PositiveIntegerField()
 
@@ -99,4 +100,5 @@ class GHGQuant(models.Model):
 
     def save(self, *args, **kwargs):
         self.id = None
+        self.status = "submitted"
         super(GHGQuant, self).save(*args, **kwargs)
