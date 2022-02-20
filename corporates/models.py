@@ -1,4 +1,3 @@
-from tabnanny import verbose
 from django.db import models
 import random
 from django.db.models import Count
