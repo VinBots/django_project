@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 def home(request):
 
-    return render(request, "django_project/input/home.html")
+    return render(request, "django_project/input/main.html")
 
 
 class GHGList(ListView):
