@@ -30,7 +30,7 @@ class GHGQuant(models.Model):
 
     # GHGQuant_id = models.AutoField(primary_key=True)
     company = models.ForeignKey("Company", on_delete=models.DO_NOTHING)
-    # source = models.ForeignKey("Source", on_delete=models.DO_NOTHING)
+    source = models.ForeignKey("Source", on_delete=models.DO_NOTHING)
     # submitter = User
     update_date = models.DateField(auto_now=True)
     status = models.CharField(max_length=25, blank=True, null=True)
