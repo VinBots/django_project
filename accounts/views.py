@@ -1,6 +1,4 @@
-from re import template
-from django.contrib.auth.views import LoginView, LogoutView
-from django.shortcuts import redirect
+from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 
 
@@ -12,5 +10,3 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy("input")
-
-class CustomLogoutView(LogoutView):
