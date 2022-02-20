@@ -19,7 +19,7 @@ class Company(models.Model):
 class GHGQuant(models.Model):
 
     company = models.ForeignKey("Company", on_delete=models.DO_NOTHING)
-    source = models.ForeignKey("Source", on_delete=models.DO_NOTHING)
+    # source = models.ForeignKey("Source", on_delete=models.DO_NOTHING)
     # submitter = User
     update_date = models.DateField(auto_now=True)
     # status = models.ForeignKey("Source", on_delete=models.DO_NOTHING)
