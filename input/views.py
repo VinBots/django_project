@@ -2,6 +2,12 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from .models import GHGQuant
 from django.urls import reverse_lazy
+from django.shortcuts import render
+
+
+def home(request):
+
+    return render(request, "django_project/input/home.html")
 
 
 class GHGList(ListView):
