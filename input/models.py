@@ -1,4 +1,7 @@
+from pyexpat import model
+import django
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Source(models.Model):
@@ -33,7 +36,7 @@ class GHGQuant(models.Model):
     source = models.ForeignKey(
         "Source", blank=True, null=True, on_delete=models.DO_NOTHING
     )
-    # submitter = User
+    submitter = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     update_date = models.DateField(auto_now=True)
     status = models.CharField(max_length=25, blank=True, null=True)
     reporting_year = models.PositiveIntegerField()
