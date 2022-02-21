@@ -1,7 +1,20 @@
 {% load crispy_forms_tags %}
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">Net Zero Tracker</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input class="button" type="submit" value="Submit">
+        </form>
+    </section>
 
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form|crispy}}
-    <input class="button" type="submit" value="Submit">
-</form>
+</article>
