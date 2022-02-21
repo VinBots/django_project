@@ -34,7 +34,7 @@ class GHGListCreate(LoginRequiredMixin, CreateView):
     template_name = "django_project/input/ghg/create.html"
 
     def form_valid(self, form):
-        if self.submitter.username != "django":
+        if self.request.user != "django":
             form.instance.submitter = self.request.user
             form.instance.verifier = ""
             form.instance.status = "submitted"
