@@ -34,6 +34,8 @@ class GHGQuant(models.Model):
         "Source", blank=True, null=True, on_delete=models.DO_NOTHING
     )
     submitter = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    verifier = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+
     update_date = models.DateField(auto_now=True)
     status = models.CharField(max_length=25, blank=True, null=True)
     reporting_year = models.PositiveIntegerField()
@@ -105,7 +107,7 @@ class GHGQuant(models.Model):
     class Meta:
         verbose_name_plural = "GHG Quantitative"
         ordering = ["update_date"]
-        # exclude = ["submitter", "status"]
+        exclude = ("submitter", "status")
 
     def __str__(self):
         return f"{self.company.company_short_name}-{self.reporting_year}"
