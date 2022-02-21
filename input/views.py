@@ -18,6 +18,7 @@ class GHGList(LoginRequiredMixin, ListView):
     model = GHGQuant
     context_object_name = "ghg"
     template_name = "django_project/input/ghg/view.html"
+    exclude = ["submitter", "verifier", "status"]
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
@@ -31,6 +32,14 @@ class GHGListCreate(LoginRequiredMixin, CreateView):
     fields = "__all__"
     success_url = reverse_lazy("ghg")
     template_name = "django_project/input/ghg/create.html"
+    exclude = ["submitter", "verifier", "status"]
+
+    def form_valid(self, form):
+        if self.submitter.username != "django":
+            form.instance.submitter = self.request.user
+            form.instance.verifier = ""
+            form.instance.status = "submitted"
+        return super(GHGListCreate, self).form_valid(form)
 
 
 class GHGListUpdate(LoginRequiredMixin, UpdateView):
