@@ -29,7 +29,13 @@ class GHGList(LoginRequiredMixin, ListView):
 class GHGListCreate(LoginRequiredMixin, CreateView):
 
     model = GHGQuant
-    fields = ["ghg_scope_1", "ghg_loc_scope_2", "ghg_mkt_scope_2", "ghg_purch_scope3"]
+    fields = [
+        "reporting_year",
+        "ghg_scope_1",
+        "ghg_loc_scope_2",
+        "ghg_mkt_scope_2",
+        "ghg_purch_scope3",
+    ]
     success_url = reverse_lazy("ghg")
     template_name = "django_project/input/ghg/create.html"
 
