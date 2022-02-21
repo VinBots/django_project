@@ -39,7 +39,7 @@ class GHGListUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy("ghg")
     template_name = "django_project/input/ghg/update.html"
 
-    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
-        context = super().get_context_data(**kwargs)
-        context["ghg"] = context["ghg"].filter(status="verified")
-        return context
+    # def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+    #     context = super().get_context_data(**kwargs)
+    #     context["ghg"] = context["ghg"].filter(status="verified")
+    #     return context
