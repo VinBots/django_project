@@ -230,4 +230,4 @@ PLOTLY_DASH = {
     "serve_locally": False,
     }
 """
-AUTH_USER_MODEL = "accounts.CustomUser"
+# AUTH_USER_MODEL = "accounts.CustomUser"
