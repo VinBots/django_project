@@ -30,6 +30,7 @@ class GHGListCreate(LoginRequiredMixin, CreateView):
 
     model = GHGQuant
     fields = [
+        "company",
         "reporting_year",
         "ghg_scope_1",
         "ghg_loc_scope_2",
