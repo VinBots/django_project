@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-# from .models import Company, GHGQuant, Source
+from .models import CustomUser
 
-# admin.site.register(Source)
+admin.site.register(CustomUser)
