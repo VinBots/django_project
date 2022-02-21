@@ -39,7 +39,8 @@ class GHGListCreate(LoginRequiredMixin, CreateView):
         "ghg_purch_scope3",
     ]
     success_url = reverse_lazy("ghg")
-    template_name = "django_project/input/ghg/create.html"
+    # template_name = "django_project/input/ghg/create.html"
+    template_name = "django_project/input/main.html"
 
     def form_valid(self, form):
         if self.request.user != "django":
