@@ -34,10 +34,10 @@ class GHGQuant(models.Model):
         "Source", blank=True, null=True, on_delete=models.DO_NOTHING
     )
     submitter = models.ForeignKey(
-        User, related_name="sub", null=True, on_delete=models.CASCADE
+        User, related_name="sub", blank=True, null=True, on_delete=models.CASCADE
     )
     verifier = models.ForeignKey(
-        User, related_name="ver", null=True, on_delete=models.CASCADE
+        User, related_name="ver", blank=True, null=True, on_delete=models.CASCADE
     )
 
     update_date = models.DateField(auto_now=True)
