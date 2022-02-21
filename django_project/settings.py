@@ -31,7 +31,7 @@ with open("../env/secret.txt") as f:
 
 # SECURITY WARNING: don't run with debug turned on in production
 DEBUG = False
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = True
 
 # Find out what the IP addresses are at run time
