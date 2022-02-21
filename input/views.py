@@ -29,7 +29,7 @@ class GHGList(LoginRequiredMixin, ListView):
 class GHGListCreate(LoginRequiredMixin, CreateView):
 
     model = GHGQuant
-    fields = "__all__"
+    # fields = "__all__"
     success_url = reverse_lazy("ghg")
     template_name = "django_project/input/ghg/create.html"
     exclude = ["submitter", "verifier", "status"]
