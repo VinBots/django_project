@@ -178,8 +178,8 @@ LOGIN_URL = "login"
 ASGI_APPLICATION = "django_project.routing.application"
 #
 # To use home.html as default home page
-# LOGIN_REDIRECT_URL = "home"
-# LOGOUT_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
 # Define folder location of ‘static’ folder
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # ‘django_dash’: django app name
