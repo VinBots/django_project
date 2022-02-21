@@ -80,34 +80,34 @@ def download_file(request, folder_name="", file_name=""):
         return redirect(reverse("main_home"))
 
 
-# def registerPage(request):
-#     form = CreateUserForm()
-#     if request.method == "POST":
-#         form = CreateUserForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             user = form.cleaned_data.get("username")
-#             messages.success(request, "Account as created for " + user)
-#             return redirect("loginpage")
-#     context = {"form": form}
-#     return render(request, "django_project/accounts/register.html", context)
+def registerPage(request):
+    form = CreateUserForm()
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get("username")
+            messages.success(request, "Account as created for " + user)
+            return redirect("loginpage")
+    context = {"form": form}
+    return render(request, "django_project/accounts/register.html", context)
 
 
-# def loginPage(request):
-#     if request.method == "POST":
-#         username = request.POST.get("username")
-#         password = request.POST.get("password")
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             login(request, user)
-#             return redirect("main_home")
-#         else:
-#             messages.info(request, "Username OR password is incorrect")
+def loginPage(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect("main_home")
+        else:
+            messages.info(request, "Username OR password is incorrect")
 
-#     context = {}
-#     return render(request, "django_project/accounts/login.html", context)
+    context = {}
+    return render(request, "django_project/accounts/login.html", context)
 
 
-# def logoutUser(request):
-#     logout(request)
-#     return redirect("loginpage")
+def logoutUser(request):
+    logout(request)
+    return redirect("loginpage")
