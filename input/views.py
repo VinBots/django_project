@@ -36,7 +36,7 @@ class GHGListCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         if self.request.user != "django":
             form.instance.submitter = self.request.user
-            form.instance.verifier = ""
+            # form.instance.verifier = "pending"
             form.instance.status = "submitted"
         return super(GHGListCreate, self).form_valid(form)
 
