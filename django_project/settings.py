@@ -30,8 +30,8 @@ with open("../env/secret.txt") as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production
-DEBUG = False
-SESSION_COOKIE_SECURE = False
+DEBUG = True
+SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 # Find out what the IP addresses are at run time
