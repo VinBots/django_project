@@ -257,6 +257,9 @@ class Scores:
     TOTAL = "score"
     RANK = "rank"
     STRUCTURE = load_json("/home/django/django_project/score_structure.json")
+    # STRUCTURE = load_json(
+    #     "C:/Users/vince/Documents/django/django_project/score_structure.json"
+    # )
     BREAKDOWN = ScoreBreakdown
     PCT_FIELDS = [
         "rat_6_1",
