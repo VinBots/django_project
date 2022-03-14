@@ -4,3 +4,5 @@ __pycache__/
 z_old
 .vscode
 sp100.xlsx
+.env
+db.sqlite3
