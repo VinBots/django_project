@@ -6,6 +6,9 @@ import dotenv
 
 
 def main():
+
+    dotenv.load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
+
     os.environ.setdefault(
         "DJANGO_SETTINGS_MODULE", "django_project.settings.development"
     )
@@ -25,5 +28,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-dotenv.load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))

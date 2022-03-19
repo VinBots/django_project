@@ -1,6 +1,9 @@
+import os
 import json
 from pydantic import Field, BaseModel
 from typing import Optional
+
+from django_project.settings.common import BASE_DIR, SERVER_BASE_DIR
 
 
 def load_json(filename):
@@ -256,7 +259,7 @@ class Scores:
     CATEGORIES = [TRANSPARENCY, COMMITMENTS, ACTIONS]
     TOTAL = "score"
     RANK = "rank"
-    STRUCTURE = load_json("/home/django/django_project/score_structure.json")
+    STRUCTURE = load_json(os.path.join(BASE_DIR, "score_structure.json"))
     # STRUCTURE = load_json(
     #     "C:/Users/vince/Documents/django/django_project/score_structure.json"
     # )
@@ -333,27 +336,39 @@ class Company(BaseModel):
 
 class FilesPath:
 
-    DATA_FOLDER = "/home/django/net0_docs"
+    DATA_FOLDER = os.path.join(SERVER_BASE_DIR, "net0_docs")  # "/home/django/net0_docs"
     XLS_FOLDER = "excel_db"
     TOP_STATS_FILE = "stats/general_stats.json"
     LIBRARY_FOLDER = "reports"
 
-    ORIGINAL_XLSX = "/home/django/net0_docs/excel_db/original/sp100.xlsx"
-    SBTI_XLSX = "/home/django/server/data/input_data/companies-taking-action.xlsx"
-    SBTI_CSV = "/home/django/scripts/data/sbti_data.csv"
+    ORIGINAL_XLSX = os.path.join(
+        SERVER_BASE_DIR, "net0_docs/excel_db/original/sp100.xlsx"
+    )  # "/home/django/net0_docs/excel_db/original/sp100.xlsx"
+    SBTI_XLSX = os.path.join(
+        SERVER_BASE_DIR, "server/data/input_data/companies-taking-action.xlsx"
+    )  # "/home/django/server/data/input_data/companies-taking-action.xlsx"
+    SBTI_CSV = os.path.join(
+        SERVER_BASE_DIR, "scripts/data/sbti_data.csv"
+    )  # "/home/django/scripts/data/sbti_data.csv"
     COMPANIES_CSV = f"{DATA_FOLDER}/{XLS_FOLDER}/companies.csv"
 
 
 class Config:
 
-    DATA_FOLDER = "/home/django/net0_docs"
+    DATA_FOLDER = os.path.join(SERVER_BASE_DIR, "net0_docs")  # "/home/django/net0_docs"
     XLS_FOLDER = "excel_db"
     TOP_STATS_FILE = "stats/general_stats.json"
     LIBRARY_FOLDER = "reports"
 
-    ORIGINAL_XLSX = "/home/django/net0_docs/excel_db/original/sp100.xlsx"
-    SBTI_XLSX = "/home/django/server/data/companies-taking-action.xlsx"
-    SBTI_CSV = "/home/django/scripts/data/sbti_data.csv"
+    ORIGINAL_XLSX = os.path.join(
+        SERVER_BASE_DIR, "net0_docs/excel_db/original/sp100.xlsx"
+    )  # "/home/django/net0_docs/excel_db/original/sp100.xlsx"
+    SBTI_XLSX = os.path.join(
+        SERVER_BASE_DIR, "server/data/companies-taking-action.xlsx"
+    )  # /home/django/server/data/companies-taking-action.xlsx"
+    SBTI_CSV = os.path.join(
+        SERVER_BASE_DIR, "sbti_data.csv"
+    )  # "/home/django/scripts/data/sbti_data.csv"
     COMPANIES_CSV = f"{DATA_FOLDER}/{XLS_FOLDER}/companies.csv"
 
     LIBRARY = Library
