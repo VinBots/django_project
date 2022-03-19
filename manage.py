@@ -6,10 +6,7 @@ import dotenv
 
 
 def main():
-<<<<<<< HEAD
-=======
 
->>>>>>> 6079909c7d5b868b7fad7fa0092c518339f57639
     dotenv.load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 
     os.environ.setdefault(
