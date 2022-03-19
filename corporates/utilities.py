@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from corporates.models import Corporate
 import pandas as pd
-import os
 import math
 import json
 from config import Config as c
