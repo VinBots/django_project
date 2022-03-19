@@ -7,6 +7,7 @@ import dotenv
 
 def main():
 
+    # load environment variables in order to detect the type of envrionment
     dotenv.load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 
     os.environ.setdefault(
