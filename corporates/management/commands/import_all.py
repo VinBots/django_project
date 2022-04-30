@@ -1,11 +1,7 @@
-from corporates.models import Corporate, GHGQuant, TargetQuant, CDP, Verification
+import os
+
 from django.core.management import BaseCommand
 from .load_csv import Command as load_csv_cls
-
-
-from corporates.models import GHGQuant
-from .scoring import Scoring
-from corporates.utilities import get_last_reporting_year
 
 
 class Command(BaseCommand):
@@ -14,6 +10,12 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         new_instance = load_csv_cls()
+        if os.getenv("DJANGO_SETTINGS_MODULE") == "django_project.settings.production":
+            print(os.getenv("DJANGO_SETTINGS_MODULE"))
+            root_folder = "/home/django/net0_docs/excel_db"
+        else:
+            root_folder = r"C:\Users\vince\Documents\django\net0_docs\excel_db"
+
         # file_path_list = [
         #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\companies.csv",
         #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\score_desc.csv",
@@ -24,13 +26,13 @@ class Command(BaseCommand):
         #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\score_details.csv",
         # ]
         file_path_list = [
-            r"/home/django/net0_docs/excel_db/companies.csv",
-            r"/home/django/net0_docs/excel_db/score_desc.csv",
-            r"/home/django/net0_docs/excel_db/ghg_qual.csv",
-            r"/home/django/net0_docs/excel_db/ghg_quant.csv",
-            r"/home/django/net0_docs/excel_db/targets_quant.csv",
-            r"/home/django/net0_docs/excel_db/net_zero_details.csv",
-            r"/home/django/net0_docs/excel_db/score_details.csv",
+            os.path.join(root_folder, "companies.csv"),
+            os.path.join(root_folder, "score_desc.csv"),
+            os.path.join(root_folder, "ghg_qual.csv"),
+            os.path.join(root_folder, "ghg_quant.csv"),
+            os.path.join(root_folder, "targets_quant.csv"),
+            os.path.join(root_folder, "net_zero_details.csv"),
+            os.path.join(root_folder, "score_details.csv"),
         ]
         for file_path in file_path_list:
 
