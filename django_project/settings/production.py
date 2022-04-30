@@ -1,6 +1,6 @@
 from django_project.settings.common import *
 
-DEBUG = False
+DEBUG = True
 
 with open("../env/secret.txt") as f:
     SECRET_KEY = f.read().strip()
