@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 from .choices import Options
 
 from corporates.models import GHGQuant
-from corporates.utilities import get_last_reporting_year
 
 
 def user_directory_path(instance, filename):
@@ -17,7 +16,6 @@ def user_directory_path(instance, filename):
     # FORMAT '[reporting_year]_[company_name]_[source]_[submitter]
 
     filename = f"{folder}/{instance.company.name}_{pathlib.Path(filename).suffix}"
-    print(f"FILE TO SAVE: {filename}")
     return filename
 
 
@@ -197,7 +195,9 @@ class TargetQuant(models.Model):
     @property
     def get_fl_red_by_year(self):
 
-        last_reporting_year_ghg = get_last_reporting_year(self.company.id)
+        last_reporting_year_ghg = GHGQuant.objects.get_last_reporting_year(
+            self.company_id
+        )
         last_year = "2020"
         target_ghg = self.baseline * (1 - (self.reduction_obj / 100))
         fl_reduction = (1 - (target_ghg / last_reporting_year_ghg)) * 100

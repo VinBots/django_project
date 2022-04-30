@@ -14,7 +14,6 @@ def user_directory_path(instance, filename):
     # FORMAT '[reporting_year]_[company_name]_[source]_[submitter]
 
     filename = f"{folder}/{instance.reporting_year}_{instance.company.name}_{instance.source}_{instance.submitter.username}{pathlib.Path(filename).suffix}"
-    print(f"FILE TO SAVE: {filename}")
     return filename
 
 

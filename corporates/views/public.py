@@ -1,15 +1,13 @@
 from pathlib import Path
 import os
 
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from corporates.models import Corporate, CorporateGrouping
+
 from corporates.utilities import (
-    get_library_queryset,
-    file_exist,
-)
-from corporates.utilities2 import (
     get_targets_db,
     get_score_info,
     get_scores_details,
@@ -18,6 +16,8 @@ from corporates.utilities2 import (
     get_path_to_chart,
     get_score_data_db,
     get_last_3_years_ghg_db,
+    get_library_queryset,
+    file_exist,
 )
 
 
@@ -117,13 +117,13 @@ def corporates_home(request):
 
 def show_html(request, folder_name=None, file_name=None):
 
-    BASE_DIR = os.path.join(Path(__file__).parent.parent, "django_project")
-
     DIR_TO_CORP_CHARTS_TEMPLATES = (
         "templates/django_project/corporates/charts/html_exports/"
     )
 
-    path = os.path.join(BASE_DIR, DIR_TO_CORP_CHARTS_TEMPLATES, folder_name, file_name)
+    path = os.path.join(
+        settings.BASE_DIR, DIR_TO_CORP_CHARTS_TEMPLATES, folder_name, file_name
+    )
 
     return render(
         request,
