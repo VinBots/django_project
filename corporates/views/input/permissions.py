@@ -40,6 +40,4 @@ class AllowedCorporateMixin(LoginRequiredMixin):
             if not test1:
                 msg = f"{msg}; Is the registered user allowed to view the specific company? {test2}"
 
-        print(msg)
-
         return (test0) and (test1 or test2)

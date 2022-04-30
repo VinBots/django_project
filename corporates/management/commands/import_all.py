@@ -16,15 +16,6 @@ class Command(BaseCommand):
         else:
             root_folder = r"C:\Users\vince\Documents\django\net0_docs\excel_db"
 
-        # file_path_list = [
-        #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\companies.csv",
-        #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\score_desc.csv",
-        #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\ghg_qual.csv",
-        #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\ghg_quant.csv",
-        #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\targets_quant.csv",
-        #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\net_zero_details.csv",
-        #     r"C:\Users\vince\Documents\django\net0_docs\excel_db\score_details.csv",
-        # ]
         file_path_list = [
             os.path.join(root_folder, "companies.csv"),
             os.path.join(root_folder, "score_desc.csv"),

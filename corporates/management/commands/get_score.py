@@ -24,7 +24,6 @@ class Command(BaseCommand):
         queryset = CompanyScore.objects.filter(
             company__company_id=company_name, score__name=score_name
         ).order_by("-update_date", "-score_value")
-        print(queryset.values())
 
         if queryset.exists():
             print(f"The Score is {queryset[0].score_value}")
