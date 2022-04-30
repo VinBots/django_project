@@ -1,17 +1,6 @@
-<html>
-
-<head>
-
-</head>
-<h1>UPDATE</h1>
-
-<body>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="submit">
-    </form>
-
-</body>
-
-</html>
+{% extends 'django_project/input/ghg/ghg_form.html' %}
+{% block buttons_section %}
+<input class="button" type="submit" value="Update">
+<input class="button" type="button" value="Cancel"
+    onClick="window.location='{% url 'input_by_corp_ghg_home' corp_name=corp_name %}'">
+{% endblock %}

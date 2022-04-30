@@ -8,6 +8,7 @@
         </div>
     </header>
     <section>
+
         <table>
             <thead>
                 <tr>
@@ -28,14 +29,16 @@
                     <td>Are S1+S2 figures publicly-disclosed for the last reporting year and the preceding
                         period?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_1_1}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_1_1}}</td>
+                    <td>{{db.corp_scores_details.Score_1_1.rating|default_if_none:"NC"}} </td>
+                    <td> {{db.corp_scores_details.Score_1_1.value|floatformat|floatformat:1}} /
+                        {{db.corp_scores_details.Score_1_1.max|floatformat:1}}</td>
                 </tr>
                 <tr>
                     <td>Are S1+S2 figures verified by a 3rd-party for the last reporting year?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_1_2}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_1_2}}</td>
+                    <td>{{db.corp_scores_details.Score_1_2.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_1_2.value|floatformat|floatformat:1}}/
+                        {{db.corp_scores_details.Score_1_2.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
@@ -47,15 +50,17 @@
                 <tr>
                     <td>Are the 15 categories fully or partly disclosed?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_2_1}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_2_1}}</td>
+                    <td>{{db.corp_scores_details.Score_2_1.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_2_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_2_1.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
                     <td>Are S3 figures fully or partly verified by a 3rd-party for the last reporting year?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_2_2}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_2_2}}</td>
+                    <td> {{db.corp_scores_details.Score_2_2.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_2_2.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_2_2.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
@@ -67,16 +72,18 @@
                 <tr>
                     <td>What is the latest CDP score (no later than the preceding year)?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_3_1_meta}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_3_1}}</td>
+                    <td>
+                        {{db.corp_scores_details.Score_3_1.rating|upper}}</td>
+                    <td> {{db.corp_scores_details.Score_3_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_3_1.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
                     <td> How many interim reporting were provided between 2 reporting periods (GHG emissions
                         only)?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_3_2|apnumber}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_3_2}}</td>
+                    <td></td>
+                    <td> {{db.corp_scores_details.Score_3_2.value|floatformat:1}}</td>
                 </tr>
 
                 <tr>
@@ -91,23 +98,26 @@
                         target
                         by 2050?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_4_1}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_4_1}}</td>
+                    <td> {{db.corp_scores_details.Score_4_1.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_4_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_4_1.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
                     <td>Does the net zero target include an intermediate target by 2030?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_4_2}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_4_2}}</td>
+                    <td> {{db.corp_scores_details.Score_4_2.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_4_2.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_4_2.max|floatformat:1}}</td>
 
                 </tr>
 
                 <tr>
                     <td>Does the net zero target include all the emissions?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_4_3}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_4_3}}</td>
+                    <td> {{db.corp_scores_details.Score_4_3.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_4_3.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_4_3.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
@@ -120,15 +130,19 @@
                 <tr>
                     <td>Target year for achieving net zero emissions for S1+S2?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_5_1_meta|apnumber}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_5_1}}</td>
+                    <td>
+                        {{db.corp_scores_details.Score_5_1.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_5_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_5_1.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
                     <td>Target year for achieving net zero emissions for S1+S2+S3 combined?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_5_2_meta|apnumber}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_5_2}}</td>
+                    <td>
+                        {{db.corp_scores_details.Score_5_2.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_5_2.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_5_2.max|floatformat:1}}</td>
 
                 </tr>
 
@@ -142,25 +156,23 @@
                 <tr>
                     <td>What is the forward-looking GHG% reduction (without compensation) for scope 1+2?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_6_1}}
-                        {% if xls_corp.corp_scores_details.rat_6_1 != 'NA' %}
-                        %
-                        {% endif %}
+                    <td>
+                        {{db.corp_scores_details.Score_6_1.rating|floatformat:1|default_if_none:"NC"}}
+
 
                     </td>
-                    <td>{{xls_corp.corp_scores_details.sco_6_1}}</td>
+                    <td>{{db.corp_scores_details.Score_6_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_6_1.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
                     <td>What is the forward-looking GHG% reduction (without compensation) for scope 1+2+3?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_6_2}}
-                        {% if xls_corp.corp_scores_details.rat_6_2 != 'NA' %}
-                        %
-                        {% endif %}
-
+                    <td>
+                        {{db.corp_scores_details.Score_6_2.rating|floatformat:1|default_if_none:"NC"}}
                     </td>
-                    <td>{{xls_corp.corp_scores_details.sco_6_2}}</td>
+                    <td>{{db.corp_scores_details.Score_6_2.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_6_2.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
@@ -173,8 +185,9 @@
                 <tr>
                     <td>What type of science-based target (as validated by SBTi) did the company commit to?
                     </td>
-                    <td>{{xls_corp.corp_scores_details.rat_7_1}}</td>
-                    <td>{{xls_corp.corp_scores_details.sco_7_1}}</td>
+                    <td> {{db.corp_scores_details.Score_7_1.rating|default_if_none:"NC"}}</td>
+                    <td> {{db.corp_scores_details.Score_7_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_7_1.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
@@ -186,40 +199,32 @@
                 <tr>
                     <td>Performance to date: cumulative% reduction vs. target
                     </td>
-                    <td>Objective: {{xls_corp.corp_scores_details.rat_8_1_meta_1}}
-                        {% if xls_corp.corp_scores_details.rat_8_1_meta_1 != 'NA' %}
-                        %
-                        {% endif %}
-
+                    <td>Objective (in %):
+                        {{db.corp_scores_details.Score_8_1.meta.ytd_reduction_objectives|floatformat:1|default_if_none:"NC"}}
                         <br>
-                        Actual: {{xls_corp.corp_scores_details.rat_8_1_meta_2}}
-                        {% if xls_corp.corp_scores_details.rat_8_1_meta_2 != 'NA' %}
-                        %
-                        {% endif %}
+                        Actual (in %):
+                        {{db.corp_scores_details.Score_8_1.meta.ytd_reduction_actual|floatformat:1|default_if_none:"NC"}}
 
 
                     </td>
-                    <td>{{xls_corp.corp_scores_details.sco_8_1}}</td>
+                    <td> {{db.corp_scores_details.Score_8_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_8_1.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
                     <td>Momentum: last year % reduction vs. forward-looking target
                     </td>
-                    <td>Objective: 
-                        {{xls_corp.corp_scores_details.rat_8_2_meta_1}}
-                        
-                        {% if xls_corp.corp_scores_details.rat_8_2_meta_1 != 'NA' %}
-                        %
-                        {% endif %}
+                    <td>Objective (in %):
+                        {{db.corp_scores_details.Score_8_2.meta.forward_looking_reduction|floatformat:1|default_if_none:"NC"}}
+
                         <br>
-                        
-                        Actual: {{xls_corp.corp_scores_details.rat_8_2_meta_2}}
-                        {% if xls_corp.corp_scores_details.rat_8_2_meta_2 != 'NA' %}
-                        %
-                        {% endif %}
+                        Actual (in %):
+                        {{db.corp_scores_details.Score_8_2.meta.last_year_reduction|floatformat:1|default_if_none:"NC"}}
+
 
                     </td>
-                    <td>{{xls_corp.corp_scores_details.sco_8_2}}</td>
+                    <td> {{db.corp_scores_details.Score_8_2.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_8_2.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
@@ -231,36 +236,36 @@
                 <tr>
                     <td>Performance to date: cumulative% reduction vs. target
                     </td>
-                    <td>Objective: {{xls_corp.corp_scores_details.rat_9_1_meta_1}}
-                        {% if xls_corp.corp_scores_details.rat_9_1_meta_1 != 'NA' %}
-                        %
-                        {% endif %}
+                    <td>Objective (in %):
+                        {{db.corp_scores_details.Score_9_1.meta.ytd_reduction_objectives|floatformat:1|default_if_none:"NC"}}
+
 
                         <br>
-                        Actual: {{xls_corp.corp_scores_details.rat_9_1_meta_2}}
-                        {% if xls_corp.corp_scores_details.rat_9_1_meta_2 != 'NA' %}
-                        %
-                        {% endif %}
+                        Actual (in %):
+                        {{db.corp_scores_details.Score_9_1.meta.ytd_reduction_actual|floatformat:1|default_if_none:"NC"}}
+
 
                     </td>
-                    <td>{{xls_corp.corp_scores_details.sco_9_1}}</td>
+                    <td> {{db.corp_scores_details.Score_9_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_9_1.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
-                    <td>Momentum: last year % reduction vs. forward-looking target 
+                    <td>Momentum: last year % reduction vs. forward-looking target
                     </td>
-                    <td>Objective: {{xls_corp.corp_scores_details.rat_9_2_meta_1}}
-                        {% if xls_corp.corp_scores_details.rat_9_2_meta_1 != 'NA' %}
-                        %
-                        {% endif %}
+                    <td>Objective (in %):
+                        {{db.corp_scores_details.Score_9_2.meta.forward_looking_reduction|floatformat:1|default_if_none:"NC"}}
+
 
                         <br>
-                        Actual: {{xls_corp.corp_scores_details.rat_9_2_meta_2}}
-                        {% if xls_corp.corp_scores_details.rat_9_2_meta_2 != 'NA' %}
-                        %
-                        {% endif %}
+                        Actual (in %):
+                        {{db.corp_scores_details.Score_9_2.meta.last_year_reduction|floatformat:1|default_if_none:"NC"}}
+
+
+
                     </td>
-                    <td>{{xls_corp.corp_scores_details.sco_9_2}}</td>
+                    <td> {{db.corp_scores_details.Score_9_2.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_9_2.max|floatformat:1}}</td>
 
                 </tr>
                 <tr>
@@ -273,12 +278,14 @@
                 </tr>
                 <tr>
                     <td>Is the company aligned with global climate targets?</td>
-                    <td>ITR: {{xls_corp.corp_scores_details.rat_10_1}}°C</td>
-                    <td>{{xls_corp.corp_scores_details.sco_10_1}}</td>
+                    <td>ITR: {{db.corp_scores_details.Score_10_1.rating}}°C</td>
+                    <td> {{db.corp_scores_details.Score_10_1.value|floatformat:1}} /
+                        {{db.corp_scores_details.Score_10_1.max}}</td>
 
                 </tr>
             </tbody>
         </table>
+
 
     </section>
     <br><br>

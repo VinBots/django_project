@@ -1,0 +1,60 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">GHG Inventory: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+
+        <div class="success_msg">{{success_message}}</div>
+
+
+        {%if ghg %}
+        <h2>Existing GHG Inventory Recorded</h2>
+        <table>
+            <tr>
+                <th>Records</th>
+                <th>Year</th>
+                <th>Source</th>
+                <th>Last Update</th>
+                <th># Uploads</th>
+                <th>Actions</th>
+            </tr>
+            {% for record in ghg %}
+            <tr>
+                <td><a href="{% url 'input_by_corp_ghg_update' corp_name=corp_name pk=record.id%}">{{record}}</a></td>
+                <td>{{record.reporting_year}}</td>
+                <td>{{record.source}}</td>
+                <td>{{record.update_date}}</td>
+                {% with countuploads=0 %}
+                <td>
+                    {{record.number_of_uploads}}
+                    / {{record.size_of_uploads}}
+                </td>
+                {% endwith %}
+
+                <td>
+                    <a></a>
+                    <a class="fas fa-edit" href="{% url 'input_by_corp_ghg_update' corp_name=corp_name pk=record.id%}">
+                        Change </a>
+                    <a class="fas fa-trash" href="{% url 'input_by_corp_ghg_delete' corp_name=corp_name pk=record.id%}">
+                        Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        There is no data saved for {{corp_name}}. Please click on the link below to create a new record
+        {% endif %}
+
+        <hr>
+        <a class="fas fa-plus-circle" href="{% url 'input_by_corp_ghg_create' corp_name=corp_name %}"> Click here to
+            register a new GHG Inventory</a>
+
+    </section>
+
+</article>

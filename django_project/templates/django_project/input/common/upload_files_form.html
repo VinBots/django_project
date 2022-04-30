@@ -1,0 +1,36 @@
+<div class="upload-section">
+    <fieldset class="upload-container">
+        <legend>Supporting Documents</legend>
+
+        <div class="upload-title">
+            <!-- <h3>Supporting Documents</h3> -->
+            <span>Please upload documents only in 'pdf', 'docx', 'rtf', 'jpg', 'jpeg', 'png' & 'text' format</span>
+        </div>
+
+        <div id="upload_files" class="upload-files">
+
+            {% include 'input/common/single_upload.html' with field=form.upload_1 obj=verif.upload_1 %}
+
+            {% if "upload_2" in form.fields_to_display %}
+            {% include 'input/common/single_upload.html' with field=form.upload_2 obj=verif.upload_2 %}
+            {% endif %}
+
+            {% if "upload_3" in form.fields_to_display %}
+            {% include 'input/common/single_upload.html' with field=form.upload_3 obj=verif.upload_3 %}
+            {% endif %}
+
+            {% if "upload_4" in form.fields_to_display %}
+            {% include 'input/common/single_upload.html' with field=form.upload_4 obj=verif.upload_4 %}
+            {% endif %}
+
+            {% if "upload_5" in form.fields_to_display %}
+            {% include 'input/common/single_upload.html' with field=form.upload_5 obj=verif.upload_5 %}
+            {% endif %}
+
+
+        </div>
+        <div class="add-new">
+            <a class="btn-new"><i class="fa fa-plus"></i> Add a new file to upload</a>
+        </div>
+    </fieldset>
+</div>

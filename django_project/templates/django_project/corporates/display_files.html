@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+
+{% if records %}
+{% for record in records %}
+{% for upload in record.get_uploads %}
+<p><i class="fas fa-download"></i>
+    <a href="{{upload.path}}">{{upload.desc}}</a><br>
+</p>
+{% endfor %}
+{% endfor %}
+{% else %}
+<p>There is no document available yet</p>
+{% endif %}

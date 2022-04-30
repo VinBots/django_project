@@ -54,10 +54,10 @@ INSTALLED_APPS = [
     "corporates",
     "leaderboard",
     "market",
-    "input",
     "accounts",
     "django.contrib.humanize",
     "crispy_forms",
+    # "django_extensions",
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -202,3 +202,6 @@ PLOTLY_DASH = {
     }
 """
 # AUTH_USER_MODEL = "accounts.CustomUser"
+
+USE_THOUSAND_SEPARATOR = True
+THOUSAND_SEPARATOR = True

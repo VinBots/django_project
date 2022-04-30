@@ -1,0 +1,144 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">GHG Inventory: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{form.source}}
+            {{form.reporting_year}}
+            <table class='alt' id='ghg_input_table'>
+                <tr>
+                    <th>Scope - Categories</th>
+                    <th>Emissions</th>
+                </tr>
+                <tr>
+                    <td>Scope 1 </td>
+                    <td type="input">{{form.ghg_scope_1}}</td>
+                </tr>
+                <tr>
+                    <td>Scope 2 - location-based</td>
+                    <td type="input">{{form.ghg_loc_scope_2}}</td>
+                </tr>
+                <tr>
+                    <td>Scope 2 - market-based</td>
+                    <td type="input">{{form.ghg_mkt_scope_2}}</td>
+                </tr>
+                <tr class="total_scope">
+                    <td>Scope 1-2 (location-based)</td>
+                    <td id="total_scope1_2_loc">0</td>
+                </tr>
+                <tr class="total_scope">
+                    <td>Scope 1-2 (market-based)</td>
+                    <td id="total_scope1_2_mkt">0</td>
+                </tr>
+                <tr>
+                    <td class='scope_title' colspan="2">Scope 3</td>
+                </tr>
+
+                <tr>
+                    <td>Cat 1: Purchased Goods and Services</td>
+                    <td type="input">{{form.ghg_purch_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 2: Capital Goods</td>
+                    <td type="input">{{form.ghg_capital_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 3: Fuel- and Energy-Related Activities (location-based)</td>
+                    <td type="input">{{form.ghg_fuel_energy_loc_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 3: Fuel- and Energy-Related Activities (market-based)</td>
+                    <td type="input">{{form.ghg_fuel_energy_mkt_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 4: Upstream transportation and distribution</td>
+                    <td type="input">{{form.ghg_upstream_td_scope3}}</td>
+                </tr>
+
+                <tr>
+                    <td>Cat 5: Waste generated in operations</td>
+                    <td type="input">{{form.ghg_waste_ops_scope3}}</td>
+                </tr>
+
+                <tr>
+                    <td>Cat 6: Business Travel</td>
+                    <td type="input">{{form.ghg_bus_travel_scope3}}</td>
+                </tr>
+
+                <tr>
+                    <td>Cat 7: Employee commuting</td>
+                    <td type="input">{{form.ghg_commute_scope3}}</td>
+                </tr>
+
+                <tr>
+                    <td>Cat 8: Upstream leased assets</td>
+                    <td type="input">{{form.ghg_up_leased_scope3}}</td>
+                </tr>
+
+                <tr>
+                    <td>Cat 9: Downstream transportation and distribution</td>
+                    <td type="input">{{form.ghg_downstream_td_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 10: Processing of sold products</td>
+                    <td type="input">{{form.ghg_proc_sold_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 11: Use of sold products</td>
+                    <td type="input">{{form.ghg_use_sold_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 12: End-of-life treatment of sold products</td>
+                    <td type="input">{{form.ghg_eol_sold_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 13: Downstream leased assets</td>
+                    <td type="input">{{form.ghg_down_leased_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 14: Franchises</td>
+                    <td type="input">{{form.ghg_franchises_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Cat 15: Investments</td>
+                    <td type="input">{{form.ghg_investments_scope3}}</td>
+                </tr>
+                <tr>
+                    <td>Scope 3 - other emissions</td>
+                    <td type="input">{{form.ghg_other}}</td>
+                </tr>
+                <tr class="total_scope">
+                    <td>Total Scope 3 emissions</td>
+                    <td id="total_scope_3">0</td>
+                </tr>
+                <tr class="total_scope">
+                    <td>Total emissions (location-based)</td>
+                    <td id="total_scope1_2_3_loc">0</td>
+                <tr class="total_scope">
+                    <td>Total emissions (market-based)</td>
+                    <td id="total_scope1_2_3_mkt">0</td>
+                </tr>
+
+            </table>
+            <br>
+            {% include 'input/common/upload_files_form.html' with form=form%}
+
+
+            {% block buttons_section %}
+
+            {% endblock %}
+
+        </form>
+
+    </section>
+
+</article>

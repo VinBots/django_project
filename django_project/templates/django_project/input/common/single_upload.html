@@ -1,0 +1,31 @@
+<div class="single-file">
+    <div class="merged-label-input">
+        <label class="upload-clickable-label" for="{{field.id_for_label}}">{% if field.value %}
+            Modify file
+            {% else %}
+            New file
+            {% endif %}</label>
+        <input class="upload-file-input" type="file" id="{{field.id_for_label}}" name="{{field.html_name}}"
+            accept=".jpg, .jpeg, .png, .pdf" onchange="updateFile(this)">
+    </div>
+    <div class="preview-clear">
+        <div class="preview">
+            {% if field.value %}
+            Currently: <a href="{{obj.url}}">{{field.value}}</a>
+            {% else %}
+            No files currently selected for upload
+            {% endif %}
+        </div>
+
+        {% if field.value %}
+        <div class="clear_option">
+            <input type="checkbox" class="upload-clear-checkbox" name="{{field.html_name}}-clear"
+                id="{{field.html_name}}-clear_id">
+            <label id="upload-clear-label" for="{{field.html_name}}-clear_id">
+                Delete
+            </label>
+        </div>
+        {% endif %}
+
+    </div>
+</div>

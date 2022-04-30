@@ -31,7 +31,18 @@ class TargetsType:
 class SBTI:
     FIELD = "sbti"
     NT_STATUS = "Near term - Target Status"
+    NT_STATUS_OPTIONS = [
+        ("Committed", "Committed"),
+        ("Targets Set", "Targets Set"),
+        ("No", "No"),
+    ]
     NT_CLASSIFICATION = "Near term - Target Classification"
+    NT_CLASSIFICATION_OPTIONS = [
+        ("1.5°C", "1.5°C"),
+        ("Well-below 2°C", "Well-below 2°C"),
+        ("2°C", "2°C"),
+        ("NA", "NA"),
+    ]
 
 
 class TargetsSources:

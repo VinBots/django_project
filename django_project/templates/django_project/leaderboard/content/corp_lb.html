@@ -21,19 +21,20 @@
             </thead>
             <tbody>
 
-                {% for i in scores %}
+                {% for i in scores_db %}
                 <tr>
-                    <td style='text-align:center; vertical-align:middle'><a href="{% url 'corporates_home'%}{{i.company_name}}" title="{{i.company_name}}"><img
+                    <td style='text-align:center; vertical-align:middle'><a
+                            href="{% url 'corporates_home'%}{{i.company.name}}" title="{{i.company.name}}"><img
                                 src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
                                 alt="picture_2"></a>
                     </td>
                     <td style='text-align:center; vertical-align:middle'>{{i.rank}}</td>
-                    <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
-                            title="{{i.company_name}}">{{i.company_name}}</a></td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.transp_ratio}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.comm_ratio}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.actions_ratio}}</td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.score}}</td>
+                    <td><a href="{% url 'corporates_home'%}{{i.company.name}}"
+                            title="{{i.company_name}}">{{i.company.name}}</a></td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.Score_transparency}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.Score_commitments}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.Score_results}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.latest_score_value}}</td>
                 </tr>
 
                 {% endfor %}

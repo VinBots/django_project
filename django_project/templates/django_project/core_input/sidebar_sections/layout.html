@@ -1,0 +1,22 @@
+{% load static %}
+
+<section id="sidebar">
+
+    <!-- Intro -->
+    <section id="intro">
+        <a href="#"><img src="{% static 'django_project/images/logos/' %}logo_{{company_id}}.png" /></a>
+        <header>
+            <a href="{% url 'input_home' %}">BACK TO HOME</a>
+        </header>
+    </section>
+
+
+    <!-- Mini Posts -->
+    <section>
+        <div class="mini-posts">
+            {% block sections %}
+            {% endblock %}
+        </div>
+    </section>
+
+</section>

@@ -1,0 +1,84 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">Targets: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Target type</legend>
+
+                {% include 'input/common/radio_choices.html' with field=form.type %}
+                {% include 'input/common/radio_choices.html' with field=form.source %}
+                {% include 'input/common/radio_choices.html' with field=form.scope_coverage %}
+                {% include 'input/common/radio_choices.html' with field=form.scope_3_coverage %}
+                <p>
+                <div class="input_question">
+                    {{form.start_year.label}}</div>
+                {{form.start_year}}
+                </p>
+
+
+                {% comment %}
+                <p>
+                <div class="input_question">{{form.intensity_metric.label}}</div>
+                {{form.intensity_metric}}
+                </p>
+
+                {% include 'input/common/radio_choices.html' with field=form.net0_valid %}
+                {% include 'input/common/radio_choices.html' with field=form.scope %}
+                {% endcomment %}
+            </fieldset>
+
+            <fieldset>
+                <legend>Target objectives</legend>
+                <p>
+                <div class="input_question">
+                    {{form.reduction_obj.label}}</div>
+                {{form.reduction_obj}}
+                <div class="input_question">
+                    {{form.target_year.label}}</div>
+                {{form.target_year}}
+
+                </p>
+                <p>
+
+                <div class="input_question">
+                    {{form.base_year.label}}</div>
+                {{form.base_year}}
+
+                <div class="input_question">
+                    {{form.baseline.label}}</div>
+                {{form.baseline.help_text}}<br>
+                {{form.baseline}}
+                </p>
+
+
+            </fieldset>
+            {% comment %}
+            <fieldset>
+                <legend>Target Details for Scope 3 Coverage</legend>
+                <p class="input_question">Detailed Coverage of the target</p>
+                {% include 'input/target/detailed_target_coverage_table.html' with form=form%}
+
+                <p>
+            </fieldset>
+            {% endcomment %}
+
+
+            {% include 'input/common/upload_files_form.html' with form=form%}
+
+
+            {% block buttons_section %}
+            {% endblock %}
+        </form>
+
+    </section>
+
+</article>

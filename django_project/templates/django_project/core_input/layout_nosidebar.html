@@ -1,0 +1,16 @@
+{% load static %}
+{% include 'django_project/core_input/head.html' %}
+{% include 'django_project/core_input/top_menu.html' %}
+
+<!-- Main -->
+<div id="main">
+
+    {% block content %}
+
+    {% endblock %}
+    <p class="copyright" align="center">&copy; Vincent Manier - September 2021 <a href="{% url 'aboutus' %}">About
+            us</a> .
+        <a href="{% url 'blog' %}">Blog</a>
+    </p>
+</div>
+{% include 'django_project/core_input/bottom.html' %}

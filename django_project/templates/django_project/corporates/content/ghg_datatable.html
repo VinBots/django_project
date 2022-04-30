@@ -1,62 +1,77 @@
 {% load humanize %}
-
 <div class="table-wrapper">
     <table>
         <thead>
             <tr>
                 <th></th>
-                <th>Y{{xls_corp.ghg.final.reporting_year.0}}</th>
-                <th>Y{{xls_corp.ghg.final.reporting_year.1}}</th>
-                <th>Y{{xls_corp.ghg.final.reporting_year.2}}</th>
+                {% for data in db.ghg %}
+                <th>Y{{data.reporting_year}}</th>
+                {% endfor %}
             </tr>
         </thead>
 
         <tbody>
             <tr>
                 <td>Scope 1</td>
-                <td>{{xls_corp.ghg.final.ghg_scope_1.0|intcomma}}</td>
-                <td>{{xls_corp.ghg.final.ghg_scope_1.1|intcomma}}</td>
-                <td>{{xls_corp.ghg.final.ghg_scope_1.2|intcomma}}</td>
+                {% for data in db.ghg %}
+                <td>{{data.ghg_scope_1}}</td>
+                {% endfor %}
             </tr>
-
             <tr>
                 <td>Scope 2 - location-based</td>
-                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.0|intcomma}}</td>
-                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.1|intcomma}}</td>
-                <td>{{xls_corp.ghg.final.ghg_loc_scope_2.2|intcomma}}</td>
+                {% for data in db.ghg %}
+                <td>{{data.ghg_loc_scope_2}}</td>
+                {% endfor %}
             </tr>
-
             <tr>
                 <td>Scope 2 - market-based</td>
-                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.0|intcomma}}</td>
-                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.1|intcomma}}</td>
-                <td>{{xls_corp.ghg.final.ghg_mkt_scope_2.2|intcomma}}</td>
+                {% for data in db.ghg %}
+                <td>{{data.ghg_mkt_scope_2}}</td>
+                {% endfor %}
             </tr>
-
+            <tr>
+                <td>Scope 1-2 - location-based</td>
+                {% for data in db.ghg %}
+                <td>{{data.scope_12_loc}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Scope 1-2 - market-based</td>
+                {% for data in db.ghg %}
+                <td>{{data.scope_12_mkt}}</td>
+                {% endfor %}
+            </tr>
             <tr>
                 <td>Scope 3</td>
-                <td>{{xls_corp.ghg.final.ghg_scope3_total.0|intcomma}}</td>
-                <td>{{xls_corp.ghg.final.ghg_scope3_total.1|intcomma}}</td>
-                <td>{{xls_corp.ghg.final.ghg_scope3_total.2|intcomma}}</td>
+
+                {% for data in db.ghg %}
+                <td>{{data.scope_3_loc_agg}}</td>
+                {% endfor %}
             </tr>
         </tbody>
 
         <tfoot>
             <tr>
-                <td><b>Total</b></td>
-                <td><b>{{xls_corp.ghg.final.ghg_total.0|intcomma}}</b></td>
-                <td><b>{{xls_corp.ghg.final.ghg_total.1|intcomma}}</b></td>
-                <td><b>{{xls_corp.ghg.final.ghg_total.2|intcomma}}</b></td>
+                <th>Total - location-based</th>
+
+                {% for data in db.ghg %}
+                <th>{{data.scope_123_loc}}</th>
+                {% endfor %}
             </tr>
+            <tr>
+                <th>Total - market-based</th>
+
+                {% for data in db.ghg %}
+                <th>{{data.scope_123_mkt}}</th>
+                {% endfor %}
+            </tr>
+
         </tfoot>
 
 
     </table>
     <p style="text-align:left"><b>Note: </b>Emissions data come from publicly-available information, usually the annual
-        sustainability report. We also use CDP data with a 5% tolerance threshold (if data from CDP differs by more than
-        5% with other public data, we exclude them). The rationale is that CDP data tends to be more precise (no rounding for example).
-        For scope 2 emissions, in case both location-based and market-based scope 2 emissions are reported, the minimum is included in the total
-        emissions.
+        sustainability reports. We also use CDP data with a 5% tolerance threshold.
     </p>
 
 </div>

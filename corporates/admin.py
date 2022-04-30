@@ -1,5 +1,70 @@
 from django.contrib import admin
 
-from .models import Corporate
+from corporates.models.netzero import NetZero
 
-admin.site.register(Corporate)
+from .models import (
+    Corporate,
+    CorporateGrouping,
+    Country,
+    Industry_1,
+    Industry_2,
+    Activity,
+    Sector,
+    Benchmark,
+    ISIN,
+    Finnhub,
+    Tradingview,
+    Ticker,
+    Site,
+    MSCI,
+    SBTI,
+    Library,
+    TargetQuant,
+    IntensityMetrics,
+    TargetQuant,
+    Investment,
+    CDP,
+    GHGQuant,
+    Verification,
+    Score,
+    CompanyScore,
+    LatestCompanyScore,
+    Source,
+    UserProfile,
+    NetZero,
+)
+
+
+classes_to_register = [
+    Corporate,
+    CorporateGrouping,
+    Country,
+    Industry_1,
+    Industry_2,
+    Activity,
+    Sector,
+    Benchmark,
+    ISIN,
+    Finnhub,
+    Tradingview,
+    Ticker,
+    Site,
+    MSCI,
+    SBTI,
+    Library,
+    TargetQuant,
+    IntensityMetrics,
+    Investment,
+    CDP,
+    GHGQuant,
+    Verification,
+    Score,
+    CompanyScore,
+    LatestCompanyScore,
+    Source,
+    UserProfile,
+    NetZero,
+]
+
+for class_to_register in classes_to_register:
+    admin.site.register(class_to_register)

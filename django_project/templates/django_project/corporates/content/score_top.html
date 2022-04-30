@@ -20,12 +20,14 @@
         <div class="row">
             <div align="center" class="col-6 col-12-medium">
                 <h2>Score</h2>
-                <h2>{{xls_corp.score_data.score}} / 100 pts</h2>
+                <h2>{{db.corp_scores_details.Score_total.value|floatformat:1}} /
+                    {{db.score.Score_total.max_score|floatformat:1}} pts
+                </h2>
             </div>
 
             <div align="center" class="col-6 col-12-medium">
                 <h2>Ranking</h2>
-                <h2>#{{xls_corp.score_data.rank}}/100</h2>
+                <h2>#{{db.score_data.rank}}</h2>
             </div>
 
         </div>
