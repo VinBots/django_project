@@ -1,4 +1,3 @@
-from tkinter.messagebox import NO
 from django import forms
 from corporates.models import Verification
 from corporates.forms.utilities import get_upload_fields_to_display
