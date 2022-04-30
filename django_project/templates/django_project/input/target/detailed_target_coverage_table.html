@@ -1,0 +1,44 @@
+<table>
+    <tr>
+        <th>Scope/Category</th>
+        <th>Coverage</th>
+
+    </tr>
+
+    <tr>
+        <td>{{form.cov_s1.label}}</td>
+        <td>
+            {% for radio in form.cov_s1 %}
+            {{radio.tag}}<label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+            {% endfor %}
+        </td>
+    </tr>
+
+    <tr>
+        <td>{{form.cov_s2_mkt.label}}</td>
+        <td>
+            {% for radio in form.cov_s2_mkt %}
+            {{radio.tag}}<label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+            {% endfor %}
+        </td>
+    </tr>
+
+    <tr>
+        <td>{{form.cov_s2_loc.label}}</td>
+        <td>
+            {% for radio in form.cov_s2_loc %}
+            {{radio.tag}}<label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{form.cov_s3.label}}</td>
+        <td>
+            {% for radio in form.cov_s3 %}
+            {{radio.tag}}<label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+            {% endfor %}
+        </td>
+    </tr>
+
+
+</table>

@@ -14,8 +14,10 @@
 
             <div align="center" class="col-6 col-12-medium">
                 {% if selected_corp_ghg_bar_chart.exist %}
-                <a href="{{selected_corp_ghg_bar_chart.html}}" class="image featured"><img src="{% static selected_corp_ghg_bar_chart.img %}" alt="" /></a>
-                <p style="text-align:left"><b>Note: </b>Actual (and target data if communicated) come from publicly-available information,
+                <a href="{{selected_corp_ghg_bar_chart.html}}" class="image featured"><img
+                        src="{% static selected_corp_ghg_bar_chart.img %}" alt="" /></a>
+                <p style="text-align:left"><b>Note: </b>Actual (and target data if communicated) come from
+                    publicly-available information,
                     usually the annual
                     sustainability report. We also use CDP data with a 5% tolerance threshold (if data from CDP differs
                     by more than 5% with other public data, we exclude them). The rationale is that CDP data tends to be
@@ -23,7 +25,7 @@
                     (no rounding for example).
                     We select the type of scope 2 emissions (location-based or market-based) based on the scope of the
                     target (e.g. if the target covers scope 1 and scope 2 location-based emissions, reported actual
-                    scope 2 emissions will be location-based). 
+                    scope 2 emissions will be location-based).
                     In case several targets exist, only the shorter-term target is displayed.
                 </p><br>
 
@@ -37,8 +39,8 @@
 
                 {% if selected_corp_ghg_scope3_pie_chart.exist %}
 
-                <a href="{{selected_corp_ghg_scope3_pie_chart.html}}" class="image featured"><img src="{% static selected_corp_ghg_scope3_pie_chart.img %}"
-                        alt="" /></a>
+                <a href="{{selected_corp_ghg_scope3_pie_chart.html}}" class="image featured"><img
+                        src="{% static selected_corp_ghg_scope3_pie_chart.img %}" alt="" /></a>
 
 
                 {% else %}
@@ -71,8 +73,8 @@
 
                 {% if selected_corp_ghg_scope3_pie_chart.exist %}
 
-                <a href="{{selected_corp_ghg_scope3_pie_chart.html}}" class="image featured"><img src="{% static selected_corp_ghg_scope3_pie_chart.img %}"
-                        alt="" /></a>
+                <a href="{{selected_corp_ghg_scope3_pie_chart.html}}" class="image featured"><img
+                        src="{% static selected_corp_ghg_scope3_pie_chart.img %}" alt="" /></a>
 
 
                 {% else %}

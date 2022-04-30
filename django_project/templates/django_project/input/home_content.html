@@ -1,0 +1,57 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">Welcome to the Input Interface, {{user.first_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+
+    <section>
+
+        <h2>Authorized Companies ({{data|length}}):</h2>
+        <!-- action="{% url 'input_home' %}" -->
+        <form class="search-corp" method="GET">
+
+            <input class="search-corp" id="tags" type="text" name="corp" placeholder="Search for a company name" />
+            <div>{{error_msg}}</div>
+            <script>
+                $(function () {
+                    var availableTags = [
+                        {% for corp in data %}
+                        "{{corp|safe}}",
+                    {% endfor %}
+                ];
+                $("#tags").autocomplete({
+                    source: availableTags
+                });
+                });
+            </script>
+            <div class="col-12">
+                <ul class="actions">
+                    <li><input type="submit" value="Search>>" /></li>
+                </ul>
+            </div>
+
+        </form>
+
+        <!-- 
+
+
+        <ul>{% for corp in data %}
+            <li>{{corp}}</li>
+            {% endfor %}
+        </ul>
+
+        {% for record in data %}
+        <ul>
+            {% for corp in record.allowed_corporates.all %}
+            <li>{{corp}}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %} -->
+    </section>
+
+</article>

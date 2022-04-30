@@ -1,25 +1,37 @@
-{% load static %}
-{% load humanize %}
-
-<article id = "library" class="post">
+<article id="library" class="post">
     <header>
         <div class="title">
             <h2>Library</h2>
         </div>
     </header>
     <section>
+        <p>
+            The library is not available anymore due to a database migration project. It should be back online by end of
+            May. Thank you for your patience. If you need documents, please email us.
+        </p>
+        {% comment %}
         {% for key, value in library_corp.items%}
         <h3>{{key}}</h3>
-        
+
         {% for data in value %}
         <p><i class="fas fa-download"></i>
             <a href="{% url 'download_file' folder_name=data.folder_name file_name=data.filename %}">
-            {{data.desc}}</a>
+                {{data.desc}}</a>
         </p>
         {% endfor %}
-        
         {% endfor %}
 
+
+        {% display_file_links library_corp.sust_report "Sustainability Reporting" %}
+        {% display_file_links library_corp.ghg "GHG DATA" %}
+        {% display_file_links library_corp.targets "Targets reporting"%}
+        {% display_file_links library_corp.verification "Verification"%}
+
+        {% include 'corporates/display_files.html' with title="Sustainability Reports" records=library_corp.sust %}
+        {% include 'corporates/display_files.html' with title="GHG DATA" records=library_corp.ghg %}
+        {% include 'corporates/display_files.html' with title="Targets reporting" records=library_corp.targets %}
+        {% include 'corporates/display_files.html' with title="Verification" records=library_corp.verification %}
+        {% endcomment %}
 
     </section>
     <br><br>

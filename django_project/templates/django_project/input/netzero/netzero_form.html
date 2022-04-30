@@ -1,0 +1,57 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">Net Zero Targets: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Net Zero Commitments</legend>
+
+                {% include 'input/common/radio_choices.html' with field=form.stated %}
+                {% include 'input/common/radio_choices.html' with field=form.coverage %}
+                {% include 'input/common/radio_choices.html' with field=form.scope_3_coverage %}
+
+                <p>
+                <div class="input_question">
+                    {{form.target_year.label}}</div>
+                {{form.target_year}}
+                </p>
+
+                {% include 'input/common/radio_choices.html' with field=form.already_reached %}
+            </fieldset>
+            <fieldset>
+                <legend>Already reached net zero?</legend>
+                <p>
+                    In case the company reached has already reached its net zero target yet, please fill in the
+                    following
+                    section.
+                </p>
+
+                <p>
+                <div class="input_question">
+                    {{form.year_since.label}}
+                    {{form.year_since}}
+                </div>
+                </p>
+
+                {% include 'input/common/radio_choices.html' with field=form.ongoing %}
+                {% include 'input/common/radio_choices.html' with field=form.ongoing_coverage %}
+                {% include 'input/common/radio_choices.html' with field=form.ongoing_scope_3_coverage %}
+            </fieldset>
+            {% include 'input/common/upload_files_form.html' with form=form%}
+
+            {% block buttons_section %}
+
+            {% endblock %}
+        </form>
+
+    </section>
+
+</article>

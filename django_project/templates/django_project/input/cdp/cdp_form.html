@@ -1,0 +1,25 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">CDP: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>
+                {{form}}
+
+
+                {% block buttons_section %}
+
+                {% endblock %}
+        </form>
+
+    </section>
+
+</article>

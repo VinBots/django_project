@@ -2,87 +2,122 @@
     <style>
         @keyframes fill1 {
             0% {
-            transform: rotate(0deg);
+                transform: rotate(0deg);
             }
+
             100% {
-            transform: rotate({{xls_corp.score_data.transp_angle}}deg);
+                transform: rotate( {
+                            {
+                            db.score_data.Score_transparency_angle
+                        }
+                    }
+
+                    deg);
             }
         }
-        </style>
+    </style>
 
-        <div align = "center" class="col-4 col-12-medium">
-            <div class="circle-wrap circle-wrap1">						
-                <div class="circle circle1">					
-                <div class="mask full mask1 full1" style = "transform:rotate({{xls_corp.score_data.transp_angle}}deg)">
-                    <div class="fill fill1" style = "background-color:#b1002c;transform:rotate({{xls_corp.score_data.transp_angle}}deg)"></div>
-                </div>							
-                <div class="mask half mask1 half1">
-                    <div class="fill fill1" style = "background-color:#b1002c;transform:rotate({{xls_corp.score_data.transp_angle}}deg)"></div>
-                </div>							
-                <div class="inside-circle inside-circle1">
-                    <a href="#score_summary_section">{{xls_corp.score_data.transp_ratio}}%</a>
-                </div>							
-                </div>
-            </div>
-            <h3 style="background-color:#2ebaae;">Transparency</h3>
-            <p>Quality of <strong>climate reporting</strong> based on public disclosures, completeness and verification of GHG emissions</p>
-        </div>
-
-        <style>
-
-            @keyframes fill2 {
-                0% {
-                transform: rotate(0deg);
-                }
-                100% {
-                transform: rotate({{xls_corp.score_data.comm_angle}}deg);
-                }
-            }
-        </style>
-
-        <div align = "center" class="col-4 col-12-medium">
-            <div class="circle-wrap circle-wrap2">						
-                <div class="circle circle2">					
-                <div class="mask full mask2 full2" style = "transform:rotate({{xls_corp.score_data.comm_angle}}deg)">
-                    <div class="fill fill2" style = "background-color:#9fb100;transform:rotate({{xls_corp.score_data.comm_angle}}deg)"></div>
-                </div>							
-                <div class="mask half mask2 half2">
-                    <div class="fill fill2" style = "background-color:#9fb100;transform:rotate({{xls_corp.score_data.comm_angle}}deg)"></div>
-                </div>							
-                <div class="inside-circle inside-circle2">
-                    <a href="#score_summary_section">{{xls_corp.score_data.comm_ratio}}%</a>
-                </div>							
-                </div>
-            </div>
-            <h3 style="background-color:#2ebaae;">Commitments</h3>
-            <p>Level of <strong>ambition</strong> through gross absolute emissions reduction and 'net zero' targets</p>
-        </div>
-        <style>
-            @keyframes fill3 {
-                0% {
-                transform: rotate(0deg);
-                }
-                100% {
-                transform: rotate({{xls_corp.score_data.actions_angle}}deg);
-                }
-            }
-            </style>
-
-            <div align = "center" class="col-4 col-12-medium">
-                <div class="circle-wrap circle-wrap3">						
-                    <div class="circle circle3">					
-                    <div class="mask full mask3 full3" style = "transform:rotate({{xls_corp.score_data.actions_angle}}deg)">
-                        <div class="fill fill3" style = "background-color:#2000b1;transform:rotate({{xls_corp.score_data.actions_angle}}deg)"></div>
-                    </div>							
-                    <div class="mask half mask3 half3">
-                        <div class="fill fill3" style = "background-color:#2000b1;transform:rotate({{xls_corp.score_data.actions_angle}}deg)"></div>
-                    </div>							
-                    <div class="inside-circle inside-circle3">
-                        <a href="#score_summary_section">{{xls_corp.score_data.actions_ratio}}%</a>
-                    </div>							
+    <div align="center" class="col-4 col-12-medium">
+        <div class="circle-wrap circle-wrap1">
+            <div class="circle circle1">
+                <div class="mask full mask1 full1"
+                    style="transform:rotate({{db.score_data.Score_transparency_angle}}deg)">
+                    <div class="fill fill1"
+                        style="background-color:#b1002c;transform:rotate({{db.score_data.Score_transparency_angle}}deg)">
                     </div>
                 </div>
-                <h3 style="background-color:#2ebaae;">Results</h3>
-                <p><strong>Results and actions </strong>to deliver on commitments for real</p>
-            </div>  
+                <div class="mask half mask1 half1">
+                    <div class="fill fill1"
+                        style="background-color:#b1002c;transform:rotate({{db.score_data.Score_transparency_angle}}deg)">
+                    </div>
+                </div>
+                <div class="inside-circle inside-circle1">
+                    <a href="#score_summary_section">{{db.score_data.Score_transparency_pct}}%</a>
+                </div>
+            </div>
+        </div>
+        <h3 style="background-color:#2ebaae;">Transparency</h3>
+        <p>Quality of <strong>climate reporting</strong> based on public disclosures, completeness and verification of
+            GHG emissions</p>
+    </div>
+
+    <style>
+        @keyframes fill2 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate( {
+                            {
+                            db.score_data.Score_commitments_angle
+                        }
+                    }
+
+                    deg);
+            }
+        }
+    </style>
+
+    <div align="center" class="col-4 col-12-medium">
+        <div class="circle-wrap circle-wrap2">
+            <div class="circle circle2">
+                <div class="mask full mask2 full2"
+                    style="transform:rotate({{db.score_data.Score_commitments_angle}}deg)">
+                    <div class="fill fill2"
+                        style="background-color:#9fb100;transform:rotate({{db.score_data.Score_commitments_angle}}deg)">
+                    </div>
+                </div>
+                <div class="mask half mask2 half2">
+                    <div class="fill fill2"
+                        style="background-color:#9fb100;transform:rotate({{db.score_data.Score_commitments_angle}}deg)">
+                    </div>
+                </div>
+                <div class="inside-circle inside-circle2">
+                    <a href="#score_summary_section">{{db.score_data.Score_commitments_pct}}%</a>
+                </div>
+            </div>
+        </div>
+        <h3 style="background-color:#2ebaae;">Commitments</h3>
+        <p>Level of <strong>ambition</strong> through gross absolute emissions reduction and 'net zero' targets</p>
+    </div>
+    <style>
+        @keyframes fill3 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate( {
+                            {
+                            db.score_data.Score_results_angle
+                        }
+                    }
+
+                    deg);
+            }
+        }
+    </style>
+
+    <div align="center" class="col-4 col-12-medium">
+        <div class="circle-wrap circle-wrap3">
+            <div class="circle circle3">
+                <div class="mask full mask3 full3" style="transform:rotate({{db.score_data.Score_results_angle}}deg)">
+                    <div class="fill fill3"
+                        style="background-color:#2000b1;transform:rotate({{db.score_data.Score_results_angle}}deg)">
+                    </div>
+                </div>
+                <div class="mask half mask3 half3">
+                    <div class="fill fill3"
+                        style="background-color:#2000b1;transform:rotate({{db.score_data.Score_results_angle}}deg)">
+                    </div>
+                </div>
+                <div class="inside-circle inside-circle3">
+                    <a href="#score_summary_section">{{db.score_data.Score_results_pct}}%</a>
+                </div>
+            </div>
+        </div>
+        <h3 style="background-color:#2ebaae;">Results</h3>
+        <p><strong>Results and actions </strong>to deliver on commitments for real</p>
+    </div>
 </div>

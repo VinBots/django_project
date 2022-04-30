@@ -14,47 +14,46 @@
             </div>
         </div>
     </div>
-
     <div class="lb_right">
 
         <div class="lboard_item level1" style="display: block;">
-            {% for i in top5_scores %}
+            {% for i in top5_scores_db %}
             <div class="lboard_mem">
                 <div class="img">
                     <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
                 </div>
                 <div class="name_bar">
-                    <a href="{% url 'corporates_home'%}{{i.company_name}}">
-                        <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
+                    <a href="{% url 'corporates_home'%}{{i.company.name}}">
+                        <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company.name}}</p>
                     </a>
 
                     <div class="bar_wrap">
-                        <div class="inner_bar" style="width: {{i.score}}%"></div>
+                        <div class="inner_bar" style="width: {{i.latest_score_value}}%"></div>
                     </div>
                 </div>
                 <div class="points">
-                    {{i.score}} points
+                    {{i.latest_score_value|floatformat}} points
                 </div>
             </div>
             {% endfor %}
         </div>
 
         <div class="lboard_item level2" style="display: none;">
-            {% for i in bottom5_scores %}
+            {% for i in bottom5_scores_db %}
             <div class="lboard_mem">
                 <div class="img">
                     <img src="{% static 'django_project/images/logos/logo_' %}{{i.company_id}}.png" alt="">
                 </div>
                 <div class="name_bar">
-                    <a href="{% url 'corporates_home'%}{{i.company_name}}">
-                        <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company_name}}</p>
+                    <a href="{% url 'corporates_home'%}{{i.company.name}}">
+                        <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company.name}}</p>
                     </a>
                     <div class="bar_wrap">
-                        <div class="inner_bar" style="width: {{i.score}}%"></div>
+                        <div class="inner_bar" style="width: {{i.latest_score_value}}%"></div>
                     </div>
                 </div>
                 <div class="points">
-                    {{i.score}} points
+                    {{i.latest_score_value}} points
                 </div>
             </div>
             {% endfor %}

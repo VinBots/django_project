@@ -1,0 +1,39 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">Verification: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Public Disclosures</legend>
+                <p>
+                <div class="input_question">{{form.reporting_year.label}}</div>
+                {{form.reporting_year}}
+                </p>
+                {% include 'input/common/radio_choices.html' with field=form.scope12_reporting_2_years %}
+                {% include 'input/common/radio_choices.html' with field=form.scope12_reporting_completeness %}
+                {% include 'input/common/radio_choices.html' with field=form.scope12_verification_completeness %}
+                {% include 'input/common/radio_choices.html' with field=form.scope12_assurance_type %}
+
+                {% include 'input/common/radio_choices.html' with field=form.scope3_reporting_completeness %}
+                {% include 'input/common/radio_choices.html' with field=form.scope3_verification_completeness %}
+                {% include 'input/common/radio_choices.html' with field=form.scope3_assurance_type %}
+
+            </fieldset>
+            {% include 'input/common/upload_files_form.html' with form=form%}
+
+            {% block buttons_section %}
+
+            {% endblock %}
+        </form>
+
+    </section>
+
+</article>

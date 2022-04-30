@@ -1,23 +1,21 @@
-import re
-from corporates.models import Corporate
-from django.urls import reverse
-from leaderboard.utilities import get_scores_xls
-from django.shortcuts import render, redirect
-from django_project.utilities import (
-    get_random_logos,
-    get_top10_wo_zero,
-    get_top5_transp_miss_cut,
-)
 import os
+
+from django.urls import reverse
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.files import File
-from django_project.utilities import get_general_stats
 
-# from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
+from corporates.models import Corporate, CorporateGrouping
+from leaderboard.utilities import get_scores_db
+from django_project.utilities import (
+    get_general_stats,
+    get_top10_wo_zero,
+    get_top5_transp_miss_cut,
+)
 
 from config import Config as c
 
@@ -28,17 +26,19 @@ def home(request):
         path = reverse("corporates_home") + request.GET.get("query")
         return redirect(path)
 
-    corporates_names = Corporate.objects.all()
+    corporates_names = Corporate.objects.filter(
+        company_id__in=CorporateGrouping.objects.get_sp100_company_ids()
+    ).all()
 
     return render(
         request,
         "django_project/home/main.html",
         {
             "corporates_names": corporates_names,
-            "random_logos": get_random_logos(),
+            "random_logos": Corporate.objects.random(),
             "general_stats": get_general_stats(["trust", "commitments", "science"]),
-            "top5_scores": get_scores_xls(corp_number=5, top_rank=True),
-            "bottom5_scores": get_scores_xls(corp_number=5, top_rank=False),
+            "top5_scores_db": get_scores_db(corp_number=5, top_rank=True),
+            "bottom5_scores_db": get_scores_db(corp_number=5, top_rank=False),
             "top10_wo_zero": get_top10_wo_zero(),
         },
     )
@@ -75,7 +75,9 @@ def download_file(request, folder_name="", file_name=""):
             response["Content-Disposition"] = "attachment;filename=%s" % file_name
             return response
         else:
-            return None
+
+            print(f"The file {filepath} does not exist")
+            return redirect(reverse("main_home"))
     else:
         return redirect(reverse("main_home"))
 

@@ -1,0 +1,113 @@
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Header -->
+		<header id="header">
+			<h1>
+				<font face="sans-serif" size="4"><a href="{% url 'main_home' %}#top">NET 0 Tracker</a></font>
+			</h1>
+			<nav class="links">
+				<ul>
+					<li><a href="{% url 'corporates_home' %}">Corporates</a></li>
+					<li><a href="{% url 'leaderboard_home' %}">Leaderboard</a></li>
+					<li><a href="{% url 'market_home' %}">Stock</a></li>
+					<li><a href="{% url 'blog' %}">Blog</a></li>
+					<li><a href="{% url 'faq' %}">FAQ</a></li>
+					<li><a href="{% url 'aboutus' %}">About us</a></li>
+
+				</ul>
+			</nav>
+			<nav class="main">
+				<ul>
+
+					<!--
+						<li>
+						<a class="fa-sign-in-alt" href="{% url 'loginpage' %}">Login</a>
+					</li>
+					-->
+					<li class="search">
+						<a class="fa-search" href="#search">Search</a>
+						<form id="search" method="get" action="#">
+							<input type="text" name="query" placeholder="Search" />
+						</form>
+					</li>
+
+					<!--
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+							-->
+
+					<li class="menu">
+						<a class="fa-bars" href="#menu">Menu</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<section id="menu">
+
+			<!-- Search 
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+						-->
+
+			<!-- Links -->
+			<section>
+				<ul class="links">
+					<li>
+						<a href="{% url 'corporates_home' %}">
+							<h3>Corporates</h3>
+							<p>Explore data by corporate</p>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'leaderboard_home' %}">
+							<h3>Leaderboard</h3>
+							<p>Ranking of major companies</p>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'market_home' %}">
+							<h3>Stock</h3>
+							<p>Impact of carbon pricing on stock performance</p>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'blog' %}">
+							<h3>Blog</h3>
+							<p>Track the latest updates</p>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'faq' %}">
+							<h3>FAQ</h3>
+							<p></p>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'aboutus' %}">
+							<h3>About Us</h3>
+							<p></p>
+						</a>
+					</li>
+				</ul>
+			</section>
+
+			<!-- Actions
+			<section>
+				<ul class="actions stacked">
+					<li><a href="{% url 'loginpage' %}" class="button large fit">Log In</a></li>
+				</ul>
+			</section>
+			-->
+
+
+		</section>

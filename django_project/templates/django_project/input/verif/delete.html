@@ -1,0 +1,25 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">Verification: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <section>
+            <form method="post">
+                {% csrf_token %}
+
+                <p>Are you sure you want to delete "{{ object }}"?</p>
+
+                <input type="submit" value="Confirm">
+                <input class="button" type="button" value="Cancel"
+                    onClick="window.location='{% url 'input_by_corp_verif_home' corp_name=corp_name %}'">
+
+            </form>
+        </section>
+    </article>

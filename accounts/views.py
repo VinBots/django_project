@@ -9,4 +9,4 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy("input")
+        return reverse_lazy("main_home")

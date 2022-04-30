@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import json
 import pandas as pd
+
 from corporates.utilities import get_all_data_from_csv
 from config import Config as c
 from django_project.settings.common import SERVER_BASE_DIR

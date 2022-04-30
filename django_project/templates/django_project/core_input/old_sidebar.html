@@ -1,0 +1,78 @@
+{% load static %}
+
+<section id="sidebar">
+
+    <!-- Intro -->
+    <section id="intro">
+        <a href="#"><img src="{% static 'django_project/images/logos/' %}logo_{{company_id}}.png" /></a>
+        <header>
+            <a href="{% url 'input_home' %}">BACK TO HOME</a>
+        </header>
+    </section>
+
+    <!-- Mini Posts -->
+    <section>
+        <div class="mini-posts">
+
+            <!-- Mini Post -->
+            <article class="mini-post" style="background:
+            {% if category == 'general' %}
+            lightgrey
+            {% endif %}
+            ">
+                <header>
+                    <h3><a href="{% url 'input_by_corp_general' corp_name=corp_name %}">General</a></h3>
+                </header>
+            </article>
+
+
+            <article class="mini-post" style="background:
+            {% if category == 'ghg' %}
+            lightgrey
+            {% endif %}
+            ">
+                <header>
+                    <h3><a href="{% url 'input_by_corp_ghg_home' corp_name=corp_name %}">GHG
+                            Inventory</a>
+                    </h3>
+                </header>
+            </article>
+
+
+            <article class="mini-post" style="background:
+            {% if category == 'verification' %}
+            lightgrey
+            {% endif %}
+            ">
+                <header>
+                    <h3><a href="{% url 'input_by_corp_verification' corp_name=corp_name %}">Verification</a>
+                    </h3>
+                </header>
+            </article>
+
+
+            <article class="mini-post" style="background:
+            {% if category == 'targets' %}
+            lightgrey
+            {% endif %}
+            ">
+                <header>
+                    <h3><a href="{% url 'input_by_corp_targets' corp_name=corp_name  %}">Targets</a></h3>
+                </header>
+            </article>
+
+
+            <article class="mini-post" style="background:
+            {% if category == 'comments' %}
+            lightgrey
+            {% endif %}
+            ">
+                <header>
+                    <h3><a href="{% url 'input_by_corp_comments' corp_name=corp_name  %}">Comments</a>
+                    </h3>
+                </header>
+            </article>
+        </div>
+    </section>
+
+</section>

@@ -9,49 +9,107 @@
 
     <section id="score_summary_section">
         <div class="container" width=100%>
+
             <table id="score_summary" class="score_summary" data-show-columns="true" width=100%>
 
                 <thead>
                     <tr>
                         <th>Ref</th>
                         <th>Principle</th>
-                        <th>Score</th>
-                        <th>Max Score</th>
-                        <th>Comments</th>
+                        <th>Score<br>(points)</th>
+                        <th>Max<br>(points)</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    {% for category, value in xls_corp.corp_scores_summary.items %}
-
-                    {% for score in value.details %}
                     <tr>
-                        <td>{{score.ref}}</td>
-                        <td>{{score.desc}}</td>
-                        <td>{{score.score}}</td>
-                        <td>{{score.max_score}}</td>
-                        <td>{{score.comments}}</td>
+                        <td>1</td>
+                        <td>{{db.score.Score_1.description}}</td>
+                        <td>{{db.corp_scores_details.Score_1.value}}</td>
+                        <td>{{db.score.Score_1.max_score}}</td>
                     </tr>
-                    {% endfor %}
+                    <tr>
+                        <td>2</td>
+                        <td>{{db.score.Score_2.description}}</td>
+                        <td>{{db.corp_scores_details.Score_2.value}}</td>
+                        <td>{{db.score.Score_2.max_score}}</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>{{db.score.Score_3.description}}</td>
+                        <td>{{db.corp_scores_details.Score_3.value}}</td>
+                        <td>{{db.score.Score_3.max_score}}</td>
+                    </tr>
 
+                    <tr style="background-color:lightgrey; color:black; font-weight:bold">
+                        <td></td>
+                        <td>{{db.score.Score_transparency.description}}</td>
+                        <td>{{db.corp_scores_details.Score_transparency.value}}</td>
+                        <td>{{db.score.Score_transparency.max_score}}</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>{{db.score.Score_4.description}}</td>
+                        <td>{{db.corp_scores_details.Score_4.value}}</td>
+                        <td>{{db.score.Score_4.max_score}}</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>{{db.score.Score_5.description}}</td>
+                        <td>{{db.corp_scores_details.Score_5.value}}</td>
+                        <td>{{db.score.Score_5.max_score}}</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>{{db.score.Score_6.description}}</td>
+                        <td>{{db.corp_scores_details.Score_6.value}}</td>
+                        <td>{{db.score.Score_6.max_score}}</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>{{db.score.Score_7.description}}</td>
+                        <td>{{db.corp_scores_details.Score_7.value}}</td>
+                        <td>{{db.score.Score_7.max_score}}</td>
+                    </tr>
+
+                    <tr style="background-color:lightgrey; color:black; font-weight:bold">
+                        <td></td>
+                        <td>{{db.score.Score_commitments.description}}</td>
+                        <td>{{db.corp_scores_details.Score_commitments.value}}</td>
+                        <td>{{db.score.Score_commitments.max_score}}</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>{{db.score.Score_8.description}}</td>
+                        <td>{{db.corp_scores_details.Score_8.value}}</td>
+                        <td>{{db.score.Score_8.max_score}}</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>{{db.score.Score_9.description}}</td>
+                        <td>{{db.corp_scores_details.Score_9.value}}</td>
+                        <td>{{db.score.Score_9.max_score}}</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>{{db.score.Score_10.description}}</td>
+                        <td>{{db.corp_scores_details.Score_10.value}}</td>
+                        <td>{{db.score.Score_10.max_score}}</td>
+                    </tr>
+
+                    <tr style="background-color:lightgrey; color:black; font-weight:bold">
+                        <td></td>
+                        <td>{{db.score.Score_results.description}}</td>
+                        <td>{{db.corp_scores_details.Score_results.value}}</td>
+                        <td>{{db.score.Score_results.max_score}}</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
                     <tr style="background-color:#2ebaae; color:white; font-weight:bold">
                         <td></td>
-                        <td>{{value.total.desc}}</td>
-                        <td>{{value.total.score}}</td>
-                        <td>{{value.total.max_score}}</td>
-                        <td></td>
-                    </tr>
-                    {% endfor %}
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td><strong>TOTAL</strong></td>
-                        <td><strong>{{xls_corp.score_data.score}} pts</strong></td>
-                        <td><strong>100.0 pts</strong></td>
-                        <td></td>
-                        </strong>
+                        <td>{{db.score.Score_total.description}}</td>
+                        <td>{{db.corp_scores_details.Score_total.value|floatformat:1}}</td>
+                        <td>{{db.score.Score_total.max_score|floatformat:1}}</td>
                     </tr>
                 </tfoot>
             </table>
@@ -61,7 +119,7 @@
     </section>
     <br><br>
     <footer>
-        
+
         {% include "django_project/core/data_quality.html" %}
         <br>
         <ul class="stats">
@@ -87,17 +145,13 @@
                     {
                         targets: 2,
                         responsivePriority: 2,
-                        render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', '')
 
                     },
                     {
                         targets: 3,
                         responsivePriority: 3,
-                        render: $.fn.dataTable.render.number(',', '.', 1, '', ' pts')
-                    },
-                    {
-                        targets:4,
-                        visible: false,
+                        render: $.fn.dataTable.render.number(',', '.', 1, '', '')
                     }
                 ],
             }
