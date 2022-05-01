@@ -1,4 +1,6 @@
 {% extends 'django_project/core_input/layout.html' %}
 {% block content %}
 {% include 'django_project/input/ghg/update.html'%}
+<script>document.addEventListener("DOMContentLoaded", ghg_aggregate());
+</script>
 {% endblock %}
