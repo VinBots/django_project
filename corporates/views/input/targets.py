@@ -56,8 +56,6 @@ class TargetListCreate(AllowedCorporateMixin, CreateView):
         )
         self.extra_context = add_context(init_kwargs=kwargs, category_name="target")
 
-        print(f"SUCCESS URL {self.success_url}")
-
         return super().post(request, *args, **kwargs)
 
     def form_valid(self, form):

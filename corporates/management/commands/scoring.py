@@ -40,7 +40,6 @@ class Scoring:
             for company_id in self.company_ids:
                 base_score = factory.create_instance(self.score_name)
                 # print(f"New instance created with score_name = {self.score_name}")
-                # print(base_score)
                 new_score = base_score.get_score(company_id)
 
                 if (
@@ -51,7 +50,6 @@ class Scoring:
                 ):
                     new_score.save()
                     self.saved_scores_count += 1
-                    # return new_score
         else:
             print("Non valid data")
 
@@ -62,17 +60,8 @@ class Scoring:
             for company_id in self.company_ids:
                 agg_score = factory.create_instance(self.score_name)
                 # print(f"New instance created with score_name = {self.score_name}")
-                # print(base_score)
                 new_score = agg_score.get_score(company_id)
-
-                # if (
-                #     new_score
-                #     and not CompanyScore.objects.is_last_score_value_duplicate(
-                #         new_score
-                #     )
-                # ):
                 new_score.save()
                 self.saved_scores_count += 1
-                # return new_score
         else:
             print("Non valid data")

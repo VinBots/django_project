@@ -11,7 +11,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         new_instance = load_csv_cls()
         if os.getenv("DJANGO_SETTINGS_MODULE") == "django_project.settings.production":
-            print(os.getenv("DJANGO_SETTINGS_MODULE"))
             root_folder = "/home/django/net0_docs/excel_db"
         else:
             root_folder = r"C:\Users\vince\Documents\django\net0_docs\excel_db"

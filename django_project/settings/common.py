@@ -77,7 +77,9 @@ ASGI_APPLICATION = "django_project.routing.application"
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 # Define folder location of ‘static’ folder
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static", "django_project")
+
 # STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, 'django_project', 'static'),
 #    ]
@@ -87,3 +89,10 @@ STATICFILES_FINDERS = [
 ]
 USE_THOUSAND_SEPARATOR = True
 THOUSAND_SEPARATOR = True
+
+DATA_FOLDER = os.path.join(SERVER_BASE_DIR, "net0_docs")
+LIBRARY_FOLDER = "reports"
+XLS_FOLDER = "excel_db"
+BASE_DIR_LIB = os.path.join(DATA_FOLDER, LIBRARY_FOLDER)
+MEDIA_ROOT = BASE_DIR_LIB
+TOP_STATS_FILE = "stats/general_stats.json"

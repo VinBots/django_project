@@ -21,9 +21,6 @@ from corporates.utilities import (
 )
 
 
-from config import Config as c
-
-
 def corporates_search(request, corp_name=None):
 
     if request.GET.get("query") is not None:
@@ -43,12 +40,6 @@ def corporates_search(request, corp_name=None):
             "ghg": get_last_3_years_ghg_db(company_id=selected_corp.company_id),
             "targets": get_targets_db(company_id=selected_corp.company_id),
         }
-
-        # library_corp = get_library_data(
-        #     company_id=selected_corp.company_id,
-        #     all_data=all_data[c.LIBRARY.LIST_CSV],
-        #     db=True,
-        # )
 
         corp_data = {
             "selected_corp": selected_corp,

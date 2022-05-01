@@ -5,10 +5,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.files import File
 
-from .forms import CreateUserForm
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
+from .forms import CreateUserForm
 from corporates.models import Corporate, CorporateGrouping
 from leaderboard.utilities import get_scores_db
 from django_project.utilities import (
@@ -16,8 +17,6 @@ from django_project.utilities import (
     get_top10_wo_zero,
     get_top5_transp_miss_cut,
 )
-
-from config import Config as c
 
 
 def home(request):
@@ -66,8 +65,8 @@ def faq(request):
 def download_file(request, folder_name="", file_name=""):
 
     if file_name != "":
-        BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
-        filepath = os.path.join(BASE_DIR_LIB, folder_name, file_name)
+        # BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
+        filepath = os.path.join(settings.BASE_DIR_LIB, folder_name, file_name)
         if os.path.exists(filepath):
             f = open(filepath, "rb")
             pdfFile = File(f)
