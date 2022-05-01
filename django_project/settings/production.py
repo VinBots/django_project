@@ -2,7 +2,7 @@ from django_project.settings.common import *
 from config import Config as c
 
 
-DEBUG = True
+DEBUG = False
 with open("../env/secret.txt") as f:
     SECRET_KEY = f.read().strip()
 ALLOWED_HOSTS = [
