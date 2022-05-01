@@ -3,6 +3,9 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+if (document.querySelector("#main > article > header > div > div > h2 > font").textContent.startsWith('GHG')) { document.addEventListener("DOMContentLoaded", ghg_aggregate()); }
+
+console.log(document.querySelector("#main > article > header > div > div > h2 > font").textContent.startsWith('GHG'))
 const fileTypes = [
 	'image/apng',
 	'image/bmp',
