@@ -1,8 +1,9 @@
 from django.db import models
-from django.db.models import F, Window, Subquery, OuterRef
+from django.db.models import F, Q, Window, Subquery, OuterRef
 from django.db.models.functions import Rank
 
 from corporates.models.corp import Corporate
+from corporates.models.grouping import CorporateGrouping
 
 
 class ScoreManager(models.Manager):
@@ -158,16 +159,21 @@ class LatestCompanyScoreManager(models.Manager):
     def get_latest_company_score_value(self, company_id, score_name):
         return self.filter(company__company_id=company_id, score__name=score_name)
 
-    def get_rank(self, company_id, score_name):
+    def get_rank(self, company_id, score_name, SP100=True):
 
         rank_by_score = Window(
             expression=Rank(),
             partition_by=F("score"),
             order_by=F("latest_score_value").desc(),
         )
+        conditions = Q(score__name__in=[score_name])
+        if SP100:
+            conditions = conditions & Q(
+                company__company_id__in=CorporateGrouping.objects.get_sp100_company_ids()
+            )
 
         query = (
-            LatestCompanyScore.objects.filter(score__name__in=[score_name])
+            LatestCompanyScore.objects.filter(conditions)
             .annotate(rank=rank_by_score)
             .order_by("rank")
         )
