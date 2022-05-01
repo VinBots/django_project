@@ -1,4 +1,5 @@
 from django_project.settings.common import *
+from config import Config as c
 
 
 DEBUG = True
@@ -28,3 +29,6 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
+MEDIA_ROOT = BASE_DIR_LIB
