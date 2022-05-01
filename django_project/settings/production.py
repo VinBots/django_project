@@ -1,10 +1,9 @@
 from django_project.settings.common import *
 
-DEBUG = False
 
+DEBUG = False
 with open("../env/secret.txt") as f:
     SECRET_KEY = f.read().strip()
-
 ALLOWED_HOSTS = [
     "planetbonus.com",
     "net0tracker.org",
@@ -14,7 +13,6 @@ ALLOWED_HOSTS = [
     "www.net0tracker.org",
     "www.planetbonus.com",
 ]
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -25,8 +23,7 @@ DATABASES = {
         "PORT": "",
     }
 }
-
-X_FRAME_OPTIONS = "DENY"  #'SAMEORIGIN'
+X_FRAME_OPTIONS = "DENY"
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 SESSION_COOKIE_SECURE = True
