@@ -11,10 +11,12 @@
     <h3>Data:</h3>
     📅 <b>Current Date:</b> {{meta.current_date}} (daily variation vs. {{meta.last_date}})
     <a href="https://finnhub.io/"> source</a>
-    <br>📈 <b>CO<sub>2</sub> Price:</b> ${{meta.co2_price_current}}/ton as of {{meta.current_date}} (vs. ${{meta.co2_price_last}}/t as of {{meta.last_date}})
+    <br>📈 <b>CO<sub>2</sub> Price:</b> ${{meta.co2_price_current}}/ton as of {{meta.current_date}} (vs.
+    ${{meta.co2_price_last}}/t as of {{meta.last_date}})
     <a href="https://ihsmarkit.com/products/global-carbon-index.html"> source</a>
     <br>
-    <br><p>Last update: {{meta.update_time}}</p>
+    <br>
+    <p>Last update: {{meta.update_time}}</p>
 
     <div class="container" width=100%>
 
@@ -58,7 +60,7 @@
                                 src="{% static 'django_project/images/logos/' %}logo_{{i.company_id}}.png"
                                 alt="picture_2"></a>
                     </td>
-                    <td style='text-align:center; vertical-align:middle'>{{i.score}}</td>
+                    <td style='text-align:center; vertical-align:middle'>{{i.score_db|floatformat:1}}</td>
                     <td><a href="{% url 'corporates_home'%}{{i.company_name}}"
                             title="{{i.company_name}}">{{i.company_name}}</a></td>
                     <td style='text-align:center; vertical-align:middle'>${{i.current_c}}</td>
@@ -81,21 +83,21 @@
                         {% endif %}
 
                         {{i.pre_ytd_chg}}%
-                    
+
                     </td>
-                    
+
                     <td style='text-align:center; vertical-align:middle
                     {% if i.post_pct_chg < 0 %};color:red'><i class="fas fa-chevron-down"></i>{{i.post_pct_chg}}%
-                    {% elif i.post_pct_chg > 0 %};color:green'><i class="fas fa-chevron-up"></i>{{i.post_pct_chg}}%
+                        {% elif i.post_pct_chg > 0 %};color:green'><i class="fas fa-chevron-up"></i>{{i.post_pct_chg}}%
                         {% else %}
                         '>
                         {% endif %}
 
                     </td>
-                    
+
                     <td style='text-align:center; vertical-align:middle
                     {% if i.post_ytd_chg < 0 %};color:red'><i class="fas fa-chevron-down"></i>{{i.post_ytd_chg}}%
-                    {% elif i.post_ytd_chg > 0 %};color:green'><i class="fas fa-chevron-up"></i>{{i.post_ytd_chg}}%
+                        {% elif i.post_ytd_chg > 0 %};color:green'><i class="fas fa-chevron-up"></i>{{i.post_ytd_chg}}%
                         {% else %}
                         '>
                         {% endif %}
@@ -119,7 +121,8 @@
 
                     </td>
 
-                    <td style='text-align:center; vertical-align:middle; color:Magenta'>{{i.total_footprint|intcomma}}</td>
+                    <td style='text-align:center; vertical-align:middle; color:Magenta'>{{i.total_footprint|intcomma}}
+                    </td>
                     <td style='text-align:center; vertical-align:middle; color:Magenta'>{{i.ITR}}°C</td>
 
                 </tr>
@@ -142,36 +145,40 @@
             {
                 responsive: true,
                 columnDefs: [
-                    {responsivePriority: 1, targets: 0 },
-                    {targets: 9,
-                    render: function ( data, type, row ) {
-                      var color = 'black';
-                      if (data.replace(/[%]/g, '') < 10) {
-                        color = 'green';
-                      }
-                      if (data.replace(/[%]/g, '') > 20) {
-                        color = 'orange'; }
-                      if (data.replace(/[%]/g, '') > 30) {
-                        color = 'red';
-                      }
-                      return '<span style="color:' + color + '">' + data + '</span>';
+                    { responsivePriority: 1, targets: 0 },
+                    {
+                        targets: 9,
+                        render: function (data, type, row) {
+                            var color = 'black';
+                            if (data.replace(/[%]/g, '') < 10) {
+                                color = 'green';
+                            }
+                            if (data.replace(/[%]/g, '') > 20) {
+                                color = 'orange';
+                            }
+                            if (data.replace(/[%]/g, '') > 30) {
+                                color = 'red';
+                            }
+                            return '<span style="color:' + color + '">' + data + '</span>';
+                        }
+                    },
+                    {
+                        targets: 8,
+                        render: function (data, type, row) {
+                            var color = 'black';
+                            if (data.replace(/[%]/g, '') < 2) {
+                                color = 'green';
+                            }
+                            if (data.replace(/[%]/g, '') > 5) {
+                                color = 'orange';
+                            }
+                            if (data.replace(/[%]/g, '') > 10) {
+                                color = 'red';
+                            }
+                            return '<span style="color:' + color + '">' + data + '</span>';
+                        }
                     }
-               },
-               {targets: 8,
-                    render: function ( data, type, row ) {
-                      var color = 'black';
-                      if (data.replace(/[%]/g, '') < 2) {
-                        color = 'green';
-                      }
-                      if (data.replace(/[%]/g, '') > 5) {
-                        color = 'orange'; }
-                      if (data.replace(/[%]/g, '') > 10) {
-                        color = 'red';
-                      }
-                      return '<span style="color:' + color + '">' + data + '</span>';
-                    }
-               }
-                               ],
+                ],
                 order: [[1, 'desc']],
             }
         );

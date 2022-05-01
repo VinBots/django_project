@@ -192,25 +192,25 @@ class TargetQuant(models.Model):
                 uploads.append(dict)
         return uploads
 
-    @property
-    def get_fl_red_by_year(self):
+    # @property
+    # def get_fl_red_by_year(self):
 
-        last_reporting_year_ghg = GHGQuant.objects.get_last_reporting_year(
-            self.company_id
-        )
-        last_year = "2020"
-        target_ghg = self.baseline * (1 - (self.reduction_obj / 100))
-        fl_reduction = (1 - (target_ghg / last_reporting_year_ghg)) * 100
-        period = int(self.target_year) - int(last_year)
-        meta = {
-            "Baseline": self.baseline,
-            "Reduction Objectives": self.reduction_obj,
-            "Target emissions": target_ghg,
-            "Target Year": self.target_year,
-            "Error msg": "",
-        }
-        fl_red_by_year = fl_reduction / period
-        return fl_red_by_year, meta
+    #     last_reporting_year_ghg = GHGQuant.objects.get_last_reporting_year(
+    #         self.company_id
+    #     )
+    #     last_year = "2020"
+    #     target_ghg = self.baseline * (1 - (self.reduction_obj / 100))
+    #     fl_reduction = (1 - (target_ghg / last_reporting_year_ghg)) * 100
+    #     period = int(self.target_year) - int(last_year)
+    #     meta = {
+    #         "Baseline": self.baseline,
+    #         "Reduction Objectives": self.reduction_obj,
+    #         "Target emissions": target_ghg,
+    #         "Target Year": self.target_year,
+    #         "Error msg": "",
+    #     }
+    #     fl_red_by_year = fl_reduction / period
+    #     return fl_red_by_year, meta
 
     def fl_red_data_check(self, last_reporting_year):
 
