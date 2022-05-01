@@ -19,7 +19,6 @@ class ChooseCorporateList(LoginRequiredMixin, ListView):
                 "input_by_corp_general",
                 kwargs={"corp_name": self.request.GET.get("corp")},
             )
-            print("NOT GET QUERY")
             return redirect(path)
 
         return super().dispatch(request, *args, **kwargs)

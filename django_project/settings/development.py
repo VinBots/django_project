@@ -1,6 +1,5 @@
 import os
 from django_project.settings.common import *
-from config import Config as c
 
 DEBUG = True
 
@@ -19,7 +18,7 @@ DATABASES = {
     }
 }
 
-BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
-MEDIA_ROOT = BASE_DIR_LIB
+# BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
+# MEDIA_ROOT = BASE_DIR_LIB
 # MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/download/"
