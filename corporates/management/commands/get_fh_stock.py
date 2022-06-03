@@ -24,8 +24,8 @@ class Command(BaseCommand):
             "call_time",
         ]
         stock_data = FinnhubData(requested_fields, list_key)
-        scraped_records = stock_data.get_data(date_search="12-31-2021")
-        # scraped_records = stock_data.get_data()
+        # scraped_records = stock_data.get_data(date_search="12-31-2021")
+        scraped_records = stock_data.get_data()
         # print(scraped_records)
 
         filtered_scraped_records = filter(
