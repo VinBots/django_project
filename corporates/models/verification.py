@@ -29,7 +29,7 @@ class Verification(models.Model):
         null=True,
         on_delete=models.CASCADE,
     )
-    update_date = models.DateField(auto_now=True)
+    last_update = models.DateTimeField(auto_now=True)
 
     scope12_reporting_2_years = models.CharField(
         verbose_name="At least the last 2 years of Scope 1-2 emissions are provided",
@@ -54,7 +54,7 @@ class Verification(models.Model):
         default=Options.FULL,
         max_length=50,
         blank=False,
-        null=False,
+        null=True,
     )
     scope12_assurance_type = models.CharField(
         verbose_name="What is the level of assurance (provided by a 3rd-party) for scope 1-2 emissions?",
@@ -62,7 +62,7 @@ class Verification(models.Model):
         default=Options.LIMITED,
         max_length=50,
         blank=False,
-        null=False,
+        null=True,
     )
 
     scope3_reporting_completeness = models.CharField(
@@ -80,7 +80,7 @@ class Verification(models.Model):
         default=Options.NOT_COVERED,
         max_length=50,
         blank=False,
-        null=False,
+        null=True,
     )
 
     scope3_assurance_type = models.CharField(
@@ -89,7 +89,7 @@ class Verification(models.Model):
         default=Options.NO_ASSURANCE,
         max_length=50,
         blank=False,
-        null=False,
+        null=True,
     )
 
     reporting_year = models.CharField(
@@ -109,7 +109,7 @@ class Verification(models.Model):
 
     class Meta:
         verbose_name_plural = "Verifications"
-        # ordering = ["update_date"]
+        # ordering = ["last_update"]
 
     def get_upload_fields(self):
         return [
@@ -141,7 +141,7 @@ class Verification(models.Model):
         for field in fields:
             if field:
                 path = f"/download/{field}"
-                desc = f"{self.source.source} - {self.reporting_year}"
+                desc = f"Disclosures/Verification_{self.reporting_year}"
                 dict = {"path": path, "desc": desc}
                 uploads.append(dict)
         return uploads

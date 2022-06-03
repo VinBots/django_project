@@ -60,7 +60,7 @@ class TargetQuant(models.Model):
         null=True,
         on_delete=models.CASCADE,
     )
-    update_date = models.DateField(auto_now=True)
+    last_update = models.DateTimeField(auto_now=True)
 
     type = models.CharField(
         verbose_name="What is the type of target?",
@@ -187,7 +187,7 @@ class TargetQuant(models.Model):
         for field in fields:
             if field:
                 path = f"/download/{field}"
-                desc = f"{self.source.source} - {self.reporting_year}"
+                desc = f"Targets_{self.target_year}"
                 dict = {"path": path, "desc": desc}
                 uploads.append(dict)
         return uploads

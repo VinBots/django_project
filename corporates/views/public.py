@@ -18,6 +18,7 @@ from corporates.utilities import (
     get_last_3_years_ghg_db,
     get_library_queryset,
     file_exist,
+    get_last_3_years_estimates_db,
 )
 
 
@@ -38,13 +39,22 @@ def corporates_search(request, corp_name=None):
             "score": get_score_info(),
             "score_data": get_score_data_db(company_id=selected_corp.company_id),
             "ghg": get_last_3_years_ghg_db(company_id=selected_corp.company_id),
+            "estimates": get_last_3_years_estimates_db(
+                company_id=selected_corp.company_id
+            ),
             "targets": get_targets_db(company_id=selected_corp.company_id),
         }
 
         corp_data = {
             "selected_corp": selected_corp,
             "db": db,
-            "library_corp": {"ghg": get_library_queryset(selected_corp.company_id)},
+            "library_corp": {
+                "cdp": get_library_queryset(selected_corp.company_id, "cdp"),
+                "targets": get_library_queryset(selected_corp.company_id, "targets"),
+                "ghg": get_library_queryset(selected_corp.company_id, "ghg"),
+                "verif": get_library_queryset(selected_corp.company_id, "verif"),
+                "sust": get_library_queryset(selected_corp.company_id, "sust"),
+            },
             "selected_corp_bullet_chart": {
                 "html": get_path_to_chart(selected_corp.company_id, "bullet"),
                 "img": get_path_to_img(selected_corp.company_id, "bullet"),

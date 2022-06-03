@@ -68,10 +68,42 @@
 
         </tfoot>
 
-
     </table>
     <p style="text-align:left"><b>Note: </b>Emissions data come from publicly-available information, usually the annual
         sustainability reports. We also use CDP data with a 5% tolerance threshold.
+    </p>
+
+</div>
+
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                {% for data in db.estimates %}
+                <th width=25%>Y{{data.year}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Total CO<sub>2</sub>e estimate (by Net0Tracker)</td>
+                {% for data in db.estimates %}
+                <td>{{data.value|floatformat:0}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Methodology</td>
+                {% for data in db.estimates %}
+                <td>{{data.method_description}}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+
+    </table>
+    <p style="text-align:left">Carbon emissions are estimated according to comparable years, intensity and sector
+        benchmarks
     </p>
 
 </div>

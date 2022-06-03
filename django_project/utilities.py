@@ -30,7 +30,7 @@ def get_top5_transp_miss_cut():
 
 
 def get_general_stats(indicators):
-    path = os.path.join(settings.DATA_FOLDER, settings.TOP_STATS_FILE)
+    path = os.path.join(settings.DATA_FOLDER, "home_page", "general_stats.json")
 
     with open(path) as json_file:
         dict = json.load(json_file)

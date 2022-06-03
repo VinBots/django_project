@@ -1,23 +1,24 @@
 import os
-import pathlib
 from datetime import date
 import pandas as pd
 
 from django.conf import settings
 from django.db.models import Q
 
-from corporates.models import (
-    GHGQuant,
-    TargetQuant,
-    NetZero,
-    LatestCompanyScore,
-    Score,
-    Corporate,
-)
-from corporates.models.choices import Options
-from config import Config as c
+from corporates.models.ghg import GHGQuant
+from corporates.models.metrics import CalcMetrics
+from corporates.models.targets import TargetQuant
+from corporates.models.netzero import NetZero
+from corporates.models.scores import LatestCompanyScore, Score
+from corporates.models.corp import Corporate
+from corporates.models.verification import Verification
+from corporates.models.external_sources.cdp import CDP
+from corporates.models.general import GeneralInfo
 
-BASE_DIR_XL_DB = os.path.join(settings.DATA_FOLDER, settings.XLS_FOLDER)
+
+from corporates.models.choices import Options
+
+BASE_DIR_XL_DB = settings.EXCEL_DB_FOLDER
 DIR_TO_CORP_CHARTS_TEMPLATES = "/corporates.html/charts/html_exports/"
 DIR_TO_CORP_CHARTS_IMG = "django_project/images/charts/"
 
@@ -71,14 +72,14 @@ def get_scores_details(company_id):
     metadata = LatestCompanyScore.objects.filter(company=company_id).values(
         "score__name",
         "score__max_score",
-        "latest_score_value",
+        "score_value",
         "rating_value",
         "meta_value",
     )
 
     return {
         dict["score__name"]: {
-            "value": dict.get("latest_score_value", ""),
+            "value": dict.get("score_value", ""),
             "max": dict.get("score__max_score", ""),
             "rating": dict.get("rating_value", ""),
             "meta": dict.get("meta_value", ""),
@@ -126,12 +127,25 @@ def get_score_data_db(company_id):
     return score_data
 
 
+def get_last_x_reporting_years(company_id, x=3):
+
+    last_reporting_year = GHGQuant.objects.get_last_reporting_year(company_id)
+    if last_reporting_year:
+        return [
+            str(year)
+            for year in range(
+                int(last_reporting_year), int(last_reporting_year) - x, -1
+            )
+        ]
+
+
 def get_last_3_years_ghg_db(company_id):
 
-    reporting_year = GHGQuant.objects.get_last_reporting_year(company_id)
-    if reporting_year:
+    last_3_years = get_last_x_reporting_years(company_id, x=3)
+    if last_3_years:
         ghg_query = GHGQuant.objects.filter(
             company__company_id=company_id,
+            reporting_year__in=last_3_years,
             source=Options.FINAL,
         ).order_by("-reporting_year")
 
@@ -154,16 +168,39 @@ def get_last_3_years_ghg_db(company_id):
         for dict1, dict2 in zipped_dict:
             dict1.update(dict2)
             updated_ghg_query.append(dict1)
-
         return updated_ghg_query
 
 
-def last_2_years():
+def get_last_3_years_estimates_db(company_id):
+
+    last_3_years = get_last_x_years(x=3)
+    if last_3_years:
+        estimates_query = (
+            CalcMetrics.objects.filter(
+                company__company_id=company_id,
+                year__in=last_3_years,
+                metrics="total_ghg_estimate",
+            )
+            .distinct("year")
+            .order_by("-year", "-last_update")
+        )
+        res = add_method_description(estimates_query.values())
+        return res
+
+
+def add_method_description(query_results):
+
+    for result in query_results:
+        method_description = Options.CO2_ESTIMATES_METHODS_DESCRIPTION.get(
+            result["method"], "other"
+        )
+        result.update({"method_description": method_description})
+    return query_results
+
+
+def get_last_x_years(x=2):
     current_year = date.today().year
-    return [
-        str(int(current_year) - 1),
-        str(int(current_year) - 2),
-    ]
+    return [str(int(current_year) - offset) for offset in range(1, x + 1)]
 
 
 def target_statement_builder():
@@ -197,62 +234,75 @@ def to_pct(df, field, decimal=1):
     return df
 
 
-def get_library_data(company_id, all_data=None, db=False):
+# def get_library_data(company_id, all_data=None, db=False):
 
-    dict = {}
-    fields = [c.LIBRARY.SUB_FOLDER_NAME, c.LIBRARY.FILENAME, c.LIBRARY.DESC]
+#     dict = {}
+#     fields = [c.LIBRARY.SUB_FOLDER_NAME, c.LIBRARY.FILENAME, c.LIBRARY.DESC]
 
-    if not db:
-        cond1 = all_data[c.FIELDS.COMPANY_ID] == company_id
-        for folder_name, category in c.LIBRARY.CATEGORIES_DESC.items():
-            cond2 = all_data[c.LIBRARY.SUB_FOLDER_NAME] == folder_name
-            filter_conditions = cond1 & cond2
-            record_data = all_data.loc[filter_conditions].sort_values(
-                [c.LIBRARY.YEAR, c.LIBRARY.PART], ascending=[False, True]
-            )
-            record = record_data[fields].to_dict("records")
-            if len(record) > 0:
-                dict[category] = record
-    else:
+#     if not db:
+#         cond1 = all_data[c.FIELDS.COMPANY_ID] == company_id
+#         for folder_name, category in c.LIBRARY.CATEGORIES_DESC.items():
+#             cond2 = all_data[c.LIBRARY.SUB_FOLDER_NAME] == folder_name
+#             filter_conditions = cond1 & cond2
+#             record_data = all_data.loc[filter_conditions].sort_values(
+#                 [c.LIBRARY.YEAR, c.LIBRARY.PART], ascending=[False, True]
+#             )
+#             record = record_data[fields].to_dict("records")
+#             if len(record) > 0:
+#                 dict[category] = record
+#     else:
 
-        dict = {"queryset": get_library_queryset(company_id)}
+#         dict = {"queryset": get_library_queryset(company_id)}
 
-    return dict
-
-
-def get_library_queryset(company_id):
-
-    queryset = GHGQuant.objects.filter(company_id=company_id).order_by(
-        "-reporting_year"
-    )
-
-    return queryset
+#     return dict
 
 
-def queryset_to_dict(queryset):
-    all_records = []
-    fields = ["upload_1", "upload_2", "upload_3", "upload_4", "upload_5"]
-    full_list = queryset.values()
-    all_records = [
-        {
-            "folder_name": "ghg2",
-            "filename": os.path.basename(record[field]),
-            "desc": f"{record['source_id']}-{record['reporting_year']}",
-        }
-        for record in full_list
-        for field in fields
-        if record[field]
-    ]
-    return all_records
+def get_library_queryset(company_id, category="cdp"):
+
+    category_to_query_map = {
+        "cdp": CDP.objects.filter(company_id=company_id).order_by("-reporting_year"),
+        "targets": TargetQuant.objects.filter(company_id=company_id).order_by(
+            "target_year"
+        ),
+        "ghg": GHGQuant.objects.filter(company_id=company_id).order_by(
+            "-reporting_year"
+        ),
+        "verif": Verification.objects.filter(company_id=company_id).order_by(
+            "-reporting_year"
+        ),
+        "sust": GeneralInfo.objects.filter(company_id=company_id).order_by("-year"),
+    }
+
+    return category_to_query_map.get(category)
 
 
-def get_all_data_from_csv(sheet_names):
+# def queryset_to_dict(queryset):
+#     all_records = []
+#     fields = ["upload_1", "upload_2", "upload_3", "upload_4", "upload_5"]
+#     full_list = queryset.values()
+#     all_records = [
+#         {
+#             "folder_name": "ghg2",
+#             "filename": os.path.basename(record[field]),
+#             "desc": f"{record['source_id']}-{record['reporting_year']}",
+#         }
+#         for record in full_list
+#         for field in fields
+#         if record[field]
+#     ]
+#     return all_records
 
-    pd_dict = {}
-    for sheetname in sheet_names:
-        csv_path = os.path.join(BASE_DIR_XL_DB, sheetname + ".csv")
-        pd_dict[sheetname] = pd.read_csv(csv_path)
-    return pd_dict
+
+# def get_all_data_from_csv(sheet_names, folder=BASE_DIR_XL_DB):
+
+#     pd_dict = {}
+#     for sheetname in sheet_names:
+#         csv_path =
+
+
+#         os.path.join(folder, sheetname + ".csv")
+#         pd_dict[sheetname] = pd.read_csv(csv_path)
+#     return pd_dict
 
 
 def file_exist(path_name):
@@ -264,16 +314,3 @@ def file_exist(path_name):
 def get_company_id_from_name(company_name):
 
     return Corporate.objects.filter(name=company_name).values_list("company_id")[0][0]
-
-
-def user_directory_path(instance, filename):
-
-    if instance._meta.model.__name__ == "GeneralInfo":
-        folder = "general2"
-
-    # FORMAT '[reporting_year]_[company_name]_[source]_[submitter]
-    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}\
-        _{instance.source}_{instance.submitter.username}\
-            {pathlib.Path(filename).suffix}"
-    print(f"FILE TO SAVE: {filename}")
-    return filename
