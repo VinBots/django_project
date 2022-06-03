@@ -1,31 +1,29 @@
-from corporates.models import Verification, CompanyScore, Corporate, Score
 from django.core.management import BaseCommand
-from django.db.models import Q
 
-
-def score_duplicate(score_details):
-
-    my_filter = Q()
-    for item in score_details:
-        my_filter &= Q(**{item: score_details[item]})
-
-    return CompanyScore.objects.filter(my_filter).exists()
+from corporates.models import CompanyScore
 
 
 class Command(BaseCommand):
+    """
+    Displays the score value for a given company_id
+    """
+
     def add_arguments(self, parser):
-        parser.add_argument("company_name", type=str)
+        parser.add_argument("company_id", type=str)
+        parser.add_argument("score_name", type=str)
 
     def handle(self, *args, **options):
 
-        score_name = "Score_6_2"
-        company_name = options["company_name"]
+        company_id = options["company_id"]
+        score_name = options["score_name"]
 
         queryset = CompanyScore.objects.filter(
-            company__company_id=company_name, score__name=score_name
-        ).order_by("-update_date", "-score_value")
+            company__company_id=company_id, score__name=score_name
+        ).order_by("-last_update", "-score_value")
 
         if queryset.exists():
-            print(f"The Score is {queryset[0].score_value}")
+            print(
+                f"The Score {score_name} for company id {company_id} is {queryset[0].score_value}"
+            )
         else:
-            print(f"no score {score_name} for {company_name} found")
+            print(f"no score {score_name} for company id {company_id} found")

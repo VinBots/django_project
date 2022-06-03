@@ -9,6 +9,8 @@ from corporates.models import (
     Score,
     Benchmark,
     CorporateGrouping,
+    Matching,
+    GICS,
 )
 from django.core.management import BaseCommand
 
@@ -30,8 +32,9 @@ class Command(BaseCommand):
             Score,
             Benchmark,
             CorporateGrouping,
+            Matching,
+            GICS,
         ]
-        # models_to_delete = []
 
         for mod in models_to_delete:
             mod.objects.all().delete()

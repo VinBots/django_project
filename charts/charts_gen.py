@@ -6,6 +6,33 @@ from chart_types import (
 )
 from plotly.offline import plot
 
+CHART_TYPES = {
+    "bullet": {
+        "name": "bullet",
+        "generator": bullet_charts.bullet_chart_from_xls,
+        "params": {
+            "year": "2019",
+        },
+    },
+    "bubble": {
+        "name": "bubble",
+        "generator": bubble_charts.bubble_chart_from_xls,
+        "params": {
+            "year": "2019",
+        },
+    },
+    "ghg_bar": {
+        "name": "ghg_bar",
+        "generator": ghg_bar_charts.ghg_bar_chart_from_xls,
+        "params": {},
+    },
+    "ghg_pie_chart": {
+        "name": "ghg_pie_chart",
+        "generator": ghg_scope3_pie_chart.ghg_scope3_pie_chart_from_xls,
+        "params": {},
+    },
+}
+
 
 class Charts:
     def __init__(self, chart_type, company_id):
@@ -71,36 +98,13 @@ def produce_charts(id_list, chart_type):
     return all_res
 
 
-if __name__ == "__main__":
+def create_chart(id_list, chart_name):
 
-    id_list = list(range(10, 11, 1))
-
-    CHART_TYPES = {
-        "bullet": {
-            "name": "bullet",
-            "generator": bullet_charts.bullet_chart_from_xls,
-            "params": {
-                "year": "2019",
-            },
-        },
-        "bubble": {
-            "name": "bubble",
-            "generator": bubble_charts.bubble_chart_from_xls,
-            "params": {
-                "year": "2019",
-            },
-        },
-        "ghg_bar": {
-            "name": "ghg_bar",
-            "generator": ghg_bar_charts.ghg_bar_chart_from_xls,
-            "params": {},
-        },
-        "ghg_pie_chart": {
-            "name": "ghg_pie_chart",
-            "generator": ghg_scope3_pie_chart.ghg_scope3_pie_chart_from_xls,
-            "params": {},
-        },
-    }
-
-    res = produce_charts(id_list, CHART_TYPES["ghg_bar"])
+    res = produce_charts(id_list, CHART_TYPES[chart_name])
     print("Number of failures = {} for company ids = {}".format(len(res), res))
+
+
+if __name__ == "__main__":
+    id_list = [66]
+    chart_name = "bubble"
+    create_chart(id_list, chart_name)

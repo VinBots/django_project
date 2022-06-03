@@ -29,7 +29,7 @@
                 <td><a href="{% url 'input_by_corp_ghg_update' corp_name=corp_name pk=record.id%}">{{record}}</a></td>
                 <td>{{record.reporting_year}}</td>
                 <td>{{record.source}}</td>
-                <td>{{record.update_date}}</td>
+                <td>{{record.last_update}}</td>
                 {% with countuploads=0 %}
                 <td>
                     {{record.number_of_uploads}}

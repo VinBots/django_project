@@ -65,8 +65,7 @@ def faq(request):
 def download_file(request, folder_name="", file_name=""):
 
     if file_name != "":
-        # BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
-        filepath = os.path.join(settings.BASE_DIR_LIB, folder_name, file_name)
+        filepath = os.path.join(settings.SUPPORTING_DOCS_FOLDER, folder_name, file_name)
         if os.path.exists(filepath):
             f = open(filepath, "rb")
             pdfFile = File(f)

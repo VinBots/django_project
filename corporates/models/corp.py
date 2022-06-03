@@ -22,9 +22,9 @@ class Corporate(models.Model):
     short_name = models.CharField(max_length=100, blank=True, null=True)
     web_URL = models.URLField("Web Address", blank=True, null=True)
     cdp_account = models.IntegerField(default=0)
-    primary_country = models.ForeignKey(
-        "Country", blank=True, null=True, on_delete=models.CASCADE
-    )
+    # primary_country = models.ForeignKey(
+    #     "Country", blank=True, null=True, on_delete=models.CASCADE
+    # )
 
     class Meta:
         db_table = "Corporate"

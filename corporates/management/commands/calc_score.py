@@ -1,7 +1,10 @@
+from cgitb import handler
 from corporates.models import CompanyScore, Corporate, LatestCompanyScore
 from django.core.management import BaseCommand
 from django.db.models import Sum
-from .scoring import Scoring
+from ..scoring.scoring import Scoring
+import logging
+from .calc_agg_score import Command as CalcAggScore
 
 
 class Command(BaseCommand):
@@ -11,11 +14,10 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         company_id_list = Corporate.objects.values_list("company_id", flat=True)
-        # company_id_list = [66]
+        # company_id_list = [14]
+        # CompanyScore.objects.all().delete()
 
-        CompanyScore.objects.all().delete()
-
-        scores_to_test = [
+        score_names = [
             "Score_1_1",
             "Score_1_2",
             "Score_2_1",
@@ -36,21 +38,24 @@ class Command(BaseCommand):
             "Score_10_1",
         ]
 
-        for score_name in scores_to_test:
+        for score_name in score_names:
             new_score = Scoring(company_ids=company_id_list, score_name=score_name)
             new_score.process_scores()
-            print(
+            logging.info(
                 f"{new_score.saved_scores_count} new records were created for score {score_name}"
             )
 
-        results = (
-            CompanyScore.objects.values("company__name")
-            .annotate(total_score=Sum("score_value"))
-            .order_by("-total_score")
-        )
+        # results = (
+        #     CompanyScore.objects.values("company__name")
+        #     .annotate(total_score=Sum("score_value"))
+        #     .order_by("-total_score")
+        # )
 
-        for result in results:
-            print(f"{result['company__name']}: {result['total_score']}")
+        # for result in results:
+        #     print(f"{result['company__name']}: {result['total_score']}")
 
         latest_scores = CompanyScore.objects.get_latest_scores()
+
+        LatestCompanyScore.objects.all().delete()
         LatestCompanyScore.objects.import_latest_scores(latest_scores)
+        CalcAggScore().handle()

@@ -9,7 +9,7 @@ def get_scores_db(corp_number=None, top_rank=True):
     rank_by_score = Window(
         expression=Rank(),
         partition_by=F("score"),
-        order_by=F("latest_score_value").desc(),
+        order_by=F("score_value").desc(),
     )
     sub_query_transparency = LatestCompanyScore.objects.filter(
         company=OuterRef("company"), score__name="Score_transparency"
@@ -29,12 +29,10 @@ def get_scores_db(corp_number=None, top_rank=True):
         .annotate(
             rank=rank_by_score,
             Score_transparency=Subquery(
-                sub_query_transparency.values("latest_score_value")[:1]
+                sub_query_transparency.values("score_value")[:1]
             ),
-            Score_commitments=Subquery(
-                sub_query_commitments.values("latest_score_value")[:1]
-            ),
-            Score_results=Subquery(sub_query_results.values("latest_score_value")[:1]),
+            Score_commitments=Subquery(sub_query_commitments.values("score_value")[:1]),
+            Score_results=Subquery(sub_query_results.values("score_value")[:1]),
         )
         .order_by("rank")
     )

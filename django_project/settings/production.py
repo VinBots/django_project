@@ -4,6 +4,10 @@ from django_project.settings.common import *
 DEBUG = False
 with open("../env/secret.txt") as f:
     SECRET_KEY = f.read().strip()
+
+with open("../env/db_pwd.txt") as f:
+    DB_PWD = f.read().strip()
+
 ALLOWED_HOSTS = [
     "planetbonus.com",
     "net0tracker.org",
@@ -13,12 +17,14 @@ ALLOWED_HOSTS = [
     "www.net0tracker.org",
     "www.planetbonus.com",
 ]
+old_pwd = "7b2ad1513df1ea80797a06dd6f056a90"
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "django",
         "USER": "django",
-        "PASSWORD": "7b2ad1513df1ea80797a06dd6f056a90",
+        "PASSWORD": DB_PWD,
         "HOST": "localhost",
         "PORT": "",
     }
@@ -29,5 +35,4 @@ SECURE_BROWSER_XSS_FILTER = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-# BASE_DIR_LIB = os.path.join(c.DATA_FOLDER, c.LIBRARY_FOLDER)
 MEDIA_URL = "/download/"

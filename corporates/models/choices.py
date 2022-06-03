@@ -77,6 +77,9 @@ class Options:
     SCOPE123_LOC = "s1s2s3loc"
     SCOPE123_MKT = "s1s2s3mkt"
 
+    SCOPE12_BEST = "s1s2best"
+    SCOPE3_BEST = "scope_3_best"
+
     SCOPE_OPTIONS = [
         (SCOPE1, "Scope 1 only"),
         (SCOPE2, "Scope 2 only"),
@@ -165,3 +168,41 @@ class Options:
         A baseline scenario is a reference case that represents future events or conditions most \
         likely to occur in the absence of activities taken to meet the mitigation goal. \
         For example, a 50% reduction from baseline scenario emissions in 2030."
+
+    # TOTAL CO2 ESTIMATES
+
+    AS_REPORTED = "as_reported"
+
+    S3_PRECEDING_YEAR = "scope_3_preceding_year"
+    PRECEDING_YEAR_INTENSITY = "prec_year_intensity"
+    RECENT_YEAR_INTENSITY = "recent_year_intensity"
+
+    S3_SECTOR_INTENSITY_MANUAL = "s3_sector_intensity_manual"
+    S3_SECTOR_INTENSITY_CALC = "s3_sector_intensity_calculated"
+
+    SECTOR_INTENSITY_MANUAL = "sector_intensity_manual"
+    SECTOR_INTENSITY_CALC = "sector_intensity_calculated"
+
+    CO2_ESTIMATES_METHODS = [
+        AS_REPORTED,
+        S3_PRECEDING_YEAR,
+        PRECEDING_YEAR_INTENSITY,
+        RECENT_YEAR_INTENSITY,
+        S3_SECTOR_INTENSITY_MANUAL,
+        S3_SECTOR_INTENSITY_CALC,
+        SECTOR_INTENSITY_MANUAL,
+        SECTOR_INTENSITY_CALC,
+    ]
+    CO2_ESTIMATES_METHODS_DESCRIPTION = {
+        AS_REPORTED: "As reported",
+        S3_PRECEDING_YEAR: "Scope 3 based on previous year",
+        PRECEDING_YEAR_INTENSITY: "Previous year intensity (revenue)",
+        RECENT_YEAR_INTENSITY: "Recent intensity (revenue)",
+        S3_SECTOR_INTENSITY_MANUAL: "Scope 3 based on pre-defined sector intensity (revenue)",
+        S3_SECTOR_INTENSITY_CALC: "Scope 3 based on pre-calculated sector intensity (revenue)",
+        SECTOR_INTENSITY_MANUAL: "Pre-defined sector intensity (revenue)",
+        SECTOR_INTENSITY_CALC: "Pre-calculated sector intensity (revenue)",
+    }
+
+    DEFAULT_DOCUMENT = "sustainability_report"
+    DOCUMENT_CHOICES = [(DEFAULT_DOCUMENT, "Sustainability Report")]

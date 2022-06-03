@@ -29,7 +29,7 @@ class CDP(models.Model):
         null=True,
         on_delete=models.CASCADE,
     )
-    update_date = models.DateField(auto_now=True)
+    last_update = models.DateTimeField(auto_now=True)
 
     questionnaire_year = models.CharField(
         verbose_name="Please select the reference year for the CDP Climate Change Questionnaire",
@@ -109,7 +109,7 @@ class CDP(models.Model):
         for field in fields:
             if field:
                 path = f"/download/{field}"
-                desc = f"{self.source.source} - {self.reporting_year}"
+                desc = "desc"  # f"{self.source} - {self.reporting_year}"
                 dict = {"path": path, "desc": desc}
                 uploads.append(dict)
         return uploads

@@ -1,0 +1,1299 @@
+WARNING message in log at 2022-05-31 20:17:42,448: Not Found: /favicon.ico
+ERROR message in log at 2022-05-31 20:18:18,267: Internal Server Error: /admin/corporates/ghgquant/46108/change/
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "c:\Users\vince\Documents\django\django_project\corporates\models\ghg.py", line 268, in save
+    super(GHGQuant, self).save(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 842, in _save_table
+    values = [(f, None, (getattr(self, f.attname) if raw else f.pre_save(self, False)))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 842, in <listcomp>
+    values = [(f, None, (getattr(self, f.attname) if raw else f.pre_save(self, False)))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 302, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 88, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 317, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "c:\Users\vince\Documents\django\django_project\corporates\models\ghg.py", line 15, in user_directory_path
+    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}_{instance.source}_{instance.submitter.username}{pathlib.Path(filename).suffix}"
+AttributeError: 'NoneType' object has no attribute 'username'
+ERROR message in log at 2022-05-31 20:20:09,635: Internal Server Error: /download/ghg2/2017_Amazon.com_Inc._final_vince.png
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\django_project\views.py", line 69, in download_file
+    filepath = os.path.join(settings.BASE_DIR_LIB, folder_name, file_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'BASE_DIR_LIB'
+WARNING message in log at 2022-06-01 10:21:50,214: Not Found: /favicon.ico
+ERROR message in log at 2022-06-01 10:31:00,729: Internal Server Error: /corporates.html/input/Bank of America/comments/
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\input\permissions.py", line 18, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\auth\mixins.py", line 71, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\input\comments.py", line 18, in get
+    return render(request, self.template_name, *args, kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: django_project/input/corp_general.html
+ERROR message in log at 2022-06-01 10:44:23,792: Internal Server Error: /admin/corporates/generalinfo/
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "corporates_generalinfo" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "corporates_generalinfo"
+                                          ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1697, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 736, in get_changelist_instance
+    return ChangeList(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\views\main.py", line 100, in __init__
+    self.get_results(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\views\main.py", line 235, in get_results
+    result_count = paginator.count
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\paginator.py", line 97, in count
+    return c()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\query.py", line 412, in count
+    return self.query.get_count(using=self.db)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\query.py", line 517, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\query.py", line 502, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "corporates_generalinfo" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "corporates_generalinfo"
+                                          ^
+
+ERROR message in log at 2022-06-01 10:57:06,503: Internal Server Error: /admin/corporates/generalinfo/add/
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1415, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1358, in as_sql
+    value_rows = [
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1310, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 302, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 88, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 317, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "c:\Users\vince\Documents\django\django_project\corporates\utilities.py", line 312, in user_directory_path
+    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}\
+AttributeError: 'GeneralInfo' object has no attribute 'reporting_year'
+ERROR message in log at 2022-06-01 10:57:45,003: Internal Server Error: /admin/corporates/generalinfo/add/
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1415, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1358, in as_sql
+    value_rows = [
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1310, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 302, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 88, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 317, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "c:\Users\vince\Documents\django\django_project\corporates\utilities.py", line 313, in user_directory_path
+    _{instance.source}_{instance.submitter.username}\
+AttributeError: 'GeneralInfo' object has no attribute 'source'
+ERROR message in log at 2022-06-01 10:58:05,430: Internal Server Error: /admin/corporates/generalinfo/add/
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1415, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1358, in as_sql
+    value_rows = [
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1359, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\compiler.py", line 1310, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 302, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 88, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\fields\files.py", line 317, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "c:\Users\vince\Documents\django\django_project\corporates\utilities.py", line 313, in user_directory_path
+    _{instance.submitter.username}\
+AttributeError: 'NoneType' object has no attribute 'username'
+WARNING message in log at 2022-06-01 13:48:46,903: Not Found: /favicon.ico
+WARNING message in log at 2022-06-02 06:17:47,212: Not Found: /favicon.ico
+ERROR message in log at 2022-06-02 06:47:20,347: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'display_file_links'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 79, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 183, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 174, in select_template
+    return self.get_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 531, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 24: 'display_file_links'. Did you forget to register or load this tag?
+ERROR message in log at 2022-06-02 06:48:23,444: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'display_file_links'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 79, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 183, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 174, in select_template
+    return self.get_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'display_file_links' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+file_links
+humanize
+i18n
+l10n
+log
+static
+tz
+ERROR message in log at 2022-06-02 06:49:00,303: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 79, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'download_file' with keyword arguments '{'folder_name': '', 'file_name': ''}' not found. 2 pattern(s) tried: ['download/(?P<folder_name>[^/]+)/(?P<file_name>[^/]+)$', 'download/$']
+ERROR message in log at 2022-06-02 06:51:20,019: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 79, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'download_file' with keyword arguments '{'folder_name': '', 'file_name': ''}' not found. 2 pattern(s) tried: ['download/(?P<folder_name>[^/]+)/(?P<file_name>[^/]+)$', 'download/$']
+ERROR message in log at 2022-06-02 06:51:23,689: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 79, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'download_file' with keyword arguments '{'folder_name': '', 'file_name': ''}' not found. 2 pattern(s) tried: ['download/(?P<folder_name>[^/]+)/(?P<file_name>[^/]+)$', 'download/$']
+ERROR message in log at 2022-06-02 06:51:28,895: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 79, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'download_file' with keyword arguments '{'folder_name': '', 'file_name': ''}' not found. 2 pattern(s) tried: ['download/(?P<folder_name>[^/]+)/(?P<file_name>[^/]+)$', 'download/$']
+ERROR message in log at 2022-06-02 06:51:29,079: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 79, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'download_file' with keyword arguments '{'folder_name': '', 'file_name': ''}' not found. 2 pattern(s) tried: ['download/(?P<folder_name>[^/]+)/(?P<file_name>[^/]+)$', 'download/$']
+ERROR message in log at 2022-06-02 06:51:54,548: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'GHGQuant' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 79, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\library.py", line 234, in render
+    return t.render(new_context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 163, in render
+    values = self.sequence.resolve(context, ignore_failures=True)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "c:\Users\vince\Documents\django\django_project\corporates\models\ghg.py", line 161, in get_uploads
+    desc = f"{self.source.source} - {self.reporting_year}"
+AttributeError: 'str' object has no attribute 'source'
+ERROR message in log at 2022-06-02 07:12:40,647: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'TargetQuant' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 86, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 163, in render
+    values = self.sequence.resolve(context, ignore_failures=True)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "c:\Users\vince\Documents\django\django_project\corporates\models\targets.py", line 190, in get_uploads
+    desc = f"{self.source.source} - {self.reporting_year}"
+AttributeError: 'str' object has no attribute 'source'
+ERROR message in log at 2022-06-02 07:13:34,776: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'TargetQuant' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 86, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 163, in render
+    values = self.sequence.resolve(context, ignore_failures=True)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "c:\Users\vince\Documents\django\django_project\corporates\models\targets.py", line 190, in get_uploads
+    desc = f"{self.source} - {self.reporting_year}"
+AttributeError: 'TargetQuant' object has no attribute 'reporting_year'
+ERROR message in log at 2022-06-02 07:14:29,748: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Verification' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 86, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\defaulttags.py", line 163, in render
+    values = self.sequence.resolve(context, ignore_failures=True)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "c:\Users\vince\Documents\django\django_project\corporates\models\verification.py", line 144, in get_uploads
+    desc = f"{self.source} - {self.reporting_year}"
+AttributeError: 'Verification' object has no attribute 'source'
+WARNING message in log at 2022-06-02 18:20:51,954: Not Found: /favicon.ico
+ERROR message in log at 2022-06-02 18:28:22,866: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 52, in corporates_search
+    "cdp": get_library_queryset(selected_corp.company_id, "cdp"),
+  File "c:\Users\vince\Documents\django\django_project\corporates\utilities.py", line 273, in get_library_queryset
+    "sust_report": GeneralInfo.objects.filter(company_id=company_id).order_by(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\query.py", line 1149, in order_by
+    obj.query.add_ordering(*field_names)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\query.py", line 1991, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'reporting_year' into field. Choices are: company, company_id, description, document, id, last_update, submitter, submitter_id, upload, verifier, verifier_id, year
+ERROR message in log at 2022-06-02 19:17:00,069: Internal Server Error: /corporates.html/Microsoft Corp./
+Traceback (most recent call last):
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "c:\Users\vince\Documents\django\django_project\corporates\views\public.py", line 87, in corporates_search
+    return render(request, "django_project/corporates/main.html", corp_data)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 183, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 174, in select_template
+    return self.get_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\loader_tags.py", line 315, in do_include
+    value = token_kwargs(remaining_bits, parser, support_legacy=False)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 1040, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\vince\anaconda3\envs\django_web\lib\site-packages\django\template\base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '\' from '"Disclosures"\'

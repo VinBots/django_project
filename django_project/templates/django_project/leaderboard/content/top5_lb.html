@@ -28,11 +28,11 @@
                     </a>
 
                     <div class="bar_wrap">
-                        <div class="inner_bar" style="width: {{i.latest_score_value}}%"></div>
+                        <div class="inner_bar" style="width: {{i.score_value}}%"></div>
                     </div>
                 </div>
                 <div class="points">
-                    {{i.latest_score_value|floatformat}} points
+                    {{i.score_value|floatformat}} points
                 </div>
             </div>
             {% endfor %}
@@ -49,11 +49,11 @@
                         <p align="left"><span>{{i.rank}}.&nbsp;</span>{{i.company.name}}</p>
                     </a>
                     <div class="bar_wrap">
-                        <div class="inner_bar" style="width: {{i.latest_score_value}}%"></div>
+                        <div class="inner_bar" style="width: {{i.score_value}}%"></div>
                     </div>
                 </div>
                 <div class="points">
-                    {{i.latest_score_value}} points
+                    {{i.score_value}} points
                 </div>
             </div>
             {% endfor %}

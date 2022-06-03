@@ -32,7 +32,7 @@ class NetZero(models.Model):
         null=True,
         on_delete=models.CASCADE,
     )
-    update_date = models.DateField(auto_now=True)
+    last_update = models.DateTimeField(auto_now=True)
 
     stated = models.CharField(
         choices=Options.YESNO,
@@ -120,7 +120,7 @@ class NetZero(models.Model):
 
     class Meta:
         verbose_name_plural = "Net Zero Targets"
-        # ordering = ["update_date"]
+        # ordering = ["last_update"]
 
     def get_upload_fields(self):
         return [
@@ -152,7 +152,7 @@ class NetZero(models.Model):
         for field in fields:
             if field:
                 path = f"/download/{field}"
-                desc = f"{self.source.source} - {self.reporting_year}"
+                desc = "desc"  # f"{self.source} - {self.reporting_year}"
                 dict = {"path": path, "desc": desc}
                 uploads.append(dict)
         return uploads

@@ -1,7 +1,6 @@
-from corporates.models import CompanyScore, Corporate, LatestCompanyScore
+from corporates.models import Corporate
 from django.core.management import BaseCommand
-from django.db.models import Sum
-from .scoring import Scoring
+from corporates.management.scoring.scoring import Scoring
 
 
 class Command(BaseCommand):

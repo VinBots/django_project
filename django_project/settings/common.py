@@ -90,9 +90,15 @@ STATICFILES_FINDERS = [
 USE_THOUSAND_SEPARATOR = True
 THOUSAND_SEPARATOR = True
 
-DATA_FOLDER = os.path.join(SERVER_BASE_DIR, "net0_docs")
-LIBRARY_FOLDER = "reports"
-XLS_FOLDER = "excel_db"
-BASE_DIR_LIB = os.path.join(DATA_FOLDER, LIBRARY_FOLDER)
-MEDIA_ROOT = BASE_DIR_LIB
-TOP_STATS_FILE = "stats/general_stats.json"
+# STORAGE FOLDER STRUCTURE
+STORAGE_FOLDER = os.path.join(SERVER_BASE_DIR, "storage")
+
+DATA_FOLDER = os.path.join(STORAGE_FOLDER, "data")
+EXCEL_DB_FOLDER = os.path.join(DATA_FOLDER, "excel_db")
+SBTI_FOLDER = os.path.join(DATA_FOLDER, "sbti")
+
+SUPPORTING_DOCS_FOLDER = os.path.join(STORAGE_FOLDER, "supporting_docs")
+
+
+MEDIA_ROOT = SUPPORTING_DOCS_FOLDER
+LOG_FILEPATH = os.path.join(BASE_DIR, "debug.log")

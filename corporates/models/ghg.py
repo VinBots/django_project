@@ -3,7 +3,6 @@ import pathlib
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Case, When, Value
-from django.forms import IntegerField
 
 from .choices import Options
 
@@ -23,6 +22,8 @@ class CustomManager(models.Manager):
         mapping = {
             Options.SCOPE12_LOC: "scope_12_loc",
             Options.SCOPE12_MKT: "scope_12_mkt",
+            Options.SCOPE12_BEST: "scope_12_best",
+            Options.SCOPE3_BEST: "scope_3_best",
             Options.SCOPE123_LOC: "scope_123_loc",
             Options.SCOPE123_MKT: "scope_123_mkt",
         }
@@ -37,7 +38,7 @@ class CustomManager(models.Manager):
         )
 
         queryset = self.filter(company__company_id=id, reporting_year=year).order_by(
-            custom_order, "update_date"
+            custom_order, "last_update"
         )
         if queryset.exists():
             result = getattr(
@@ -84,7 +85,7 @@ class GHGQuant(models.Model):
         User, related_name="ghg_ver", blank=True, null=True, on_delete=models.CASCADE
     )
 
-    update_date = models.DateField(auto_now=True)
+    last_update = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=25, blank=True, null=True)
     reporting_year = models.CharField(
         max_length=10,
@@ -125,7 +126,7 @@ class GHGQuant(models.Model):
 
     class Meta:
         verbose_name_plural = "GHG Quantitative"
-        # ordering = ["update_date"]
+        # ordering = ["last_update"]
 
     def get_upload_fields(self):
         return [
@@ -157,7 +158,7 @@ class GHGQuant(models.Model):
         for field in fields:
             if field:
                 path = f"/download/{field}"
-                desc = f"{self.source.source} - {self.reporting_year}"
+                desc = f"GHG_emissions_{self.reporting_year}"
                 dict = {"path": path, "desc": desc}
                 uploads.append(dict)
         return uploads
@@ -175,13 +176,23 @@ class GHGQuant(models.Model):
         return sum(filter(bool, categories))
 
     @property
+    def scope_12_best(self):
+        if self.ghg_loc_scope_2 and self.ghg_mkt_scope_2:
+            return min(self.scope_12_mkt, self.scope_12_loc)
+        elif self.ghg_loc_scope_2:
+            return self.scope_12_loc
+        elif self.ghg_mkt_scope_2:
+            return self.scope_12_mkt
+        else:
+            return self.ghg_scope_1
+
+    @property
     def scope_3_loc_agg(self):
 
         categories = [
             self.ghg_purch_scope3,
             self.ghg_capital_scope3,
             self.ghg_fuel_energy_loc_scope3,
-            # self.ghg_fuel_energy_mkt_scope3,
             self.ghg_upstream_td_scope3,
             self.ghg_waste_ops_scope3,
             self.ghg_bus_travel_scope3,
@@ -195,6 +206,8 @@ class GHGQuant(models.Model):
             self.ghg_franchises_scope3,
             self.ghg_investments_scope3,
         ]
+        if self.ghg_fuel_energy_loc_scope3 == 0:
+            categories.append(self.ghg_fuel_energy_mkt_scope3)
 
         return sum(filter(bool, categories))
 
@@ -203,7 +216,6 @@ class GHGQuant(models.Model):
         categories = [
             self.ghg_purch_scope3,
             self.ghg_capital_scope3,
-            # self.ghg_fuel_energy_loc_scope3,
             self.ghg_fuel_energy_mkt_scope3,
             self.ghg_upstream_td_scope3,
             self.ghg_waste_ops_scope3,
@@ -218,16 +230,31 @@ class GHGQuant(models.Model):
             self.ghg_franchises_scope3,
             self.ghg_investments_scope3,
         ]
+
         return sum(filter(bool, categories))
+
+    @property
+    def scope_3_best(self):
+        if self.scope_3_mkt_agg and self.scope_3_loc_agg:
+            return min(self.scope_3_mkt_agg, self.scope_3_loc_agg)
+        elif self.scope_3_loc_agg:
+            return self.scope_3_loc_agg
+        elif self.scope_3_mkt_agg:
+            return self.scope_3_mkt_agg
+        else:
+            return None
 
     @property
     def scope_123_loc(self):
         elements_to_sum = [self.scope_12_loc, self.scope_3_loc_agg]
+        # print(elements_to_sum)
+
         return sum(filter(bool, elements_to_sum))
 
     @property
     def scope_123_mkt(self):
         elements_to_sum = [self.scope_12_mkt, self.scope_3_mkt_agg]
+        # print(elements_to_sum)
         return sum(filter(bool, elements_to_sum))
 
     def __str__(self):

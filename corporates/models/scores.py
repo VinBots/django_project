@@ -39,7 +39,7 @@ class CompanyScoreManager(models.Manager):
 
         last_score_value = CompanyScore.objects.filter(
             company=company, score=score
-        ).order_by("-update_date", "-id")
+        ).order_by("-last_update", "-id")
 
         if last_score_value.exists():
             return last_score_value[0]
@@ -65,23 +65,29 @@ class CompanyScoreManager(models.Manager):
 
         subquery = self.filter(
             company=OuterRef("company"), score=OuterRef("score")
-        ).order_by("-update_date")
+        ).order_by("-last_update", "-id")
 
         queryset = self.annotate(
-            latest_score_value=Subquery(subquery.values("score_value")[:1])
+            latest_score_value=Subquery(subquery.values("score_value")[:1]),
+            latest_rating_value=Subquery(subquery.values("rating_value")[:1]),
+            latest_meta_value=Subquery(subquery.values("meta_value")[:1]),
         )
+        # queryset = queryset.order_by("company", "score").distinct("company", "score")
         queryset = queryset.order_by("company", "score").distinct("company", "score")
 
         latest_scores = queryset.values(
             "company",
             "score",
-            "update_date",
+            "last_update",
             "latest_score_value",
-            "rating_value",
-            "meta_value",
+            "latest_rating_value",
+            "latest_meta_value",
         )
 
         return latest_scores
+
+
+# datetime.datetime(2022, 5, 30, 1, 43, 24, 885104, tzinfo=<UTC>)
 
 
 class CompanyScore(models.Model):
@@ -89,7 +95,7 @@ class CompanyScore(models.Model):
     objects = CompanyScoreManager()
 
     id = models.BigAutoField(primary_key=True)
-    update_date = models.DateField(auto_now=True)
+    last_update = models.DateTimeField(auto_now_add=True)
     company = models.ForeignKey("Corporate", on_delete=models.CASCADE)
 
     score = models.ForeignKey("Score", on_delete=models.CASCADE)
@@ -121,13 +127,12 @@ class LatestCompanyScoreManager(models.Manager):
     def import_latest_scores(self, latest_scores_queryset):
         records = []
         count = 0
-        self.all().delete()
 
         for score_record in latest_scores_queryset:
             count += 1
             kwargs = {}
             # Expected Fields
-            # ("company", "score", "latest_score_value", "rating_value", "meta_value")
+            # ("company", "score", "score_value", "rating_value", "meta_value")
 
             obj = Corporate.objects.get(**{"company_id": score_record["company"]})
             new_arg = {"company": obj}
@@ -138,13 +143,12 @@ class LatestCompanyScoreManager(models.Manager):
             kwargs.update(new_arg)
 
             non_fk_fields = [
-                "update_date",
                 "latest_score_value",
-                "rating_value",
-                "meta_value",
+                "latest_rating_value",
+                "latest_meta_value",
             ]
             for field in non_fk_fields:
-                new_arg = {field: score_record[field]}
+                new_arg = {field.replace("latest_", ""): score_record[field]}
                 kwargs.update(new_arg)
 
             record = self.model(**kwargs)
@@ -164,7 +168,7 @@ class LatestCompanyScoreManager(models.Manager):
         rank_by_score = Window(
             expression=Rank(),
             partition_by=F("score"),
-            order_by=F("latest_score_value").desc(),
+            order_by=F("score_value").desc(),
         )
         conditions = Q(score__name__in=[score_name])
         if SP100:
@@ -177,10 +181,14 @@ class LatestCompanyScoreManager(models.Manager):
             .annotate(rank=rank_by_score)
             .order_by("rank")
         )
-
-        for record in query.values("company__company_id", "rank"):
-            if record["company__company_id"] == company_id:
-                return record["rank"]
+        company_record = list(
+            filter(
+                lambda record: record["company__company_id"] == company_id,
+                query.values("company__company_id", "rank"),
+            )
+        )
+        if company_record:
+            return company_record[0].get("rank", "")
 
 
 class LatestCompanyScore(models.Model):
@@ -188,10 +196,10 @@ class LatestCompanyScore(models.Model):
     objects = LatestCompanyScoreManager()
 
     id = models.BigAutoField(primary_key=True)
-    update_date = models.DateField(blank=True, null=True)
+    last_update = models.DateTimeField(auto_now_add=True, null=True)
     company = models.ForeignKey("Corporate", on_delete=models.CASCADE)
     score = models.ForeignKey("Score", on_delete=models.CASCADE)
-    latest_score_value = models.FloatField(blank=True, null=True)
+    score_value = models.FloatField(blank=True, null=True)
     score_pct = models.FloatField(blank=True, null=True)
     rating_value = models.CharField(max_length=100, blank=True, null=True)
     meta_value = models.JSONField(default=dict)
@@ -202,14 +210,14 @@ class LatestCompanyScore(models.Model):
         verbose_name_plural = "Latest Scores Values"
 
     def __str__(self):
-        return f"{self.company} - {self.score.name}: {self.latest_score_value} ({self.update_date})"
+        return f"{self.company} - {self.score.name}: {self.score_value} ({self.last_update})"
 
     def get_blank_score(self, company_id, score_name):
 
         self.company = Corporate.objects.get(company_id=company_id)
         self.score = Score.objects.get(name=score_name)
 
-        self.latest_score_value = 0.0
+        self.score_value = 0.0
         self.rating_value = "no"
         self.meta_value = {}
 
