@@ -12,29 +12,6 @@ from providers.tradingview_data import TradingviewData
 class Command(BaseCommand):
     def handle(self, *args, **options):
         company_id_list = Corporate.objects.values_list("company_id", flat=True)
-        has_list = [
-            # 4,
-            # 5,
-            # 14,
-            # 27,
-            # 53,
-            # 54,
-            # 61,
-            # 66,
-            # 72,
-            # 74,
-            # 75,
-            # 80,
-            # 82,
-            # 88,
-            # 97,
-            # 104,
-            # 110,
-        ]
-        company_id_list = [
-            company for company in company_id_list if company not in has_list
-        ]
-        company_id_list = [57]
         requested_fields = ["Revenue", "EBITDA"]
         tv = TradingviewData(
             requested_fields=requested_fields, list_key=company_id_list

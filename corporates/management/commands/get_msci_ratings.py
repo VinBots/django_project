@@ -14,7 +14,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         company_id_list = Corporate.objects.values_list("company_id", flat=True)
-        company_id_list = [14]
+        # company_id_list = [14]
 
         requested_fields = [
             "itr",
