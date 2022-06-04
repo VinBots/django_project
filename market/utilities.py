@@ -107,7 +107,7 @@ def get_market_stats():
             "company_name": get_company_name(company_id),
             "score_db": get_score_value(company_id),
             "current_c": current_c,
-            "pre_pct_chg": round(pre_pct_chg, 2),
+            "pre_pct_chg": get_rounded(pre_pct_chg, 2),
             "current_date": current_date_available,
             "Revenue": revenue,
             "EBITDA": ebitda,
@@ -130,6 +130,13 @@ def get_market_stats():
         data.append(company_dict)
 
     return data
+
+
+def get_rounded(data, dec):
+    if data:
+        return round(data, dec)
+    else:
+        return ""
 
 
 def get_meta_data():

@@ -103,9 +103,3 @@ SUPPORTING_DOCS_FOLDER = os.path.join(STORAGE_FOLDER, "supporting_docs")
 
 MEDIA_ROOT = SUPPORTING_DOCS_FOLDER
 LOG_FILEPATH = os.path.join(BASE_DIR, "debug.log")
-
-CRONJOBS = [
-    ("* * * * 2-6", "django.core.management.call_command", ["get_ihs_co2"]),
-    ("0 0 * * 2-6", "django.core.management.call_command", ["get_fh_stock"]),
-    ("0 22-23 * * 1-5", "django.core.management.call_command", ["get_ihs_co2"]),
-]
