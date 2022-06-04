@@ -174,6 +174,8 @@ def calculate_pre_ytd_chg(current_c, last_price_year_end):
     if current_c and last_price_year_end:
         pre_ytd_chg = (current_c / last_price_year_end - 1) * 100
         return round(pre_ytd_chg, 2)
+    else:
+        return ""
 
 
 def get_ebitda_exposures(carbon_footprint, ebitda, co2_price=50):
