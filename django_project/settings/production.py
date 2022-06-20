@@ -38,32 +38,32 @@ CSRF_COOKIE_SECURE = True
 MEDIA_URL = "/download/"
 
 LOG_FOLDER = os.path.join(STORAGE_FOLDER, "log")
-# LOG_FILEPATH = os.path.join(LOG_FOLDER, "debug.log")
+LOG_FILEPATH = os.path.join(LOG_FOLDER, "debug.log")
 
-# LOGGING = {
-#     "version": 1,
-#     "disable_existing_loggers": False,
-#     "formatters": {
-#         "verbose": {
-#             "format": "{levelname} message in {module} at {asctime}: {message}",
-#             "style": "{",
-#         },
-#         "simple": {
-#             "format": "{levelname} {message}",
-#             "style": "{",
-#         },
-#     },
-#     "handlers": {
-#         "file": {
-#             "level": "WARNING",
-#             "class": "logging.FileHandler",
-#             "filename": LOG_FILEPATH,
-#             "formatter": "verbose",
-#         },
-#         "console": {"class": "logging.StreamHandler", "formatter": "verbose"},
-#     },
-#     "root": {
-#         "handlers": ["file", "console"],
-#         "level": "INFO",
-#     },
-# }
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} message in {module} at {asctime}: {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "file": {
+            "level": "WARNING",
+            "class": "logging.FileHandler",
+            "filename": LOG_FILEPATH,
+            "formatter": "verbose",
+        },
+        "console": {"class": "logging.StreamHandler", "formatter": "verbose"},
+    },
+    "root": {
+        "handlers": ["file", "console"],
+        "level": "INFO",
+    },
+}
