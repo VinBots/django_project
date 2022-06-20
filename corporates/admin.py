@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-admin.autodiscover()
-admin.site.enable_nav_sidebar = False
+# admin.autodiscover()
+# admin.site.enable_nav_sidebar = False
 
 from corporates.models.netzero import NetZero
 
