@@ -7,7 +7,6 @@ SERVER_BASE_DIR = os.path.dirname(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 )
 INSTALLED_APPS = [
-    "django_crontab",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -81,7 +80,10 @@ LOGOUT_REDIRECT_URL = "home"
 
 STATIC_ROOT = os.path.join(SERVER_BASE_DIR, "static")
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(STATIC_ROOT, "admin"),
+]
 
 STATICFILES_FINDERS = [
     # "django.contrib.staticfiles.finders.FileSystemFinder",
