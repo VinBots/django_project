@@ -81,9 +81,9 @@ LOGOUT_REDIRECT_URL = "home"
 # STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_ROOT = os.path.join(BASE_DIR, "static", "django_project")
 
-# STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, 'django_project', 'static'),
-#    ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "django_project", "static"),
+]
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
