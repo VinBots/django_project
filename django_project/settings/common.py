@@ -100,5 +100,4 @@ SBTI_FOLDER = os.path.join(DATA_FOLDER, "sbti")
 
 SUPPORTING_DOCS_FOLDER = os.path.join(STORAGE_FOLDER, "supporting_docs")
 
-
 MEDIA_ROOT = SUPPORTING_DOCS_FOLDER
