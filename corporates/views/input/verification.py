@@ -4,7 +4,11 @@ from django.urls import reverse
 from corporates.forms import VerifForm
 from corporates.models import Corporate, Verification
 from corporates.views.utilities import add_context
-from corporates.views.input.permissions import AllowedCorporateMixin
+from corporates.views.input.permissions import (
+    AllowedCorporateMixin,
+    restrict_query_corp,
+    restrict_query_user,
+)
 
 
 class VerifListView(AllowedCorporateMixin, ListView):
@@ -24,13 +28,10 @@ class VerifListView(AllowedCorporateMixin, ListView):
         return super().get(request, *args, **kwargs)
 
     def get_queryset(self):
-
-        corp_name = self.extra_context.get("corp_name")
-        return (
-            super()
-            .get_queryset()
-            .filter(submitter=self.request.user, company__name=corp_name)
-        )
+        query = super().get_queryset()
+        restricted_query = restrict_query_corp(self, query)
+        restricted_query = restrict_query_user(self, restricted_query)
+        return restricted_query
 
 
 class VerifListCreate(AllowedCorporateMixin, CreateView):
@@ -61,10 +62,8 @@ class VerifListCreate(AllowedCorporateMixin, CreateView):
     def form_valid(self, form):
 
         form.instance.company = Corporate.objects.get(name=self.kwargs["corp_name"])
-        if self.request.user != "django":
-            form.instance.submitter = self.request.user
-            # form.instance.verifier = "pending"
-            form.instance.status = "submitted"
+        form.instance.submitter = self.request.user
+        form.instance.status = "submitted"
         return super(VerifListCreate, self).form_valid(form)
 
 
@@ -81,6 +80,11 @@ class VerifListUpdate(AllowedCorporateMixin, UpdateView):
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="verif")
         return super().get(self, request, *args, **kwargs)
+
+    def get_queryset(self):
+
+        query = super().get_queryset()
+        return restrict_query_user(self, query)
 
     def post(self, request, *args, **kwargs):
 
@@ -100,10 +104,8 @@ class VerifListUpdate(AllowedCorporateMixin, UpdateView):
     def form_valid(self, form):
 
         form.instance.company = Corporate.objects.get(name=self.kwargs["corp_name"])
-        if self.request.user != "django":
-            form.instance.submitter = self.request.user
-            # form.instance.verifier = "pending"
-            form.instance.status = "submitted"
+        form.instance.submitter = self.request.user
+        form.instance.status = "submitted"
         return super(VerifListUpdate, self).form_valid(form)
 
 
@@ -119,6 +121,11 @@ class VerifListDelete(AllowedCorporateMixin, DeleteView):
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="verif")
         return super().get(self, request, *args, **kwargs)
+
+    def get_queryset(self):
+
+        query = super().get_queryset()
+        return restrict_query_user(self, query)
 
     def post(self, request, *args, **kwargs):
 

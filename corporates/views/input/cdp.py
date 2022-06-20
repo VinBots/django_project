@@ -4,7 +4,11 @@ from django.urls import reverse
 from corporates.forms import CDPForm
 from corporates.models import Corporate, CDP
 from corporates.views.utilities import add_context
-from corporates.views.input.permissions import AllowedCorporateMixin
+from corporates.views.input.permissions import (
+    AllowedCorporateMixin,
+    restrict_query_corp,
+    restrict_query_user,
+)
 
 
 class CDPListView(AllowedCorporateMixin, ListView):
@@ -24,13 +28,10 @@ class CDPListView(AllowedCorporateMixin, ListView):
         return super().get(request, *args, **kwargs)
 
     def get_queryset(self):
-
-        corp_name = self.extra_context.get("corp_name")
-        return (
-            super()
-            .get_queryset()
-            .filter(submitter=self.request.user, company__name=corp_name)
-        )
+        query = super().get_queryset()
+        restricted_query = restrict_query_corp(self, query)
+        restricted_query = restrict_query_user(self, restricted_query)
+        return restricted_query
 
 
 class CDPListCreate(AllowedCorporateMixin, CreateView):
@@ -61,10 +62,8 @@ class CDPListCreate(AllowedCorporateMixin, CreateView):
     def form_valid(self, form):
 
         form.instance.company = Corporate.objects.get(name=self.kwargs["corp_name"])
-        if self.request.user != "django":
-            form.instance.submitter = self.request.user
-            # form.instance.verifier = "pending"
-            form.instance.status = "submitted"
+        form.instance.submitter = self.request.user
+        form.instance.status = "submitted"
         return super(CDPListCreate, self).form_valid(form)
 
 
@@ -81,6 +80,11 @@ class CDPListUpdate(AllowedCorporateMixin, UpdateView):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="cdp")
         return super().get(self, request, *args, **kwargs)
 
+    def get_queryset(self):
+
+        query = super().get_queryset()
+        return restrict_query_user(self, query)
+
     def post(self, request, *args, **kwargs):
 
         context = kwargs
@@ -96,10 +100,8 @@ class CDPListUpdate(AllowedCorporateMixin, UpdateView):
     def form_valid(self, form):
 
         form.instance.company = Corporate.objects.get(name=self.kwargs["corp_name"])
-        if self.request.user != "django":
-            form.instance.submitter = self.request.user
-            # form.instance.verifier = "pending"
-            form.instance.status = "submitted"
+        form.instance.submitter = self.request.user
+        form.instance.status = "submitted"
         return super(CDPListUpdate, self).form_valid(form)
 
 
@@ -115,6 +117,11 @@ class CDPListDelete(AllowedCorporateMixin, DeleteView):
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="cdp")
         return super().get(self, request, *args, **kwargs)
+
+    def get_queryset(self):
+
+        query = super().get_queryset()
+        return restrict_query_user(self, query)
 
     def post(self, request, *args, **kwargs):
 
