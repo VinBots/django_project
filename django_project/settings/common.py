@@ -102,4 +102,3 @@ SUPPORTING_DOCS_FOLDER = os.path.join(STORAGE_FOLDER, "supporting_docs")
 
 
 MEDIA_ROOT = SUPPORTING_DOCS_FOLDER
-LOG_FILEPATH = os.path.join(BASE_DIR, "debug.log")
