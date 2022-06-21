@@ -69,7 +69,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-STATIC_URL = "/static/"
+# STATIC_URL = "/static/"
 LOGIN_URL = "login"
 # Adding ASGI Application
 ASGI_APPLICATION = "django_project.routing.application"
@@ -78,16 +78,16 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 # Define folder location of ‘static’ folder
 
-STATIC_ROOT = os.path.join(SERVER_BASE_DIR, "static")
+# STATIC_ROOT = os.path.join(SERVER_BASE_DIR, "static")
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    os.path.join(STATIC_ROOT, "admin"),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+#     os.path.join(STATIC_ROOT, "admin"),
+# ]
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "django.contrib.staticfiles.finders.FileSystemFinder",
+    # "django.contrib.staticfiles.finders.FileSystemFinder",
 ]
 USE_THOUSAND_SEPARATOR = True
 THOUSAND_SEPARATOR = True
