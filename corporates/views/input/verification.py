@@ -20,6 +20,7 @@ class VerifListView(AllowedCorporateMixin, ListView):
     model = Verification
     context_object_name = "verif"
     success_msg = "Data was successfully saved!"
+    ordering = ["-last_update"]
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="verif")
