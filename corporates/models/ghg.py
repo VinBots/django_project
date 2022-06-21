@@ -9,10 +9,9 @@ from .choices import Options
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    folder = "ghg2"
+    folder = "ghg"
     # FORMAT '[reporting_year]_[company_name]_[source]_[submitter]
-
-    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}_{instance.source}_{instance.submitter.username}{pathlib.Path(filename).suffix}"
+    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}_{instance.source}.{pathlib.Path(filename).suffix}"
     return filename
 
 
