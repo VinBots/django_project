@@ -75,6 +75,7 @@ class GHGListUpdate(AllowedCorporateMixin, UpdateView):
     model = GHGQuant
     template_name = "input/ghg/corp_ghg_update.html"
     form_class = GHGForm
+    context_object_name = "ghg"
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="ghg")
