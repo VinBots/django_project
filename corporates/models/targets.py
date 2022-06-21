@@ -11,12 +11,9 @@ from corporates.models import GHGQuant
 
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    folder = "target2"
-    # FORMAT '[reporting_year]_[company_name]_[source]_[submitter]
-
-    filename = f"{folder}/{instance.company.name}_{pathlib.Path(filename).suffix}"
-    return filename
+    folder = "target"
+    filename_str = f"{folder}/{instance.company.name}_{instance.scope_coverage}_{pathlib.Path(filename).suffix}"
+    return filename_str
 
 
 def remove_null_values(valid_target):

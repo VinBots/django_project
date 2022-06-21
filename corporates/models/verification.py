@@ -5,12 +5,8 @@ import pathlib
 
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    folder = "verification2"
-    # pathlib.Path(filename).suffix
-    filename_str = (
-        f"{folder}/{instance.reporting_year}_{instance.company.name}_{filename}"
-    )
+    folder = "verification"
+    filename_str = f"{folder}/{instance.company.name}_{instance.reporting_year}{pathlib.Path(filename).suffix}"
     return filename_str
 
 

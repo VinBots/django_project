@@ -9,10 +9,10 @@ from .choices import Options
 def user_directory_path(instance, filename):
     if instance._meta.model.__name__ == "GeneralInfo":
         folder = "general"
-    filename = f"{folder}/{instance.year}_{instance.company.name}\
+    filename_str = f"{folder}/{instance.year}_{instance.company.name}\
         _{instance.document}\
             {pathlib.Path(filename).suffix}"
-    return filename
+    return filename_str
 
 
 class GeneralInfo(models.Model):

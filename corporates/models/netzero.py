@@ -5,12 +5,9 @@ import pathlib
 
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    folder = "netzero2"
-    # FORMAT '[target_year]_[company_name]_[source]_[submitter]
-
-    filename = f"{folder}/{instance.target_year}-{instance.company.name}_{pathlib.Path(filename).suffix}"
-    return filename
+    folder = "netzero"
+    filename_str = f"{folder}/{instance.company.name}_{instance.target_year}{pathlib.Path(filename).suffix}"
+    return filename_str
 
 
 class NetZero(models.Model):

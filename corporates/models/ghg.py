@@ -9,8 +9,8 @@ from .choices import Options
 
 def user_directory_path(instance, filename):
     folder = "ghg"
-    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}_{instance.source}{pathlib.Path(filename).suffix}"
-    return filename
+    filename_str = f"{folder}/{instance.reporting_year}_{instance.company.name}_{instance.source}{pathlib.Path(filename).suffix}"
+    return filename_str
 
 
 class CustomManager(models.Manager):

@@ -6,11 +6,8 @@ import pathlib
 
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    folder = "cdp2"
-    # FORMAT '[reporting_year]_[company_name]_[source]_[submitter]
-
-    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}_{pathlib.Path(filename).suffix}"
+    folder = "cdp"
+    filename = f"{folder}/{instance.questionnaire_year}_{instance.company.name}_{pathlib.Path(filename).suffix}"
     return filename
 
 
