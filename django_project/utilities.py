@@ -8,7 +8,7 @@ from corporates.models.scores import LatestCompanyScore
 def get_top10_wo_zero():
 
     filename = os.path.join(
-        settings.STATIC_ROOT, "django_project", "data", "top10_wo_net_zero.json"
+        settings.BASE_DIR, "static", "data", "top10_wo_net_zero.json"
     )
     with open(filename) as f:
         data = json.load(f)
@@ -26,7 +26,11 @@ def get_top10_wo_zero():
 def get_top5_transp_miss_cut():
 
     filename = os.path.join(
-        settings.STATIC_ROOT, "data", "django_project", "top5_transp_miss_cut.json"
+        settings.BASE_DIR,
+        "static",
+        "data",
+        "django_project",
+        "top5_transp_miss_cut.json",
     )
     with open(filename) as f:
         data = json.load(f)
