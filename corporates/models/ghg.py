@@ -9,9 +9,7 @@ from .choices import Options
 
 def user_directory_path(instance, filename):
     folder = "ghg"
-    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}\
-        _{instance.source}\
-            {pathlib.Path(filename).suffix}"
+    filename = f"{folder}/{instance.reporting_year}_{instance.company.name}_{instance.source}{pathlib.Path(filename).suffix}"
     return filename
 
 
