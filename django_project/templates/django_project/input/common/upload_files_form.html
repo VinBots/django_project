@@ -9,22 +9,22 @@
 
         <div id="upload_files" class="upload-files">
 
-            {% include 'input/common/single_upload.html' with field=form.upload_1 obj=verif.upload_1 %}
+            {% include 'input/common/single_upload.html' with field=form.upload_1 obj=model.upload_1 %}
 
             {% if "upload_2" in form.fields_to_display %}
-            {% include 'input/common/single_upload.html' with field=form.upload_2 obj=verif.upload_2 %}
+            {% include 'input/common/single_upload.html' with field=form.upload_2 obj=model.upload_2 %}
             {% endif %}
 
             {% if "upload_3" in form.fields_to_display %}
-            {% include 'input/common/single_upload.html' with field=form.upload_3 obj=verif.upload_3 %}
+            {% include 'input/common/single_upload.html' with field=form.upload_3 obj=model.upload_3 %}
             {% endif %}
 
             {% if "upload_4" in form.fields_to_display %}
-            {% include 'input/common/single_upload.html' with field=form.upload_4 obj=verif.upload_4 %}
+            {% include 'input/common/single_upload.html' with field=form.upload_4 obj=model.upload_4 %}
             {% endif %}
 
             {% if "upload_5" in form.fields_to_display %}
-            {% include 'input/common/single_upload.html' with field=form.upload_5 obj=verif.upload_5 %}
+            {% include 'input/common/single_upload.html' with field=form.upload_5 obj=model.upload_5 %}
             {% endif %}
 
 

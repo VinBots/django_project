@@ -27,7 +27,7 @@
                 {% include 'input/common/radio_choices.html' with field=form.scope3_assurance_type %}
 
             </fieldset>
-            {% include 'input/common/upload_files_form.html' with form=form%}
+            {% include 'input/common/upload_files_form.html' with form=form model=verif%}
 
             {% block buttons_section %}
 
