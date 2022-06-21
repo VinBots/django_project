@@ -9,4 +9,11 @@ class CDPForm(forms.ModelForm):
     class Meta:
         model = CDP
         fields = "__all__"
-        # widgets = {}
+        widgets = {
+            "made_public": forms.RadioSelect,
+            "comments": forms.Textarea(
+                attrs={
+                    "placeholder": "Please provide any comment about the CDP Climate Change Questionnaire here"
+                }
+            ),
+        }

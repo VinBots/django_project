@@ -1,6 +1,8 @@
 {% extends 'django_project/input/cdp/cdp_form.html' %}
 {% block buttons_section %}
-<input class="button" type="submit" value="Confirm">
-<input class="button" type="button" value="Cancel"
-    onClick="window.location='{% url 'input_by_corp_cdp_home' corp_name=corp_name %}'">
+<div class="form-buttons-section">
+    <input id="update-button" type="submit" value="Confirm">
+    <input id="cancel-button" type="button" value="Cancel"
+        onClick="window.location='{% url 'input_by_corp_cdp_home' corp_name=corp_name %}'">
+</div>
 {% endblock %}

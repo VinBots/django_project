@@ -11,13 +11,29 @@
     <section>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <p>
-                {{form}}
+            <fieldset>
+                <legend>CDP - Climate Change Questionnaire</legend>
 
+                <p>
+                <div class="input_question">
+                    {{form.questionnaire_year.label}}</div>
+                {{form.questionnaire_year}}
+                </p>
+                {% include 'input/common/radio_choices.html' with field=form.made_public %}
+                <p>
+                <div class="input_question">
+                    {{form.score.label}}</div>
+                {{form.score}}
+                </p>
+                {{form.comments}}
 
-                {% block buttons_section %}
+            </fieldset>
 
-                {% endblock %}
+            {% include 'input/common/upload_files_form.html' with form=form model=cdp%}
+
+            {% block buttons_section %}
+
+            {% endblock %}
         </form>
 
     </section>

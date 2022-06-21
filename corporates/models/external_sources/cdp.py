@@ -29,7 +29,7 @@ class CDP(models.Model):
     last_update = models.DateTimeField(auto_now=True)
 
     questionnaire_year = models.CharField(
-        verbose_name="Please select the reference year for the CDP Climate Change Questionnaire",
+        verbose_name="Please select the questionnaire year",
         help_text="Note it can be different from the reporting year",
         max_length=10,
         default=Options.YEAR_DEFAULT_CDP,
