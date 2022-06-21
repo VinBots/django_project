@@ -27,8 +27,8 @@ function ghg_aggregate() {
 
 	document.getElementById('total_scope1_2_loc').innerText = formatNumberToFormattedText(scope1 + scope2loc);
 	document.getElementById('total_scope1_2_mkt').innerText = formatNumberToFormattedText(scope1 + scope2mkt);
-	var scope3 = 0;
-	const all_categories = [
+	var scope3_loc = 0;
+	const all_categories_loc = [
 		"id_ghg_purch_scope3",
 		"id_ghg_capital_scope3",
 		"id_ghg_fuel_energy_loc_scope3",
@@ -45,12 +45,35 @@ function ghg_aggregate() {
 		"id_ghg_franchises_scope3",
 		"id_ghg_investments_scope3",
 	];
-	for (const element of all_categories) {
-		scope3 += convertFormattedTextToNumber(document.getElementById(element));
+	for (const element of all_categories_loc) {
+		scope3_loc += convertFormattedTextToNumber(document.getElementById(element));
 	}
-	document.getElementById('total_scope_3').innerText = formatNumberToFormattedText(scope3);
-	document.getElementById('total_scope1_2_3_loc').innerText = formatNumberToFormattedText(scope1 + scope2loc + scope3);
-	document.getElementById('total_scope1_2_3_mkt').innerText = formatNumberToFormattedText(scope1 + scope2mkt + scope3);
+	document.getElementById('total_scope_3_loc').innerText = formatNumberToFormattedText(scope3_loc);
+	document.getElementById('total_scope1_2_3_loc').innerText = formatNumberToFormattedText(scope1 + scope2loc + scope3_loc);
+
+	var scope3_mkt = 0;
+	const all_categories_mkt = [
+		"id_ghg_purch_scope3",
+		"id_ghg_capital_scope3",
+		"id_ghg_fuel_energy_mkt_scope3",
+		"id_ghg_upstream_td_scope3",
+		"id_ghg_waste_ops_scope3",
+		"id_ghg_bus_travel_scope3",
+		"id_ghg_commute_scope3",
+		"id_ghg_up_leased_scope3",
+		"id_ghg_downstream_td_scope3",
+		"id_ghg_proc_sold_scope3",
+		"id_ghg_use_sold_scope3",
+		"id_ghg_eol_sold_scope3",
+		"id_ghg_down_leased_scope3",
+		"id_ghg_franchises_scope3",
+		"id_ghg_investments_scope3",
+	];
+	for (const element of all_categories_mkt) {
+		scope3_mkt += convertFormattedTextToNumber(document.getElementById(element));
+	}
+	document.getElementById('total_scope_3_mkt').innerText = formatNumberToFormattedText(scope3_mkt);
+	document.getElementById('total_scope1_2_3_mkt').innerText = formatNumberToFormattedText(scope1 + scope2mkt + scope3_mkt);
 }
 
 $('[id*=id_ghg_]').keyup(function (event) {
