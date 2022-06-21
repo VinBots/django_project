@@ -7,14 +7,11 @@ from .choices import Options
 
 
 def user_directory_path(instance, filename):
-
     if instance._meta.model.__name__ == "GeneralInfo":
-        folder = "general2"
-
+        folder = "general"
     filename = f"{folder}/{instance.year}_{instance.company.name}\
-        _{instance.submitter.username}\
+        _{instance.document}\
             {pathlib.Path(filename).suffix}"
-    print(f"FILE TO SAVE: {filename}")
     return filename
 
 
