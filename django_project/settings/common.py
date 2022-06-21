@@ -69,7 +69,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# STATIC_URL = "/static/"
+STATIC_URL = "/static/"
 LOGIN_URL = "login"
 # Adding ASGI Application
 ASGI_APPLICATION = "django_project.routing.application"
