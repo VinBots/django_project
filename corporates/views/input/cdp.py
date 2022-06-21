@@ -75,6 +75,7 @@ class CDPListUpdate(AllowedCorporateMixin, UpdateView):
     model = CDP
     template_name = "input/cdp/corp_cdp_update.html"
     form_class = CDPForm
+    context_object_name = "cdp"
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="cdp")

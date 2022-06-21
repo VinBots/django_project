@@ -75,6 +75,7 @@ class TargetListUpdate(AllowedCorporateMixin, UpdateView):
     model = TargetQuant
     template_name = "input/target/corp_target_update.html"
     form_class = TargetForm
+    context_object_name = "target"
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="target")

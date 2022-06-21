@@ -75,6 +75,7 @@ class NetZeroListUpdate(AllowedCorporateMixin, UpdateView):
     model = NetZero
     template_name = "input/netzero/corp_netzero_update.html"
     form_class = NetZeroForm
+    context_object_name = "netzero"
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="netzero")
