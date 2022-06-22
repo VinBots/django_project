@@ -18,7 +18,7 @@
         <table>
             <tr>
                 <th>Records</th>
-                <th>Year</th>
+                <th>Questionnaire Year</th>
                 <th>Score</th>
                 <th>Last Update</th>
                 <th># Uploads</th>
@@ -28,7 +28,7 @@
             <tr>
                 <td><a href="{% url 'input_by_corp_cdp_update' corp_name=corp_name pk=record.id%}">{{record}}</a>
                 </td>
-                <td>{{record.reporting_year}}</td>
+                <td>{{record.questionnaire_year}}</td>
                 <td>{% if record.score %} {{record.score|upper}}{% endif %}</td>
                 <td>{{record.last_update}}</td>
                 {% with countuploads=0 %}
