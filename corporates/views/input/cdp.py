@@ -87,6 +87,7 @@ class CDPListUpdate(AllowedCorporateMixin, UpdateView):
         return restrict_query_user(self, query)
 
     def post(self, request, *args, **kwargs):
+        print(request.POST)
 
         context = kwargs
         self.success_url = (
@@ -96,13 +97,14 @@ class CDPListUpdate(AllowedCorporateMixin, UpdateView):
             + "?success=yes"
         )
         self.extra_context = add_context(init_kwargs=kwargs, category_name="cdp")
+
         return super().post(request, *args, **kwargs)
 
     def form_valid(self, form):
 
         form.instance.company = Corporate.objects.get(name=self.kwargs["corp_name"])
         form.instance.submitter = self.request.user
-        form.instance.status = "submitted"
+        # form.instance.status = "submitted"
         return super(CDPListUpdate, self).form_valid(form)
 
 

@@ -11,6 +11,7 @@
     <section>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
+            {{form.errors}}
             <fieldset>
                 <legend>CDP - Climate Change Questionnaire</legend>
 

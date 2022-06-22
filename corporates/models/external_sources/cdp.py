@@ -14,7 +14,7 @@ def user_directory_path(instance, filename):
 class CDP(models.Model):
 
     id = models.BigAutoField(primary_key=True)
-    company = models.ForeignKey("Corporate", on_delete=models.CASCADE)
+    company = models.ForeignKey("Corporate", on_delete=models.CASCADE, blank=True)
 
     submitter = models.ForeignKey(
         User, related_name="cdp_sub", blank=True, null=True, on_delete=models.CASCADE
