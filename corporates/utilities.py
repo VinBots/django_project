@@ -260,7 +260,9 @@ def to_pct(df, field, decimal=1):
 def get_library_queryset(company_id, category="cdp"):
 
     category_to_query_map = {
-        "cdp": CDP.objects.filter(company_id=company_id).order_by("-reporting_year"),
+        "cdp": CDP.objects.filter(company_id=company_id).order_by(
+            "-questionnaire_year"
+        ),
         "targets": TargetQuant.objects.filter(company_id=company_id).order_by(
             "target_year"
         ),
