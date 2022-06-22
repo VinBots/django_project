@@ -249,7 +249,7 @@ class TargetQuant(models.Model):
             return self.baseline
 
     def __str__(self):
-        return f"{self.company.short_name} - reduction: {self.reduction_obj}% \
+        return f"{self.company.short_name}: -{self.reduction_obj}% \
              by {self.target_year} vs. {self.base_year} "
 
     # intensity_metric = models.ForeignKey(
