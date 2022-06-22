@@ -1,0 +1,44 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">General Information: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{form.errors}}
+            <fieldset>
+                <legend>General Information</legend>
+
+                <p>
+                <div class="input_question">
+                    {{form.document.label}}</div>
+                {{form.document}}
+                </p>
+                <p>
+                <div class="input_question">
+                    {{form.year.label}}</div>
+                {{form.year}}
+                </p>
+                {{form.description}}
+
+            </fieldset>
+
+            {% include 'input/common/upload_files_form.html' with form=form model=generalinfo%}
+
+            {% block buttons_section %}
+
+            {% endblock %}
+
+
+        </form>
+
+    </section>
+
+</article>

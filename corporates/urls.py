@@ -116,8 +116,23 @@ urlpatterns = [
         name="input_by_corp_netzero_delete",
     ),
     path(
-        "input/<str:corp_name>/comments/",
-        views.InputComments.as_view(),
-        name="input_by_corp_comment_home",
+        "input/<str:corp_name>/generalinfo/home",
+        views.GeneralInfoListView.as_view(),
+        name="input_by_corp_generalinfo_home",
+    ),
+    path(
+        "input/<str:corp_name>/generalinfo/create/",
+        views.GeneralInfoListCreate.as_view(),
+        name="input_by_corp_generalinfo_create",
+    ),
+    path(
+        "input/<str:corp_name>/generalinfo/<int:pk>/",
+        views.GeneralInfoListUpdate.as_view(),
+        name="input_by_corp_generalinfo_update",
+    ),
+    path(
+        "input/<str:corp_name>/generalinfo/delete/<int:pk>/",
+        views.GeneralInfoListDelete.as_view(),
+        name="input_by_corp_generalinfo_delete",
     ),
 ]

@@ -1,0 +1,63 @@
+<article class="post">
+    <header>
+        <div class="container" width=100%>
+            <div class="title">
+                <h2>
+                    <font face="sans-serif" size="6">General Information: {{corp_name}}</font>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <section>
+
+        <div class="success_msg">{{success_message}}</div>
+
+
+        {%if generalinfo %}
+        <h2>Existing Information Recorded</h2>
+        <table>
+            <tr>
+                <th>Records</th>
+                <th>Year</th>
+                <th>Last Update</th>
+                <th># Uploads</th>
+                <th>Actions</th>
+            </tr>
+            {% for record in generalinfo %}
+            <tr>
+                <td><a
+                        href="{% url 'input_by_corp_generalinfo_update' corp_name=corp_name pk=record.id%}">{{record}}</a>
+                </td>
+                <td>{{record.year}}</td>
+                <td>{{record.last_update}}</td>
+                {% with countuploads=0 %}
+                <td>
+                    {{record.number_of_uploads}}
+                    / {{record.size_of_uploads}}
+                </td>
+                {% endwith %}
+
+                <td>
+                    <a></a>
+                    <a class="fas fa-edit"
+                        href="{% url 'input_by_corp_generalinfo_update' corp_name=corp_name pk=record.id%}">
+                        Change </a>
+                    <a class="fas fa-trash"
+                        href="{% url 'input_by_corp_generalinfo_delete' corp_name=corp_name pk=record.id%}">
+                        Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        There is no data saved for {{corp_name}}. Please click on the link below to create a new record
+        {% endif %}
+
+        <hr>
+        <a class="fas fa-plus-circle" href="{% url 'input_by_corp_generalinfo_create' corp_name=corp_name %}"> Click
+            here to
+            register a new information</a>
+
+    </section>
+
+</article>

@@ -9,16 +9,14 @@ from .choices import Options
 def user_directory_path(instance, filename):
     if instance._meta.model.__name__ == "GeneralInfo":
         folder = "general"
-    filename_str = f"{folder}/{instance.year}_{instance.company.name}\
-        _{instance.document}\
-            {pathlib.Path(filename).suffix}"
+    filename_str = f"{folder}/{instance.company.name}_{instance.year}_{instance.document}{pathlib.Path(filename).suffix}"
     return filename_str
 
 
 class GeneralInfo(models.Model):
 
     id = models.BigAutoField(primary_key=True)
-    company = models.ForeignKey("Corporate", on_delete=models.CASCADE)
+    company = models.ForeignKey("Corporate", on_delete=models.CASCADE, blank=True)
     submitter = models.ForeignKey(
         User,
         related_name="generalinfo_sub",
@@ -51,23 +49,33 @@ class GeneralInfo(models.Model):
         null=True,
     )
     description = models.TextField(blank=True, null=True)
-    upload = models.FileField(upload_to=user_directory_path, blank=True, null=True)
+
+    upload_1 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
+    upload_2 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
+    upload_3 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
+    upload_4 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
+    upload_5 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "General Info"
 
     def __str__(self):
-        return f"{self.company.short_name}"
+        return f"{self.company.name}_{self.year}_{self.document}"
 
     def get_upload_fields(self):
         return [
-            self.upload,
+            self.upload_1,
+            self.upload_2,
+            self.upload_3,
+            self.upload_4,
+            self.upload_5,
         ]
 
     @property
     def number_of_uploads(self):
         fields = self.get_upload_fields()
-        return 1 - fields.count("")
+        empty_fields_count = fields.count("") + fields.count(None)
+        return 5 - empty_fields_count
 
     @property
     def size_of_uploads(self):

@@ -91,7 +91,8 @@ class CDP(models.Model):
     @property
     def number_of_uploads(self):
         fields = self.get_upload_fields()
-        return 5 - fields.count("")
+        empty_fields_count = fields.count("") + fields.count(None)
+        return 5 - empty_fields_count
 
     @property
     def size_of_uploads(self):
@@ -115,4 +116,4 @@ class CDP(models.Model):
         return uploads
 
     def __str__(self):
-        return f"{self.company.short_name}"
+        return f"CDP - {self.company.name}"
