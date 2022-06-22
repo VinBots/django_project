@@ -30,7 +30,6 @@ def get_top5_transp_miss_cut():
         "static",
         "django_project",
         "data",
-        "django_project",
         "top5_transp_miss_cut.json",
     )
     with open(filename) as f:
