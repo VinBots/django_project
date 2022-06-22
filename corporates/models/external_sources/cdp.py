@@ -38,21 +38,24 @@ class CDP(models.Model):
         null=True,
     )
 
-    reporting_year = models.CharField(
-        verbose_name="Please select the current reporting year",
-        max_length=10,
-        default=Options.YEAR_DEFAULT_VERIFICATION,
-        choices=Options.YEAR_CHOICES,
-        blank=True,
+    # reporting_year = models.CharField(
+    #     verbose_name="Please select the current reporting year",
+    #     max_length=10,
+    #     default=Options.YEAR_DEFAULT_VERIFICATION,
+    #     choices=Options.YEAR_CHOICES,
+    #     blank=True,
+    #     null=True,
+    # )
+
+    made_public = models.CharField(
+        choices=Options.YESNO,
+        default=Options.NO,
+        max_length=25,
+        verbose_name="CDP Climate Change Questionnaire made publicly-available",
+        blank=False,
         null=True,
     )
 
-    made_public = models.BooleanField(
-        verbose_name="CDP Climate Change Questionnaire made publicly-available",
-        default=False,
-        blank=True,
-        null=True,
-    )
     score = models.CharField(
         verbose_name="CDP Score",
         choices=Options.CDP_SCORE_OPTIONS,
