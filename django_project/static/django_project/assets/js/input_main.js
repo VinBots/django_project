@@ -241,7 +241,7 @@ $(document).ready(function () {
 			const input_name = "upload_" + upload_idx;
 			const html_insert = "<div class='single-file' ><div class='merged-label-input'>\
 <label class='upload-clickable-label' for='"+ input_id + "'>\
-New file</label><input class='upload-file-input'\
+Upload</label><input class='upload-file-input'\
  type='file' id='"+ input_id + "' name='" + input_name + "'\
  accept='.jpg, .jpeg, .png, .pdf' onchange='updateFile(this)'></div>\
  <div class='preview'>No files currently selected for upload\
