@@ -27,8 +27,8 @@ class Options:
     ]
 
     YEAR_DEFAULT_GHG = 2021
-    YEAR_DEFAULT_VERIFICATION = 2020
-    YEAR_DEFAULT_TARGET = 2020
+    YEAR_DEFAULT_VERIFICATION = 2021
+    YEAR_DEFAULT_TARGET = 2021
     YEAR_DEFAULT_CDP = 2021
 
     YEAR_CHOICES = [(str(year), str(year)) for year in range(1990, 2050, 1)]

@@ -1,9 +1,9 @@
 <div class="single-file">
     <div class="merged-label-input">
         <label class="upload-clickable-label" for="{{field.id_for_label}}">{% if field.value %}
-            Modify file
+            Change
             {% else %}
-            New file
+            Upload
             {% endif %}</label>
         <input class="upload-file-input" type="file" id="{{field.id_for_label}}" name="{{field.html_name}}"
             accept=".jpg, .jpeg, .png, .pdf" onchange="updateFile(this)">
