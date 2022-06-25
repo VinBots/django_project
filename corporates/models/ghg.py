@@ -115,6 +115,8 @@ class GHGQuant(models.Model):
     ghg_other = models.PositiveIntegerField(blank=True, null=True)
     purch_ghg_offsets = models.PositiveIntegerField(blank=True, null=True)
 
+    comments = models.TextField(blank=True, null=True)
+
     upload_1 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
     upload_2 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
     upload_3 = models.FileField(upload_to=user_directory_path, blank=True, null=True)

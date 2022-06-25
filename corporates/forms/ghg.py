@@ -63,3 +63,9 @@ class GHGForm(forms.ModelForm):
             "ghg_investments_scope3",
             "ghg_other",
         ]
+        widgets = {
+            "comments": forms.Textarea(
+                attrs={
+                    "placeholder": "Please provide comments here"
+                }
+            ),
