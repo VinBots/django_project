@@ -11,6 +11,30 @@ from corporates.views.input.permissions import (
 )
 
 
+def get_ghg(kwargs, source, previous_year, active_query):
+
+    active_query_corp = active_query.filter(pk=kwargs["pk"])
+    if not active_query_corp.exists():
+        return
+    selected_year = active_query_corp[0].reporting_year
+
+    if not selected_year:
+        return
+
+    if previous_year:
+        query_year = str(int(selected_year) - 1)
+    else:
+        query_year = selected_year
+
+    query = GHGQuant.objects.filter(
+        company__company_id=kwargs["company_id"],
+        source=source,
+        reporting_year=query_year,
+    ).order_by("-last_update")
+    if query.exists():
+        return query[0]
+
+
 class GHGListView(AllowedCorporateMixin, ListView):
     """
     Handles the 'VIEW' functionality of the 'GHG Inventory' section of the input interface
@@ -79,6 +103,22 @@ class GHGListUpdate(AllowedCorporateMixin, UpdateView):
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="ghg")
+        self.extra_context.update(
+            {
+                "last_year_ghg": get_ghg(
+                    kwargs,
+                    source="final",
+                    previous_year=True,
+                    active_query=self.get_queryset(),
+                ),
+                "cdp_ghg": get_ghg(
+                    kwargs,
+                    source="cdp",
+                    previous_year=False,
+                    active_query=self.get_queryset(),
+                ),
+            }
+        )
         return super().get(self, request, *args, **kwargs)
 
     def get_queryset(self):
