@@ -21,6 +21,7 @@ class Command(BaseCommand):
         start_time = timezone.now()
         file_path = options["file_path"]
         file_name = os.path.basename(file_path)
+        print(file_name)
         cols_to_fetch_list = csv_file_mapping.get(file_name, "")["cols_to_fetch"]
         Model_to_Use_list = csv_file_mapping.get(file_name, "")["Model_to_Use"]
         add_arg_bool_list = csv_file_mapping.get(file_name, "")["add_arg"]

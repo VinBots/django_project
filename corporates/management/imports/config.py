@@ -8,6 +8,13 @@ def to_int(text):
     return int(float(text))
 
 
+def to_int_or_none(text):
+    try:
+        return int(float(text))
+    except:
+        return None
+
+
 def yes_to_true(text):
     if text == "yes":
         return True
@@ -21,7 +28,12 @@ def lowercase(text):
 
 
 def ghg_quant_source(text):
-    mapping_dict = {"Public": "public", "CDP": "cdp", "Final": "final"}
+    mapping_dict = {
+        "Public": "public",
+        "CDP": "cdp",
+        "cdp_2021": "cdp_2021",
+        "Final": "final",
+    }
 
     return mapping_dict.get(text, "")
 
@@ -496,6 +508,8 @@ GHG_FIELDS = [
     "ghg_down_leased_scope3",
     "ghg_franchises_scope3",
     "ghg_investments_scope3",
+    "ghg_other_downstream_scope3",
+    "ghg_other_upstream_scope3",
 ]
 for each_ghg_field in GHG_FIELDS:
     cols_to_fetch_ghg_quant.update(
@@ -506,7 +520,7 @@ for each_ghg_field in GHG_FIELDS:
                 "fk_field": "",
                 "model_field": each_ghg_field,
                 "map": True,
-                "mapping": to_int,
+                "mapping": to_int_or_none,
             }
         }
     )
@@ -739,5 +753,10 @@ csv_file_mapping = {
         "cols_to_fetch": [cols_to_fetch_sbti, cols_to_fetch_msci],
         "Model_to_Use": [corporates.models.SBTI, corporates.models.MSCI],
         "add_arg": [False, False],
+    },
+    "new_input.csv": {
+        "cols_to_fetch": [cols_to_fetch_ghg_quant],
+        "Model_to_Use": [corporates.models.GHGQuant],
+        "add_arg": [True],
     },
 }

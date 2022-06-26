@@ -143,11 +143,15 @@ def get_last_3_years_ghg_db(company_id):
 
     last_3_years = get_last_x_reporting_years(company_id, x=3)
     if last_3_years:
-        ghg_query = GHGQuant.objects.filter(
-            company__company_id=company_id,
-            reporting_year__in=last_3_years,
-            source=Options.FINAL,
-        ).order_by("-reporting_year")
+        ghg_query = (
+            GHGQuant.objects.filter(
+                company__company_id=company_id,
+                reporting_year__in=last_3_years,
+                source=Options.FINAL,
+            )
+            .distinct("reporting_year")
+            .order_by("-reporting_year", "-last_update")
+        )
 
         property_list = []
 

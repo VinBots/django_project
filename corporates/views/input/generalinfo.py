@@ -20,6 +20,7 @@ class GeneralInfoListView(AllowedCorporateMixin, ListView):
     model = GeneralInfo
     context_object_name = "generalinfo"
     success_msg = "Data was successfully saved!"
+    ordering = ["-year", "-last_update"]
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(

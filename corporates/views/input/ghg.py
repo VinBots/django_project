@@ -44,6 +44,7 @@ class GHGListView(AllowedCorporateMixin, ListView):
     model = GHGQuant
     context_object_name = "ghg"
     success_msg = "Data was successfully saved!"
+    ordering = ["-reporting_year", "-last_update"]
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="ghg")

@@ -105,7 +105,8 @@ class Options:
     ]
 
     PUBLIC = "public"
-    CDP = "cdp"
+    CDP = "cdp"  # to be renamed cdp_2020
+    CDP_2021 = "cdp_2021"
     SBTI = "sbti"
     AGG = "aggregation"
     DISAG = "disaggregation"
@@ -135,7 +136,8 @@ class Options:
 
     GHG_SOURCES_OPTIONS = [
         (PUBLIC, "Public source"),
-        (CDP, "CDP Climate Change Questionnaire"),
+        (CDP_2021, "2021 CDP Climate Change Questionnaire"),
+        (CDP, "2020 CDP Climate Change Questionnaire"),
         (FINAL, "Final"),
     ]
 

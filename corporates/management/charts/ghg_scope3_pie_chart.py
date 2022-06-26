@@ -13,7 +13,7 @@ def ghg_scope3_pie_chart_from_db(company_id, params):
 
     queryset = GHGQuant.objects.filter(
         company__company_id=company_id, source=Options.FINAL
-    ).order_by("-reporting_year")
+    ).order_by("-reporting_year", "-last_update")
     print(queryset)
 
     if not queryset.exists():
@@ -39,27 +39,30 @@ def ghg_scope3_pie_chart_from_db(company_id, params):
         "ghg_bus_travel_scope3",
         "ghg_commute_scope3",
         "ghg_up_leased_scope3",
-        "ghg_downstream_td_scope3",
+        "ghg_other_upstream_scope3",
         "ghg_proc_sold_scope3",
         "ghg_use_sold_scope3",
         "ghg_eol_sold_scope3",
         "ghg_down_leased_scope3",
         "ghg_franchises_scope3",
         "ghg_investments_scope3",
+        "ghg_other_downstream_scope3",
     ]
 
     pie_data = [getattr(result, field) for field in scope3_fields]
-    pie_data = list(map(lambda x: x if x > 0 else "", pie_data))
+    pie_data = list(map(lambda x: x if x and x > 0 else "", pie_data))
 
     scope3_fields_readable = [
         "1: Purchased Goods and Services",
         "2: Capital Goods",
+        "3: Fuel- and Energy-Related Activities",
         "3: Fuel- and Energy-Related Activities",
         "4: Upstream Transportation and Distribution",
         "5: Waste Generated in Operations",
         "6: Business Travel",
         "7: Employee Commuting",
         "8: Upstream Leased Assets",
+        "Other upstream",
         "9: Downstream Transportation and Distribution",
         "10: Processing of Sold Products",
         "11: Use of Sold Products",
@@ -67,16 +70,19 @@ def ghg_scope3_pie_chart_from_db(company_id, params):
         "13: Downstream Leased Assets",
         "14: Franchises",
         "15: Investments",
+        "Other downstream",
     ]
     scope3_upstream_colors = [
         "#ffbaba",
         "#ff7b7b",
+        "#ff5252",
         "#ff5252",
         "#ff0000",
         "#a70000",
         "#ff0000",
         "#ff4d00",
         "#ff7400",
+        "#808080",
     ]
     scope3_downstream_colors = [
         "#0000ff",
@@ -86,6 +92,7 @@ def ghg_scope3_pie_chart_from_db(company_id, params):
         "#9999ff",
         "#ccccff",
         "#e5e5ff",
+        "#808080",
     ]
     scope3_colors = scope3_upstream_colors + scope3_downstream_colors
 

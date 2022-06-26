@@ -20,6 +20,7 @@ class NetZeroListView(AllowedCorporateMixin, ListView):
     model = NetZero
     context_object_name = "netzero"
     success_msg = "Data was successfully saved!"
+    ordering = ["-target_year", "-last_update"]
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="netzero")

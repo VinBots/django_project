@@ -12,17 +12,20 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         company_id_list = Corporate.objects.values_list("company_id", flat=True)
-        company_id_list = [14]
-        # chart_type = {
-        #     "name": "ghg_pie_chart",
-        #     "generator": ghg_scope3_pie_chart.ghg_scope3_pie_chart_from_db,
-        #     "params": {},
-        # }
-        chart_type = {
-            "name": "bubble",
-            "generator": bubble_charts.bubble_chart_from_db,
-            "params": {},
-        }
+        # company_id_list = [14]
+        chart_types = [
+            {
+                "name": "ghg_pie_chart",
+                "generator": ghg_scope3_pie_chart.ghg_scope3_pie_chart_from_db,
+                "params": {},
+            },
+            {
+                "name": "bubble",
+                "generator": bubble_charts.bubble_chart_from_db,
+                "params": {},
+            },
+        ]
         for company_id in company_id_list:
-            new_chart = charts_gen.Charts(chart_type, company_id)
-            new_chart.build_save()
+            for chart_type in chart_types:
+                new_chart = charts_gen.Charts(chart_type, company_id)
+                new_chart.build_save()
