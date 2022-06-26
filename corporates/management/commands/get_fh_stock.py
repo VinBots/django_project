@@ -3,7 +3,7 @@ import sys, os
 from django.conf import settings
 from django.core.management import BaseCommand
 
-from corporates.models import Corporate, StockData
+from corporates.models import Corporate, StockData, CorporateGrouping
 
 
 sys.path.append(os.path.join(settings.SERVER_BASE_DIR, "scripts"))
@@ -14,6 +14,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         list_key = Corporate.objects.values_list("company_id", flat=True)
+        list_key = CorporateGrouping.objects.get_sp100_company_ids()
         # list_key = [114]
         requested_fields = [
             "current_c",
