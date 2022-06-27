@@ -3,7 +3,7 @@
         <div class="container" width=100%>
             <div class="title">
                 <h2>
-                    <font face="sans-serif" size="6">Welcome to the Input Interface, {{user.first_name}}</font>
+                    <font face="sans-serif" size="6">Welcome to the Input Interface, {{user}}</font>
                 </h2>
             </div>
         </div>
@@ -37,21 +37,34 @@
 
         </form>
 
-        <!-- 
-
-
-        <ul>{% for corp in data %}
-            <li>{{corp}}</li>
+        <h2>Input Status</h2>
+        <table>
+            <tr>
+                <th>Companies</th>
+                <th>General</th>
+                <th>Disclosures</th>
+                <th>Net Zero Claims</th>
+                <th>GHG Inventory</th>
+                <th>GHG Value</th>
+                <th>Targets</th>
+                <th>CDP</th>
+            </tr>
+            {% for corp, input in input_status.items %}
+            <tr>
+                <td>{{corp}}</td>
+                <td>{{input.general}}</td>
+                <td>{{input.disclosures}}</td>
+                <td>{{input.net0}}</td>
+                <td>{{input.ghg}}</td>
+                <td>{{input.ghg_value}}</td>
+                <td>{{input.targets}}</td>
+                <td>{{input.cdp}}</td>
+            </tr>
             {% endfor %}
-        </ul>
+        </table>
 
-        {% for record in data %}
-        <ul>
-            {% for corp in record.allowed_corporates.all %}
-            <li>{{corp}}</li>
-            {% endfor %}
-        </ul>
-        {% endfor %} -->
+
+
     </section>
 
 </article>
