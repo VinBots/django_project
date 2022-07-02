@@ -20,6 +20,7 @@ class CDPListView(AllowedCorporateMixin, ListView):
     model = CDP
     context_object_name = "cdp"
     success_msg = "Data was successfully saved!"
+    ordering = ["-questionnaire_year", "-last_update"]
 
     def get(self, request, *args, **kwargs):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="cdp")
