@@ -15,7 +15,6 @@ class Command(BaseCommand):
 
         # list_key = Corporate.objects.values_list("company_id", flat=True)
         list_key = CorporateGrouping.objects.get_sp100_company_ids()
-        print(list_key)
         # list_key = [114]
         requested_fields = [
             "current_c",

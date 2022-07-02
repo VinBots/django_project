@@ -38,8 +38,8 @@
         </form>
 
         <h2>Input Status</h2>
-        <table>
-            <tr>
+        <table id="input_home_table" class="lb_corporates" data-show-columns="true" data-page-length='100'>
+            <thead>
                 <th>Companies</th>
                 <th>General</th>
                 <th>Disclosures</th>
@@ -48,19 +48,21 @@
                 <th>GHG Value</th>
                 <th>Targets</th>
                 <th>CDP</th>
-            </tr>
-            {% for corp, input in input_status.items %}
-            <tr>
-                <td>{{corp}}</td>
-                <td>{{input.general}}</td>
-                <td>{{input.disclosures}}</td>
-                <td>{{input.net0}}</td>
-                <td>{{input.ghg}}</td>
-                <td>{{input.ghg_value}}</td>
-                <td>{{input.targets}}</td>
-                <td>{{input.cdp}}</td>
-            </tr>
-            {% endfor %}
+            </thead>
+            <tbody>
+                {% for corp, input in input_status.items %}
+                <tr>
+                    <td><a href="{% url 'input_by_corp_general' corp_name=corp%}">{{corp}}</a></td>
+                    <td>{{input.general}}</td>
+                    <td>{{input.disclosures}}</td>
+                    <td>{{input.net0}}</td>
+                    <td>{{input.ghg}}</td>
+                    <td>{{input.ghg_value}}</td>
+                    <td>{{input.targets}}</td>
+                    <td>{{input.cdp}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
 
 
@@ -68,3 +70,11 @@
     </section>
 
 </article>
+<script>
+    $(document).ready(function () {
+        $('#input_home_table').DataTable({
+            responsive: true,
+            order: [[4, 'desc']]
+        });
+    });
+</script>
