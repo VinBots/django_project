@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from pytz import UTC
 
-from corporates.models import UserProfile, Corporate, GeneralInfo
+from corporates.models import UserProfile, Corporate, GeneralInfo, CorporateGrouping
 from corporates.models.external_sources.cdp import CDP
 from corporates.models.ghg import GHGQuant
 from corporates.models.targets import TargetQuant
@@ -150,7 +150,8 @@ class ChooseCorporateList(LoginRequiredMixin, ListView):
             )
             return [corp[0] for corp in corp_list_query]
         else:
-            return Corporate.objects.all()
+            sp100_company_ids = CorporateGrouping.objects.get_sp100_company_ids()
+            return Corporate.objects.filter(company_id__in=sp100_company_ids)
 
     def is_allowed_corporates_all(self):
 
