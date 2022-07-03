@@ -69,3 +69,6 @@ class GHGForm(forms.ModelForm):
                 attrs={"placeholder": "Please provide comments here"}
             )
         }
+
+
+# GHGFormSet = forms.modelformset_factory(GHGQuant, fields="__all__", extra=1)

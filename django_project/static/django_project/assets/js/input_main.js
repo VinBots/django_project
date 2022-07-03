@@ -44,6 +44,8 @@ function ghg_aggregate() {
 		"id_ghg_down_leased_scope3",
 		"id_ghg_franchises_scope3",
 		"id_ghg_investments_scope3",
+		"id_ghg_other_upstream_scope3",
+		"id_ghg_other_downstream_scope3"
 	];
 	for (const element of all_categories_loc) {
 		scope3_loc += convertFormattedTextToNumber(document.getElementById(element));
@@ -68,6 +70,8 @@ function ghg_aggregate() {
 		"id_ghg_down_leased_scope3",
 		"id_ghg_franchises_scope3",
 		"id_ghg_investments_scope3",
+		"id_ghg_other_upstream_scope3",
+		"id_ghg_other_downstream_scope3"
 	];
 	for (const element of all_categories_mkt) {
 		scope3_mkt += convertFormattedTextToNumber(document.getElementById(element));

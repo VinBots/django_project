@@ -1,7 +1,8 @@
+from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from django.urls import reverse
 
-from corporates.forms import GHGForm
+from corporates.forms import GHGForm, GHGFormSet
 from corporates.models import Corporate, GHGQuant
 from corporates.views.utilities import add_context
 from corporates.views.input.permissions import (
@@ -11,7 +12,7 @@ from corporates.views.input.permissions import (
 )
 
 
-def get_ghg(kwargs, source, year_offset, active_query):
+def get_ghg(kwargs, source, previous_year, active_query):
 
     active_query_corp = active_query.filter(pk=kwargs["pk"])
     if not active_query_corp.exists():
@@ -21,7 +22,10 @@ def get_ghg(kwargs, source, year_offset, active_query):
     if not selected_year:
         return
 
-    query_year = str(int(selected_year) + year_offset)
+    if previous_year:
+        query_year = str(int(selected_year) - 1)
+    else:
+        query_year = selected_year
 
     query = GHGQuant.objects.filter(
         company__company_id=kwargs["company_id"],
@@ -68,6 +72,12 @@ class GHGListCreate(AllowedCorporateMixin, CreateView):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="ghg")
         return super().get(self, request, *args, **kwargs)
 
+    def get_context_data(self, **kwargs):
+        context = super(GHGListCreate, self).get_context_data(**kwargs)
+        context["formset"] = GHGFormSet(queryset=GHGQuant.objects.none())
+
+        return context
+
     def post(self, request, *args, **kwargs):
 
         context = kwargs
@@ -79,14 +89,32 @@ class GHGListCreate(AllowedCorporateMixin, CreateView):
         )
         self.extra_context = add_context(init_kwargs=kwargs, category_name="ghg")
 
-        return super().post(request, *args, **kwargs)
+        formset = GHGFormSet(request.POST)
+        if formset.is_valid():
+            return self.form_valid(formset)
+        else:
+            return self.form_invalid(formset)
 
-    def form_valid(self, form):
+        # return super().post(request, *args, **kwargs)
 
-        form.instance.company = Corporate.objects.get(name=self.kwargs["corp_name"])
-        form.instance.submitter = self.request.user
-        form.instance.status = "submitted"
-        return super(GHGListCreate, self).form_valid(form)
+    def form_invalid(self, formset):
+        return self.render_to_response(self.get_context_data(formset=formset))
+
+    def form_valid(self, formset):
+        instances = formset.save(commit=False)
+        for instance in instances:
+            instance.company = Corporate.objects.get(name=self.kwargs["corp_name"])
+            instance.submitter = self.request.user
+            instance.status = "submitted"
+            instance.save()
+        print("--------------------------SUCCESS URL--------------------------")
+        print(self.success_url)
+        return HttpResponseRedirect(self.get_success_url())
+
+        # form.instance.company = Corporate.objects.get(name=self.kwargs["corp_name"])
+        # form.instance.submitter = self.request.user
+        # form.instance.status = "submitted"
+        # return super(GHGListCreate, self).form_valid(form)
 
 
 class GHGListUpdate(AllowedCorporateMixin, UpdateView):
@@ -103,22 +131,16 @@ class GHGListUpdate(AllowedCorporateMixin, UpdateView):
         self.extra_context = add_context(init_kwargs=kwargs, category_name="ghg")
         self.extra_context.update(
             {
-                "next_year_ghg": get_ghg(
-                    kwargs,
-                    source="public",
-                    year_offset=1,
-                    active_query=self.get_queryset(),
-                ),
                 "last_year_ghg": get_ghg(
                     kwargs,
-                    source="public",
-                    year_offset=-1,
+                    source="final",
+                    previous_year=True,
                     active_query=self.get_queryset(),
                 ),
                 "cdp_ghg": get_ghg(
                     kwargs,
                     source="cdp",
-                    year_offset=0,
+                    previous_year=False,
                     active_query=self.get_queryset(),
                 ),
             }

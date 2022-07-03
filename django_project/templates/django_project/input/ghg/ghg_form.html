@@ -16,184 +16,227 @@
             <table class='alt' id='ghg_input_table'>
                 <tr>
                     <th>Scope - Categories</th>
-                    <th>Reporting Year</th>
-                    <th>CDP Data</th>
-                    <th>Previous Year</th>
+                    <th>Previous Year<br>(
+                        {% if last_year_ghg.reporting_year %} {{last_year_ghg.reporting_year}}
+                        {% else %}
+                        Not available
+                        {% endif %}
+                        )</th>
+                    <th>Reporting Year <br>({{form.reporting_year.value}})</th>
+                    <th>Next Year<br>(
+                        {% if next_year_ghg.reporting_year %} {{next_year_ghg.reporting_year}}
+                        {% else %}
+                        Not available
+                        {% endif %}
+                        )</th>
+                    <th>CDP Data <br>(
+                        {% if cdp_ghg.reporting_year %} {{cdp_ghg.reporting_year}}
+                        {% else %}
+                        Not available
+                        {% endif %}
+                        )</th>
                 </tr>
                 <tr>
                     <td>Scope 1 </td>
-                    <td type="input">{{form.ghg_scope_1}}</td>
-                    <td>{{cdp_ghg.ghg_scope_1}}</td>
                     <td>{{last_year_ghg.ghg_scope_1}}</td>
+                    <td type="input">{{form.ghg_scope_1}}</td>
+                    <td>{{next_year_ghg.ghg_scope_1}}</td>
+                    <td>{{cdp_ghg.ghg_scope_1}}</td>
                 </tr>
                 <tr>
                     <td>Scope 2 - location-based</td>
-                    <td type="input">{{form.ghg_loc_scope_2}}</td>
-                    <td>{{cdp_ghg.ghg_loc_scope_2}}</td>
                     <td>{{last_year_ghg.ghg_loc_scope_2}}</td>
+                    <td type="input">{{form.ghg_loc_scope_2}}</td>
+                    <td>{{next_year_ghg.ghg_loc_scope_2}}</td>
+                    <td>{{cdp_ghg.ghg_loc_scope_2}}</td>
 
                 </tr>
                 <tr>
                     <td>Scope 2 - market-based</td>
-                    <td type="input">{{form.ghg_mkt_scope_2}}</td>
-                    <td>{{cdp_ghg.ghg_mkt_scope_2}}</td>
                     <td>{{last_year_ghg.ghg_mkt_scope_2}}</td>
+                    <td type="input">{{form.ghg_mkt_scope_2}}</td>
+                    <td>{{next_year_ghg.ghg_mkt_scope_2}}</td>
+                    <td>{{cdp_ghg.ghg_mkt_scope_2}}</td>
 
                 </tr>
                 <tr class="total_scope">
                     <td>Scope 1-2 (location-based)</td>
-                    <td id="total_scope1_2_loc">0</td>
-                    <td>{{cdp_ghg.scope_12_loc}}</td>
                     <td>{{last_year_ghg.scope_12_loc}}</td>
+                    <td id="total_scope1_2_loc">0</td>
+                    <td>{{next_year_ghg.scope_12_loc}}</td>
+                    <td>{{cdp_ghg.scope_12_loc}}</td>
 
                 </tr>
                 <tr class="total_scope">
                     <td>Scope 1-2 (market-based)</td>
-                    <td id="total_scope1_2_mkt">0</td>
-                    <td>{{cdp_ghg.scope_12_mkt}}</td>
                     <td>{{last_year_ghg.scope_12_mkt}}</td>
+                    <td id="total_scope1_2_mkt">0</td>
+                    <td>{{next_year_ghg.scope_12_mkt}}</td>
+                    <td>{{cdp_ghg.scope_12_mkt}}</td>
                 </tr>
                 <tr>
-                    <td class='scope_title' colspan="4">Scope 3</td>
+                    <td class='scope_title' colspan="5">Scope 3</td>
                 </tr>
 
                 <tr>
                     <td>Cat 1: Purchased Goods and Services</td>
-                    <td type="input">{{form.ghg_purch_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_purch_scope3}}</td>
                     <td>{{last_year_ghg.ghg_purch_scope3}}</td>
+                    <td type="input">{{form.ghg_purch_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_purch_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_purch_scope3}}</td>
 
                 </tr>
                 <tr>
                     <td>Cat 2: Capital Goods</td>
-                    <td type="input">{{form.ghg_capital_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_capital_scope3}}</td>
                     <td>{{last_year_ghg.ghg_capital_scope3}}</td>
+                    <td type="input">{{form.ghg_capital_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_capital_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_capital_scope3}}</td>
 
                 </tr>
                 <tr>
                     <td>Cat 3: Fuel- and Energy-Related Activities (location-based)</td>
-                    <td type="input">{{form.ghg_fuel_energy_loc_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_fuel_energy_loc_scope3}}</td>
                     <td>{{last_year_ghg.ghg_fuel_energy_loc_scope3}}</td>
+                    <td type="input">{{form.ghg_fuel_energy_loc_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_fuel_energy_loc_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_fuel_energy_loc_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Cat 3: Fuel- and Energy-Related Activities (market-based)</td>
-                    <td type="input">{{form.ghg_fuel_energy_mkt_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_fuel_energy_mkt_scope3}}</td>
                     <td>{{last_year_ghg.ghg_fuel_energy_mkt_scope3}}</td>
+                    <td type="input">{{form.ghg_fuel_energy_mkt_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_fuel_energy_mkt_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_fuel_energy_mkt_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Cat 4: Upstream transportation and distribution</td>
-                    <td type="input">{{form.ghg_upstream_td_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_upstream_td_scope3}}</td>
                     <td>{{last_year_ghg.ghg_upstream_td_scope3}}</td>
+                    <td type="input">{{form.ghg_upstream_td_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_upstream_td_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_upstream_td_scope3}}</td>
                 </tr>
 
                 <tr>
                     <td>Cat 5: Waste generated in operations</td>
-                    <td type="input">{{form.ghg_waste_ops_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_waste_ops_scope3}}</td>
                     <td>{{last_year_ghg.ghg_waste_ops_scope3}}</td>
+                    <td type="input">{{form.ghg_waste_ops_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_waste_ops_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_waste_ops_scope3}}</td>
                 </tr>
 
                 <tr>
                     <td>Cat 6: Business Travel</td>
-                    <td type="input">{{form.ghg_bus_travel_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_bus_travel_scope3}}</td>
                     <td>{{last_year_ghg.ghg_bus_travel_scope3}}</td>
+                    <td type="input">{{form.ghg_bus_travel_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_bus_travel_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_bus_travel_scope3}}</td>
                 </tr>
 
                 <tr>
                     <td>Cat 7: Employee commuting</td>
-                    <td type="input">{{form.ghg_commute_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_commute_scope3}}</td>
                     <td>{{last_year_ghg.ghg_commute_scope3}}</td>
+                    <td type="input">{{form.ghg_commute_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_commute_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_commute_scope3}}</td>
                 </tr>
 
                 <tr>
                     <td>Cat 8: Upstream leased assets</td>
-                    <td type="input">{{form.ghg_up_leased_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_up_leased_scope3}}</td>
                     <td>{{last_year_ghg.ghg_up_leased_scope3}}</td>
+                    <td type="input">{{form.ghg_up_leased_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_up_leased_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_up_leased_scope3}}</td>
                 </tr>
 
                 <tr>
                     <td>Cat 9: Downstream transportation and distribution</td>
-                    <td type="input">{{form.ghg_downstream_td_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_downstream_td_scope3}}</td>
                     <td>{{last_year_ghg.ghg_downstream_td_scope3}}</td>
+                    <td type="input">{{form.ghg_downstream_td_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_downstream_td_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_downstream_td_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Cat 10: Processing of sold products</td>
-                    <td type="input">{{form.ghg_proc_sold_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_proc_sold_scope3}}</td>
                     <td>{{last_year_ghg.ghg_proc_sold_scope3}}</td>
+                    <td type="input">{{form.ghg_proc_sold_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_proc_sold_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_proc_sold_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Cat 11: Use of sold products</td>
-                    <td type="input">{{form.ghg_use_sold_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_use_sold_scope3}}</td>
                     <td>{{last_year_ghg.ghg_use_sold_scope3}}</td>
+                    <td type="input">{{form.ghg_use_sold_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_use_sold_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_use_sold_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Cat 12: End-of-life treatment of sold products</td>
-                    <td type="input">{{form.ghg_eol_sold_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_eol_sold_scope3}}</td>
                     <td>{{last_year_ghg.ghg_eol_sold_scope3}}</td>
+                    <td type="input">{{form.ghg_eol_sold_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_eol_sold_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_eol_sold_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Cat 13: Downstream leased assets</td>
-                    <td type="input">{{form.ghg_down_leased_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_down_leased_scope3}}</td>
                     <td>{{last_year_ghg.ghg_down_leased_scope3}}</td>
+                    <td type="input">{{form.ghg_down_leased_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_down_leased_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_down_leased_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Cat 14: Franchises</td>
-                    <td type="input">{{form.ghg_franchises_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_franchises_scope3}}</td>
                     <td>{{last_year_ghg.ghg_franchises_scope3}}</td>
+                    <td type="input">{{form.ghg_franchises_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_franchises_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_franchises_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Cat 15: Investments</td>
-                    <td type="input">{{form.ghg_investments_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_investments_scope3}}</td>
                     <td>{{last_year_ghg.ghg_investments_scope3}}</td>
+                    <td type="input">{{form.ghg_investments_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_investments_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_investments_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Scope 3 - other downstream emissions</td>
-                    <td type="input">{{form.ghg_other_downstream_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_other_downstream_scope3}}</td>
                     <td>{{last_year_ghg.ghg_other_downstream_scope3}}</td>
+                    <td type="input">{{form.ghg_other_downstream_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_other_downstream_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_other_downstream_scope3}}</td>
                 </tr>
                 <tr>
                     <td>Scope 3 - other upstream emissions</td>
-                    <td type="input">{{form.ghg_other_upstream_scope3}}</td>
-                    <td>{{cdp_ghg.ghg_other_upstream_scope3}}</td>
                     <td>{{last_year_ghg.ghg_other_upstream_scope3}}</td>
+                    <td type="input">{{form.ghg_other_upstream_scope3}}</td>
+                    <td>{{next_year_ghg.ghg_other_upstream_scope3}}</td>
+                    <td>{{cdp_ghg.ghg_other_upstream_scope3}}</td>
                 </tr>
                 <tr class="total_scope">
                     <td>Total Scope 3 emissions (location-based)</td>
-                    <td id="total_scope_3_loc">0</td>
-                    <td>{{cdp_ghg.scope_3_loc_agg}}</td>
                     <td>{{last_year_ghg.scope_3_loc_agg}}</td>
+                    <td id="total_scope_3_loc">0</td>
+                    <td>{{next_year_ghg.scope_3_loc_agg}}</td>
+                    <td>{{cdp_ghg.scope_3_loc_agg}}</td>
                 </tr>
                 <tr class="total_scope">
                     <td>Total Scope 3 emissions (market-based)</td>
-                    <td id="total_scope_3_mkt">0</td>
-                    <td>{{cdp_ghg.scope_3_mkt_agg}}</td>
                     <td>{{last_year_ghg.scope_3_mkt_agg}}</td>
+                    <td id="total_scope_3_mkt">0</td>
+                    <td>{{next_year_ghg.scope_3_mkt_agg}}</td>
+                    <td>{{cdp_ghg.scope_3_mkt_agg}}</td>
                 </tr>
                 <tr class="total_scope">
                     <td>Total emissions (location-based)</td>
-                    <td id="total_scope1_2_3_loc">0</td>
-                    <td>{{cdp_ghg.scope_123_loc}}</td>
                     <td>{{last_year_ghg.scope_123_loc}}</td>
+                    <td id="total_scope1_2_3_loc">0</td>
+                    <td>{{next_year_ghg.scope_123_loc}}</td>
+                    <td>{{cdp_ghg.scope_123_loc}}</td>
                 <tr class="total_scope">
                     <td>Total emissions (market-based)</td>
-                    <td id="total_scope1_2_3_mkt">0</td>
-                    <td>{{cdp_ghg.scope_123_mkt}}</td>
                     <td>{{last_year_ghg.scope_123_mkt}}</td>
+                    <td id="total_scope1_2_3_mkt">0</td>
+                    <td>{{next_year_ghg.scope_123_mkt}}</td>
+                    <td>{{cdp_ghg.scope_123_mkt}}</td>
                 </tr>
 
             </table>
