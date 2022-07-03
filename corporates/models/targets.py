@@ -133,6 +133,8 @@ class TargetQuant(models.Model):
         null=True,
     )
 
+    comments = models.TextField(blank=True, null=True)
+
     upload_1 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
     upload_2 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
     upload_3 = models.FileField(upload_to=user_directory_path, blank=True, null=True)
