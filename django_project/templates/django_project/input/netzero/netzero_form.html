@@ -45,6 +45,11 @@
                 {% include 'input/common/radio_choices.html' with field=form.ongoing_coverage %}
                 {% include 'input/common/radio_choices.html' with field=form.ongoing_scope_3_coverage %}
             </fieldset>
+
+            <br>
+            {{form.comments}}
+            <br>
+
             {% include 'input/common/upload_files_form.html' with form=form model=netzero%}
 
             {% block buttons_section %}

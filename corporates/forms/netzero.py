@@ -21,4 +21,7 @@ class NetZeroForm(forms.ModelForm):
             "ongoing": forms.RadioSelect,
             "ongoing_scope_3_coverage": forms.RadioSelect,
             "scope_3_coverage": forms.RadioSelect,
+            "comments": forms.Textarea(
+                attrs={"placeholder": "Please provide comments here"}
+            ),
         }
