@@ -208,4 +208,8 @@ class Options:
     }
 
     DEFAULT_DOCUMENT = "sustainability_report"
-    DOCUMENT_CHOICES = [(DEFAULT_DOCUMENT, "Sustainability Report")]
+    PROGRESS_DOCUMENT = "progress_report"
+    DOCUMENT_CHOICES = [
+        (DEFAULT_DOCUMENT, "Sustainability Report"),
+        (PROGRESS_DOCUMENT, "Progress Report"),
+    ]
