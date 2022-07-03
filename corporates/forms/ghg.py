@@ -61,7 +61,8 @@ class GHGForm(forms.ModelForm):
             "ghg_down_leased_scope3",
             "ghg_franchises_scope3",
             "ghg_investments_scope3",
-            "ghg_other",
+            "ghg_other_upstream_scope3",
+            "ghg_other_downstream_scope3",
         ]
         widgets = {
             "comments": forms.Textarea(
