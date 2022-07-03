@@ -31,7 +31,8 @@ class Options:
     YEAR_DEFAULT_TARGET = 2021
     YEAR_DEFAULT_CDP = 2021
 
-    YEAR_CHOICES = [(str(year), str(year)) for year in range(1990, 2050, 1)]
+    YEAR_CHOICES = [(str(year), str(year)) for year in range(1990, 2051, 1)]
+    FUTURE_YEAR_CHOICES = [(str(year), str(year)) for year in range(2021, 2051, 1)]
 
     YES = "yes"
     NO = "no"

@@ -61,7 +61,7 @@ class NetZero(models.Model):
         help_text="Please fill in the target year only in case the company has not reached its net zero target yet",
         max_length=10,
         default=Options.YEAR_DEFAULT_VERIFICATION,
-        choices=Options.YEAR_CHOICES,
+        choices=Options.FUTURE_YEAR_CHOICES,
         blank=True,
         null=True,
     )

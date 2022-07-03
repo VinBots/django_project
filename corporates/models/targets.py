@@ -128,7 +128,7 @@ class TargetQuant(models.Model):
         verbose_name="Target Year",
         max_length=10,
         default=Options.YEAR_DEFAULT_TARGET,
-        choices=Options.YEAR_CHOICES,
+        choices=Options.FUTURE_YEAR_CHOICES,
         blank=True,
         null=True,
     )
