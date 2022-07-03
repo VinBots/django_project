@@ -26,3 +26,8 @@ class TargetForm(forms.ModelForm):
             "cov_s2_loc": forms.RadioSelect,
             "cov_s3": forms.RadioSelect,
         }
+        widgets = {
+            "comments": forms.Textarea(
+                attrs={"placeholder": "Please provide comments here"}
+            )
+        }
