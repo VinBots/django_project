@@ -131,6 +131,7 @@ class Options:
         ("d-", "D-"),
         ("f", "F"),
         ("not_scored", "Not Scored"),
+        ("not_available", "Not Available"),
     ]
     CDP_SCORE_DEFAULT = "f"
 
