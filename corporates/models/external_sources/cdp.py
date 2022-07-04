@@ -60,7 +60,7 @@ class CDP(models.Model):
         verbose_name="CDP Score",
         choices=Options.CDP_SCORE_OPTIONS,
         default=Options.CDP_SCORE_DEFAULT,
-        max_length=10,
+        max_length=25,
         null=True,
         blank=True,
     )
