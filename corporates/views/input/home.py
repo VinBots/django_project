@@ -95,7 +95,7 @@ def get_input_status_cdp(corp):
         questionnaire_year__in=["2020", "2021"],
     ).order_by("-questionnaire_year", "-last_update")
     if query.exists():
-        return query[0].questionnaire_year
+        return f"{query[0].questionnaire_year} - {query[0].score}"
     else:
         return "Missing"
 
