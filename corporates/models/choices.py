@@ -212,5 +212,6 @@ class Options:
     TCFD_DOCUMENT = "tcfd_report"
     DOCUMENT_CHOICES = [
         (DEFAULT_DOCUMENT, "Sustainability Report"),
-        (TCFD_DOCUMENT, "TCFD Report")(PROGRESS_DOCUMENT, "Progress Report"),
+        (TCFD_DOCUMENT, "TCFD Report"),
+        (PROGRESS_DOCUMENT, "Progress Report"),
     ]
