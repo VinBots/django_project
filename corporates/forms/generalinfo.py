@@ -12,7 +12,9 @@ class GeneralInfoForm(forms.ModelForm):
         widgets = {
             "description": forms.Textarea(
                 attrs={
-                    "placeholder": "Please provide a short description of the document here"
+                    "placeholder": "Please provide a short description of the document here",
+                    "cols": 130,
+                    "rows": 10,
                 }
             ),
         }

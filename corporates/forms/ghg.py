@@ -66,7 +66,11 @@ class GHGForm(forms.ModelForm):
         ]
         widgets = {
             "comments": forms.Textarea(
-                attrs={"placeholder": "Please provide comments here"}
+                attrs={
+                    "placeholder": "Please provide comments here",
+                    "cols": 130,
+                    "rows": 10,
+                }
             )
         }
 

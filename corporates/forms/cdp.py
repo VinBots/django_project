@@ -13,7 +13,9 @@ class CDPForm(forms.ModelForm):
             "made_public": forms.RadioSelect,
             "comments": forms.Textarea(
                 attrs={
-                    "placeholder": "Please provide any comment about the CDP Climate Change Questionnaire here"
+                    "placeholder": "Please provide any comment about the CDP Climate Change Questionnaire here",
+                    "cols": 130,
+                    "rows": 10,
                 }
             ),
         }
