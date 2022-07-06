@@ -212,8 +212,11 @@ class Options:
     DEFAULT_DOCUMENT = "sustainability_report"
     PROGRESS_DOCUMENT = "progress_report"
     TCFD_DOCUMENT = "tcfd_report"
+    CLIMATE_PLAN = "climate_plan"
+
     DOCUMENT_CHOICES = [
         (DEFAULT_DOCUMENT, "Sustainability Report"),
         (TCFD_DOCUMENT, "TCFD Report"),
         (PROGRESS_DOCUMENT, "Progress Report"),
+        (CLIMATE_PLAN, "Climate Plan"),
     ]
