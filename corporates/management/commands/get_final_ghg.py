@@ -43,8 +43,8 @@ def compare_build_final_ghg(company, reporting_year, public, cdp, tolerance):
         "ghg_down_leased_scope3",
         "ghg_franchises_scope3",
         "ghg_investments_scope3",
-        "ghg_other_upstream_scope3",
-        "ghg_other_downstream_scope3",
+        # "ghg_other_upstream_scope3",
+        # "ghg_other_downstream_scope3",
     ]
     final_ghg = GHGQuant(company=company, reporting_year=reporting_year, source="final")
     for category in categories:
@@ -82,6 +82,16 @@ def choose_ghg(cdp_ghg, public_ghg, tolerance):
             return cdp_ghg, "cdp"
 
 
+def choose_final_ghg(public, cdp):
+    if public.scope_123_loc > cdp.scope_123_loc:
+        final_ghg = copy.deepcopy(public)
+        final_ghg.comments = "Source: Public"
+    else:
+        final_ghg = copy.deepcopy(cdp)
+        final_ghg.comments = "Source: CDP"
+    return final_ghg
+
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
 
@@ -106,19 +116,23 @@ class Command(BaseCommand):
 
                 if not cdp_query or not cdp_query.exists():
                     final_ghg = copy.deepcopy(public_query[0])
-                    final_ghg.comments = "Identical to public input"
+                    final_ghg.comments = "Source: Public"
                 elif not public_query.exists():
                     final_ghg = copy.deepcopy(cdp_query[0])
-                    final_ghg.comments = "Identical to CDP input"
+                    final_ghg.comments = "Source: CDP"
                 else:
-
-                    final_ghg = compare_build_final_ghg(
-                        company=company,
-                        reporting_year=reporting_year,
+                    final_ghg = choose_final_ghg(
                         public=public_query[0],
                         cdp=cdp_query[0],
-                        tolerance=TOLERANCE,
                     )
+
+                    # final_ghg = compare_build_final_ghg(
+                    #     company=company,
+                    #     reporting_year=reporting_year,
+                    #     public=public_query[0],
+                    #     cdp=cdp_query[0],
+                    #     tolerance=TOLERANCE,
+                    # )
                 final_ghg.id = None  # in case of a full copy of a GHGQuant object, it guarantees that a new object will be created and saved in the database
                 final_ghg.source = "final"
                 final_ghg_records.append(final_ghg)

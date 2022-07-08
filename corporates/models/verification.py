@@ -1,7 +1,8 @@
+import pathlib, os
+
 from django.db import models
 from django.contrib.auth.models import User
 from .choices import Options
-import pathlib
 
 
 def user_directory_path(instance, filename):
@@ -127,7 +128,7 @@ class Verification(models.Model):
         file_size = 0
         fields = self.get_upload_fields()
         for field in fields:
-            if field:
+            if field and os.path.exists(field.path):
                 file_size += field.file.size
         return f"{file_size / 1000000:.2f}Mb"
 

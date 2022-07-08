@@ -1,5 +1,4 @@
-import pathlib
-import copy
+import pathlib, os, copy
 
 from django.db import models
 from django.db.models import Q
@@ -176,7 +175,7 @@ class TargetQuant(models.Model):
         file_size = 0
         fields = self.get_upload_fields()
         for field in fields:
-            if field:
+            if field and os.path.exists(field.path):
                 file_size += field.file.size
         return f"{file_size / 1000000:.2f}Mb"
 

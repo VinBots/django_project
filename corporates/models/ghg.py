@@ -1,4 +1,4 @@
-import pathlib
+import pathlib, os
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -215,7 +215,7 @@ class GHGQuant(models.Model):
         file_size = 0
         fields = self.get_upload_fields()
         for field in fields:
-            if field:
+            if field and os.path.exists(field.path):
                 file_size += field.file.size
         return f"{file_size / 1000000:.2f}Mb"
 
@@ -273,6 +273,8 @@ class GHGQuant(models.Model):
             self.ghg_down_leased_scope3,
             self.ghg_franchises_scope3,
             self.ghg_investments_scope3,
+            self.ghg_other_upstream_scope3,
+            self.ghg_other_downstream_scope3,
         ]
         if self.ghg_fuel_energy_loc_scope3 == 0:
             categories.append(self.ghg_fuel_energy_mkt_scope3)
@@ -297,6 +299,8 @@ class GHGQuant(models.Model):
             self.ghg_down_leased_scope3,
             self.ghg_franchises_scope3,
             self.ghg_investments_scope3,
+            self.ghg_other_upstream_scope3,
+            self.ghg_other_downstream_scope3,
         ]
 
         return sum(filter(bool, categories))

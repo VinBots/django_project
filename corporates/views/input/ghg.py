@@ -11,7 +11,7 @@ from corporates.views.input.permissions import (
 )
 
 
-def get_ghg(kwargs, source, year_offset, active_query):
+def get_ghg(kwargs, sources, year_offset, active_query):
 
     active_query_corp = active_query.filter(pk=kwargs["pk"])
     if not active_query_corp.exists():
@@ -25,7 +25,7 @@ def get_ghg(kwargs, source, year_offset, active_query):
 
     query = GHGQuant.objects.filter(
         company__company_id=kwargs["company_id"],
-        source=source,
+        source__in=sources,
         reporting_year=query_year,
     ).order_by("-last_update")
     if query.exists():
@@ -105,19 +105,19 @@ class GHGListUpdate(AllowedCorporateMixin, UpdateView):
             {
                 "next_year_ghg": get_ghg(
                     kwargs,
-                    source="public",
+                    sources=["public"],
                     year_offset=1,
                     active_query=self.get_queryset(),
                 ),
                 "last_year_ghg": get_ghg(
                     kwargs,
-                    source="public",
+                    sources=["public"],
                     year_offset=-1,
                     active_query=self.get_queryset(),
                 ),
                 "cdp_ghg": get_ghg(
                     kwargs,
-                    source="cdp",
+                    sources=["cdp_2021", "cdp"],
                     year_offset=0,
                     active_query=self.get_queryset(),
                 ),
