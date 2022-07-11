@@ -30,7 +30,7 @@ def lowercase(text):
 def ghg_quant_source(text):
     mapping_dict = {
         "Public": "public",
-        "CDP": "cdp",
+        "CDP": "cdp_2020",
         "cdp_2021": "cdp_2021",
         "Final": "final",
     }

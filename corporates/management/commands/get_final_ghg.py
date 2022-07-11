@@ -12,7 +12,7 @@ TOLERANCE = 0.05
 
 
 def get_ghg_cdp(query):
-    priority_order = ["cdp_2021", "cdp"]
+    priority_order = ["cdp_2021", "cdp_2020"]
     for cdp_source in priority_order:
         cdp_query = query.filter(source=cdp_source)
         if cdp_query.exists():
@@ -106,7 +106,7 @@ class Command(BaseCommand):
                 query = GHGQuant.objects.filter(
                     company=company,
                     reporting_year=reporting_year,
-                    source__in=["cdp", "cdp_2021", "public"],
+                    source__in=["cdp_2020", "cdp_2021", "public"],
                 ).order_by("-last_update")
                 public_query = query.filter(source="public")
                 cdp_query = get_ghg_cdp(query)

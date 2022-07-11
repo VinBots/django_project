@@ -117,7 +117,7 @@ class GHGListUpdate(AllowedCorporateMixin, UpdateView):
                 ),
                 "cdp_ghg": get_ghg(
                     kwargs,
-                    sources=["cdp_2021", "cdp"],
+                    sources=["cdp_2021", "cdp_2020"],
                     year_offset=0,
                     active_query=self.get_queryset(),
                 ),

@@ -106,7 +106,7 @@ class Options:
     ]
 
     PUBLIC = "public"
-    CDP = "cdp"  # to be renamed cdp_2020
+    CDP = "cdp_2020"
     CDP_2021 = "cdp_2021"
     SBTI = "sbti"
     AGG = "aggregation"
