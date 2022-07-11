@@ -82,8 +82,69 @@ def choose_ghg(cdp_ghg, public_ghg, tolerance):
             return cdp_ghg, "cdp"
 
 
+def choose_most_complete(public, cdp):
+
+    categories = [
+        "ghg_scope_1",
+        "ghg_loc_scope_2",
+        "ghg_mkt_scope_2",
+        "ghg_purch_scope3",
+        "ghg_capital_scope3",
+        "ghg_fuel_energy_loc_scope3",
+        # "ghg_fuel_energy_mkt_scope3",
+        "ghg_upstream_td_scope3",
+        "ghg_waste_ops_scope3",
+        "ghg_bus_travel_scope3",
+        "ghg_commute_scope3",
+        "ghg_up_leased_scope3",
+        "ghg_downstream_td_scope3",
+        "ghg_proc_sold_scope3",
+        "ghg_use_sold_scope3",
+        "ghg_eol_sold_scope3",
+        "ghg_down_leased_scope3",
+        "ghg_franchises_scope3",
+        "ghg_investments_scope3",
+        # "ghg_other_upstream_scope3",
+        # "ghg_other_downstream_scope3",
+    ]
+    public_count = sum(
+        [
+            getattr(public, category) is not None and getattr(public, category) > 0
+            for category in categories
+        ]
+    )
+    cdp_count = sum(
+        [
+            getattr(cdp, category) is not None and getattr(cdp, category) > 0
+            for category in categories
+        ]
+    )
+    # print(public)
+    # print(f"Public count: {public_count} vs. CDP count: {cdp_count}")
+    if public_count >= cdp_count:
+        selected_source = "public"
+    else:
+        selected_source = "cdp"
+
+    return selected_source
+
+
 def choose_final_ghg(public, cdp):
-    if public.scope_123_loc > cdp.scope_123_loc:
+    """
+    Select the GHG Inventory that is either the most complete or the highest.
+    If a total inventory is higher by more than the tolerance level, it is chosen.
+    If not, the most complete is selected
+    """
+    if abs(public.scope_123_loc - cdp.scope_123_loc) < TOLERANCE:
+        selected_source = choose_most_complete(public, cdp)
+        if selected_source == "cdp":
+            final_ghg = copy.deepcopy(cdp)
+            final_ghg.comments = "Source: CDP"
+        else:
+            final_ghg = copy.deepcopy(public)
+            final_ghg.comments = "Source: Public"
+
+    elif public.scope_123_loc > cdp.scope_123_loc:
         final_ghg = copy.deepcopy(public)
         final_ghg.comments = "Source: Public"
     else:
@@ -100,6 +161,9 @@ class Command(BaseCommand):
         company_list = Corporate.objects.all()
         # company_list = [Corporate.objects.get(company_id=72)]
         reporting_years = ["2018", "2019", "2020", "2021"]
+
+        records = GHGQuant.objects.filter(source="final")
+        records.delete()
 
         for company in company_list:
             for reporting_year in reporting_years:
