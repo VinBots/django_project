@@ -1,9 +1,51 @@
+import logging
+
 from django.db import models
 from django.db.models import F, Q, Window, Subquery, OuterRef
 from django.db.models.functions import Rank
 
 from corporates.models.corp import Corporate
 from corporates.models.grouping import CorporateGrouping
+
+
+class ScoreVersionManager(models.Manager):
+    def get_active_score_version(self):
+        query = self.filter(active=True)
+
+        if not query.exists():
+            return
+
+        if query.count() > 1:
+            logging.critical = "There are more than 1 active score version"
+
+        return query[0]
+
+    def get_default(self):
+        return self.get_or_create(name="Q2_2021")[0]
+
+
+class ScoreVersion(models.Model):
+
+    objects = ScoreVersionManager()
+
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=100, blank=True, null=True)
+    priority = models.IntegerField(blank=True, null=True)
+    active = models.BooleanField(default=False, blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Score Versions"
+
+    def __str__(self):
+
+        active_score = ""
+        if self.active:
+            active_score = f" (ACTIVE)"
+
+        return f"{self.name}{active_score}"
 
 
 class ScoreManager(models.Manager):
@@ -35,10 +77,10 @@ class Score(models.Model):
 
 
 class CompanyScoreManager(models.Manager):
-    def get_last_score_value(self, company, score):
+    def get_last_score_value(self, company, score, version):
 
         last_score_value = CompanyScore.objects.filter(
-            company=company, score=score
+            company=company, score=score, version=version
         ).order_by("-last_update", "-id")
 
         if last_score_value.exists():
@@ -47,7 +89,9 @@ class CompanyScoreManager(models.Manager):
     def is_last_score_value_duplicate(self, score_value_to_test):
 
         last_score_value = self.get_last_score_value(
-            company=score_value_to_test.company, score=score_value_to_test.score
+            company=score_value_to_test.company,
+            score=score_value_to_test.score,
+            version=score_value_to_test.version,
         )
         if not last_score_value:
             return False
@@ -61,13 +105,13 @@ class CompanyScoreManager(models.Manager):
 
         return True
 
-    def get_latest_scores(self):
+    def get_latest_scores(self, version):
 
         subquery = self.filter(
             company=OuterRef("company"), score=OuterRef("score")
         ).order_by("-last_update", "-id")
 
-        queryset = self.annotate(
+        queryset = self.filter(version=version).annotate(
             latest_score_value=Subquery(subquery.values("score_value")[:1]),
             latest_rating_value=Subquery(subquery.values("rating_value")[:1]),
             latest_meta_value=Subquery(subquery.values("meta_value")[:1]),
@@ -77,6 +121,7 @@ class CompanyScoreManager(models.Manager):
 
         latest_scores = queryset.values(
             "company",
+            "version",
             "score",
             "last_update",
             "latest_score_value",
@@ -96,6 +141,11 @@ class CompanyScore(models.Model):
 
     id = models.BigAutoField(primary_key=True)
     last_update = models.DateTimeField(auto_now_add=True)
+    version = models.ForeignKey(
+        "ScoreVersion",
+        null=True,
+        on_delete=models.CASCADE,
+    )
     company = models.ForeignKey("Corporate", on_delete=models.CASCADE)
 
     score = models.ForeignKey("Score", on_delete=models.CASCADE)
@@ -133,6 +183,7 @@ class LatestCompanyScoreManager(models.Manager):
             kwargs = {}
             # Expected Fields
             # ("company", "score", "score_value", "rating_value", "meta_value")
+            # print(score_record)
 
             obj = Corporate.objects.get(**{"company_id": score_record["company"]})
             new_arg = {"company": obj}
@@ -140,6 +191,10 @@ class LatestCompanyScoreManager(models.Manager):
 
             obj = Score.objects.get(**{"id": score_record["score"]})
             new_arg = {"score": obj}
+            kwargs.update(new_arg)
+
+            obj = ScoreVersion.objects.get(**{"id": score_record["version"]})
+            new_arg = {"version": obj}
             kwargs.update(new_arg)
 
             non_fk_fields = [
@@ -160,8 +215,12 @@ class LatestCompanyScoreManager(models.Manager):
         if records:
             self.model.objects.bulk_create(records)
 
-    def get_latest_company_score_value(self, company_id, score_name):
-        return self.filter(company__company_id=company_id, score__name=score_name)
+    def get_latest_company_score_value(self, company_id, score_name, version=None):
+        if not version:
+            version = ScoreVersion.objects.get_active_score_version()
+        return self.filter(
+            company__company_id=company_id, score__name=score_name, version=version
+        )
 
     def get_rank(self, company_id, score_name, SP100=True):
 
@@ -198,6 +257,11 @@ class LatestCompanyScore(models.Model):
     id = models.BigAutoField(primary_key=True)
     last_update = models.DateTimeField(auto_now_add=True, null=True)
     company = models.ForeignKey("Corporate", on_delete=models.CASCADE)
+    version = models.ForeignKey(
+        "ScoreVersion",
+        null=True,
+        on_delete=models.CASCADE,
+    )
     score = models.ForeignKey("Score", on_delete=models.CASCADE)
     score_value = models.FloatField(blank=True, null=True)
     score_pct = models.FloatField(blank=True, null=True)
@@ -212,11 +276,11 @@ class LatestCompanyScore(models.Model):
     def __str__(self):
         return f"{self.company} - {self.score.name}: {self.score_value} ({self.last_update})"
 
-    def get_blank_score(self, company_id, score_name):
+    def get_blank_score(self, company_id, score_name, version=None):
 
         self.company = Corporate.objects.get(company_id=company_id)
         self.score = Score.objects.get(name=score_name)
-
+        self.version = version
         self.score_value = 0.0
         self.rating_value = "no"
         self.meta_value = {}

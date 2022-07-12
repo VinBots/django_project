@@ -55,9 +55,11 @@ class AbsAggScore(abc.ABC):
 
         return LatestCompanyScore().get_blank_score(company_id, self.score_name)
 
-    def get_score(self, company_id: int) -> float:
+    def get_score(self, company_id: int, version) -> float:
 
         self.company_score = self.get_blank_score(company_id)
+        self.company_score.version = version
+
         self.company_score.rating_value = self.get_rating()
 
         self.max_score = self.get_max_score(self.company_score.score.name)

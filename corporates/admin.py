@@ -41,6 +41,7 @@ from .models import (
     StockData,
     Stats,
     CalcMetrics,
+    ScoreVersion,
 )
 
 
@@ -79,6 +80,7 @@ classes_to_register = [
     StockData,
     Stats,
     CalcMetrics,
+    ScoreVersion,
 ]
 
 for class_to_register in classes_to_register:

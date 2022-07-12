@@ -1,6 +1,4 @@
 from .corp import *
-from .dimensions import *
-
 from .ghg import *
 from .grouping import *
 from .library import *

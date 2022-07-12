@@ -1,3 +1,4 @@
+from importlib_metadata import version
 from corporates.models import CompanyScore
 from corporates.management.scoring.factories.base_score_factory import BaseScoreFactory
 from corporates.management.scoring.factories.agg_score_factory import AggScoreFactory
@@ -8,9 +9,10 @@ class Scoring:
     Retrieves or calculates the scores for a list of companies
     """
 
-    def __init__(self, company_ids, score_name):
+    def __init__(self, company_ids, score_name, version):
         self.company_ids = company_ids
         self.score_name = score_name
+        self.version = version
         self.data_check = self.data_check_test()
 
         self.saved_scores_count = 0
@@ -40,7 +42,7 @@ class Scoring:
             for company_id in self.company_ids:
                 base_score = factory.create_instance(self.score_name)
                 # print(f"New instance created with score_name = {self.score_name}")
-                new_score = base_score.get_score(company_id)
+                new_score = base_score.get_score(company_id, self.version)
 
                 if (
                     new_score
@@ -60,7 +62,7 @@ class Scoring:
             for company_id in self.company_ids:
                 agg_score = factory.create_instance(self.score_name)
                 # print(f"New instance created with score_name = {self.score_name}")
-                new_score = agg_score.get_score(company_id)
+                new_score = agg_score.get_score(company_id, self.version)
                 new_score.save()
                 self.saved_scores_count += 1
         else:
