@@ -12,7 +12,7 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-    # hello
+
     initial = True
 
     dependencies = [
