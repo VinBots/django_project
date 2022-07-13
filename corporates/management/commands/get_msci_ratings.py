@@ -11,10 +11,16 @@ from providers.msci_data import MSCIData
 
 
 class Command(BaseCommand):
+    def add_arguments(self, parser):
+        parser.add_argument("-company_id", type=int)
+
     def handle(self, *args, **options):
 
-        company_id_list = Corporate.objects.values_list("company_id", flat=True)
-        # company_id_list = [14]
+        company_id = options.get("company_id", None)
+        if company_id:
+            company_id_list = [company_id]
+        else:
+            company_id_list = Corporate.objects.values_list("company_id", flat=True)
 
         requested_fields = [
             "itr",
