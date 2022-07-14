@@ -9,7 +9,8 @@ from .get_final_ghg import get_final_ghg_func
 from .calc_ghg_metrics import calc_ghg_metrics_func
 from .calc_stats import calc_stats_func
 from .calc_score import calc_score_func
-from .create_chart import create_chart_func
+
+# from .create_chart import create_chart_func
 
 
 def update_all(company_id_list):
@@ -21,7 +22,7 @@ def update_all(company_id_list):
         calc_ghg_metrics_func,
         calc_stats_func,
         calc_score_func,
-        create_chart_func,
+        # create_chart_func,
     ]
 
     return [func(company_id_list) for func in sequence_func]
