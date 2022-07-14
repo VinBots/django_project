@@ -1,9 +1,19 @@
+from corporates.models.corp import Corporate
 from corporates.models.verification import Verification
-from corporates.models.choices import Options
 from corporates.models.ghg import GHGQuant
-from corporates.models.verification import Verification
-from corporates.models.choices import Options
 from corporates.models.metrics import GHGMetrics
+from corporates.models.choices import Options
+
+
+def parse_extract(options):
+
+    company_id = options.get("company_id", None)
+    if company_id:
+        company_id_list = [company_id]
+    else:
+        company_id_list = Corporate.objects.values_list("company_id", flat=True)
+
+    return {"company_id_list": company_id_list}
 
 
 def is_ghg_fully_reported(company, years):

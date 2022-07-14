@@ -157,6 +157,12 @@ class GHGQuant(models.Model):
         blank=True,
         null=True,
     )
+    cdp_override = models.BooleanField(
+        verbose_name="Does this GHG Inventory override GHG Inventory reported to CDP",
+        default=False,
+        blank=True,
+        null=True,
+    )
 
     ghg_scope_1 = models.PositiveIntegerField(blank=True, null=True)
     ghg_loc_scope_2 = models.PositiveIntegerField(blank=True, null=True)

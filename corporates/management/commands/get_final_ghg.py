@@ -1,9 +1,9 @@
 import os, sys, copy
 from django.conf import settings
 
-from corporates.models import Corporate
 from django.core.management import BaseCommand
 from corporates.models.ghg import GHGQuant
+from corporates.management.utilities import parse_extract
 
 sys.path.append(os.path.join(settings.SERVER_BASE_DIR, "scripts"))
 # from providers.msci_data import MSCIData
@@ -135,7 +135,11 @@ def choose_final_ghg(public, cdp):
     If a total inventory is higher by more than the tolerance level, it is chosen.
     If not, the most complete is selected
     """
-    if abs(public.scope_123_loc - cdp.scope_123_loc) < TOLERANCE:
+    if public.cdp_override:
+        final_ghg = copy.deepcopy(public)
+        final_ghg.comments = "Source: Public"
+
+    elif abs(public.scope_123_loc - cdp.scope_123_loc) < TOLERANCE:
         selected_source = choose_most_complete(public, cdp)
         if selected_source == "cdp":
             final_ghg = copy.deepcopy(cdp)
@@ -150,64 +154,75 @@ def choose_final_ghg(public, cdp):
     else:
         final_ghg = copy.deepcopy(cdp)
         final_ghg.comments = "Source: CDP"
+
     return final_ghg
 
 
 class Command(BaseCommand):
+    def add_arguments(self, parser):
+        parser.add_argument("-company_id", type=int)
+
     def handle(self, *args, **options):
+        arg_dict = parse_extract(options)
+        company_id_list = arg_dict.get("company_id_list")
+        get_final_ghg_func(company_id_list)
 
-        final_ghg_records = []
 
-        company_list = Corporate.objects.all()
-        # company_list = [Corporate.objects.get(company_id=72)]
-        reporting_years = ["2018", "2019", "2020", "2021"]
+def get_final_ghg_func(company_id_list):
 
-        records = GHGQuant.objects.filter(source="final")
-        records.delete()
+    final_ghg_records = []
 
-        for company in company_list:
-            for reporting_year in reporting_years:
-                query = GHGQuant.objects.filter(
-                    company=company,
-                    reporting_year=reporting_year,
-                    source__in=["cdp_2020", "cdp_2021", "public"],
-                ).order_by("-last_update")
-                public_query = query.filter(source="public")
-                cdp_query = get_ghg_cdp(query)
+    reporting_years = ["2018", "2019", "2020", "2021", "2022"]
 
-                if not cdp_query and not public_query:
-                    continue
+    records = GHGQuant.objects.filter(
+        source="final",
+        company__company_id__in=company_id_list,
+    )
+    records.delete()
 
-                if not cdp_query or not cdp_query.exists():
-                    final_ghg = copy.deepcopy(public_query[0])
-                    final_ghg.comments = "Source: Public"
-                elif not public_query.exists():
-                    final_ghg = copy.deepcopy(cdp_query[0])
-                    final_ghg.comments = "Source: CDP"
-                else:
-                    final_ghg = choose_final_ghg(
-                        public=public_query[0],
-                        cdp=cdp_query[0],
-                    )
+    for company_id in company_id_list:
+        for reporting_year in reporting_years:
+            query = GHGQuant.objects.filter(
+                company__company_id=company_id,
+                reporting_year=reporting_year,
+                source__in=["cdp_2020", "cdp_2021", "public"],
+            ).order_by("-last_update")
+            public_query = query.filter(source="public")
+            cdp_query = get_ghg_cdp(query)
 
-                    # final_ghg = compare_build_final_ghg(
-                    #     company=company,
-                    #     reporting_year=reporting_year,
-                    #     public=public_query[0],
-                    #     cdp=cdp_query[0],
-                    #     tolerance=TOLERANCE,
-                    # )
-                final_ghg.id = None  # in case of a full copy of a GHGQuant object, it guarantees that a new object will be created and saved in the database
-                final_ghg.source = "final"
-                final_ghg_records.append(final_ghg)
+            if not cdp_query and not public_query:
+                continue
 
-        filtered_final_ghg_records = filter(
-            lambda v: not GHGQuant.objects.is_last_ghg_duplicate(v),
-            final_ghg_records,
-        )
+            if not cdp_query or not cdp_query.exists():
+                final_ghg = copy.deepcopy(public_query[0])
+                final_ghg.comments = "Source: Public"
+            elif not public_query.exists():
+                final_ghg = copy.deepcopy(cdp_query[0])
+                final_ghg.comments = "Source: CDP"
+            else:
+                final_ghg = choose_final_ghg(
+                    public=public_query[0],
+                    cdp=cdp_query[0],
+                )
 
-        count = 0
-        for record in filtered_final_ghg_records:
-            record.save()
-            count += 1
-        print(f"Number of new records saved: {count}")
+                # final_ghg = compare_build_final_ghg(
+                #     company=company,
+                #     reporting_year=reporting_year,
+                #     public=public_query[0],
+                #     cdp=cdp_query[0],
+                #     tolerance=TOLERANCE,
+                # )
+            final_ghg.id = None  # in case of a full copy of a GHGQuant object, it guarantees that a new object will be created and saved in the database
+            final_ghg.source = "final"
+            final_ghg_records.append(final_ghg)
+
+    filtered_final_ghg_records = filter(
+        lambda v: not GHGQuant.objects.is_last_ghg_duplicate(v),
+        final_ghg_records,
+    )
+
+    count = 0
+    for record in filtered_final_ghg_records:
+        record.save()
+        count += 1
+    print(f"Number of new records saved: {count}")

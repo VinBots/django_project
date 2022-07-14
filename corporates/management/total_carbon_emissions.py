@@ -9,8 +9,9 @@ from corporates.management.utilities import *
 
 
 class TotalCarbonEmissions:
-    def __init__(self, company, year):
-        self.company = company
+    def __init__(self, company_id, year):
+        self.company_id = company_id
+        self.company = Corporate.objects.get(company_id=self.company_id)
         self.year = year
         self.preceding_year = str(int(self.year) - 1)
         self.methods_by_priority = self.get_methods_by_priority()
