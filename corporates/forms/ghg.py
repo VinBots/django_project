@@ -1,5 +1,6 @@
 from django import forms
 from corporates.models import GHGQuant
+from corporates.models.choices import Options
 from corporates.forms.utilities import get_upload_fields_to_display
 
 
@@ -65,13 +66,14 @@ class GHGForm(forms.ModelForm):
             "ghg_other_downstream_scope3",
         ]
         widgets = {
+            "cdp_override": forms.RadioSelect(choices=Options.CDP_OVERRIDE_CHOICES),
             "comments": forms.Textarea(
                 attrs={
                     "placeholder": "Please provide comments here",
                     "cols": 130,
                     "rows": 10,
                 }
-            )
+            ),
         }
 
 

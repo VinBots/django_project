@@ -220,3 +220,32 @@ class Options:
         (PROGRESS_DOCUMENT, "Progress Report"),
         (CLIMATE_PLAN, "Climate Plan"),
     ]
+
+    NEW = "new"
+    UNDERWAY = "underway"
+    ACHIEVED = "achieved"
+    EXPIRED = "expired"
+    REVISED = "revised"
+    REPLACED = "replaced"
+    RETIRED = "retired"
+
+    ACTIVE_TARGET_STATUS = [
+        NEW,
+        ACHIEVED,
+        REVISED,
+    ]
+
+    TARGET_STATUS = [
+        (NEW, "New"),
+        (UNDERWAY, "Underway"),
+        (ACHIEVED, "Achieved"),
+        (EXPIRED, "Expired"),
+        (REVISED, "Revised"),
+        (REPLACED, "Replaced"),
+        (RETIRED, "Retired"),
+    ]
+
+    CDP_OVERRIDE_CHOICES = [
+        (True, "Yes"),
+        (False, "No"),
+    ]

@@ -14,6 +14,7 @@ class TargetForm(forms.ModelForm):
         model = TargetQuant
         fields = "__all__"
         widgets = {
+            "status": forms.RadioSelect,
             "type": forms.RadioSelect,
             "source": forms.RadioSelect,
             "sbti_status": forms.RadioSelect,

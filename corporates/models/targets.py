@@ -58,6 +58,14 @@ class TargetQuant(models.Model):
     )
     last_update = models.DateTimeField(auto_now=True)
 
+    status = models.CharField(
+        max_length=100,
+        choices=Options.TARGET_STATUS,
+        default=Options.UNDERWAY,
+        blank=False,
+        null=True,
+    )
+
     type = models.CharField(
         verbose_name="What is the type of target?",
         help_text="",  # Options.TARGET_DEFINITIONS,

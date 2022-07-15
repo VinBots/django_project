@@ -242,6 +242,8 @@
 
             </table>
             <br>
+            {% include 'input/common/radio_choices.html' with field=form.cdp_override %}
+
             {{form.comments}}
             <br>
             {% include 'input/common/upload_files_form.html' with form=form model=ghg %}
